@@ -8,7 +8,7 @@ meta:
   description: "Use Motion for Vue's useAnimationFrame hook to run callbacks on every frame. Leverage time &amp; delta args for precise animation control &amp; custom frame logic."
 ---
 
-Vue Vue Vue
+Vue
 
 # useAnimationFrame
 
@@ -73,10 +73,6 @@ useDragControls
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -85,13 +81,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -119,7 +109,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -137,7 +127,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -155,7 +145,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

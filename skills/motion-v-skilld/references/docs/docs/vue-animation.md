@@ -8,7 +8,7 @@ meta:
   description: "Animate UIs in Motion for Vue with motion components. Animate CSS, transforms, &amp; SVGs. Use variants for orchestration, gestures, and keyframes."
 ---
 
-Vue Vue Vue
+Vue
 
 # Vue animation
 
@@ -996,11 +996,7 @@ Get started with Motion for Vue
 
 Next
 
-Gesture animation
-
-Motion+
-
-Motion+
+Motion Directive
 
 Motion+
 
@@ -1012,13 +1008,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -1046,7 +1036,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -1064,7 +1054,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -1082,7 +1072,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

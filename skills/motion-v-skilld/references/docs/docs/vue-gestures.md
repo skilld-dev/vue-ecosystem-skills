@@ -8,7 +8,7 @@ meta:
   description: "Power your UI with Motion for Vue's gestures: hover, tap, pan, drag &amp; inView. Use while- props for animations &amp; event listeners for interactive experiences."
 ---
 
-Vue Vue Vue
+Vue
 
 # Gesture animation
 
@@ -464,15 +464,11 @@ You can instead add `while-` props and event handlers to a parent and use varian
 
 Previous
 
-Vue animation
+Motion Directive
 
 Next
 
 Layout animation
-
-Motion+
-
-Motion+
 
 Motion+
 
@@ -484,13 +480,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -518,7 +508,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -536,7 +526,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -554,7 +544,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

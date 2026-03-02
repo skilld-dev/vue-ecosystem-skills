@@ -106,7 +106,7 @@ const { createTodo, status, asyncStatus, todoText } = useCreateTodo()
 </script>
 
 <template>
-  <form @submit.prevent="() => {}">
+  <form @submit.prevent="createTodo()">
     <input v-model="todoText">
     <button :disabled="asyncStatus === 'loading'">
       Add todo
@@ -171,6 +171,6 @@ The mutation returns similar properties to queries, like `state`, `data`, `error
 
 Global hooks like `onMutate`, `onSuccess`, `onError`, and `onSettled` can be set through `mutationOptions` when installing `PiniaColada`.
 
-If you want to **extend** what `useMutation()` returns (e.g. add `mutatedAt`, counters, logging), this is done through the plugin system. See [Plugins](../advanced/plugins.md).
+If you want to **extend** what `useMutation()` returns (e.g. add `mutatedAt`, counters, logging), this is done through the plugin system. See [Plugins](../plugins/writing-plugins.md).
 
 ## Best Practices

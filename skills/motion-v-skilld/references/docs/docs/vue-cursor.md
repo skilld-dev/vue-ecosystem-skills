@@ -8,73 +8,13 @@ meta:
   description: "Create custom cursors and follow-along effects in Vue with Motion+ Cursor. It auto-adapts to links, text, &amp; buttons. Style with CSS, animate with Motion."
 ---
 
-Vue Vue Vue
+Vue
 
-Motion+ Exclusive Motion+ Exclusive Motion+ Exclusive
+Motion+ Exclusive
 
 # Cursor
 
 This feature is available with Motion+
-
-This feature is available with Motion+
-
-This feature is available with Motion+
-
-Checking Motion+ status…
-
-Cursor
-
-is exclusive to Motion+
-
-300+ examples & 40+ tutorials
-
-Premium APIs
-
-Motion Studio editing tools
-
-`alpha`
-
-Discord community
-
-Early access
-
-Lifetime updates
-
-Get Motion+ for instant access
-
-One-time payment, lifetime updates
-
-Already joined?
-
-Login
-
-Checking Motion+ status…
-
-Cursor
-
-is exclusive to Motion+
-
-300+ examples & 40+ tutorials
-
-Premium APIs
-
-Motion Studio editing tools
-
-`alpha`
-
-Discord community
-
-Early access
-
-Lifetime updates
-
-Get Motion+ for instant access
-
-One-time payment, lifetime updates
-
-Already joined?
-
-Login
 
 Checking Motion+ status…
 
@@ -144,10 +84,6 @@ Ticker
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -156,13 +92,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -190,7 +120,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -208,7 +138,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -226,7 +156,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

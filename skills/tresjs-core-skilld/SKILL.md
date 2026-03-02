@@ -1,19 +1,21 @@
 ---
 name: tresjs-core-skilld
-description: "ALWAYS use when writing code importing \"@tresjs/core\". Consult for debugging, best practices, or modifying @tresjs/core, tresjs/core, tresjs core, tres."
+description: "Declarative ThreeJS using Vue Components. ALWAYS use when writing code importing \"@tresjs/core\". Consult for debugging, best practices, or modifying @tresjs/core, tresjs/core, tresjs core, tres."
 metadata:
   version: 5.5.0
-  generated_by: Gemini CLI · Gemini 3 Flash
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # Tresjs/tres `@tresjs/core`
+
+> Declarative ThreeJS using Vue Components
 
 **Version:** 5.5.0 (Feb 2026)
 **Deps:** @pmndrs/pointer-events@^6.6.17, @vue/devtools-api@^7.7.2, @vueuse/core@^13.9.0, radashi@^12.6.2
 **Tags:** beta: 2.0.0-beta.13 (Apr 2023), next: 5.0.0-next.6 (Jun 2025), alpha: 5.0.0-alpha.2 (Sep 2025), rc: 5.0.0-rc.0 (Sep 2025), latest: 5.5.0 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

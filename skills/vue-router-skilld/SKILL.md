@@ -2,19 +2,18 @@
 name: vue-router-skilld
 description: "ALWAYS use when writing code importing \"vue-router\". Consult for debugging, best practices, or modifying vue-router, vue router, router."
 metadata:
-  version: 5.0.2
-  generated_by: Claude Code · Sonnet 4.5
-  generated_at: 2026-02-18
+  version: 5.0.3
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # vuejs/router `vue-router`
 
-**Version:** 5.0.2 (Feb 2026)
-**Deps:** @babel/generator@^7.28.6, @vue-macros/common@^3.1.1, @vue/devtools-api@^8.0.0, ast-walker-scope@^0.8.3, chokidar@^5.0.0, json5@^2.2.3, local-pkg@^1.1.2, magic-string@^0.30.21, mlly@^1.8.0, muggle-string@^0.4.1, pathe@^2.0.3, picomatch@^4.0.3, scule@^1.3.0, tinyglobby@^0.2.15, unplugin@^3.0.0, unplugin-utils@^0.3.1, yaml@^2.8.2
-**Tags:** next: 4.0.13 (Feb 2022), legacy: 3.6.5 (Sep 2022), edge: 4.4.0-alpha.3 (Jun 2024), beta: 5.0.0-beta.2 (Jan 2026), latest: 5.0.2 (Feb 2026)
+**Version:** 5.0.3 (Feb 2026)
+**Deps:** @babel/generator@^7.28.6, @vue-macros/common@^3.1.1, @vue/devtools-api@^8.0.6, ast-walker-scope@^0.8.3, chokidar@^5.0.0, json5@^2.2.3, local-pkg@^1.1.2, magic-string@^0.30.21, mlly@^1.8.0, muggle-string@^0.4.1, pathe@^2.0.3, picomatch@^4.0.3, scule@^1.3.0, tinyglobby@^0.2.15, unplugin@^3.0.0, unplugin-utils@^0.3.1, yaml@^2.8.2
+**Tags:** next: 4.0.13 (Feb 2022), legacy: 3.6.5 (Sep 2022), edge: 4.4.0-alpha.3 (Jun 2024), beta: 5.0.0-beta.2 (Jan 2026), latest: 5.0.3 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

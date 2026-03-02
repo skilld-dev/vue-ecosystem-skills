@@ -1,20 +1,21 @@
 ---
 name: tanstack-vue-virtual-skilld
-description: "ALWAYS use when writing code importing \"@tanstack/vue-virtual\". Consult for debugging, best practices, or modifying @tanstack/vue-virtual, tanstack/vue-virtual, tanstack vue-virtual, tanstack vue virtual, virtual."
+description: "Headless UI for virtualizing scrollable elements in Vue. ALWAYS use when writing code importing \"@tanstack/vue-virtual\". Consult for debugging, best practices, or modifying @tanstack/vue-virtual, tanstack/vue-virtual, tanstack vue-virtual, tanstack vue virtual, virtual."
 metadata:
-  version: 3.13.18
-  generated_by: Gemini CLI · Gemini 3 Flash
-  generated_at: 2026-02-18
+  version: 3.13.19
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # TanStack/virtual `@tanstack/vue-virtual`
 
-**Version:** 3.13.18 (Jan 2026)
-**Deps:** @tanstack/virtual-core@3.13.18
-**Tags:** beta: 3.0.0-beta.68 (Oct 2023), latest: 3.13.18 (Jan 2026)
+> Headless UI for virtualizing scrollable elements in Vue
+
+**Version:** 3.13.19 (Feb 2026)
+**Deps:** @tanstack/virtual-core@3.13.19
+**Tags:** beta: 3.0.0-beta.68 (Oct 2023), latest: 3.13.19 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

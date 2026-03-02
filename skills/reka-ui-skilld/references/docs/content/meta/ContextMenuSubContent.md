@@ -63,6 +63,12 @@
     'required': false
   },
   {
+    'name': 'hideShiftedArrow',
+    'description': '<p>When <code>true</code>, hides the arrow when it cannot be centered\nto the reference element.</p>\n',
+    'type': 'boolean',
+    'required': false
+  },
+  {
     'name': 'hideWhenDetached',
     'description': '<p>Whether to hide the content when the trigger becomes fully occluded.</p>\n',
     'type': 'boolean',

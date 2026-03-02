@@ -5,6 +5,7 @@ MODEL="sonnet"
 EJECT_DIR="./skills"
 SKILLD="npx -y skilld@v0.13.2"
 REFS_ONLY=false
+REFS_AND_REGEN=false
 
 PACKAGES=(
   # Core
@@ -70,6 +71,10 @@ for arg in "$@"; do
     --refs-only)
       REFS_ONLY=true
       ;;
+    --refs-and-regen)
+      REFS_AND_REGEN=true
+      REFS_ONLY=true  # refs-and-regen implies refs-only behavior as baseline
+      ;;
     *)
       POSITIONAL+=("$arg")
       ;;
@@ -101,13 +106,60 @@ stamp_synced_at() {
   fi
 }
 
+# Extract version from SKILL.md frontmatter
+extract_version() {
+  sed -n '/^---$/,/^---$/{ s/^  version: *//p; }' "$1"
+}
+
+# Extract body from ## API Changes onward
+extract_body() {
+  sed -n '/^## API Changes/,$p' "$1"
+}
+
+# Compare semver: returns major, minor, patch, or none
+semver_change() {
+  local old="$1" new="$2"
+  [ "$old" = "$new" ] && echo "none" && return
+
+  local old_major old_minor old_patch new_major new_minor new_patch
+  # Strip leading v, strip prerelease suffixes for comparison
+  old_major=$(echo "$old" | sed 's/^v//' | cut -d. -f1)
+  old_minor=$(echo "$old" | sed 's/^v//' | cut -d. -f2)
+  old_patch=$(echo "$old" | sed 's/^v//' | cut -d. -f3 | sed 's/[^0-9].*//')
+  new_major=$(echo "$new" | sed 's/^v//' | cut -d. -f1)
+  new_minor=$(echo "$new" | sed 's/^v//' | cut -d. -f2)
+  new_patch=$(echo "$new" | sed 's/^v//' | cut -d. -f3 | sed 's/[^0-9].*//')
+
+  if [ "$old_major" != "$new_major" ]; then
+    echo "major"
+  elif [ "$old_minor" != "$new_minor" ]; then
+    echo "minor"
+  elif [ "$old_patch" != "$new_patch" ]; then
+    echo "patch"
+  else
+    echo "none"
+  fi
+}
+
+# Merge new header (everything before ## API Changes) with old body
+merge_skill_md() {
+  local new_file="$1" old_body="$2"
+  local header
+  # Extract everything before ## API Changes from the new file
+  header=$(sed '/^## API Changes/,$d' "$new_file")
+  printf '%s\n%s\n' "$header" "$old_body" > "$new_file"
+}
+
 total=${#PACKAGES[@]}
 current=0
 failed=()
+regenerated=()
 
 echo "Skill Version: $($SKILLD --version)"
-if [ "$REFS_ONLY" = true ]; then
-  echo "Syncing references for $total skills (no LLM, SKILL.md untouched)"
+if [ "$REFS_AND_REGEN" = true ]; then
+  echo "Syncing references for $total skills (LLM regen on minor/major bumps)"
+elif [ "$REFS_ONLY" = true ]; then
+  echo "Syncing references for $total skills (no LLM, SKILL.md body preserved)"
 else
   echo "Generating $total skills with model=$MODEL"
 fi
@@ -155,22 +207,61 @@ for pkg in "${PACKAGES[@]}"; do
 
   echo "[$current/$total] $pkg"
 
-  # Build eject args: omit --model in refs-only mode so skilld skips LLM generation
-  eject_args=("$pkg" --out "$EJECT_DIR" --yes --force)
   if [ "$REFS_ONLY" = true ]; then
-    eject_args+=(--debug)
-  else
-    eject_args+=(--model "$MODEL" --debug)
-  fi
+    # --- refs-only / refs-and-regen path ---
+    # 1. Backup SKILL.md
+    cp "$skill_md" "$skill_md.bak"
+    old_ver=$(extract_version "$skill_md.bak")
+    old_body=$(extract_body "$skill_md.bak")
 
-  if $SKILLD eject "${eject_args[@]}"; then
-    if [ "$REFS_ONLY" = true ]; then
-      stamp_synced_at "$skill_md"
+    # 2. Run skilld eject without --model (syncs refs + header)
+    eject_args=("$pkg" --out "$EJECT_DIR" --yes --force --debug)
+    if ! $SKILLD eject "${eject_args[@]}"; then
+      echo "  ✗ $pkg (failed)"
+      # Restore backup on failure
+      mv "$skill_md.bak" "$skill_md"
+      failed+=("$pkg")
+      echo ""
+      continue
     fi
-    echo "  ✓ $pkg"
+
+    new_ver=$(extract_version "$skill_md")
+    change=$(semver_change "$old_ver" "$new_ver")
+
+    # 3. Decide: LLM regen or merge
+    if [ "$REFS_AND_REGEN" = true ] && { [ "$change" = "major" ] || [ "$change" = "minor" ]; }; then
+      echo "  ↑ $old_ver → $new_ver ($change bump) — regenerating with LLM"
+      if $SKILLD eject "$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug; then
+        regenerated+=("$pkg ($old_ver → $new_ver)")
+        echo "  ✓ $pkg (regenerated)"
+      else
+        echo "  ✗ $pkg (LLM regen failed, restoring backup)"
+        mv "$skill_md.bak" "$skill_md"
+        failed+=("$pkg")
+        echo ""
+        continue
+      fi
+    else
+      # Merge: new header + old body
+      if [ -n "$old_body" ]; then
+        merge_skill_md "$skill_md" "$old_body"
+        echo "  ✓ $pkg (refs updated, body preserved)"
+      else
+        echo "  ✓ $pkg (refs updated, no body to preserve)"
+      fi
+    fi
+
+    stamp_synced_at "$skill_md"
+    rm -f "$skill_md.bak"
   else
-    echo "  ✗ $pkg (failed)"
-    failed+=("$pkg")
+    # --- full generation path ---
+    eject_args=("$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug)
+    if $SKILLD eject "${eject_args[@]}"; then
+      echo "  ✓ $pkg"
+    else
+      echo "  ✗ $pkg (failed)"
+      failed+=("$pkg")
+    fi
   fi
 
   echo ""
@@ -181,6 +272,13 @@ if [ "$REFS_ONLY" = true ]; then
   echo "Synced: $((total - ${#failed[@]}))/$total"
 else
   echo "Generated: $((total - ${#failed[@]}))/$total"
+fi
+
+if [ ${#regenerated[@]} -gt 0 ]; then
+  echo "Regenerated (LLM):"
+  for item in "${regenerated[@]}"; do
+    echo "  - $item"
+  done
 fi
 
 if [ ${#failed[@]} -gt 0 ]; then

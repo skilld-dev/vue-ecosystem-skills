@@ -1,19 +1,20 @@
 ---
 name: quasar-skilld
-description: "ALWAYS use when writing code importing \"quasar\". Consult for debugging, best practices, or modifying quasar."
+description: "Build high-performance VueJS user interfaces (SPA, PWA, SSR, Mobile and Desktop) in record time. ALWAYS use when writing code importing \"quasar\". Consult for debugging, best practices, or modifying quasar."
 metadata:
   version: 2.18.6
-  generated_by: Gemini CLI · Gemini 3 Flash
-  generated_at: 2026-02-18
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # quasarframework/quasar `quasar`
+
+> Build high-performance VueJS user interfaces (SPA, PWA, SSR, Mobile and Desktop) in record time
 
 **Version:** 2.18.6 (Nov 2025)
 **Tags:** legacy: 1.22.10 (May 2023), latest: 2.18.6 (Nov 2025)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

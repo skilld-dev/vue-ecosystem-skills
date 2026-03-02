@@ -8,7 +8,7 @@ meta:
   description: "Integrate Motion with Radix Vue for stunning animations. Learn to animate Radix primitives, use AnimatePresence for smooth exits, &amp; animate Tooltip, Toast &amp; more."
 ---
 
-Vue Vue Vue
+Vue
 
 # Integrate Motion with Radix
 
@@ -319,10 +319,6 @@ Get started with Motion for React
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -331,13 +327,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -365,7 +355,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -383,7 +373,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -401,7 +391,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

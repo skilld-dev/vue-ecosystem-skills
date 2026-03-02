@@ -1,5 +1,5 @@
 ---
-total: 204
+total: 206
 ---
 
 # Docs Index
@@ -16,15 +16,17 @@ total: 204
 - [API](./src/pages/en/api/[name].md)
 - [useHotkey API](./src/pages/en/api/use-hotkey.md): Handle keyboard shortcuts within your application using the useHotkey composable.
 
-## src/pages/en/blog (16)
+## src/pages/en/blog (18)
 
 - [Announcing Vuetify v3.8](./src/pages/en/blog/announcing-vuetify-3.8.md):  John Leider •  April 8th, 2025
 - [April 2025 Update](./src/pages/en/blog/april-2025-update.md): This month is packed full of exciting updates and progress across the Vuetify ecosystem.
 - [August 2025 Update](./src/pages/en/blog/august-2025-update.md): Welcome to our August update! This month marks a pivotal moment in Vuetify's evolution as we prepare to release the pre-alpha of Vuetify0, launch o...
 - [Vuetify — Building a Basic Nuxt App with Vuetify](./src/pages/en/blog/building-a-basic-nuxt-application-with-vuetify.md):  Eric Sarrion •  February 21st, 2025
 - [Build with Nuxt and UnoCSS](./src/pages/en/blog/building-with-nuxt-and-unocss.md): Although traditionally we tend to think about Vuetify as a great fit for large projects, it can also serve smaller projects that tend to prioritize...
+- [Build with Vite and TailwindCSS v4](./src/pages/en/blog/building-with-vite-and-tailwindcss.md): In the previous article we explored integrating UnoCSS with Vuetify v3 and Nuxt. This time we take a more direct route: pairing Vuetify v4 with Tai...
 - [December 2025 Update](./src/pages/en/blog/december-2025-update.md): Welcome to the December 2025 Vuetify update! The year closes with a bang—v4.0.0-alpha.0 marks the beginning of Vuetify 4's public development, whil...
 - [Vuetify — Blog](./src/pages/en/blog/index.md): Latest news, updates, and stories about Vuetify.
+- [January 2026 Update](./src/pages/en/blog/january-2026-update.md): Welcome to the January 2026 Vuetify update! The new year kicks off with Vuetify 4.0.0-beta.0—the first beta of our next major version featuring MD3...
 - [July 2025 Update](./src/pages/en/blog/july-2025-update.md): This month showcases the power of collaborative development as our team and community work together to enhance Vuetify's ecosystem.
 - [June 2025 Update](./src/pages/en/blog/june-2025-update.md): This month is packed full of exciting updates and progress across the Vuetify ecosystem.
 - [May 2025 Update](./src/pages/en/blog/may-2025-update.md): This month brings exciting advancements across the Vuetify ecosystem, with major strides in AI integration, component refinements, and developer ex...
@@ -73,7 +75,7 @@ total: 204
 - [Empty states](./src/pages/en/components/empty-states.md): The v-empty-state component is used to indicate that a list is empty or that no search results were found.
 - [Expansion panel component](./src/pages/en/components/expansion-panels.md): The v-expansion-panel component is useful for reducing vertical space with large amounts of information. The default functionality of the component...
 - [File input component](./src/pages/en/components/file-inputs.md): The v-file-input component is a specialized input that provides a clean interface for selecting files, showing detailed selection information and u...
-- [File upload](./src/pages/en/components/file-upload.md): ::: warning
+- [File upload](./src/pages/en/components/file-upload.md): Labs components require manual import and registration with the Vuetify instance.
 - [FAB component](./src/pages/en/components/floating-action-buttons.md): The v-fab component can be used as a floating action button. This provides an application with a main point of action.
 - [Footer component](./src/pages/en/components/footers.md): The v-footer component is used for displaying general information that a user might want to access from any page within your site.
 - [Form component](./src/pages/en/components/forms.md): Vuetify offers a simple built-in form validation system based on functions as rules, making it easy for developers to get set up quickly.

@@ -35,7 +35,7 @@ Most of the sensible defaults from `@tanstack/vue-query` are kept in `@pinia/col
 | `useQuery({ select })`              | none                            | Use a `computed()` or write the logic within `query` instead. See this discussion |
 | `useQuery({ refetchInterval })`     | Auto Refetch plugin             | Use the `@pinia/colada-plugin-auto-refetch`                                                   |
 | `useQuery({ retry })`               | Retry plugin                    | Use the `@pinia/colada-plugin-retry`                                                                 |
-| `useQuery().dataUpdatedAt`          | Custom plugin or component code | [Custom plugin](../advanced/plugins.md#Adding-a-dataUpdatedAt-property-to-queries)                                                                                    |
+| `useQuery().dataUpdatedAt`          | Custom plugin or component code | [Custom plugin](../plugins/writing-plugins.md#Adding-a-dataUpdatedAt-property-to-queries)                                                                             |
 
 ### Using `ref` and `computed` in `queryKey`
 

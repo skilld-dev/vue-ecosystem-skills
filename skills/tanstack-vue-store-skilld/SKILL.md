@@ -1,20 +1,21 @@
 ---
 name: tanstack-vue-store-skilld
-description: "ALWAYS use when writing code importing \"@tanstack/vue-store\". Consult for debugging, best practices, or modifying @tanstack/vue-store, tanstack/vue-store, tanstack vue-store, tanstack vue store, store."
+description: "Framework agnostic type-safe store w/ reactive framework adapters. ALWAYS use when writing code importing \"@tanstack/vue-store\". Consult for debugging, best practices, or modifying @tanstack/vue-store, tanstack/vue-store, tanstack vue-store, tanstack vue store, store."
 metadata:
   version: 0.9.1
-  generated_by: Gemini CLI · Gemini 3 Flash
-  generated_at: 2026-02-18
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # TanStack/store `@tanstack/vue-store`
+
+> Framework agnostic type-safe store w/ reactive framework adapters
 
 **Version:** 0.9.1 (Feb 2026)
 **Deps:** vue-demi@^0.14.10, @tanstack/store@0.9.1
 **Tags:** latest: 0.9.1 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

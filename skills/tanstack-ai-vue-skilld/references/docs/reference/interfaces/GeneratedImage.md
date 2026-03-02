@@ -5,7 +5,7 @@ title: GeneratedImage
 
 # Interface: GeneratedImage
 
-Defined in: types.ts:986
+Defined in: types.ts:987
 
 A single generated image
 
@@ -17,7 +17,7 @@ A single generated image
 optional b64Json: string;
 ```
 
-Defined in: types.ts:988
+Defined in: types.ts:989
 
 Base64-encoded image data
 
@@ -29,7 +29,7 @@ Base64-encoded image data
 optional revisedPrompt: string;
 ```
 
-Defined in: types.ts:992
+Defined in: types.ts:993
 
 Revised prompt used by the model (if applicable)
 
@@ -41,6 +41,6 @@ Revised prompt used by the model (if applicable)
 optional url: string;
 ```
 
-Defined in: types.ts:990
+Defined in: types.ts:991
 
 URL to the generated image (may be temporary)

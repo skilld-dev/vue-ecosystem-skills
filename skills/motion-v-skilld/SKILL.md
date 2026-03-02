@@ -2,15 +2,16 @@
 name: motion-v-skilld
 description: "ALWAYS use when writing code importing \"motion-v\". Consult for debugging, best practices, or modifying motion-v, motion v, motion-vue, motion vue."
 metadata:
-  version: 2.0.0-beta.4
-  generated_by: Gemini CLI · Gemini 3 Flash
+  version: 2.0.0
+  generated_by: Claude Code · Sonnet 4.5
+  generated_at: 2026-03-02
 ---
 
 # motiondivision/motion-vue `motion-v`
 
-**Version:** 2.0.0-beta.4 (Feb 2026)
+**Version:** 2.0.0 (Feb 2026)
 **Deps:** framer-motion@^12.29.2, hey-listen@^1.0.8, motion-dom@^12.29.2, motion-utils@^12.29.2
-**Tags:** latest: 2.0.0-beta.4 (Feb 2026)
+**Tags:** latest: 2.0.0 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
 
@@ -50,48 +51,32 @@ This section documents version-specific API changes — prioritize recent major/
 
 ## Best Practices
 
-- Create motion-supercharged components using `motion.create()` outside of the template to avoid re-creating the component on every render, which would break animations [source](./references/docs/docs/vue-motion-component.md)
+- Use `LazyMotion` + `m` component instead of `motion` to reduce the initial bundle from ~34kb to ~6kb — load `domAnimation` (+18kb) for variants/exit/gestures or `domMax` (+28kb) when you also need drag and layout animations. Add `:strict="true"` to catch accidental `motion` imports inside `LazyMotion` at dev time [source](./references/docs/docs/vue-lazymotion.md#usage)
 
-```ts
-// Preferred
-const MotionComponent = motion.create(Component)
+- Render live motion value output with `<RowValue :value="motionValue" />` rather than syncing to Vue state — `RowValue` writes to `innerHTML` directly and bypasses Vue's reactivity cycle, keeping fast-changing values off the render path [source](./references/docs/docs/vue-animation.md#animate-content)
 
-// Avoid - re-created every render
-<component :is="motion.create(Component)" />
-```
+- Set `reducedMotion="user"` on `MotionConfig` at the app root — the default is `"never"`, meaning transform and layout animations run regardless of the OS accessibility setting unless you explicitly opt in [source](./references/docs/docs/vue-motion-config.md#reducedmotion)
 
-- Use `MotionValue`s in the `style` prop to animate values outside of the Vue render cycle, significantly improving performance by avoiding frequent re-renders [source](./references/docs/docs/vue-motion-component.md)
+- For layout animations, apply changing CSS to `:style` (not `:animate`) and let the `layout` prop handle the transition — if the value is placed in `:animate`, Motion's FLIP measurement will conflict with it [source](./references/docs/docs/vue-layout-animations.md#usage)
 
-```vue
-<script setup>
-const x = useMotionValue(0)
-</script>
+- Set `borderRadius` and `boxShadow` via `:style` (not CSS classes) on `layout`-animated elements — Motion auto-corrects scale distortion on these properties only when they are set as inline style motion values [source](./references/docs/docs/vue-layout-animations.md#scale-correction)
 
-<template>
-  <motion.div :style="{ x }" />
-</template>
-```
+- Add `layoutScroll` to scrollable container ancestors and `layoutRoot` to fixed-position ancestors of layout-animated elements — without these props, Motion measures child positions incorrectly when scroll offset or viewport offset is non-zero [source](./references/docs/docs/vue-layout-animations.md#animating-within-scrollable-element)
 
-- Reduce initial bundle size from ~34kb to ~6kb by using the `m` component paired with `LazyMotion` to load features synchronously or asynchronously only when needed [source](./references/docs/docs/vue-lazymotion.md)
+- Never place `v-if` on `AnimatePresence` itself — if it unmounts, it cannot intercept the exit of its children. The conditional must be on the direct child:
 
 ```vue
-<template>
-  <LazyMotion :features="domAnimation">
-    <m.div :animate="{ opacity: 1 }" />
-  </LazyMotion>
-</template>
+
+<AnimatePresence v-if="isVisible"><Component /></AnimatePresence>
+
+
+<AnimatePresence><Component v-if="isVisible" /></AnimatePresence>
 ```
 
-- Enable the `strict` prop on `LazyMotion` during development to catch accidental usage of the full `motion` component, which would negate the bundle size benefits of lazy loading [source](./references/docs/docs/vue-lazymotion.md)
+[source](./references/docs/docs/vue-animate-presence.md#exit-animations-aren-t-working)
 
-- Centralize animation settings like global transitions and site-wide `reducedMotion` policies using `MotionConfig` to ensure consistent behavior across all child components [source](./references/docs/docs/vue-motion-config.md)
+- Use dynamic variants with the `custom` prop for per-element stagger rather than computing delay in reactive Vue state — pass `:custom="index"` to each `motion` component and resolve the delay inside the variant function, keeping stagger logic declarative and allocation-free [source](./references/docs/docs/vue-animation.md#dynamic-variants)
 
-- (experimental) Apply declarative animations directly to any standard HTML/SVG element using the `v-motion` directive in v2.0.0-beta.1+ without needing to wrap elements in a `<motion>` component [source](./references/releases/v2.0.0-beta.1.md)
+- Prefer `useMotionValue` over CSS variable animation for values used across many children — animating a CSS variable always triggers paint on every frame, while a `MotionValue` passed to `:style` runs through Motion's optimised DOM renderer without touching the Vue render cycle [source](./references/docs/docs/vue-animation.md#animating-css-variables)
 
-- Ensure `AnimatePresence` children have unique, stable `key` props and are direct children of the component to correctly track their removal for exit animations [source](./references/docs/docs/vue-animate-presence.md)
-
-- Synchronize layout animations across unrelated components (those that don't share a parent-child relationship but affect each other's layout) by wrapping them in a `LayoutGroup` [source](./references/docs/docs/vue-layout-animations.md)
-
-- Prevent visual distortion of child elements during parent layout animations by applying the `layout` prop to the immediate children as well, enabling scale correction [source](./references/docs/docs/vue-layout-animations.md)
-
-- Mark scrollable ancestors with `layoutScroll` and fixed-position ancestors with `layoutRoot` to ensure Motion correctly accounts for scroll offsets during layout measurements [source](./references/docs/docs/vue-layout-animations.md)
+- Use the `v-motion` directive (new in v2.0.0-beta.1) to add animation to any native HTML or SVG element without a wrapper `<motion>` component — register globally via `app.use(MotionPlugin)` or per-component via `createMotionDirective`. Register reusable animation presets via the `presets` option to create project-wide shorthand directives like `v-fade-in` [source](./references/docs/docs/vue-directive.md#presets)

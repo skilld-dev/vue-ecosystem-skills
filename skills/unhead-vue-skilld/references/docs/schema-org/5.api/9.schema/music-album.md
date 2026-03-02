@@ -1,0 +1,104 @@
+---
+title: Music Album Schema
+description: Use defineMusicAlbum() to add MusicAlbum structured data. Display album info with artist, tracks, and release date in search results.
+---
+
+## Schema.org MusicAlbum
+
+**Type**: `defineMusicAlbum(input?: MusicAlbum)`{lang="ts"}
+
+  Describes a music album collection.
+
+## Useful Links
+
+- MusicAlbum - Schema.org
+
+## Required properties
+
+- **name** `string`
+
+  The name of the album.
+
+## Recommended Properties
+
+- **byArtist** `NodeRelations<Person | MusicGroup | string>`
+
+  The artist(s) of the album. Resolves to [Person](/docs/schema-org/api/schema/person) or [MusicGroup](/docs/schema-org/api/schema/music-group).
+
+- **albumProductionType** `string`
+
+  The production type: "StudioAlbum", "LiveAlbum", "CompilationAlbum", "SoundtrackAlbum", etc.
+
+- **albumReleaseType** `string`
+
+  The release type: "AlbumRelease", "SingleRelease", "EPRelease", etc.
+
+- **track** `NodeRelations<MusicRecording>`
+
+  Array of music recordings on the album.
+
+## Defaults
+
+- **@type**: `MusicAlbum`
+- **@id**: `${canonicalHost}#music-album`
+
+## Examples
+
+### Minimal
+
+```ts
+defineMusicAlbum({
+  name: 'Abbey Road',
+  byArtist: 'The Beatles',
+})
+```
+
+### Complete
+
+```ts
+defineMusicAlbum({
+  name: 'Abbey Road',
+  description: 'The eleventh studio album by The Beatles',
+  url: 'https://example.com/albums/abbey-road',
+  byArtist: {
+    name: 'The Beatles',
+  },
+  albumProductionType: 'StudioAlbum',
+  albumReleaseType: 'AlbumRelease',
+  datePublished: new Date(1969, 8, 26),
+  genre: ['Rock', 'Pop'],
+  numTracks: 17,
+  image: 'https://example.com/albums/abbey-road-cover.jpg',
+  track: [
+    { name: 'Come Together' },
+    { name: 'Something' },
+    // ... more tracks
+  ],
+})
+```
+
+## Types
+
+```ts
+export interface MusicAlbumSimple extends Thing {
+  name: string
+  description?: string
+  url?: string
+  byArtist?: NodeRelations<Person | MusicGroup | string>
+  track?: NodeRelations<string>
+  albumProductionType?: string
+  albumReleaseType?: string
+  datePublished?: ResolvableDate
+  genre?: string | string[]
+  numTracks?: number
+  image?: NodeRelations<string | ImageObject>
+  aggregateRating?: NodeRelation<AggregateRating>
+  review?: NodeRelations<Review>
+}
+```
+
+## Related Schemas
+
+- [MusicGroup](/docs/schema-org/api/schema/music-group) - Artist/band
+- [MusicRecording](/docs/schema-org/api/schema/music-recording) - Album tracks
+- [Person](/docs/schema-org/api/schema/person) - Artist

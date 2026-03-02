@@ -9,7 +9,7 @@ title: generateVideo
 function generateVideo<TAdapter>(options): Promise<VideoJobResult>;
 ```
 
-Defined in: activities/generateVideo/index.ts:163
+Defined in: activities/generateVideo/index.ts:177
 
 **`Experimental`**
 
@@ -24,7 +24,7 @@ Unlike image generation, video generation is asynchronous and requires polling f
 
 ### TAdapter
 
-`TAdapter` *extends* [`VideoAdapter`](../interfaces/VideoAdapter.md)\<`string`, `object`\>
+`TAdapter` *extends* [`VideoAdapter`](../interfaces/VideoAdapter.md)\<`string`, `any`, `any`, `any`\>
 
 ## Parameters
 

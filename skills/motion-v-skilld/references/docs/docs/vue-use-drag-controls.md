@@ -8,7 +8,7 @@ meta:
   description: "Master Motion for Vue's useDragControls hook. Manually start drag gestures, add touch support, snap to cursor &amp; customize drag interactions for your components."
 ---
 
-Vue Vue Vue
+Vue
 
 # useDragControls
 
@@ -199,10 +199,6 @@ useInView
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -211,13 +207,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -245,7 +235,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -263,7 +253,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -281,7 +271,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

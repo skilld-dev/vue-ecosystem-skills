@@ -8,7 +8,7 @@ meta:
   description: "Reduce your initial bundle size with LazyMotion in Motion for Vue. Load animation features synchronously or asynchronously, shrinking bundles to as low as 6kb."
 ---
 
-Vue Vue Vue
+Vue
 
 # LazyMotion
 
@@ -253,15 +253,9 @@ MotionConfig
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
-
-Get Motion+
 
 Get Motion+
 
@@ -271,11 +265,7 @@ One-time payment, lifetime updates.
 
 
 
-
-
-
-
- Unlock more APIs`Carousel`, `Cursor` and more: Level up with the full Motion+ library.
+ AI-ready animations Make your LLM an animation expert with 330+ pre-built examples available via MCP.
 
 Motion is supported by the best in the industry.
 
@@ -299,7 +289,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -317,7 +307,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -335,7 +325,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

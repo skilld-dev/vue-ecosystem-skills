@@ -8,7 +8,7 @@ meta:
   description: "Use Motion for Vue's tiny useInView hook (0.6kb) to detect when elements enter the viewport. Track visibility, trigger effects &amp; customize detection easily."
 ---
 
-Vue Vue Vue
+Vue
 
 # useInView
 
@@ -274,10 +274,6 @@ useReducedMotion
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -286,13 +282,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -320,7 +310,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -338,7 +328,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -356,7 +346,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

@@ -8,73 +8,13 @@ meta:
   description: "A production-ready Vue carousel featuring infinite scrolling, composable controls, and animated pagination. Lightweight, fully accessible, and supports touch, wheel, and keyboard navigation."
 ---
 
-Vue Vue Vue
+Vue
 
-Motion+ Exclusive Motion+ Exclusive Motion+ Exclusive
+Motion+ Exclusive
 
 # Carousel
 
 This feature is available with Motion+
-
-This feature is available with Motion+
-
-This feature is available with Motion+
-
-Checking Motion+ status…
-
-Carousel
-
-is exclusive to Motion+
-
-300+ examples & 40+ tutorials
-
-Premium APIs
-
-Motion Studio editing tools
-
-`alpha`
-
-Discord community
-
-Early access
-
-Lifetime updates
-
-Get Motion+ for instant access
-
-One-time payment, lifetime updates
-
-Already joined?
-
-Login
-
-Checking Motion+ status…
-
-Carousel
-
-is exclusive to Motion+
-
-300+ examples & 40+ tutorials
-
-Premium APIs
-
-Motion Studio editing tools
-
-`alpha`
-
-Discord community
-
-Early access
-
-Lifetime updates
-
-Get Motion+ for instant access
-
-One-time payment, lifetime updates
-
-Already joined?
-
-Login
 
 Checking Motion+ status…
 
@@ -461,9 +401,7 @@ By using `currentPage`, `totalPages` and `gotoPage` from `useCarousel`, a custom
 
 ## Related topics
 
-- Motion+<h3>Ticker</h3>Infinitely-scrolling ticker and marquee effects, driven by time, drag or scroll. Ticker Motion+<h3>Ticker</h3>Infinitely-scrolling ticker and marquee effects, driven by time, drag or scroll. Ticker Motion+<h3>Ticker</h3>Infinitely-scrolling ticker and marquee effects, driven by time, drag or scroll. Ticker
-
-- <h3>Carousel examples</h3>See all examples & tutorials, with full copy & paste source code. Carousel examples
+- Motion+<h3>Ticker</h3>Infinitely-scrolling ticker and marquee effects, driven by time, drag or scroll. Ticker Motion+<h3>Ticker</h3>Infinitely-scrolling ticker and marquee effects, driven by time, drag or scroll. Ticker
 
 - <h3>Carousel examples</h3>See all examples & tutorials, with full copy & paste source code. Carousel examples
 
@@ -479,10 +417,6 @@ Cursor
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -491,13 +425,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -525,7 +453,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -543,7 +471,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -561,7 +489,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

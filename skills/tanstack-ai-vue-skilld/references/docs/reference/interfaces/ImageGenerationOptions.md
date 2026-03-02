@@ -3,7 +3,7 @@ id: ImageGenerationOptions
 title: ImageGenerationOptions
 ---
 
-# Interface: ImageGenerationOptions\<TProviderOptions\>
+# Interface: ImageGenerationOptions\<TProviderOptions, TSize\>
 
 Defined in: types.ts:968
 
@@ -16,6 +16,10 @@ These are the common options supported across providers.
 
 `TProviderOptions` *extends* `object` = `object`
 
+### TSize
+
+`TSize` *extends* `string` = `string`
+
 ## Properties
 
 ### model
@@ -24,7 +28,7 @@ These are the common options supported across providers.
 model: string;
 ```
 
-Defined in: types.ts:972
+Defined in: types.ts:973
 
 The model to use for image generation
 
@@ -36,7 +40,7 @@ The model to use for image generation
 optional modelOptions: TProviderOptions;
 ```
 
-Defined in: types.ts:980
+Defined in: types.ts:981
 
 Model-specific options for image generation
 
@@ -48,7 +52,7 @@ Model-specific options for image generation
 optional numberOfImages: number;
 ```
 
-Defined in: types.ts:976
+Defined in: types.ts:977
 
 Number of images to generate (default: 1)
 
@@ -60,7 +64,7 @@ Number of images to generate (default: 1)
 prompt: string;
 ```
 
-Defined in: types.ts:974
+Defined in: types.ts:975
 
 Text description of the desired image(s)
 
@@ -69,9 +73,9 @@ Text description of the desired image(s)
 ### size?
 
 ```ts
-optional size: string;
+optional size: TSize;
 ```
 
-Defined in: types.ts:978
+Defined in: types.ts:979
 
 Image size in WIDTHxHEIGHT format (e.g., "1024x1024")

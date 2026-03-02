@@ -1,0 +1,52 @@
+---
+title: ItemList Schema
+description: Use defineItemList() to add ItemList structured data. Create carousels and ordered lists for products, articles, and other content in search.
+---
+
+## Schema.org ItemList
+
+- **Type**: `defineItemList(input?: ItemList)`{lang="ts"}
+
+A list of items of any sort. Mainly used for breadcrumbs and carousels.
+
+## Useful Links
+
+- ItemList - Schema.org
+- Carousel - Google
+
+## Required properties
+
+- **itemListElement** `ListItem`
+
+  The item list elements.
+
+## Types
+
+```ts
+export interface ItemListSimple extends Thing {
+  /**
+   * Resolved item list
+   */
+  itemListElement: NodeRelations<ListItem>
+  /**
+   * Type of ordering (e.g. Ascending, Descending, Unordered).
+   *
+   * @default undefined
+   */
+  itemListOrder?: 'Ascending' | 'Descending' | 'Unordered'
+  /**
+   * The number of items in an ItemList.
+   * Note that some descriptions might not fully describe all items in a list (e.g., multi-page pagination);
+   * in such cases, the numberOfItems would be for the entire list.
+   *
+   * @default undefined
+   */
+  numberOfItems?: number
+}
+```
+
+## Related Schemas
+
+- [Breadcrumb](/docs/schema-org/api/schema/breadcrumb) - Navigation lists
+- [Product](/docs/schema-org/api/schema/product) - Product lists
+- [Article](/docs/schema-org/api/schema/article) - Article lists

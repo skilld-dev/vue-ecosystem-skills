@@ -8,7 +8,7 @@ meta:
   description: "Explore Motion for Vue's useTime hook. It returns elapsed time in ms every frame. Learn how it creates perpetual animations &amp; composes with other motion values."
 ---
 
-Vue Vue Vue
+Vue
 
 # useTime
 
@@ -106,10 +106,6 @@ useTransform
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -118,13 +114,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -152,7 +142,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -170,7 +160,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -188,7 +178,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

@@ -1,20 +1,21 @@
 ---
 name: vitepress-skilld
-description: "ALWAYS use when writing code importing \"vitepress\". Consult for debugging, best practices, or modifying vitepress."
+description: "Vite & Vue powered static site generator. ALWAYS use when writing code importing \"vitepress\". Consult for debugging, best practices, or modifying vitepress."
 metadata:
   version: 1.6.4
-  generated_by: Gemini CLI · Gemini 3 Flash
-  generated_at: 2026-02-18
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # vuejs/vitepress `vitepress`
+
+> Vite & Vue powered static site generator
 
 **Version:** 1.6.4 (Aug 2025)
 **Deps:** @docsearch/css@3.8.2, @docsearch/js@3.8.2, @iconify-json/simple-icons@^1.2.21, @shikijs/core@^2.1.0, @shikijs/transformers@^2.1.0, @shikijs/types@^2.1.0, @types/markdown-it@^14.1.2, @vitejs/plugin-vue@^5.2.1, @vue/devtools-api@^7.7.0, @vue/shared@^3.5.13, @vueuse/core@^12.4.0, @vueuse/integrations@^12.4.0, focus-trap@^7.6.4, mark.js@8.11.1, minisearch@^7.1.1, shiki@^2.1.0, vite@^5.4.14, vue@^3.5.13
 **Tags:** latest: 1.6.4 (Aug 2025), next: 2.0.0-alpha.16 (Jan 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

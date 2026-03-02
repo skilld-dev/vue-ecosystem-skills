@@ -8,7 +8,7 @@ meta:
   description: "Discover Motion for Vue's useTransform hook. Create new motion values by transforming others. Learn to map ranges &amp; use clamp, ease, mixer for advanced control."
 ---
 
-Vue Vue Vue
+Vue
 
 # useTransform
 
@@ -376,10 +376,6 @@ useVelocity
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -388,13 +384,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -422,7 +412,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -440,7 +430,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -458,7 +448,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

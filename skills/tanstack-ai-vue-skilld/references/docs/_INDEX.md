@@ -1,5 +1,5 @@
 ---
-total: 225
+total: 226
 ---
 
 # Docs Index
@@ -14,17 +14,15 @@ total: 225
 - [OpenAI](./adapters/openai.md): The OpenAI adapter provides access to OpenAI's models, including GPT-4o, GPT-5, image generation (DALL-E), text-to-speech (TTS), and audio transcri...
 - [OpenRouter Adapter](./adapters/openrouter.md): The OpenRouter adapter provides access to 300+ AI models from various providers through a single unified API, including models from OpenAI, Anthrop...
 
-## api (5)
+## api (2)
 
 - [@tanstack/ai-client](./api/ai-client.md): Framework-agnostic headless client for managing chat state and streaming.
-- [@tanstack/ai-preact](./api/ai-preact.md): Preact hooks for TanStack AI, providing convenient Preact bindings for the headless client.
-- [@tanstack/ai-react](./api/ai-react.md): React hooks for TanStack AI, providing convenient React bindings for the headless client.
-- [@tanstack/ai-solid](./api/ai-solid.md): SolidJS primitives for TanStack AI, providing convenient SolidJS bindings for the headless client.
 - [@tanstack/ai](./api/ai.md): The core AI library for TanStack AI.
 
-## community-adapters (4)
+## community-adapters (5)
 
 - [Cencori](./community-adapters/cencori.md): The Cencori adapter provides access to 14+ AI providers (OpenAI, Anthropic, Google, xAI, and more) through a unified interface with built-in securi...
+- [Cloudflare](./community-adapters/cloudflare.md): The Cloudflare adapter provides access to Cloudflare Workers AI models and AI Gateway for routing requests to OpenAI, Anthropic, Gemini, Grok, and ...
 - [Decart](./community-adapters/decart.md): The Decart adapter provides access to Decart's image and video generation models.
 - [Community Adapters Guide](./community-adapters/guide.md): This guide explains how to create and contribute community adapters for the TanStack AI ecosystem.
 - [Soniox](./community-adapters/soniox.md): The Soniox adapter provides access to Soniox transcription models.
@@ -76,26 +74,28 @@ It's a fully type-safe decoupled event-driven system ...
 - [ToolCallManager](./reference/classes/ToolCallManager.md): Defined in: activities/chat/tools/tool-calls.ts:46
 - [WordBoundaryStrategy](./reference/classes/WordBoundaryStrategy.md): Defined in: activities/chat/stream/strategies.ts:57
 
-## reference/functions (32)
+## reference/functions (34)
 
 - [chat](./reference/functions/chat.md): Defined in: activities/chat/index.ts:1125
 - [combineStrategies](./reference/functions/combineStrategies.md): Defined in: activities/chat/agent-loop-strategies.ts:79
 - [convertMessagesToModelMessages](./reference/functions/convertMessagesToModelMessages.md): Defined in: activities/chat/messages.ts:63
 - [convertSchemaToJsonSchema](./reference/functions/convertSchemaToJsonSchema.md): Defined in: activities/chat/tools/schema-converter.ts:199
 - [createChatOptions](./reference/functions/createChatOptions.md): Defined in: activities/chat/index.ts:153
-- [createImageOptions](./reference/functions/createImageOptions.md): Defined in: activities/generateImage/index.ts:195
+- [createImageOptions](./reference/functions/createImageOptions.md): Defined in: activities/generateImage/index.ts:205
+- [createModel](./reference/functions/createModel.md): Defined in: extend-adapter.ts:61
 - [createReplayStream](./reference/functions/createReplayStream.md): Defined in: activities/chat/stream/processor.ts:1106
 - [createSpeechOptions](./reference/functions/createSpeechOptions.md): Defined in: activities/generateSpeech/index.ts:150
 - [createSummarizeOptions](./reference/functions/createSummarizeOptions.md): Defined in: activities/summarize/index.ts:273
 - [createTranscriptionOptions](./reference/functions/createTranscriptionOptions.md): Defined in: activities/generateTranscription/index.ts:150
-- [createVideoOptions](./reference/functions/createVideoOptions.md): Defined in: activities/generateVideo/index.ts:303
+- [createVideoOptions](./reference/functions/createVideoOptions.md): Defined in: activities/generateVideo/index.ts:317
 - [detectImageMimeType](./reference/functions/detectImageMimeType.md): Defined in: utils.ts:17
-- [generateImage](./reference/functions/generateImage.md): Defined in: activities/generateImage/index.ts:139
+- [extendAdapter](./reference/functions/extendAdapter.md): Defined in: extend-adapter.ts:166
+- [generateImage](./reference/functions/generateImage.md): Defined in: activities/generateImage/index.ts:149
 - [generateMessageId](./reference/functions/generateMessageId.md): Defined in: activities/chat/messages.ts:436
 - [generateSpeech](./reference/functions/generateSpeech.md): Defined in: activities/generateSpeech/index.ts:103
 - [generateTranscription](./reference/functions/generateTranscription.md): Defined in: activities/generateTranscription/index.ts:105
-- [generateVideo](./reference/functions/generateVideo.md): Defined in: activities/generateVideo/index.ts:163
-- [getVideoJobStatus](./reference/functions/getVideoJobStatus.md): Defined in: activities/generateVideo/index.ts:203
+- [generateVideo](./reference/functions/generateVideo.md): Defined in: activities/generateVideo/index.ts:177
+- [getVideoJobStatus](./reference/functions/getVideoJobStatus.md): Defined in: activities/generateVideo/index.ts:217
 - [maxIterations](./reference/functions/maxIterations.md): Defined in: activities/chat/agent-loop-strategies.ts:20
 - [modelMessagesToUIMessages](./reference/functions/modelMessagesToUIMessages.md): Defined in: activities/chat/messages.ts:364
 - [modelMessageToUIMessage](./reference/functions/modelMessageToUIMessage.md): Defined in: activities/chat/messages.ts:305
@@ -115,7 +115,7 @@ It's a fully type-safe decoupled event-driven system ...
 
 - [@tanstack/ai](./reference/index.md)
 
-## reference/interfaces (111)
+## reference/interfaces (112)
 
 - [AgentLoopState](./reference/interfaces/AgentLoopState.md): Defined in: types.ts:571
 - [AIDevtoolsEventMap](./reference/interfaces/AIDevtoolsEventMap.md): Defined in: event-client.ts:431
@@ -133,12 +133,13 @@ It's a fully type-safe decoupled event-driven system ...
 - [ContentPartDataSource](./reference/interfaces/ContentPartDataSource.md): Defined in: types.ts:114
 - [ContentPartUrlSource](./reference/interfaces/ContentPartUrlSource.md): Defined in: types.ts:134
 - [CustomEvent](./reference/interfaces/CustomEvent.md): Defined in: types.ts:893
-- [DefaultMessageMetadataByModality](./reference/interfaces/DefaultMessageMetadataByModality.md): Defined in: types.ts:1200
+- [DefaultMessageMetadataByModality](./reference/interfaces/DefaultMessageMetadataByModality.md): Defined in: types.ts:1202
 - [DocumentPart](./reference/interfaces/DocumentPart.md): Defined in: types.ts:197
-- [GeneratedImage](./reference/interfaces/GeneratedImage.md): Defined in: types.ts:986
-- [ImageAdapter](./reference/interfaces/ImageAdapter.md): Defined in: activities/generateImage/adapter.ts:26
+- [ExtendedModelDef](./reference/interfaces/ExtendedModelDef.md): Defined in: extend-adapter.ts:21
+- [GeneratedImage](./reference/interfaces/GeneratedImage.md): Defined in: types.ts:987
+- [ImageAdapter](./reference/interfaces/ImageAdapter.md): Defined in: activities/generateImage/adapter.ts:33
 - [ImageGenerationOptions](./reference/interfaces/ImageGenerationOptions.md): Defined in: types.ts:968
-- [ImageGenerationResult](./reference/interfaces/ImageGenerationResult.md): Defined in: types.ts:998
+- [ImageGenerationResult](./reference/interfaces/ImageGenerationResult.md): Defined in: types.ts:999
 - [ImagePart](./reference/interfaces/ImagePart.md): Defined in: types.ts:161
 - [ImageRequestCompletedEvent](./reference/interfaces/ImageRequestCompletedEvent.md): Defined in: event-client.ts:270
 - [ImageRequestStartedEvent](./reference/interfaces/ImageRequestStartedEvent.md): Defined in: event-client.ts:260
@@ -208,25 +209,25 @@ It's a fully type-safe decoupled event-driven system ...
 - [ToolsInputAvailableEvent](./reference/interfaces/ToolsInputAvailableEvent.md): Defined in: event-client.ts:188
 - [ToolsResultAddedEvent](./reference/interfaces/ToolsResultAddedEvent.md): Defined in: event-client.ts:209
 - [TranscriptionAdapter](./reference/interfaces/TranscriptionAdapter.md): Defined in: activities/generateTranscription/adapter.ts:24
-- [TranscriptionOptions](./reference/interfaces/TranscriptionOptions.md): Defined in: types.ts:1129
+- [TranscriptionOptions](./reference/interfaces/TranscriptionOptions.md): Defined in: types.ts:1131
 - [TranscriptionRequestCompletedEvent](./reference/interfaces/TranscriptionRequestCompletedEvent.md): Defined in: event-client.ts:334
 - [TranscriptionRequestStartedEvent](./reference/interfaces/TranscriptionRequestStartedEvent.md): Defined in: event-client.ts:324
-- [TranscriptionResult](./reference/interfaces/TranscriptionResult.md): Defined in: types.ts:1179
-- [TranscriptionSegment](./reference/interfaces/TranscriptionSegment.md): Defined in: types.ts:1149
+- [TranscriptionResult](./reference/interfaces/TranscriptionResult.md): Defined in: types.ts:1181
+- [TranscriptionSegment](./reference/interfaces/TranscriptionSegment.md): Defined in: types.ts:1151
 - [TranscriptionUsageEvent](./reference/interfaces/TranscriptionUsageEvent.md): Defined in: event-client.ts:344
-- [TranscriptionWord](./reference/interfaces/TranscriptionWord.md): Defined in: types.ts:1167
+- [TranscriptionWord](./reference/interfaces/TranscriptionWord.md): Defined in: types.ts:1169
 - [TTSAdapter](./reference/interfaces/TTSAdapter.md): Defined in: activities/generateSpeech/adapter.ts:24
-- [TTSOptions](./reference/interfaces/TTSOptions.md): Defined in: types.ts:1088
-- [TTSResult](./reference/interfaces/TTSResult.md): Defined in: types.ts:1106
+- [TTSOptions](./reference/interfaces/TTSOptions.md): Defined in: types.ts:1090
+- [TTSResult](./reference/interfaces/TTSResult.md): Defined in: types.ts:1108
 - [UIMessage](./reference/interfaces/UIMessage.md): Defined in: types.ts:325
-- [VideoAdapter](./reference/interfaces/VideoAdapter.md): Defined in: activities/generateVideo/adapter.ts:33
-- [VideoGenerationOptions](./reference/interfaces/VideoGenerationOptions.md): Defined in: types.ts:1023
-- [VideoJobResult](./reference/interfaces/VideoJobResult.md): Defined in: types.ts:1043
+- [VideoAdapter](./reference/interfaces/VideoAdapter.md): Defined in: activities/generateVideo/adapter.ts:35
+- [VideoGenerationOptions](./reference/interfaces/VideoGenerationOptions.md): Defined in: types.ts:1024
+- [VideoJobResult](./reference/interfaces/VideoJobResult.md): Defined in: types.ts:1045
 - [VideoPart](./reference/interfaces/VideoPart.md): Defined in: types.ts:185
 - [VideoRequestCompletedEvent](./reference/interfaces/VideoRequestCompletedEvent.md): Defined in: event-client.ts:367
 - [VideoRequestStartedEvent](./reference/interfaces/VideoRequestStartedEvent.md): Defined in: event-client.ts:355
-- [VideoStatusResult](./reference/interfaces/VideoStatusResult.md): Defined in: types.ts:1055
-- [VideoUrlResult](./reference/interfaces/VideoUrlResult.md): Defined in: types.ts:1071
+- [VideoStatusResult](./reference/interfaces/VideoStatusResult.md): Defined in: types.ts:1057
+- [VideoUrlResult](./reference/interfaces/VideoUrlResult.md): Defined in: types.ts:1073
 - [VideoUsageEvent](./reference/interfaces/VideoUsageEvent.md): Defined in: event-client.ts:381
 
 ## reference/type-aliases (29)
@@ -236,12 +237,12 @@ It's a fully type-safe decoupled event-driven system ...
 - [AGUIEventType](./reference/type-aliases/AGUIEventType.md): Defined in: types.ts:693
 - [AIAdapter](./reference/type-aliases/AIAdapter.md): Defined in: activities/index.ts:149
 - [AnyClientTool](./reference/type-aliases/AnyClientTool.md): Defined in: activities/chat/tools/tool-definition.ts:54
-- [AnyImageAdapter](./reference/type-aliases/AnyImageAdapter.md): Defined in: activities/generateImage/adapter.ts:60
+- [AnyImageAdapter](./reference/type-aliases/AnyImageAdapter.md): Defined in: activities/generateImage/adapter.ts:67
 - [AnySummarizeAdapter](./reference/type-aliases/AnySummarizeAdapter.md): Defined in: activities/summarize/adapter.ts:65
 - [AnyTextAdapter](./reference/type-aliases/AnyTextAdapter.md): Defined in: activities/chat/adapter.ts:98
 - [AnyTranscriptionAdapter](./reference/type-aliases/AnyTranscriptionAdapter.md): Defined in: activities/generateTranscription/adapter.ts:54
 - [AnyTTSAdapter](./reference/type-aliases/AnyTTSAdapter.md): Defined in: activities/generateSpeech/adapter.ts:52
-- [AnyVideoAdapter](./reference/type-aliases/AnyVideoAdapter.md): Defined in: activities/generateVideo/adapter.ts:75
+- [AnyVideoAdapter](./reference/type-aliases/AnyVideoAdapter.md): Defined in: activities/generateVideo/adapter.ts:81
 - [ConstrainedContent](./reference/type-aliases/ConstrainedContent.md): Defined in: types.ts:253
 - [ConstrainedModelMessage](./reference/type-aliases/ConstrainedModelMessage.md): Defined in: types.ts:341
 - [ContentPart](./reference/type-aliases/ContentPart.md): Defined in: types.ts:212

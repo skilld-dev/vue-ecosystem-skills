@@ -2,117 +2,72 @@
 name: tanstack-ai-vue-skilld
 description: "ALWAYS use when writing code importing \"@tanstack/ai-vue\". Consult for debugging, best practices, or modifying @tanstack/ai-vue, tanstack/ai-vue, tanstack ai-vue, tanstack ai vue, ai."
 metadata:
-  version: 0.5.4
-  generated_by: Gemini CLI · Gemini 3 Flash
-  generated_at: 2026-02-18
+  version: 0.6.1
+  generated_by: Claude Code · Sonnet 4.5
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # TanStack/ai `@tanstack/ai-vue`
 
-**Version:** 0.5.4 (Feb 2026)
-**Deps:** @tanstack/ai-client@0.4.5
-**Tags:** latest: 0.5.4 (Feb 2026)
+**Version:** 0.6.1 (Feb 2026)
+**Deps:** @tanstack/ai-client@0.5.1
+**Tags:** latest: 0.6.1 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
 
 ## API Changes
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+This section documents version-specific API changes for @tanstack/ai-vue v0.6.1 (current v0.x series). This library is pre-1.0 — all v0.x releases are in scope.
 
-- BREAKING: Adapter functions split — v0.1.0 split monolithic adapters into activity-specific functions (e.g., `openaiText('gpt-4o')`, `openaiImage()`) to enable optimal tree-shaking [source](./references/docs/guides/migration.md)
+- BREAKING: Monolithic adapter factories removed — `openai()`, `anthropic()`, etc. replaced by activity-specific functions: `openaiText('gpt-5.2')`, `openaiSummarize('gpt-5-mini')`, `openaiImage('dall-e-3')`, etc. Model name is now passed to the adapter factory, not to `chat()`. [source](./references/docs/guides/migration.md:L21)
 
-- BREAKING: Options flattened — common parameters like `temperature`, `maxTokens`, and `topP` moved from nested `options` object to top-level configuration since v0.1.0 [source](./references/docs/guides/migration.md)
+- BREAKING: `model` parameter removed from `chat()` — model is now embedded in the adapter argument (e.g., `adapter: openaiText('gpt-5.2')` instead of `adapter: openai(), model: 'gpt-4'`). Passing `model` at the call site is silently ignored. [source](./references/docs/guides/migration.md:L50)
 
-- BREAKING: `modelOptions` — `providerOptions` renamed to `modelOptions` in v0.1.0 for clarity; contains model-specific configurations and is fully type-safe [source](./references/docs/guides/migration.md)
+- BREAKING: Nested `options` object flattened — `chat({ options: { temperature, maxTokens, topP } })` must be changed to `chat({ temperature, maxTokens, topP })`. Nested options are silently discarded. [source](./references/docs/guides/migration.md:L151)
 
-- BREAKING: `toServerSentEventsStream` — `toResponseStream` renamed in v0.1.0; now returns a `ReadableStream` instead of a `Response`, requiring manual response creation [source](./references/docs/guides/migration.md)
+- BREAKING: `providerOptions` renamed to `modelOptions` — `chat({ providerOptions: { ... } })` must be updated to `chat({ modelOptions: { ... } })`. Silently ignored if not updated. [source](./references/docs/guides/migration.md:L191)
 
-- BREAKING: Embeddings removed — the `embedding()` function and associated adapters were removed in v0.1.0 to focus on chat and agentic workflows [source](./references/docs/guides/migration.md)
+- BREAKING: `toResponseStream` renamed to `toServerSentEventsStream` and now returns `ReadableStream` instead of `Response` — must manually create `new Response(stream, { headers })`. `AbortController` is now a separate parameter: `toServerSentEventsStream(stream, abortController)`. [source](./references/docs/guides/migration.md:L244)
 
-- NEW: `status` property — `useChat` added a `status` ref in v0.4.0 to track the generation lifecycle: `ready`, `submitted`, `streaming`, or `error` [source](./references/releases/@tanstack/ai-vue@0.4.0.md)
+- BREAKING: `embedding()` function removed — embeddings support eliminated entirely. Use provider SDKs directly or vector DB native embedding APIs. [source](./references/docs/guides/migration.md:L318)
 
-- NEW: Multimodal support — v0.5.0 introduced support for multiple modalities (images, audio, video, documents) via the `MultimodalContent` type in `sendMessage` [source](./references/releases/@tanstack/ai-vue@0.5.0.md)
+- BREAKING: `chat({ as: 'promise' })` replaced by separate `chatCompletion()` function — `as` option removed from `chat()`. `chat({ as: 'stream' })` is now just `chat()`. `chat({ as: 'response' })` is now `chat()` + `toServerSentEventsStream()`. [source](./references/releases/CHANGELOG.md:L310)
 
-- NEW: `agentLoopStrategy` — replaced `maxIterations` with a strategy pattern in v0.1.0, using helpers like `maxIterations(n)`, `untilFinishReason()`, or `combineStrategies()` [source](./references/releases/CHANGELOG.md)
+- NEW: `useChat` returns `status` reactive ref — tracks lifecycle as `'ready' | 'submitted' | 'streaming' | 'error'`. Previously there was no generation lifecycle state. [source](./references/releases/@tanstack/ai-vue@0.4.0.md:L11)
 
-- NEW: `chatCompletion()` — added in v0.1.0 for promise-based results without the automatic tool execution loop used by `chat()` [source](./references/releases/CHANGELOG.md)
+- NEW: `sendMessage()` accepts `MultimodalContent` object — `sendMessage({ content: [{ type: 'text', content: '...' }, { type: 'image', source: { type: 'url', value: '...' } }] })` enables image/audio/video/document content alongside text. Added in v0.5.0. [source](./references/releases/@tanstack/ai-vue@0.5.0.md:L10)
 
-- NEW: Tool Handling — `useChat` exposed `addToolResult` and `addToolApprovalResponse` for manual management of tool outputs and user approvals
+- NEW: `agentLoopStrategy` parameter replaces bare `maxIterations: number` — use `agentLoopStrategy: maxIterations(5)`, `untilFinishReason(['stop'])`, or `combineStrategies([...])`. Old `maxIterations` number is converted automatically but deprecated. [source](./references/releases/CHANGELOG.md:L263)
 
-- NEW: `toHttpStream` — introduced in v0.1.0 to support newline-delimited JSON (NDJSON) streaming as an alternative to Server-Sent Events [source](./references/docs/guides/migration.md)
+- NEW: `toolDefinition({ name, description, inputSchema, outputSchema?, needsApproval? })` — creates isomorphic tool definitions. Call `.server(fn)` for server-side execution or `.client(fn)` for client-side execution. Replaces ad-hoc tool objects. [source](./references/docs/api/ai.md:L74)
 
-- NEW: `fetchHttpStream` — connection adapter added to `@tanstack/ai-client` for consuming NDJSON streams in `useChat` [source](./references/releases/CHANGELOG.md)
+- NEW: `@tanstack/ai-client` package — `ChatClient` class provides framework-agnostic headless chat state management with `sendMessage()`, `reload()`, `stop()`, `clear()`, `addToolResult()`, `addToolApprovalResponse()` methods. [source](./references/releases/CHANGELOG.md:L26)
 
-- NEW: `geminiSpeech` (experimental) — experimental text-to-speech support for Google Gemini models added in v0.5.0 [source](./references/docs/guides/migration.md)
+- NEW: Connection adapter factories — `fetchServerSentEvents(url, options?)`, `fetchHttpStream(url, options?)`, `stream(fn)` from `@tanstack/ai-client`. Pass to `useChat({ connection: fetchServerSentEvents('/api/chat') })` instead of `url: '/api/chat'`. [source](./references/releases/CHANGELOG.md:L203)
 
-- NEW: Video generation (experimental) — experimental support for video generation via `openaiVideo` and `fal` adapters introduced in v0.1.0 [source](./references/docs/guides/video-generation.md)
+- NEW: `extendAdapter(factory, customModels)` + `createModel(name, modalities)` — adds custom/fine-tuned model names to existing adapter factories with full type inference. Avoids `as const` casts. [source](./references/docs/reference/functions/extendAdapter.md:L1)
 
-**Also changed:** `standard-schema` support v0.2.0 · `useId` integration (Vue 3.5+) · `initialMessages` option · `ToolCallManager` class · `fetchServerSentEvents` adapter
+**Also changed:** `clientTools(...tools)` NEW (typed tool array, discriminated union narrowing) · `createChatClientOptions(options)` NEW · `InferChatMessages<T>` NEW · `toServerSentEventsResponse(stream, init?)` NEW (returns `Response`) · `toHttpStream(stream)` NEW · `toHttpResponse(stream)` NEW · `assertMessages({ adapter }, messages)` NEW (type-level assertion) · `ThinkingStreamChunk` NEW (chunk type for model reasoning)
 
 ## Best Practices
 
-- Import specific activity and adapter functions instead of entire namespaces to ensure optimal tree-shaking and minimize bundle size [source](./references/docs/guides/tree-shaking.md)
+- `useChat` returns `DeepReadonly<ShallowRef<T>>` refs — never reassign `messages` directly; use `setMessages()` for manual updates. Changing `connection` or `body` options recreates the underlying `ChatClient`, requiring a component remount or a `key` prop change to take effect
 
-```ts
-// Preferred
-import { chat } from '@tanstack/ai'
-import { openaiText } from '@tanstack/ai-openai'
+- Use `status` (added v0.4.0) instead of `isLoading` for granular lifecycle control — `status.value` tracks `'ready' | 'submitted' | 'streaming' | 'error'`, enabling distinct UI states for submission vs. active streaming [source](./references/releases/@tanstack/ai-vue@0.4.0.md:L11)
 
-// Avoid - pulls in all activities and adapters
-import * as ai from '@tanstack/ai'
-```
+- Pass client tool arrays through `clientTools()` instead of `as const` — eliminates the need for const assertion while enabling full discriminated union narrowing on `part.name`, `part.input`, and `part.output` in message iteration [source](./references/docs/api/ai-client.md#clienttoolstools)
 
-- Use `toServerSentEventsResponse` on the server to automatically handle SSE headers, protocol framing, and the "[DONE]" termination chunk [source](./references/docs/guides/streaming.md)
+- Wrap `useChat` options with `createChatClientOptions()` and derive message types using `InferChatMessages<typeof chatOptions>` — this propagates tool types through the entire message type, making `part.name` a literal union and `part.input`/`part.output` typed from Zod schemas [source](./references/docs/api/ai-client.md#createchatclientoptionsoptions)
 
-```ts
-export async function POST(req: Request) {
-  const stream = chat({ adapter: openaiText('gpt-5.2'), messages })
-  return toServerSentEventsResponse(stream)
-}
-```
+- Define tools with `toolDefinition()` in a shared file, then call `.server()` in route handlers and `.client()` in Vue components — passing the bare definition to `chat()` signals the client will execute it, while passing `.server()` output executes it server-side automatically [source](./references/docs/guides/tools.md#isomorphic-tool-architecture)
 
-- Prefer `fetchServerSentEvents` or `fetchHttpStream` connection adapters in `useChat` for built-in protocol parsing and state synchronization [source](./references/docs/guides/streaming.md)
+- Use Zod schemas (v4.2+) over raw JSON Schema for `inputSchema`/`outputSchema` in `toolDefinition()` and `chat({ outputSchema })` — JSON Schema infers `any` for tool inputs/outputs and `unknown` for structured output return types, losing all downstream type safety [source](./references/docs/guides/tools.md#schema-options)
 
-- Define tools using `toolDefinition` with Zod schemas to enable full end-to-end TypeScript inference and runtime validation [source](./references/docs/guides/tools.md)
+- Set `agentLoopStrategy: maxIterations(n)` explicitly when tools are present — the default is 5 iterations, which is too low for multi-step agentic workflows; use `untilFinishReason('stop')` to exit as soon as the model finishes without hitting the limit [source](./references/docs/api/ai.md#maxiterationscount)
 
-```ts
-const getWeather = toolDefinition({
-  name: 'get_weather',
-  inputSchema: z.object({ city: z.string() }),
-  outputSchema: z.object({ temp: z.number() })
-})
-```
+- Subscribe to `aiEventClient` with `{ withEventTarget: true }` in production code — without this third argument the client only emits to the devtools event bus (absent in production builds); the flag also dispatches to the current `EventTarget` for application-level observability [source](./references/docs/guides/observability.md#client-events)
 
-- Use `.client()` implementations for browser-only operations and pass the base `toolDefinition` to the server `chat()` call to trigger automatic execution [source](./references/docs/guides/client-tools.md)
+- Prefer `fetchServerSentEvents` over `fetchHttpStream` for client connections — SSE provides automatic reconnection; pass URL and options as functions (not static values) when headers like `Authorization` must be re-evaluated on every request [source](./references/docs/guides/connection-adapters.md#dynamic-values)
 
-- Group client tools with `clientTools()` and `createChatClientOptions()` to enable precise type narrowing for tool names and schemas in `messages` [source](./references/docs/api/ai-client.md)
-
-```ts
-const tools = clientTools(uiTool.client(fn), storageTool.client(fn))
-const options = createChatClientOptions({ connection, tools })
-const { messages } = useChat(options) // messages parts are now narrowed!
-```
-
-- Pass the model name directly to the adapter factory to enable model-specific type safety and autocomplete for `modelOptions` [source](./references/docs/guides/per-model-type-safety.md)
-
-```ts
-// TypeScript enforces options supported only by gpt-5
-const stream = chat({
-  adapter: openaiText('gpt-5'),
-  modelOptions: { text: { type: 'json_schema', ... } }
-})
-```
-
-- Subscribe to `aiEventClient` with `{ withEventTarget: true }` in production to capture internal events for observability and timeline reconstruction [source](./references/docs/guides/observability.md)
-
-- Pass all related tools to a single `chat()` call to allow the model to autonomously manage multi-step reasoning cycles (Agentic Cycle) [source](./references/docs/guides/agentic-cycle.md)
-
-- Leverage Vue's reactivity by passing a reactive object to the `body` property of `useChat` to update request parameters without recreating the client
-
-```ts
-const model = ref('gpt-5.2')
-const { sendMessage } = useChat({
-  connection,
-  body: computed(() => ({ model: model.value }))
-})
-```
+- Use `extendAdapter(baseFactory, [createModel('model-name', ['text', 'image'])])` to add TypeScript types for fine-tuned models or OpenAI-compatible proxies — this adds the model to the adapter's allowed type union with zero runtime overhead while preserving all original factory config parameters [source](./references/docs/guides/extend-adapter.md#basic-usage)

@@ -8,7 +8,7 @@ meta:
   description: "Discover Motion for Vue's useSpring hook. Create smooth spring animations for motion values. Learn to animate with .set(), track values &amp; customize transitions."
 ---
 
-Vue Vue Vue
+Vue
 
 # useSpring
 
@@ -148,10 +148,6 @@ useTime
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -160,13 +156,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -194,7 +184,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -212,7 +202,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -230,7 +220,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

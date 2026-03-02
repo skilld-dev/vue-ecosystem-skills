@@ -8,7 +8,7 @@ meta:
   description: "Learn Motion for Vue animation library: Install, animate HTML and SVG elements with spring animations, staggering effects. Complete guide with examples."
 ---
 
-Vue Vue Vue
+Vue
 
 # Get started with Motion for Vue
 
@@ -538,7 +538,7 @@ Next
 
 Vue animation
 
- Unlock more APIs`Carousel`, `Cursor` and more: Level up with the full Motion+ library.
+ AI-ready animations Make your LLM an animation expert with 330+ pre-built examples available via MCP.
 
 Motion is supported by the best in the industry.
 
@@ -562,7 +562,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -580,7 +580,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -598,7 +598,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

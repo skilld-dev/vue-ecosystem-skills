@@ -8,7 +8,7 @@ meta:
   description: "Power Vue animations with Motion values. Track state/velocity, sync components, &amp; update styles without re-renders. Compose with useTransform/useSpring."
 ---
 
-Vue Vue Vue
+Vue
 
 # Motion values
 
@@ -445,15 +445,9 @@ useMotionTemplate
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
-
-Get Motion+
 
 Get Motion+
 
@@ -463,11 +457,7 @@ One-time payment, lifetime updates.
 
 
 
-
-
-
-
- Unlock more APIs`Carousel`, `Cursor` and more: Level up with the full Motion+ library.
+ AI-ready animations Make your LLM an animation expert with 330+ pre-built examples available via MCP.
 
 Motion is supported by the best in the industry.
 
@@ -491,7 +481,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -509,7 +499,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -527,7 +517,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

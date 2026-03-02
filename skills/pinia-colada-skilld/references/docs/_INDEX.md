@@ -1,5 +1,5 @@
 ---
-total: 26
+total: 37
 ---
 
 # Docs Index
@@ -9,24 +9,27 @@ total: 26
 - [Quick Start](./quick-start.md): Pinia Colada is the perfect companion to Pinia to handle async state management in your Vue applications. It will remove the need to write boilerpl...
 - [Why?](./why.md): Pinia Colada takes away the complexity of async state management in Vue.js applications. No more manual isLoading, isError, data, error properties,...
 
-## advanced (3)
+## advanced (2)
 
-- [Plugins](./advanced/plugins.md): Plugins are install-time functions that subscribe to Pinia Colada cache actions allowing you to observe and modify query/mutation lifecycles global...
 - [Query Cache](./advanced/query-cache.md): The query cache is a central piece of the Pinia colada library. It centralizes the caching logic of queries and is used for query invalidation and ...
 - [Reusable Queries](./advanced/reusable-queries.md): While useQuery() can be directly called in components, we often need to reuse the same query across components or even add extra properties like co...
 
-## cookbook (5)
+## cookbook (7)
 
 - [Cache Persistence](./cookbook/cache-persistence.md): Persist your query cache to storage so users don't start with empty state on page reload.
 - [Cookbook](./cookbook/index.md)
 - [Migrating from @tanstack/vue-query to @pinia/colada](./cookbook/migration-tvq.md): This guide will help you migrate from @tanstack/vue-query to @pinia/colada. The two libraries have similar function names and API options, so it sh...
+- [Migration Codemods](./cookbook/migrations.md): Pinia Colada ships ast-grep codemods to automate breaking-change migrations. Always commit your changes before running a codemod so you can review ...
 - [Prefetching queries](./cookbook/prefetching.md): Prefetching queries is a way to ensure that your data is ready before useQuery() is called. Usually done before navigating to a page or to prefetch...
-- [Query Hooks](./cookbook/query-hooks.md): You might notice that useQuery does not support onSuccess, onError, or onSettled callbacks. This is intentional.
+- [Query Hooks](./cookbook/query-hooks.md): You might notice that useQuery does not support onSuccess, onError, or onSettled callbacks. This is intentional. Local callbacks introduce side eff...
+- [Testing](./cookbook/testing.md): When testing components that use Pinia Colada, focus on testing your app behavior, not Pinia Colada internals.
+In most cases, mock at the network l...
 
-## guide (14)
+## guide (15)
 
 - [Canceling Queries](./guide/cancelling-queries.md)
-- [Error Handling](./guide/error-handling.md): Pinia Colada provides robust error handling capabilities to help you manage and respond to errors in your async operations. Let's explore how to ha...
+- [Error Handling](./guide/error-handling.md): Queries and mutations expose error and status refs. Handle errors in the template, with hooks, or via global plugins.
+- [Infinite Queries](./guide/infinite-queries.md): Infinite queries let you load and merge multiple pages into a single cache entry.
 - [Installation](./guide/installation.md): Install Pinia Colada alongside Pinia:
 - [Mutations](./guide/mutations.md): Mutations allow us to trigger and track the status of an async operation meant to have side effects. While queries are meant to read data, mutation...
 - [Optimistic updates](./guide/optimistic-updates.md): Optimistic updates are a way to update the UI before the mutation has completed, optimistically assuming that the mutation will succeed. This is a ...
@@ -39,3 +42,18 @@ total: 26
 - [Setup](./guide/setup.md)
 - [Server Side Rendering](./guide/ssr.md): Pinia Colada relies on Pinia for server side rendering. This means that you should follow Pinia's SSR guide to setup your server side rendering.
 - [TypeScript](./guide/typescript.md)
+
+## plugins (3)
+
+- [Community plugins](./plugins/community.md): This page lists third-party plugins built by the community.
+- [Plugins](./plugins/index.md): Plugins let you extend Pinia Colada globally (retries, refetch policies, persistence, global hooks, logging…) without changing every useQuery() / u...
+- [Writing Plugins](./plugins/writing-plugins.md): Plugins are install-time functions that subscribe to Pinia Colada cache actions allowing you to observe and modify query/mutation lifecycles global...
+
+## plugins/official (6)
+
+- [Auto refetch](./plugins/official/auto-refetch.md): @pinia/colada-plugin-auto-refetch automatically refetches queries on an interval, typically when data is considered stale.
+- [Cache persister](./plugins/official/cache-persister.md): @pinia/colada-plugin-cache-persister persists the query cache to storage and restores it on startup.
+- [Delay](./plugins/official/delay.md): @pinia/colada-plugin-delay delays the transition of asyncStatus to 'loading'.
+- [Official plugins](./plugins/official/index.md)
+- [Query Hooks](./plugins/official/query-hooks.md): PiniaColadaQueryHooksPlugin centralizes side-effect handling (toasts, logging, analytics…).
+- [Retry](./plugins/official/retry.md): @pinia/colada-plugin-retry retries failed query fetches automatically.

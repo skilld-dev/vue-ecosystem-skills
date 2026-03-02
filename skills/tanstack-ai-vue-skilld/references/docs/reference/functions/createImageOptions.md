@@ -9,7 +9,7 @@ title: createImageOptions
 function createImageOptions<TAdapter>(options): ImageActivityOptions<TAdapter>;
 ```
 
-Defined in: activities/generateImage/index.ts:195
+Defined in: activities/generateImage/index.ts:205
 
 Create typed options for the generateImage() function without executing.
 
@@ -17,7 +17,7 @@ Create typed options for the generateImage() function without executing.
 
 ### TAdapter
 
-`TAdapter` *extends* [`ImageAdapter`](../interfaces/ImageAdapter.md)\<`string`, `object`, `any`, `any`\>
+`TAdapter` *extends* [`ImageAdapter`](../interfaces/ImageAdapter.md)\<`string`, `any`, `any`, `any`\>
 
 ## Parameters
 

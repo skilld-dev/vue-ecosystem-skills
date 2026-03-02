@@ -1,18 +1,20 @@
 ---
 name: vuetify-skilld
-description: "ALWAYS use when writing code importing \"vuetify\". Consult for debugging, best practices, or modifying vuetify."
+description: "Vue Material Component Framework. ALWAYS use when writing code importing \"vuetify\". Consult for debugging, best practices, or modifying vuetify."
 metadata:
-  version: 4.0.0-beta.2
-  generated_by: Gemini CLI · Gemini 3 Flash
+  version: 4.0.0
+  generated_at: 2026-03-02
+  references_synced_at: 2026-03-02
 ---
 
 # vuetifyjs/vuetify `vuetify`
 
-**Version:** 4.0.0-beta.2 (Feb 2026)
-**Tags:** v1-stable: 1.5.24 (Mar 2020), v2-stable: 2.7.2 (Feb 2024), dev: 3.11.0 (Nov 2025), latest: 3.11.8 (Jan 2026), next: 4.0.0-beta.2 (Feb 2026)
+> Vue Material Component Framework
+
+**Version:** 4.0.0 (Feb 2026)
+**Tags:** v1-stable: 1.5.24 (Mar 2020), dev: 3.0.0 (Oct 2022), v2-stable: 2.7.2 (Feb 2024), v3-stable: 3.12.1 (Feb 2026), latest: 4.0.0 (Feb 2026), next: 4.0.0 (Feb 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
-
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

@@ -8,7 +8,7 @@ meta:
   description: "Animate layouts effortlessly in Vue with Motion's layout prop. Smoothly transition CSS, even between different elements using layoutId. Performant &amp; flexible."
 ---
 
-Vue Vue Vue
+Vue
 
 # Layout animation
 
@@ -74,22 +74,22 @@ If you want to set a transition specifically for **only** the layout animation, 
 
 When performing a shared layout animation, the transition defined for element we're animating **to** will be used.
 
-  <motion.button
-    layoutId="modal"
-    @click="() => isOn=true"
-    // This transition will be used when the modal closes
-    :transition="{ type: 'spring' }"
-  >
-    Open
-  </motion.button>
-  <AnimatePresence>
-      <motion.dialog
-        v-if="isOn"
-        layoutId="modal"
-        // This transition will be used when the modal opens
-        :transition="{ duration: 0.3 }"
-      />
-  </AnimatePresence>
+<motion.button
+  layoutId="modal"
+  @click="() => isOn=true"
+  // This transition will be used when the modal closes
+  :transition="{ type: 'spring' }"
+>
+  Open
+</motion.button>
+<AnimatePresence>
+    <motion.dialog
+      v-if="isOn"
+      layoutId="modal"
+      // This transition will be used when the modal opens
+      :transition="{ duration: 0.3 }"
+    />
+</AnimatePresence>
 
 ### [Animating within scrollable element](#animating-within-scrollable-element)
 
@@ -304,22 +304,22 @@ If you want to set a transition specifically for **only** the layout animation, 
 
 When performing a shared layout animation, the transition defined for element we're animating **to** will be used.
 
-  <motion.button
-    layoutId="modal"
-    @click="() => isOn=true"
-    // This transition will be used when the modal closes
-    :transition="{ type: 'spring' }"
-  >
-    Open
-  </motion.button>
-  <AnimatePresence>
-      <motion.dialog
-        v-if="isOn"
-        layoutId="modal"
-        // This transition will be used when the modal opens
-        :transition="{ duration: 0.3 }"
-      />
-  </AnimatePresence>
+<motion.button
+  layoutId="modal"
+  @click="() => isOn=true"
+  // This transition will be used when the modal closes
+  :transition="{ type: 'spring' }"
+>
+  Open
+</motion.button>
+<AnimatePresence>
+    <motion.dialog
+      v-if="isOn"
+      layoutId="modal"
+      // This transition will be used when the modal opens
+      :transition="{ duration: 0.3 }"
+    />
+</AnimatePresence>
 
 ### [Animating within scrollable element](#animating-within-scrollable-element)
 
@@ -534,22 +534,22 @@ If you want to set a transition specifically for **only** the layout animation, 
 
 When performing a shared layout animation, the transition defined for element we're animating **to** will be used.
 
-  <motion.button
-    layoutId="modal"
-    @click="() => isOn=true"
-    // This transition will be used when the modal closes
-    :transition="{ type: 'spring' }"
-  >
-    Open
-  </motion.button>
-  <AnimatePresence>
-      <motion.dialog
-        v-if="isOn"
-        layoutId="modal"
-        // This transition will be used when the modal opens
-        :transition="{ duration: 0.3 }"
-      />
-  </AnimatePresence>
+<motion.button
+  layoutId="modal"
+  @click="() => isOn=true"
+  // This transition will be used when the modal closes
+  :transition="{ type: 'spring' }"
+>
+  Open
+</motion.button>
+<AnimatePresence>
+    <motion.dialog
+      v-if="isOn"
+      layoutId="modal"
+      // This transition will be used when the modal opens
+      :transition="{ duration: 0.3 }"
+    />
+</AnimatePresence>
 
 ### [Animating within scrollable element](#animating-within-scrollable-element)
 
@@ -712,10 +712,6 @@ Scroll animation
 
 Motion+
 
-Motion+
-
-Motion+
-
 ## Level up your animations with Motion+
 
 Unlock the full vault of 330+ Motion examples, 100+ tutorials, premium APIs, private Discord and GitHub, and powerful Motion Studio animation editing tools for your IDE.
@@ -724,13 +720,7 @@ Get Motion+
 
 Get Motion+
 
-Get Motion+
-
 One-time payment, lifetime updates.
-
-
-
-
 
 
 
@@ -758,7 +748,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -776,7 +766,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 
@@ -794,7 +784,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.0
+12.34.3
 
 Motion+
 

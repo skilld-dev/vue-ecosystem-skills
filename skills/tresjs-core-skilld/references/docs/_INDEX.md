@@ -1,5 +1,5 @@
 ---
-total: 44
+total: 45
 ---
 
 # Docs Index
@@ -22,13 +22,14 @@ This document covers the upgrade process from version 4.x to version 5.x. It's c
 This page is a work in progress.
 ::
 
-## content/2.essentials/2.concepts (5)
+## content/2.essentials/2.concepts (6)
 
 - [Declarative vs Imperative](./content/2.essentials/2.concepts/1.declarative-vs-imperative.md): TresJS fundamentally changes how you create 3D scenes by transforming Three.js's imperative approach into a declarative, component-based system. Th...
 - [Reactivity](./content/2.essentials/2.concepts/2.reactivity.md): Vue's reactivity system is one of its most powerful features, automatically tracking changes and updating the UI accordingly. However, when working...
 - [Constructor Arguments](./content/2.essentials/2.concepts/3.constructor-arguments.md): Many Three.js classes require arguments when instantiated. For example, creating a PerspectiveCamera in vanilla Three.js:
 - [Declarative Properties](./content/2.essentials/2.concepts/4.declarative-properties.md): In vanilla Three.js, you set properties imperatively:
 - [Extending the Catalogue](./content/2.essentials/2.concepts/5.extending-catalogue.md): TresJS automatically generates Vue components for all classes exported from the three package. This catalogue maps component names to Three.js cons...
+- [Child Attachments](./content/2.essentials/2.concepts/6.child-attachments.md): When you nest components in TresJS:
 
 ## content/2.essentials (1)
 

@@ -5,7 +5,7 @@ title: TranscriptionWord
 
 # Interface: TranscriptionWord
 
-Defined in: types.ts:1167
+Defined in: types.ts:1169
 
 A single word with timing information.
 
@@ -17,7 +17,7 @@ A single word with timing information.
 end: number;
 ```
 
-Defined in: types.ts:1173
+Defined in: types.ts:1175
 
 End time in seconds
 
@@ -29,7 +29,7 @@ End time in seconds
 start: number;
 ```
 
-Defined in: types.ts:1171
+Defined in: types.ts:1173
 
 Start time in seconds
 
@@ -41,6 +41,6 @@ Start time in seconds
 word: string;
 ```
 
-Defined in: types.ts:1169
+Defined in: types.ts:1171
 
 The transcribed word
