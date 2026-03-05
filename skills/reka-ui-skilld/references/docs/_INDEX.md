@@ -1,10 +1,10 @@
 ---
-total: 394
+total: 465
 ---
 
 # Docs Index
 
-## content/docs/components (44)
+## content/docs/components (55)
 
 - [Accordion](./content/docs/components/accordion.md): <Highlights
 :features="[
@@ -22,6 +22,7 @@ total: 394
  'Accepts any custom ratio.'
 ]"
 />
+- [Autocomplete](./content/docs/components/autocomplete.md): <Badge>Alpha</Badge>
 - [Avatar](./content/docs/components/avatar.md): <Highlights
 :features="[
  'Automatic and manual control over when the image renders.',
@@ -33,14 +34,18 @@ total: 394
  'Supports indeterminate state.',
  'Full keyboard navigation.',
  'Can be controlled or uncontrolled.',
-]"
-/>
+ 'Supports custom t...
 - [Collapsible](./content/docs/components/collapsible.md): <Highlights
 :features="[
  'Full keyboard navigation.',
  'Can be controlled or uncontrolled.',
 ]"
 />
+- [Color Area](./content/docs/components/color-area.md): <Badge>Alpha</Badge>
+- [Color Field](./content/docs/components/color-field.md): <Badge>Alpha</Badge>
+- [Color Slider](./content/docs/components/color-slider.md): <Badge>Alpha</Badge>
+- [Color Swatch Picker](./content/docs/components/color-swatch-picker.md): <Badge>Alpha</Badge>
+- [Color Swatch](./content/docs/components/color-swatch.md): <Badge>Alpha</Badge>
 - [Combobox](./content/docs/components/combobox.md): <Highlights
 :features="[
  'Can be controlled or uncontrolled.',
@@ -95,6 +100,8 @@ total: 394
  'Can be controlled or uncontrolled.',
  'Supports submenus with configurable reading direction.',
  'Supports items, labels...
+- [MonthPicker](./content/docs/components/month-picker.md): <Badge>Alpha</Badge>
+- [MonthRangePicker](./content/docs/components/month-range-picker.md): <Badge>Alpha</Badge>
 - [Navigation Menu](./content/docs/components/navigation-menu.md): <Highlights
 :features="[
  'Can be controlled or uncontrolled.',
@@ -160,13 +167,13 @@ total: 394
  'Supports horizontal/vertical layout.',
  'Supports nested layout.',
  'Supports Right t...
-- [Stepper](./content/docs/components/stepper.md): <Highlights
-:features="[
- 'Can be controlled or uncontrolled.',
- 'Supports horizontal/vertical orientation.',
- 'Supports linear/non-linear activati...
+- [Stepper](./content/docs/components/stepper.md): <Badge>Alpha</Badge>
 - [Switch](./content/docs/components/switch.md): <Highlights
-:features="['Full keyboard navigation.', 'Can be controlled or uncontrolled.']"
+:features="[
+ 'Full keyboard navigation.',
+ 'Can be controlled or uncontrolled.',
+ 'Supports custom true/false values.',
+]"
 />
 - [Tabs](./content/docs/components/tabs.md): <Highlights
 :features="[
@@ -180,6 +187,7 @@ total: 394
  'Limit the number of tags.',
  'Accept value from cli...
 - [Time Field](./content/docs/components/time-field.md): <Badge>Alpha</Badge>
+- [Time Range Field](./content/docs/components/time-range-field.md): <Badge>Alpha</Badge>
 - [Toast](./content/docs/components/toast.md): <Highlights
 :features="[
  'Automatically closes.',
@@ -200,6 +208,8 @@ total: 394
  'Opens when the trigger is focused or hovered.',
  'Closes when the trigge...
 - [Tree](./content/docs/components/tree.md): <Badge>Alpha</Badge>
+- [YearPicker](./content/docs/components/year-picker.md): <Badge>Alpha</Badge>
+- [YearRangePicker](./content/docs/components/year-range-picker.md): <Badge>Alpha</Badge>
 
 ## content/docs/guides (11)
 
@@ -258,12 +268,14 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 - [Reka UI - Unstyled, fully accessible UI library](./content/index.md)
 - [showcase](./content/showcase.md)
 
-## content/examples (11)
+## content/examples (13)
 
 - [Checkbox Group](./content/examples/checkbox-group.md): Rendering multiple Checkbox elements to form a group of checkboxes. The behavior is similar to having v-model for multiple native input[type="check...
+- [Color Picker](./content/examples/color-picker.md): A comprehensive color picker component that combines ColorArea, ColorSlider, ColorField, and ColorSwatch inside a Popover. This example demonstrate...
 - [Combobox TagsInput](./content/examples/combobox-tags-input.md): Rendering Combobox with Tags Input.
 - [Inline Combobox on Textarea](./content/examples/combobox-textarea.md): Rendering Combobox as a textarea element to create an accessible multiline textbox. Inserting specific characters triggers a popup with dynamic sug...
 - [Date Picker Selection](./content/examples/date-picker-selection.md): Date pickers let users select a date or a range of dates. They commonly use in booking systems.
+- [Date Picker View Switching](./content/examples/date-picker-view-switching.md): Compose Calendar, MonthPicker, and YearPicker to create a date picker with drill-down view switching.
 - [Dialog Command Menu](./content/examples/dialog-command-menu.md): Combining Dialog and Combobox to enable users to search a command list in a modal.
 - [Dialog Gesture Driven](./content/examples/dialog-gesture-driven.md): An iOS-style gesture driven modal sheet built with Reka UI, and Motion-v.
 - [Listbox Transfer](./content/examples/listbox-transfer.md): Render a Transfer component with Listbox.
@@ -272,7 +284,7 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 - [Slider Tooltip](./content/examples/slider-tooltip.md): Render a Slider with a Tooltip that shows the current value of the Slider.
 - [Tooltip Cursor](./content/examples/tooltip-cursor.md): Render a Tooltip that follows the cursor when hovering over the target element.
 
-## content/meta (304)
+## content/meta (362)
 
 - [AccordionContent](./content/meta/AccordionContent.md): <PropsTable :data="[
 {
@@ -331,6 +343,14 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
 - [AspectRatio](./content/meta/AspectRatio.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [AutocompleteInput](./content/meta/AutocompleteInput.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [AutocompleteRoot](./content/meta/AutocompleteRoot.md): <PropsTable :data="[
 {
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
@@ -415,6 +435,58 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
 - [CollapsibleTrigger](./content/meta/CollapsibleTrigger.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorAreaArea](./content/meta/ColorAreaArea.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorAreaRoot](./content/meta/ColorAreaRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorAreaThumb](./content/meta/ColorAreaThumb.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorFieldInput](./content/meta/ColorFieldInput.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorFieldRoot](./content/meta/ColorFieldRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSliderRoot](./content/meta/ColorSliderRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSliderThumb](./content/meta/ColorSliderThumb.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSliderTrack](./content/meta/ColorSliderTrack.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSwatch](./content/meta/ColorSwatch.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSwatchPickerItem](./content/meta/ColorSwatchPickerItem.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSwatchPickerItemIndicator](./content/meta/ColorSwatchPickerItemIndicator.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSwatchPickerItemSwatch](./content/meta/ColorSwatchPickerItemSwatch.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [ColorSwatchPickerRoot](./content/meta/ColorSwatchPickerRoot.md): <PropsTable :data="[
 {
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
@@ -790,6 +862,10 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 {
  'name': 'align',
  'description': '<p>The preferred alignment against the trigger.\nMay change when collisions occur.</p>\n'...
+- [DropdownMenuFilter](./content/meta/DropdownMenuFilter.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
 - [DropdownMenuGroup](./content/meta/DropdownMenuGroup.md): <PropsTable :data="[
 {
  'name': 'as',
@@ -1000,6 +1076,86 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 {
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerCell](./content/meta/MonthPickerCell.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerCellTrigger](./content/meta/MonthPickerCellTrigger.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerGrid](./content/meta/MonthPickerGrid.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerGridBody](./content/meta/MonthPickerGridBody.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerGridRow](./content/meta/MonthPickerGridRow.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerHeader](./content/meta/MonthPickerHeader.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerHeading](./content/meta/MonthPickerHeading.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerNext](./content/meta/MonthPickerNext.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerPrev](./content/meta/MonthPickerPrev.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthPickerRoot](./content/meta/MonthPickerRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerCell](./content/meta/MonthRangePickerCell.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerCellTrigger](./content/meta/MonthRangePickerCellTrigger.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerGrid](./content/meta/MonthRangePickerGrid.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerGridBody](./content/meta/MonthRangePickerGridBody.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerGridRow](./content/meta/MonthRangePickerGridRow.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerHeader](./content/meta/MonthRangePickerHeader.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerHeading](./content/meta/MonthRangePickerHeading.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerNext](./content/meta/MonthRangePickerNext.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerPrev](./content/meta/MonthRangePickerPrev.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [MonthRangePickerRoot](./content/meta/MonthRangePickerRoot.md): <PropsTable :data="[
+{
+ 'name': 'allowNonContiguousRanges',
+ 'description': '<p>When combined with <code>isMonthUnavailable</code>, determines whet...
 - [NavigationMenuContent](./content/meta/NavigationMenuContent.md): <PropsTable :data="[
 {
  'name': 'as',
@@ -1407,6 +1563,14 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 {
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [TimeRangeFieldInput](./content/meta/TimeRangeFieldInput.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [TimeRangeFieldRoot](./content/meta/TimeRangeFieldRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
 - [ToastAction](./content/meta/ToastAction.md): <PropsTable :data="[
 {
  'name': 'altText',
@@ -1490,8 +1654,9 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
  'description': '<p>Defer the resolving of a Teleport target until other parts of the\napplication have mo...
 - [TooltipProvider](./content/meta/TooltipProvider.md): <PropsTable :data="[
 {
- 'name': 'delayDuration',
- 'description': '<p>The duration from when the pointer enters the trigger until the tooltip gets o...
+ 'name': 'content',
+ 'description': '<p>Default settings that will be used by all tooltip components.</p>\n',
+ 'type': 'Tool...
 - [TooltipRoot](./content/meta/TooltipRoot.md): <PropsTable :data="[
 {
  'name': 'defaultOpen',
@@ -1521,3 +1686,83 @@ design systems and web apps using <a href="https://vuejs.org" target="bla...
 {
  'name': 'as',
  'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerCell](./content/meta/YearPickerCell.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerCellTrigger](./content/meta/YearPickerCellTrigger.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerGrid](./content/meta/YearPickerGrid.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerGridBody](./content/meta/YearPickerGridBody.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerGridRow](./content/meta/YearPickerGridRow.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerHeader](./content/meta/YearPickerHeader.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerHeading](./content/meta/YearPickerHeading.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerNext](./content/meta/YearPickerNext.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerPrev](./content/meta/YearPickerPrev.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearPickerRoot](./content/meta/YearPickerRoot.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerCell](./content/meta/YearRangePickerCell.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerCellTrigger](./content/meta/YearRangePickerCellTrigger.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerGrid](./content/meta/YearRangePickerGrid.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerGridBody](./content/meta/YearRangePickerGridBody.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerGridRow](./content/meta/YearRangePickerGridRow.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerHeader](./content/meta/YearRangePickerHeader.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerHeading](./content/meta/YearRangePickerHeading.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerNext](./content/meta/YearRangePickerNext.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerPrev](./content/meta/YearRangePickerPrev.md): <PropsTable :data="[
+{
+ 'name': 'as',
+ 'description': '<p>The element or component this component should render as. Can be overwritten by <code>asC...
+- [YearRangePickerRoot](./content/meta/YearRangePickerRoot.md): <PropsTable :data="[
+{
+ 'name': 'allowNonContiguousRanges',
+ 'description': '<p>When combined with <code>isYearUnavailable</code>, determines wheth...

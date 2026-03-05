@@ -89,7 +89,7 @@
   },
   {
     'name': 'modelValue',
-    'description': '<p>The controlled checked state of the calendar. Can be bound as <code>v-model</code>.</p>\n',
+    'description': '<p>The controlled value of the field. Can be bound as <code>v-model</code>.</p>\n',
     'type': 'DateRange | null',
     'required': false
   },
@@ -142,17 +142,17 @@
 <SlotsTable :data="[
   {
     'name': 'modelValue',
-    'description': '',
+    'description': '<p>The current date range of the field</p>\n',
     'type': 'DateRange | null'
   },
   {
     'name': 'segments',
-    'description': '',
+    'description': '<p>The date field segment contents</p>\n',
     'type': '{ start: { part: SegmentPart; value: string; }[]; end: { part: SegmentPart; value: string; }[]; }'
   },
   {
     'name': 'isInvalid',
-    'description': '',
+    'description': '<p>Value if the input is invalid</p>\n',
     'type': 'boolean'
   }
 ]" />

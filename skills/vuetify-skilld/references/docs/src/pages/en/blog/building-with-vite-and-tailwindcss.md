@@ -19,6 +19,10 @@ We will go through the following steps:
 * Ensure Vuetify's light/dark themes work with TailwindCSS `light:*` and `dark:*` prefixes
 * Align breakpoints configuration
 
+ Jacek Czarniecki •  February 16th, 2026
+
+<PromotedEntry />
+
 ---
 
 ## Table of Contents

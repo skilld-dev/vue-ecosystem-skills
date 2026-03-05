@@ -5,7 +5,7 @@ title: FormValidators
 
 # Interface: FormValidators\<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync\>
 
-Defined in: packages/form-core/src/FormApi.ts:175
+Defined in: packages/form-core/src/FormApi.ts:176
 
 ## Type Parameters
 
@@ -57,7 +57,7 @@ Defined in: packages/form-core/src/FormApi.ts:175
 optional onBlur: TOnBlur;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:206
+Defined in: packages/form-core/src/FormApi.ts:207
 
 Optional function that validates the form data when a field loses focus, returns a `FormValidationError`
 
@@ -69,7 +69,7 @@ Optional function that validates the form data when a field loses focus, returns
 optional onBlurAsync: TOnBlurAsync;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:210
+Defined in: packages/form-core/src/FormApi.ts:211
 
 Optional onBlur asynchronous validation method for when a field loses focus returns a ` FormValidationError` or a promise of `Promise<FormValidationError>`
 
@@ -81,7 +81,7 @@ Optional onBlur asynchronous validation method for when a field loses focus retu
 optional onBlurAsyncDebounceMs: number;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:214
+Defined in: packages/form-core/src/FormApi.ts:215
 
 The default time in milliseconds that if set to a number larger than 0, will debounce the async validation event by this length of time in milliseconds.
 
@@ -93,7 +93,7 @@ The default time in milliseconds that if set to a number larger than 0, will deb
 optional onChange: TOnChange;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:194
+Defined in: packages/form-core/src/FormApi.ts:195
 
 Optional function that checks the validity of your data whenever a value changes
 
@@ -105,7 +105,7 @@ Optional function that checks the validity of your data whenever a value changes
 optional onChangeAsync: TOnChangeAsync;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:198
+Defined in: packages/form-core/src/FormApi.ts:199
 
 Optional onChange asynchronous counterpart to onChange. Useful for more complex validation logic that might involve server requests.
 
@@ -117,7 +117,7 @@ Optional onChange asynchronous counterpart to onChange. Useful for more complex 
 optional onChangeAsyncDebounceMs: number;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:202
+Defined in: packages/form-core/src/FormApi.ts:203
 
 The default time in milliseconds that if set to a number larger than 0, will debounce the async validation event by this length of time in milliseconds.
 
@@ -129,7 +129,7 @@ The default time in milliseconds that if set to a number larger than 0, will deb
 optional onDynamic: TOnDynamic;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:217
+Defined in: packages/form-core/src/FormApi.ts:218
 
 ***
 
@@ -139,7 +139,7 @@ Defined in: packages/form-core/src/FormApi.ts:217
 optional onDynamicAsync: TOnDynamicAsync;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:218
+Defined in: packages/form-core/src/FormApi.ts:219
 
 ***
 
@@ -149,7 +149,7 @@ Defined in: packages/form-core/src/FormApi.ts:218
 optional onDynamicAsyncDebounceMs: number;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:219
+Defined in: packages/form-core/src/FormApi.ts:220
 
 ***
 
@@ -159,7 +159,7 @@ Defined in: packages/form-core/src/FormApi.ts:219
 optional onMount: TOnMount;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:190
+Defined in: packages/form-core/src/FormApi.ts:191
 
 Optional function that fires as soon as the component mounts.
 
@@ -171,7 +171,7 @@ Optional function that fires as soon as the component mounts.
 optional onSubmit: TOnSubmit;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:215
+Defined in: packages/form-core/src/FormApi.ts:216
 
 ***
 
@@ -181,4 +181,4 @@ Defined in: packages/form-core/src/FormApi.ts:215
 optional onSubmitAsync: TOnSubmitAsync;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:216
+Defined in: packages/form-core/src/FormApi.ts:217

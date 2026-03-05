@@ -9,7 +9,7 @@ title: FieldInfo
 type FieldInfo<TFormData> = object;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:490
+Defined in: packages/form-core/src/FormApi.ts:491
 
 An object representing the field information for a specific field within the form.
 
@@ -29,7 +29,7 @@ instance:
   | null;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:494
+Defined in: packages/form-core/src/FormApi.ts:495
 
 An instance of the FieldAPI.
 
@@ -41,6 +41,6 @@ An instance of the FieldAPI.
 validationMetaMap: Record<ValidationErrorMapKeys, ValidationMeta | undefined>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:522
+Defined in: packages/form-core/src/FormApi.ts:523
 
 A record of field validation internal handling.

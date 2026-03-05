@@ -5,7 +5,7 @@ title: RunErrorEvent
 
 # Interface: RunErrorEvent
 
-Defined in: types.ts:763
+Defined in: types.ts:791
 
 Emitted when an error occurs during a run.
 
@@ -21,7 +21,7 @@ Emitted when an error occurs during a run.
 error: object;
 ```
 
-Defined in: types.ts:768
+Defined in: types.ts:796
 
 Error details
 
@@ -45,7 +45,7 @@ message: string;
 optional model: string;
 ```
 
-Defined in: types.ts:722
+Defined in: types.ts:750
 
 Model identifier for multi-model support
 
@@ -61,7 +61,7 @@ Model identifier for multi-model support
 optional rawEvent: unknown;
 ```
 
-Defined in: types.ts:724
+Defined in: types.ts:752
 
 Original provider event for debugging/advanced use cases
 
@@ -77,7 +77,7 @@ Original provider event for debugging/advanced use cases
 optional runId: string;
 ```
 
-Defined in: types.ts:766
+Defined in: types.ts:794
 
 Run identifier (if available)
 
@@ -89,7 +89,7 @@ Run identifier (if available)
 timestamp: number;
 ```
 
-Defined in: types.ts:720
+Defined in: types.ts:748
 
 #### Inherited from
 
@@ -103,7 +103,7 @@ Defined in: types.ts:720
 type: "RUN_ERROR";
 ```
 
-Defined in: types.ts:764
+Defined in: types.ts:792
 
 #### Overrides
 

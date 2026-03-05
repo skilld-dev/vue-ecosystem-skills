@@ -5,7 +5,7 @@ title: StepFinishedEvent
 
 # Interface: StepFinishedEvent
 
-Defined in: types.ts:862
+Defined in: types.ts:890
 
 Emitted when a thinking/reasoning step finishes.
 
@@ -21,7 +21,7 @@ Emitted when a thinking/reasoning step finishes.
 optional content: string;
 ```
 
-Defined in: types.ts:869
+Defined in: types.ts:897
 
 Full accumulated thinking content (optional, for debugging)
 
@@ -33,7 +33,7 @@ Full accumulated thinking content (optional, for debugging)
 delta: string;
 ```
 
-Defined in: types.ts:867
+Defined in: types.ts:895
 
 Incremental thinking content
 
@@ -45,7 +45,7 @@ Incremental thinking content
 optional model: string;
 ```
 
-Defined in: types.ts:722
+Defined in: types.ts:750
 
 Model identifier for multi-model support
 
@@ -61,7 +61,7 @@ Model identifier for multi-model support
 optional rawEvent: unknown;
 ```
 
-Defined in: types.ts:724
+Defined in: types.ts:752
 
 Original provider event for debugging/advanced use cases
 
@@ -77,7 +77,7 @@ Original provider event for debugging/advanced use cases
 stepId: string;
 ```
 
-Defined in: types.ts:865
+Defined in: types.ts:893
 
 Step identifier
 
@@ -89,7 +89,7 @@ Step identifier
 timestamp: number;
 ```
 
-Defined in: types.ts:720
+Defined in: types.ts:748
 
 #### Inherited from
 
@@ -103,7 +103,7 @@ Defined in: types.ts:720
 type: "STEP_FINISHED";
 ```
 
-Defined in: types.ts:863
+Defined in: types.ts:891
 
 #### Overrides
 

@@ -5,7 +5,7 @@ title: RunFinishedEvent
 
 # Interface: RunFinishedEvent
 
-Defined in: types.ts:746
+Defined in: types.ts:774
 
 Emitted when a run completes successfully.
 
@@ -21,7 +21,7 @@ Emitted when a run completes successfully.
 finishReason: "length" | "stop" | "content_filter" | "tool_calls" | null;
 ```
 
-Defined in: types.ts:751
+Defined in: types.ts:779
 
 Why the generation stopped
 
@@ -33,7 +33,7 @@ Why the generation stopped
 optional model: string;
 ```
 
-Defined in: types.ts:722
+Defined in: types.ts:750
 
 Model identifier for multi-model support
 
@@ -49,7 +49,7 @@ Model identifier for multi-model support
 optional rawEvent: unknown;
 ```
 
-Defined in: types.ts:724
+Defined in: types.ts:752
 
 Original provider event for debugging/advanced use cases
 
@@ -65,7 +65,7 @@ Original provider event for debugging/advanced use cases
 runId: string;
 ```
 
-Defined in: types.ts:749
+Defined in: types.ts:777
 
 Run identifier
 
@@ -77,7 +77,7 @@ Run identifier
 timestamp: number;
 ```
 
-Defined in: types.ts:720
+Defined in: types.ts:748
 
 #### Inherited from
 
@@ -91,7 +91,7 @@ Defined in: types.ts:720
 type: "RUN_FINISHED";
 ```
 
-Defined in: types.ts:747
+Defined in: types.ts:775
 
 #### Overrides
 
@@ -105,7 +105,7 @@ Defined in: types.ts:747
 optional usage: object;
 ```
 
-Defined in: types.ts:753
+Defined in: types.ts:781
 
 Token usage statistics
 

@@ -5,7 +5,7 @@ title: FieldGroupOptions
 
 # Interface: FieldGroupOptions\<TFormData, TFieldGroupData, TFields, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync, TOnServer, TSubmitMeta\>
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:49
+Defined in: packages/form-core/src/FieldGroupApi.ts:50
 
 An object representing the options for a field group.
 
@@ -77,7 +77,7 @@ An object representing the options for a field group.
 optional defaultValues: TFieldGroupData;
 ```
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:105
+Defined in: packages/form-core/src/FieldGroupApi.ts:106
 
 The expected subsetValues that the form must provide.
 
@@ -89,7 +89,7 @@ The expected subsetValues that the form must provide.
 fields: TFields;
 ```
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:101
+Defined in: packages/form-core/src/FieldGroupApi.ts:102
 
 The path to the field group data.
 
@@ -103,7 +103,7 @@ form:
 | FieldGroupApi<any, TFormData, any, any, any, any, any, any, any, any, any, any, any, TSubmitMeta>;
 ```
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:67
+Defined in: packages/form-core/src/FieldGroupApi.ts:68
 
 ***
 
@@ -113,6 +113,6 @@ Defined in: packages/form-core/src/FieldGroupApi.ts:67
 optional onSubmitMeta: TSubmitMeta;
 ```
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:109
+Defined in: packages/form-core/src/FieldGroupApi.ts:110
 
 onSubmitMeta, the data passed from the handleSubmit handler, to the onSubmit function props

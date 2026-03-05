@@ -5,7 +5,7 @@ title: DefaultMessageMetadataByModality
 
 # Interface: DefaultMessageMetadataByModality
 
-Defined in: types.ts:1202
+Defined in: types.ts:1230
 
 Default metadata type for adapters that don't define custom metadata.
 Uses unknown for all modalities.
@@ -18,7 +18,7 @@ Uses unknown for all modalities.
 audio: unknown;
 ```
 
-Defined in: types.ts:1205
+Defined in: types.ts:1233
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: types.ts:1205
 document: unknown;
 ```
 
-Defined in: types.ts:1207
+Defined in: types.ts:1235
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: types.ts:1207
 image: unknown;
 ```
 
-Defined in: types.ts:1204
+Defined in: types.ts:1232
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: types.ts:1204
 text: unknown;
 ```
 
-Defined in: types.ts:1203
+Defined in: types.ts:1231
 
 ***
 
@@ -58,4 +58,4 @@ Defined in: types.ts:1203
 video: unknown;
 ```
 
-Defined in: types.ts:1206
+Defined in: types.ts:1234

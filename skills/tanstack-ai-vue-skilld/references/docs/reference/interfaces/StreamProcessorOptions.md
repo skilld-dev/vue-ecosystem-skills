@@ -5,7 +5,7 @@ title: StreamProcessorOptions
 
 # Interface: StreamProcessorOptions
 
-Defined in: activities/chat/stream/processor.ts:90
+Defined in: activities/chat/stream/processor.ts:97
 
 Options for StreamProcessor
 
@@ -17,7 +17,7 @@ Options for StreamProcessor
 optional chunkStrategy: ChunkStrategy;
 ```
 
-Defined in: activities/chat/stream/processor.ts:91
+Defined in: activities/chat/stream/processor.ts:98
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: activities/chat/stream/processor.ts:91
 optional events: StreamProcessorEvents;
 ```
 
-Defined in: activities/chat/stream/processor.ts:93
+Defined in: activities/chat/stream/processor.ts:100
 
 Event-driven handlers
 
@@ -39,7 +39,7 @@ Event-driven handlers
 optional initialMessages: UIMessage[];
 ```
 
-Defined in: activities/chat/stream/processor.ts:100
+Defined in: activities/chat/stream/processor.ts:107
 
 Initial messages to populate the processor
 
@@ -51,7 +51,7 @@ Initial messages to populate the processor
 optional jsonParser: object;
 ```
 
-Defined in: activities/chat/stream/processor.ts:94
+Defined in: activities/chat/stream/processor.ts:101
 
 #### parse()
 
@@ -77,6 +77,6 @@ parse: (jsonString) => any;
 optional recording: boolean;
 ```
 
-Defined in: activities/chat/stream/processor.ts:98
+Defined in: activities/chat/stream/processor.ts:105
 
 Enable recording for replay testing

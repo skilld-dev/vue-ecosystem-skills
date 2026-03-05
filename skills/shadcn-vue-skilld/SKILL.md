@@ -3,8 +3,8 @@ name: shadcn-vue-skilld
 description: "Add components to your apps. ALWAYS use when writing code importing \"shadcn-vue\". Consult for debugging, best practices, or modifying shadcn-vue, shadcn vue."
 metadata:
   version: 2.4.3
-  generated_at: 2026-03-02
-  references_synced_at: 2026-03-02
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # unovue/shadcn-vue `shadcn-vue`
@@ -15,7 +15,7 @@ metadata:
 **Deps:** @dotenvx/dotenvx@^1.51.1, @modelcontextprotocol/sdk@^1.24.3, @unovue/detypes@^0.8.5, @vue/compiler-sfc@^3.5, c12@^3.3.2, commander@^14.0.2, consola@^3.4.2, dedent@^1.7.0, deepmerge@^4.3.1, diff@^8.0.2, fs-extra@^11.3.2, fuzzysort@^3.1.0, get-tsconfig@^4.13.0, magic-string@^0.30.21, nypm@^0.6.2, ofetch@^1.5.1, ora@^9.0.0, pathe@^2.0.3, postcss@^8.5.6, prompts@^2.4.2, reka-ui@^2.6.1, semver@^7.7.3, stringify-object@^6.0.0, tailwindcss@^4.1.17, tinyexec@^1.0.2, tinyglobby@^0.2.15, ts-morph@^27.0.2, undici@^7.16.0, vue-metamorph@^3.3.3, zod@^3.25.76, zod-to-json-schema@^3.25.0
 **Tags:** radix: 0.11.4 (Feb 2025), latest: 2.4.3 (Dec 2025)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

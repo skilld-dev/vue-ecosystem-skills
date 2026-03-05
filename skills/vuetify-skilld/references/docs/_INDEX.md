@@ -176,7 +176,7 @@ total: 206
 - [Display & Platform](./src/pages/en/features/display-and-platform.md): The display composable provides a multitude of information about the current device
 - [Global configuration](./src/pages/en/features/global-configuration.md): Vuetify allows you to set default prop values globally or per component when setting up your application. Using this functionality you can for exam...
 - [Hotkeys](./src/pages/en/features/hotkey.md): Provides a simple and powerful way to register keyboard shortcuts that work across different platforms and input contexts.
-- [Icon Fonts](./src/pages/en/features/icon-fonts.md): Out of the box, Vuetify supports 4 popular icon font libraries—Material Design Icons, Material Icons, Font Awesome 4 and Font Awesome 5.
+- [Icon Fonts](./src/pages/en/features/icon-fonts.md): Out of the box, Vuetify supports many popular icon libraries—Material Design Icons, Material Icons, Font Awesome, Phosphor, Lucide, Tabler, Remix I...
 - [Internationalization (i18n)](./src/pages/en/features/internationalization.md): Vuetify supports language Internationalization (i18n) of its components.
 - [Validation rules composable](./src/pages/en/features/rules.md): The rules composable provide a multitude of validation rules to be used with form inputs.
 - [SASS variables](./src/pages/en/features/sass-variables.md): Vuetify uses SASS/SCSS to craft the style and appearance of all aspects of the framework.

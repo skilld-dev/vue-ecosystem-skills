@@ -539,11 +539,15 @@ Motion is supported by the best in the industry.
 
 
 
+animations.dev
 
 
 
 
-animations.dev 
+
+
+
+
 
 ##### Stay in the loop
 
@@ -553,7 +557,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.3
+12.34.5
 
 Motion+
 
@@ -571,7 +575,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.3
+12.34.5
 
 Motion+
 
@@ -589,7 +593,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.34.3
+12.34.5
 
 Motion+
 

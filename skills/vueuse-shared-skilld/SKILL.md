@@ -3,8 +3,8 @@ name: vueuse-shared-skilld
 description: "ALWAYS use when writing code importing \"@vueuse/shared\". Consult for debugging, best practices, or modifying @vueuse/shared, vueuse/shared, vueuse shared, vueuse."
 metadata:
   version: 14.2.1
-  generated_at: 2026-03-02
-  references_synced_at: 2026-03-02
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # vueuse/vueuse `@vueuse/shared`
@@ -12,7 +12,7 @@ metadata:
 **Version:** 14.2.1 (Feb 2026)
 **Tags:** next: 5.0.0 (Jun 2021), alpha: 14.0.0-alpha.3 (Sep 2025), beta: 14.0.0-beta.1 (Sep 2025), latest: 14.2.1 (Feb 2026)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

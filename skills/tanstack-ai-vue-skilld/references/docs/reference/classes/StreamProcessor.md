@@ -5,7 +5,7 @@ title: StreamProcessor
 
 # Class: StreamProcessor
 
-Defined in: activities/chat/stream/processor.ts:120
+Defined in: activities/chat/stream/processor.ts:127
 
 StreamProcessor - State machine for processing AI response streams
 
@@ -33,7 +33,7 @@ State tracking:
 new StreamProcessor(options): StreamProcessor;
 ```
 
-Defined in: activities/chat/stream/processor.ts:147
+Defined in: activities/chat/stream/processor.ts:154
 
 #### Parameters
 
@@ -53,7 +53,7 @@ Defined in: activities/chat/stream/processor.ts:147
 addToolApprovalResponse(approvalId, approved): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:329
+Defined in: activities/chat/stream/processor.ts:336
 
 Add an approval response (called by client after handling onApprovalRequest)
 
@@ -82,7 +82,7 @@ addToolResult(
    error?): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:285
+Defined in: activities/chat/stream/processor.ts:292
 
 Add a tool result (called by client after handling onToolCall)
 
@@ -112,7 +112,7 @@ Add a tool result (called by client after handling onToolCall)
 addUserMessage(content, id?): UIMessage;
 ```
 
-Defined in: activities/chat/stream/processor.ts:194
+Defined in: activities/chat/stream/processor.ts:201
 
 Add a user message to the conversation.
 Supports both simple string content and multimodal content arrays.
@@ -161,7 +161,7 @@ processor.addUserMessage('Hello!', 'custom-id-123')
 areAllToolsComplete(): boolean;
 ```
 
-Defined in: activities/chat/stream/processor.ts:360
+Defined in: activities/chat/stream/processor.ts:367
 
 Check if all tool calls in the last assistant message are complete
 Useful for auto-continue logic
@@ -178,7 +178,7 @@ Useful for auto-continue logic
 clearMessages(): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:404
+Defined in: activities/chat/stream/processor.ts:411
 
 Clear all messages
 
@@ -194,7 +194,7 @@ Clear all messages
 finalizeStream(): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:954
+Defined in: activities/chat/stream/processor.ts:972
 
 Finalize the stream — complete all pending operations.
 
@@ -218,7 +218,7 @@ docs/chat-architecture.md#single-shot-text-response — Finalization step
 getCurrentAssistantMessageId(): string | null;
 ```
 
-Defined in: activities/chat/stream/processor.ts:246
+Defined in: activities/chat/stream/processor.ts:253
 
 Get the current assistant message ID (if one has been created).
 Returns null if prepareAssistantMessage() was called but no content
@@ -236,7 +236,7 @@ has arrived yet.
 getMessages(): UIMessage[];
 ```
 
-Defined in: activities/chat/stream/processor.ts:352
+Defined in: activities/chat/stream/processor.ts:359
 
 Get current messages
 
@@ -252,7 +252,7 @@ Get current messages
 getRecording(): ChunkRecording | null;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1051
+Defined in: activities/chat/stream/processor.ts:1069
 
 Get the current recording
 
@@ -268,7 +268,7 @@ Get the current recording
 getState(): ProcessorState;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1024
+Defined in: activities/chat/stream/processor.ts:1042
 
 Get current processor state
 
@@ -284,7 +284,7 @@ Get current processor state
 prepareAssistantMessage(): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:224
+Defined in: activities/chat/stream/processor.ts:231
 
 Prepare for a new assistant message stream.
 Does NOT create the message immediately -- the message is created lazily
@@ -304,7 +304,7 @@ auto-continuation produces no content.
 process(stream): Promise<ProcessorResult>;
 ```
 
-Defined in: activities/chat/stream/processor.ts:417
+Defined in: activities/chat/stream/processor.ts:424
 
 Process a stream and emit events through handlers
 
@@ -326,7 +326,7 @@ Process a stream and emit events through handlers
 processChunk(chunk): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:451
+Defined in: activities/chat/stream/processor.ts:458
 
 Process a single chunk from the stream.
 
@@ -356,7 +356,7 @@ docs/chat-architecture.md#adapter-contract — Expected event types and ordering
 removeMessagesAfter(index): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:396
+Defined in: activities/chat/stream/processor.ts:403
 
 Remove messages after a certain index (for reload/retry)
 
@@ -378,7 +378,7 @@ Remove messages after a certain index (for reload/retry)
 reset(): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1074
+Defined in: activities/chat/stream/processor.ts:1092
 
 Full reset (including messages)
 
@@ -394,7 +394,7 @@ Full reset (including messages)
 setMessages(messages): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:166
+Defined in: activities/chat/stream/processor.ts:173
 
 Set the messages array (e.g., from persisted state)
 
@@ -416,7 +416,7 @@ Set the messages array (e.g., from persisted state)
 startAssistantMessage(): string;
 ```
 
-Defined in: activities/chat/stream/processor.ts:236
+Defined in: activities/chat/stream/processor.ts:243
 
 #### Returns
 
@@ -435,7 +435,7 @@ an assistant message which can cause empty message flicker.
 startRecording(): void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1038
+Defined in: activities/chat/stream/processor.ts:1056
 
 Start recording chunks
 
@@ -454,7 +454,7 @@ toModelMessages(): ModelMessage<
   | null>[];
 ```
 
-Defined in: activities/chat/stream/processor.ts:341
+Defined in: activities/chat/stream/processor.ts:348
 
 Get the conversation as ModelMessages (for sending to LLM)
 
@@ -473,7 +473,7 @@ Get the conversation as ModelMessages (for sending to LLM)
 static replay(recording, options?): Promise<ProcessorResult>;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1094
+Defined in: activities/chat/stream/processor.ts:1112
 
 Replay a recording through the processor
 
