@@ -98,7 +98,7 @@
   },
   {
     'name': 'modelValue',
-    'description': '<p>The controlled checked state of the calendar</p>\n',
+    'description': '<p>The controlled selected date value of the calendar. Can be bound as <code>v-model</code>.</p>\n',
     'type': 'DateValue | DateValue[]',
     'required': false
   },

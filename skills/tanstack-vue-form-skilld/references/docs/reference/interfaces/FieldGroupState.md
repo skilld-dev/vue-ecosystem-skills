@@ -5,7 +5,7 @@ title: FieldGroupState
 
 # Interface: FieldGroupState\<TFieldGroupData\>
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:39
+Defined in: packages/form-core/src/FieldGroupApi.ts:40
 
 ## Type Parameters
 
@@ -21,6 +21,6 @@ Defined in: packages/form-core/src/FieldGroupApi.ts:39
 values: TFieldGroupData;
 ```
 
-Defined in: packages/form-core/src/FieldGroupApi.ts:43
+Defined in: packages/form-core/src/FieldGroupApi.ts:44
 
 The current values of the field group

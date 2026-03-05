@@ -5,7 +5,7 @@ title: TextMessageContentEvent
 
 # Interface: TextMessageContentEvent
 
-Defined in: types.ts:788
+Defined in: types.ts:816
 
 Emitted when text content is generated (streaming tokens).
 
@@ -21,7 +21,7 @@ Emitted when text content is generated (streaming tokens).
 optional content: string;
 ```
 
-Defined in: types.ts:795
+Defined in: types.ts:823
 
 Full accumulated content so far (optional, for debugging)
 
@@ -33,7 +33,7 @@ Full accumulated content so far (optional, for debugging)
 delta: string;
 ```
 
-Defined in: types.ts:793
+Defined in: types.ts:821
 
 The incremental content token
 
@@ -45,7 +45,7 @@ The incremental content token
 messageId: string;
 ```
 
-Defined in: types.ts:791
+Defined in: types.ts:819
 
 Message identifier
 
@@ -57,7 +57,7 @@ Message identifier
 optional model: string;
 ```
 
-Defined in: types.ts:722
+Defined in: types.ts:750
 
 Model identifier for multi-model support
 
@@ -73,7 +73,7 @@ Model identifier for multi-model support
 optional rawEvent: unknown;
 ```
 
-Defined in: types.ts:724
+Defined in: types.ts:752
 
 Original provider event for debugging/advanced use cases
 
@@ -89,7 +89,7 @@ Original provider event for debugging/advanced use cases
 timestamp: number;
 ```
 
-Defined in: types.ts:720
+Defined in: types.ts:748
 
 #### Inherited from
 
@@ -103,7 +103,7 @@ Defined in: types.ts:720
 type: "TEXT_MESSAGE_CONTENT";
 ```
 
-Defined in: types.ts:789
+Defined in: types.ts:817
 
 #### Overrides
 

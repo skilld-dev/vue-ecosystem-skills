@@ -9,7 +9,7 @@ title: toolDefinition
 function toolDefinition<TInput, TOutput, TName>(config): ToolDefinition<TInput, TOutput, TName>;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:183
+Defined in: activities/chat/tools/tool-definition.ts:185
 
 Create an isomorphic tool definition that can be used directly or instantiated for server/client
 

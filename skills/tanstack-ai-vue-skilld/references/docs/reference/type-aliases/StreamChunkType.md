@@ -9,6 +9,6 @@ title: StreamChunkType
 type StreamChunkType = AGUIEventType;
 ```
 
-Defined in: types.ts:712
+Defined in: types.ts:740
 
 Stream chunk/event types (AG-UI protocol).

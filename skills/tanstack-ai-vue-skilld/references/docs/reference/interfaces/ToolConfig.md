@@ -5,7 +5,7 @@ title: ToolConfig
 
 # Interface: ToolConfig
 
-Defined in: types.ts:472
+Defined in: types.ts:500
 
 ## Indexable
 

@@ -9,7 +9,7 @@ title: InferToolName
 type InferToolName<T> = T extends object ? N : never;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:61
+Defined in: activities/chat/tools/tool-definition.ts:62
 
 Extract the tool name as a literal type
 

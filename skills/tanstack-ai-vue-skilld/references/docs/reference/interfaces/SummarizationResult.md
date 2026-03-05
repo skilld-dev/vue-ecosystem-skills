@@ -5,7 +5,7 @@ title: SummarizationResult
 
 # Interface: SummarizationResult
 
-Defined in: types.ts:949
+Defined in: types.ts:977
 
 ## Properties
 
@@ -15,7 +15,7 @@ Defined in: types.ts:949
 id: string;
 ```
 
-Defined in: types.ts:950
+Defined in: types.ts:978
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: types.ts:950
 model: string;
 ```
 
-Defined in: types.ts:951
+Defined in: types.ts:979
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: types.ts:951
 summary: string;
 ```
 
-Defined in: types.ts:952
+Defined in: types.ts:980
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: types.ts:952
 usage: object;
 ```
 
-Defined in: types.ts:953
+Defined in: types.ts:981
 
 #### completionTokens
 

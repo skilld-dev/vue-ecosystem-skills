@@ -9,7 +9,7 @@ title: createReplayStream
 function createReplayStream(recording): AsyncIterable<AGUIEvent>;
 ```
 
-Defined in: activities/chat/stream/processor.ts:1106
+Defined in: activities/chat/stream/processor.ts:1124
 
 Create an async iterable from a recording
 

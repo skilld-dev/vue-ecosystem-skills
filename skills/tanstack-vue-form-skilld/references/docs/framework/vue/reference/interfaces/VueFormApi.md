@@ -5,7 +5,7 @@ title: VueFormApi
 
 # Interface: VueFormApi\<TParentData, TFormOnMount, TFormOnChange, TFormOnChangeAsync, TFormOnBlur, TFormOnBlurAsync, TFormOnSubmit, TFormOnSubmitAsync, TFormOnDynamic, TFormOnDynamicAsync, TFormOnServer, TSubmitMeta\>
 
-Defined in: packages/vue-form/src/useForm.tsx:125
+Defined in: packages/vue-form/src/useForm.tsx:124
 
 ## Type Parameters
 
@@ -65,7 +65,7 @@ Defined in: packages/vue-form/src/useForm.tsx:125
 Field: FieldComponent<TParentData, TFormOnMount, TFormOnChange, TFormOnChangeAsync, TFormOnBlur, TFormOnBlurAsync, TFormOnSubmit, TFormOnSubmitAsync, TFormOnDynamic, TFormOnDynamicAsync, TFormOnServer, TSubmitMeta>;
 ```
 
-Defined in: packages/vue-form/src/useForm.tsx:139
+Defined in: packages/vue-form/src/useForm.tsx:138
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: packages/vue-form/src/useForm.tsx:139
 Subscribe: SubscribeComponent<TParentData, TFormOnMount, TFormOnChange, TFormOnChangeAsync, TFormOnBlur, TFormOnBlurAsync, TFormOnSubmit, TFormOnSubmitAsync, TFormOnDynamic, TFormOnDynamicAsync, TFormOnServer>;
 ```
 
-Defined in: packages/vue-form/src/useForm.tsx:202
+Defined in: packages/vue-form/src/useForm.tsx:201
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: packages/vue-form/src/useForm.tsx:202
 useField: UseField<TParentData, TFormOnMount, TFormOnChange, TFormOnChangeAsync, TFormOnBlur, TFormOnBlurAsync, TFormOnSubmit, TFormOnSubmitAsync, TFormOnDynamic, TFormOnDynamicAsync, TFormOnServer, TSubmitMeta>;
 ```
 
-Defined in: packages/vue-form/src/useForm.tsx:153
+Defined in: packages/vue-form/src/useForm.tsx:152
 
 ***
 
@@ -95,13 +95,13 @@ Defined in: packages/vue-form/src/useForm.tsx:153
 useStore: <TSelected>(selector?) => Readonly<Ref<TSelected>>;
 ```
 
-Defined in: packages/vue-form/src/useForm.tsx:167
+Defined in: packages/vue-form/src/useForm.tsx:166
 
 #### Type Parameters
 
 ##### TSelected
 
-`TSelected` = `FormState`\<`TParentData`, `TFormOnMount`, `TFormOnChange`, `TFormOnChangeAsync`, `TFormOnBlur`, `TFormOnBlurAsync`, `TFormOnSubmit`, `TFormOnSubmitAsync`, `TFormOnDynamic`, `TFormOnDynamicAsync`, `TFormOnServer`\>
+`TSelected` = `NoInfer`\<`FormState`\<`TParentData`, `TFormOnMount`, `TFormOnChange`, `TFormOnChangeAsync`, `TFormOnBlur`, `TFormOnBlurAsync`, `TFormOnSubmit`, `TFormOnSubmitAsync`, `TFormOnDynamic`, `TFormOnDynamicAsync`, `TFormOnServer`\>\>
 
 #### Parameters
 

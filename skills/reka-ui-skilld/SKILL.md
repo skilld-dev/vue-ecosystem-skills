@@ -2,20 +2,20 @@
 name: reka-ui-skilld
 description: "Vue port for Radix UI Primitives. ALWAYS use when writing code importing \"reka-ui\". Consult for debugging, best practices, or modifying reka-ui, reka ui."
 metadata:
-  version: 2.8.2
-  generated_at: 2026-03-02
-  references_synced_at: 2026-03-02
+  version: 2.9.0
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # unovue/reka-ui `reka-ui`
 
 > Vue port for Radix UI Primitives.
 
-**Version:** 2.8.2 (Feb 2026)
+**Version:** 2.9.0 (Mar 2026)
 **Deps:** @floating-ui/dom@^1.6.13, @floating-ui/vue@^1.1.6, @internationalized/date@^3.5.0, @internationalized/number@^3.5.0, @tanstack/vue-virtual@^3.12.0, @vueuse/core@^14.1.0, @vueuse/shared@^14.1.0, aria-hidden@^1.2.4, defu@^6.1.4, ohash@^2.0.11
-**Tags:** latest: 2.8.2 (Feb 2026)
+**Tags:** latest: 2.9.0 (Mar 2026)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

@@ -3,8 +3,8 @@ name: vue-i18n-skilld
 description: "Internationalization plugin for Vue.js. ALWAYS use when writing code importing \"vue-i18n\". Consult for debugging, best practices, or modifying vue-i18n, vue i18n."
 metadata:
   version: 11.2.8
-  generated_at: 2026-03-02
-  references_synced_at: 2026-03-02
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # intlify/vue-i18n `vue-i18n`
@@ -15,7 +15,7 @@ metadata:
 **Deps:** @vue/devtools-api@^6.5.0, @intlify/core-base@11.2.8, @intlify/shared@11.2.8
 **Tags:** rc: 9.0.0-rc.9 (Feb 2021), alpha: 9.2.0-alpha.9 (Jul 2021), legacy: 8.28.2 (Oct 2022), edge: 9.3.0-beta.14-77e850b (Jan 2023), beta: 9.3.0-beta.27 (Aug 2023), next: 12.0.0-alpha.3 (Jul 2025), stable: 11.1.10 (Jul 2025), legacy10: 10.0.8 (Jul 2025), stable9: 9.14.5 (Jul 2025), legacy9: 9.14.5 (Jul 2025), latest: 11.2.8 (Dec 2025)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

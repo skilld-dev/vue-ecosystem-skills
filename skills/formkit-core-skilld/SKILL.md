@@ -3,8 +3,8 @@ name: formkit-core-skilld
 description: "The framework agnostic core of FormKit. ALWAYS use when writing code importing \"@formkit/core\". Consult for debugging, best practices, or modifying @formkit/core, formkit/core, formkit core, formkit."
 metadata:
   version: 1.7.2
-  generated_at: 2026-03-02
-  references_synced_at: 2026-03-02
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # formkit/formkit `@formkit/core`
@@ -15,7 +15,7 @@ metadata:
 **Deps:** @formkit/utils@^1.7.2
 **Tags:** perf: 1.0.0-beta.13-c578106 (Nov 2022), dev: 1.7.1-dev.3466e73 (Dec 2025), latest: 1.7.2 (Dec 2025), next: 1.7.2-next.296355 (Dec 2025)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

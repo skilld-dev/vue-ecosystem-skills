@@ -9,7 +9,7 @@ title: DerivedFormState
 type DerivedFormState<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync, TOnServer> = object;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:621
+Defined in: packages/form-core/src/FormApi.ts:622
 
 ## Extended by
 
@@ -69,7 +69,7 @@ Defined in: packages/form-core/src/FormApi.ts:621
 canSubmit: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:692
+Defined in: packages/form-core/src/FormApi.ts:693
 
 A boolean indicating if the form can be submitted based on its current state.
 
@@ -91,7 +91,7 @@ errors: (
   | UnwrapFormAsyncValidateOrFn<TOnServer>)[];
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:645
+Defined in: packages/form-core/src/FormApi.ts:646
 
 The error array for the form itself.
 
@@ -103,7 +103,7 @@ The error array for the form itself.
 fieldMeta: Partial<Record<DeepKeys<TFormData>, AnyFieldMeta>>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:696
+Defined in: packages/form-core/src/FormApi.ts:697
 
 A record of field metadata for each field in the form.
 
@@ -115,7 +115,7 @@ A record of field metadata for each field in the form.
 isBlurred: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:672
+Defined in: packages/form-core/src/FormApi.ts:673
 
 A boolean indicating if any of the form fields have been blurred.
 
@@ -127,7 +127,7 @@ A boolean indicating if any of the form fields have been blurred.
 isDefaultValue: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:684
+Defined in: packages/form-core/src/FormApi.ts:685
 
 A boolean indicating if all of the form's fields are the same as default values.
 
@@ -139,7 +139,7 @@ A boolean indicating if all of the form's fields are the same as default values.
 isDirty: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:676
+Defined in: packages/form-core/src/FormApi.ts:677
 
 A boolean indicating if any of the form's fields' values have been modified by the user. Evaluates `true` if the user have modified at least one of the fields. Opposite of `isPristine`.
 
@@ -151,7 +151,7 @@ A boolean indicating if any of the form's fields' values have been modified by t
 isFieldsValid: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:664
+Defined in: packages/form-core/src/FormApi.ts:665
 
 A boolean indicating if all the form fields are valid. Evaluates `true` if there are no field errors.
 
@@ -163,7 +163,7 @@ A boolean indicating if all the form fields are valid. Evaluates `true` if there
 isFieldsValidating: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:660
+Defined in: packages/form-core/src/FormApi.ts:661
 
 A boolean indicating if any of the form fields are currently validating.
 
@@ -175,7 +175,7 @@ A boolean indicating if any of the form fields are currently validating.
 isFormValid: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:641
+Defined in: packages/form-core/src/FormApi.ts:642
 
 A boolean indicating if the form is valid.
 
@@ -187,7 +187,7 @@ A boolean indicating if the form is valid.
 isFormValidating: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:637
+Defined in: packages/form-core/src/FormApi.ts:638
 
 A boolean indicating if the form is currently validating.
 
@@ -199,7 +199,7 @@ A boolean indicating if the form is currently validating.
 isPristine: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:680
+Defined in: packages/form-core/src/FormApi.ts:681
 
 A boolean indicating if none of the form's fields' values have been modified by the user. Evaluates `true` if the user have not modified any of the fields. Opposite of `isDirty`.
 
@@ -211,7 +211,7 @@ A boolean indicating if none of the form's fields' values have been modified by 
 isTouched: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:668
+Defined in: packages/form-core/src/FormApi.ts:669
 
 A boolean indicating if any of the form fields have been touched.
 
@@ -223,6 +223,6 @@ A boolean indicating if any of the form fields have been touched.
 isValid: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:688
+Defined in: packages/form-core/src/FormApi.ts:689
 
 A boolean indicating if the form and all its fields are valid. Evaluates `true` if there are no errors.

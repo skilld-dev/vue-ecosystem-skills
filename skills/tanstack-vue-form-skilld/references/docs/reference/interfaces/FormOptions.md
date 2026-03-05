@@ -5,7 +5,7 @@ title: FormOptions
 
 # Interface: FormOptions\<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync, TOnServer, TSubmitMeta\>
 
-Defined in: packages/form-core/src/FormApi.ts:327
+Defined in: packages/form-core/src/FormApi.ts:328
 
 An object representing the options for a form.
 
@@ -71,7 +71,7 @@ An object representing the options for a form.
 optional asyncAlways: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:366
+Defined in: packages/form-core/src/FormApi.ts:367
 
 If true, always run async validation, even when sync validation has produced an error. Defaults to undefined.
 
@@ -83,7 +83,7 @@ If true, always run async validation, even when sync validation has produced an 
 optional asyncDebounceMs: number;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:370
+Defined in: packages/form-core/src/FormApi.ts:371
 
 Optional time in milliseconds if you want to introduce a delay before firing off an async action.
 
@@ -95,7 +95,7 @@ Optional time in milliseconds if you want to introduce a delay before firing off
 optional canSubmitWhenInvalid: boolean;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:374
+Defined in: packages/form-core/src/FormApi.ts:375
 
 If true, allows the form to be submitted in an invalid state i.e. canSubmit will remain true regardless of validation errors. Defaults to undefined.
 
@@ -107,7 +107,7 @@ If true, allows the form to be submitted in an invalid state i.e. canSubmit will
 optional defaultState: Partial<FormState<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync, TOnServer>>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:348
+Defined in: packages/form-core/src/FormApi.ts:349
 
 The default state for the form.
 
@@ -119,7 +119,7 @@ The default state for the form.
 optional defaultValues: TFormData;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:317
+Defined in: packages/form-core/src/FormApi.ts:318
 
 Set initial values for your form.
 
@@ -135,7 +135,7 @@ Set initial values for your form.
 optional formId: string;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:344
+Defined in: packages/form-core/src/FormApi.ts:345
 
 The form name, used for devtools and identification
 
@@ -147,7 +147,7 @@ The form name, used for devtools and identification
 optional listeners: FormListeners<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync, TOnServer, TSubmitMeta>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:396
+Defined in: packages/form-core/src/FormApi.ts:397
 
 form level listeners
 
@@ -159,7 +159,7 @@ form level listeners
 optional onSubmit: (props) => any;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:414
+Defined in: packages/form-core/src/FormApi.ts:415
 
 A function to be called when the form is submitted, what should happen once the user submits a valid form returns `any` or a promise `Promise<any>`
 
@@ -191,7 +191,7 @@ A function to be called when the form is submitted, what should happen once the 
 optional onSubmitInvalid: (props) => void;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:435
+Defined in: packages/form-core/src/FormApi.ts:436
 
 Specify an action for scenarios where the user tries to submit an invalid form.
 
@@ -223,7 +223,7 @@ Specify an action for scenarios where the user tries to submit an invalid form.
 optional onSubmitMeta: TSubmitMeta;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:321
+Defined in: packages/form-core/src/FormApi.ts:322
 
 onSubmitMeta, the data passed from the handleSubmit handler, to the onSubmit function props
 
@@ -239,7 +239,7 @@ onSubmitMeta, the data passed from the handleSubmit handler, to the onSubmit fun
 optional transform: (data) => unknown;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:459
+Defined in: packages/form-core/src/FormApi.ts:460
 
 #### Parameters
 
@@ -259,7 +259,7 @@ Defined in: packages/form-core/src/FormApi.ts:459
 optional validationLogic: ValidationLogicFn;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:391
+Defined in: packages/form-core/src/FormApi.ts:392
 
 ***
 
@@ -269,6 +269,6 @@ Defined in: packages/form-core/src/FormApi.ts:391
 optional validators: FormValidators<TFormData, TOnMount, TOnChange, TOnChangeAsync, TOnBlur, TOnBlurAsync, TOnSubmit, TOnSubmitAsync, TOnDynamic, TOnDynamicAsync>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:378
+Defined in: packages/form-core/src/FormApi.ts:379
 
 A list of validators to pass to the form

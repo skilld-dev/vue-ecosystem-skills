@@ -9,7 +9,7 @@ title: FormValidator
 type FormValidator<TFormData, TType, TFn> = object;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:145
+Defined in: packages/form-core/src/FormApi.ts:146
 
 ## Type Parameters
 
@@ -33,7 +33,7 @@ Defined in: packages/form-core/src/FormApi.ts:145
 validate(options, fn): unknown;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:146
+Defined in: packages/form-core/src/FormApi.ts:147
 
 #### Parameters
 
@@ -59,7 +59,7 @@ Defined in: packages/form-core/src/FormApi.ts:146
 validateAsync(options, fn): Promise<unknown>;
 ```
 
-Defined in: packages/form-core/src/FormApi.ts:147
+Defined in: packages/form-core/src/FormApi.ts:148
 
 #### Parameters
 

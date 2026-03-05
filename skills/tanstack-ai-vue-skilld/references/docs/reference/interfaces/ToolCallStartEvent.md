@@ -5,7 +5,7 @@ title: ToolCallStartEvent
 
 # Interface: ToolCallStartEvent
 
-Defined in: types.ts:810
+Defined in: types.ts:838
 
 Emitted when a tool call starts.
 
@@ -21,7 +21,7 @@ Emitted when a tool call starts.
 optional index: number;
 ```
 
-Defined in: types.ts:817
+Defined in: types.ts:845
 
 Index for parallel tool calls
 
@@ -33,7 +33,7 @@ Index for parallel tool calls
 optional model: string;
 ```
 
-Defined in: types.ts:722
+Defined in: types.ts:750
 
 Model identifier for multi-model support
 
@@ -49,7 +49,7 @@ Model identifier for multi-model support
 optional rawEvent: unknown;
 ```
 
-Defined in: types.ts:724
+Defined in: types.ts:752
 
 Original provider event for debugging/advanced use cases
 
@@ -65,7 +65,7 @@ Original provider event for debugging/advanced use cases
 timestamp: number;
 ```
 
-Defined in: types.ts:720
+Defined in: types.ts:748
 
 #### Inherited from
 
@@ -79,7 +79,7 @@ Defined in: types.ts:720
 toolCallId: string;
 ```
 
-Defined in: types.ts:813
+Defined in: types.ts:841
 
 Unique identifier for this tool call
 
@@ -91,7 +91,7 @@ Unique identifier for this tool call
 toolName: string;
 ```
 
-Defined in: types.ts:815
+Defined in: types.ts:843
 
 Name of the tool being called
 
@@ -103,7 +103,7 @@ Name of the tool being called
 type: "TOOL_CALL_START";
 ```
 
-Defined in: types.ts:811
+Defined in: types.ts:839
 
 #### Overrides
 

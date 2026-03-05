@@ -5,7 +5,7 @@ title: ImageGenerationResult
 
 # Interface: ImageGenerationResult
 
-Defined in: types.ts:999
+Defined in: types.ts:1027
 
 Result of image generation
 
@@ -17,7 +17,7 @@ Result of image generation
 id: string;
 ```
 
-Defined in: types.ts:1001
+Defined in: types.ts:1029
 
 Unique identifier for the generation
 
@@ -29,7 +29,7 @@ Unique identifier for the generation
 images: GeneratedImage[];
 ```
 
-Defined in: types.ts:1005
+Defined in: types.ts:1033
 
 Array of generated images
 
@@ -41,7 +41,7 @@ Array of generated images
 model: string;
 ```
 
-Defined in: types.ts:1003
+Defined in: types.ts:1031
 
 Model used for generation
 
@@ -53,7 +53,7 @@ Model used for generation
 optional usage: object;
 ```
 
-Defined in: types.ts:1007
+Defined in: types.ts:1035
 
 Token usage information (if available)
 

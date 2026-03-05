@@ -45,6 +45,36 @@ Defined in: activities/chat/stream/processor.ts:69
 
 ***
 
+### onCustomEvent()?
+
+```ts
+optional onCustomEvent: (eventType, data, context) => void;
+```
+
+Defined in: activities/chat/stream/processor.ts:77
+
+#### Parameters
+
+##### eventType
+
+`string`
+
+##### data
+
+`unknown`
+
+##### context
+
+###### toolCallId?
+
+`string`
+
+#### Returns
+
+`void`
+
+***
+
 ### onError()?
 
 ```ts
@@ -125,7 +155,7 @@ Defined in: activities/chat/stream/processor.ts:59
 optional onTextUpdate: (messageId, content) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:77
+Defined in: activities/chat/stream/processor.ts:84
 
 #### Parameters
 
@@ -149,7 +179,7 @@ Defined in: activities/chat/stream/processor.ts:77
 optional onThinkingUpdate: (messageId, content) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:84
+Defined in: activities/chat/stream/processor.ts:91
 
 #### Parameters
 
@@ -203,7 +233,7 @@ Defined in: activities/chat/stream/processor.ts:64
 optional onToolCallStateChange: (messageId, toolCallId, state, args) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:78
+Defined in: activities/chat/stream/processor.ts:85
 
 #### Parameters
 

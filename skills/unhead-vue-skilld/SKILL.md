@@ -1,20 +1,21 @@
 ---
 name: unhead-vue-skilld
-description: "ALWAYS use when writing code importing \"@unhead/vue\". Consult for debugging, best practices, or modifying @unhead/vue, unhead/vue, unhead vue, unhead."
+description: "Full-stack head manager built for Vue. ALWAYS use when writing code importing \"@unhead/vue\". Consult for debugging, best practices, or modifying @unhead/vue, unhead/vue, unhead vue, unhead."
 metadata:
-  version: 2.1.9
-  generated_by: Claude Code · Sonnet 4.5
-  generated_at: 2026-03-02
+  version: 2.1.10
+  generated_at: 2026-03-05
+  references_synced_at: 2026-03-05
 ---
 
 # unjs/unhead `@unhead/vue`
 
-**Version:** 2.1.9 (Feb 2026)
-**Deps:** hookable@^6.0.1, unhead@2.1.9
-**Tags:** latest: 2.1.9 (Feb 2026), next: 3.0.0-beta.9 (Feb 2026), beta: 3.0.0-beta.10 (Feb 2026)
+> Full-stack <head> manager built for Vue.
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**Version:** 2.1.10 (Mar 2026)
+**Deps:** hookable@^6.0.1, unhead@2.1.10
+**Tags:** next: 3.0.0-beta.9 (Feb 2026), beta: 3.0.0-beta.11 (Mar 2026), latest: 2.1.10 (Mar 2026)
 
+**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

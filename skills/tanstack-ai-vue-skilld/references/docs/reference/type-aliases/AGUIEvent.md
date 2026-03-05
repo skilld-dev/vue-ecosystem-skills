@@ -23,6 +23,6 @@ type AGUIEvent =
   | CustomEvent;
 ```
 
-Defined in: types.ts:904
+Defined in: types.ts:932
 
 Union of all AG-UI events.
