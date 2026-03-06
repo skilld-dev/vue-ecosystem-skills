@@ -3,8 +3,8 @@ name: primevue-skilld
 description: "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and profe.... ALWAYS use when writing code importing \"primevue\". Consult for debugging, best practices, or modifying primevue."
 metadata:
   version: 4.5.4
-  generated_at: 2026-03-05
-  references_synced_at: 2026-03-05
+  generated_at: 2026-03-06
+  references_synced_at: 2026-03-06
 ---
 
 # primefaces/primevue `primevue`

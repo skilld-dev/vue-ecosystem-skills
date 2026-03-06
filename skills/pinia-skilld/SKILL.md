@@ -3,8 +3,8 @@ name: pinia-skilld
 description: "Intuitive, type safe and flexible Store for Vue. ALWAYS use when writing code importing \"pinia\". Consult for debugging, best practices, or modifying pinia."
 metadata:
   version: 3.0.4
-  generated_at: 2026-03-05
-  references_synced_at: 2026-03-05
+  generated_at: 2026-03-06
+  references_synced_at: 2026-03-06
 ---
 
 # vuejs/pinia `pinia`

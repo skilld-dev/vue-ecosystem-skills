@@ -3,8 +3,8 @@ name: floating-ui-vue-skilld
 description: "Floating UI for Vue. ALWAYS use when writing code importing \"@floating-ui/vue\". Consult for debugging, best practices, or modifying @floating-ui/vue, floating-ui/vue, floating-ui vue, floating ui vue, floating-ui, floating ui."
 metadata:
   version: 1.1.11
-  generated_at: 2026-03-05
-  references_synced_at: 2026-03-05
+  generated_at: 2026-03-06
+  references_synced_at: 2026-03-06
 ---
 
 # floating-ui/floating-ui `@floating-ui/vue`

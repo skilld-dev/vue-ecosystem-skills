@@ -3,8 +3,8 @@ name: vue-skilld
 description: "The progressive JavaScript framework for building modern web UI. ALWAYS use when editing or working with *.vue files or code importing \"vue\". Consult for debugging, best practices, or modifying vue, core."
 metadata:
   version: 3.6.0-beta.7
-  generated_at: 2026-03-05
-  references_synced_at: 2026-03-05
+  generated_at: 2026-03-06
+  references_synced_at: 2026-03-06
 ---
 
 # vuejs/core `vue`

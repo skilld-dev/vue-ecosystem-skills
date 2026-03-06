@@ -3,8 +3,8 @@ name: vue-test-utils-skilld
 description: "ALWAYS use when writing code importing \"@vue/test-utils\". Consult for debugging, best practices, or modifying @vue/test-utils, vue/test-utils, vue test-utils, vue test utils, test-utils, test utils."
 metadata:
   version: 2.4.6
-  generated_at: 2026-03-05
-  references_synced_at: 2026-03-05
+  generated_at: 2026-03-06
+  references_synced_at: 2026-03-06
 ---
 
 # vuejs/test-utils `@vue/test-utils`
