@@ -1,0 +1,213 @@
+---
+title: "ssr:rendered Hook · Unhead"
+meta:
+  "og:description": "Hook called after SSR completes. Post-process HTML output, implement caching, and collect rendering metrics."
+  "og:title": "ssr:rendered Hook · Unhead"
+  description: "Hook called after SSR completes. Post-process HTML output, implement caching, and collect rendering metrics."
+---
+
+**Hooks**
+
+# **ssr:rendered Hook**
+
+Copy for LLMs
+
+**On this page **
+
+- [Hook Signature](#hook-signature)
+- [Usage Example](#usage-example)
+- [Use Cases](#use-cases)
+
+The `ssr:rendered` hook is called after the server-side rendering process has completed and all head tags have been converted to HTML strings. This hook provides access to the final HTML output and allows for post-processing of the rendered HTML.
+
+## [Hook Signature](#hook-signature)
+
+```
+export interface Hook {
+  'ssr:rendered': (ctx: SSRRenderContext) => SyncHookResult
+}
+```
+
+### [Parameters](#parameters)
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| `ctx` | `SSRRenderContext` | Context object with rendering results |
+
+The `SSRRenderContext` interface is defined as:
+
+```
+interface SSRRenderContext {
+  tags: HeadTag[]
+  html: SSRHeadPayload
+}
+
+interface SSRHeadPayload {
+  headTags: string
+  bodyTags: string
+  bodyTagsOpen: string
+  htmlAttrs: string
+  bodyAttrs: string
+}
+```
+
+### [Returns](#returns)
+
+`SyncHookResult` which is `void`. This hook is synchronous and cannot be async.
+
+## [Usage Example](#usage-example)
+
+```
+import { createHead } from 'unhead'
+
+const head = createHead({
+  hooks: {
+    'ssr:rendered': (ctx) => {
+      // Log the rendered HTML
+      console.log('Head rendering complete:')
+      console.log('HTML attributes:', ctx.html.htmlAttrs)
+      console.log('Head tags:', ctx.html.headTags)
+
+      // Modify rendered HTML if needed
+      ctx.html.headTags += \`\`
+    }
+  }
+})
+```
+
+## [Use Cases](#use-cases)
+
+### [HTML Post-processing](#html-post-processing)
+
+Apply final transformations to the rendered HTML:
+
+```
+import { defineHeadPlugin } from 'unhead'
+
+export const htmlPostProcessingPlugin = defineHeadPlugin({
+  hooks: {
+    'ssr:rendered': (ctx) => {
+      // Add server timing information as an HTML comment
+      const renderTime = process.hrtime(globalThis.__UNHEAD_RENDER_START || [0, 0])
+      const renderTimeMs = Math.round((renderTime[0] * 1000) + (renderTime[1] / 1000000))
+
+      ctx.html.headTags += \`\n\`
+
+      // Add server information for debugging in staging environments
+      if (process.env.NODE_ENV === 'staging') {
+        ctx.html.headTags += \`\n\`
+      }
+
+      // Apply minification to HTML in production
+      if (process.env.NODE_ENV === 'production') {
+        // Simple minification - remove unnecessary whitespace
+        ctx.html.headTags = ctx.html.headTags
+          .replace(/>\s+</g, '><')
+          .replace(/\s{2,}/g, ' ')
+          .trim()
+      }
+    }
+  }
+})
+```
+
+### [Caching Rendered Output](#caching-rendered-output)
+
+Cache the rendered HTML for performance optimization:
+
+```
+import { defineHeadPlugin } from 'unhead'
+
+export const ssrCachePlugin = defineHeadPlugin({
+  hooks: {
+    'ssr:rendered': (ctx) => {
+      // Get the current cache key (set in ssr:beforeRender)
+      const cacheKey = globalThis.__UNHEAD_CURRENT_CACHE_KEY
+
+      if (cacheKey) {
+        // Initialize cache if needed
+        globalThis.__UNHEAD_CACHE = globalThis.__UNHEAD_CACHE || {}
+
+        // Store rendered HTML in cache
+        globalThis.__UNHEAD_CACHE[cacheKey] = {
+          html: { ...ctx.html },
+          timestamp: Date.now(),
+          tags: ctx.tags.length
+        }
+
+        // Log caching information
+        console.log(\`Cached head HTML for key: ${cacheKey} (${ctx.tags.length} tags)\`)
+
+        // Set expiration time
+        setTimeout(() => {
+          if (globalThis.__UNHEAD_CACHE && globalThis.__UNHEAD_CACHE[cacheKey]) {
+            delete globalThis.__UNHEAD_CACHE[cacheKey]
+            console.log(\`Expired head HTML cache for key: ${cacheKey}\`)
+          }
+        }, 300000) // Expire after 5 minutes
+      }
+    }
+  }
+})
+```
+
+### [Analytics and Monitoring](#analytics-and-monitoring)
+
+Collect metrics about the server rendering process:
+
+```
+import { defineHeadPlugin } from 'unhead'
+
+export const ssrAnalyticsPlugin = defineHeadPlugin({
+  hooks: {
+    'ssr:rendered': (ctx) => {
+      // Calculate sizes for monitoring
+      const metrics = {
+        tagsCount: ctx.tags.length,
+        htmlAttrsSize: ctx.html.htmlAttrs.length,
+        headTagsSize: ctx.html.headTags.length,
+        bodyTagsSize: ctx.html.bodyTags.length,
+        bodyAttrsSize: ctx.html.bodyAttrs.length,
+        totalSize: ctx.html.htmlAttrs.length
+          + ctx.html.headTags.length
+          + ctx.html.bodyTags.length
+          + ctx.html.bodyAttrs.length
+          + ctx.html.bodyTagsOpen.length
+      }
+
+      // Record metrics
+      if (process.env.COLLECT_METRICS) {
+        recordMetrics('unhead_ssr', metrics)
+      }
+
+      // Log warnings for unusually large payloads
+      if (metrics.totalSize > 20000) {
+        console.warn(\`Large head payload detected: ${metrics.totalSize} bytes\`)
+        console.warn(\`Tags breakdown: HTML attrs (${metrics.htmlAttrsSize}), \`
+          + \`Head tags (${metrics.headTagsSize}), \`
+          + \`Body tags (${metrics.bodyTagsSize})\`)
+      }
+    }
+  }
+})
+
+// Placeholder for your metrics collection system
+function recordMetrics(name, data) {
+  console.log(\`Recording metrics for ${name}:\`, data)
+  // Your actual metrics recording logic here
+}
+```
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**ssr:render** Hook for SSR tag processing. Add server-specific tags, apply i18n, and optimize platform-specific rendering. **script:updated** Hook triggered on script status changes. Monitor loading, manage dependencies, and implement error recovery strategies.
+
+**On this page **
+
+- [Hook Signature](#hook-signature)
+- [Usage Example](#usage-example)
+- [Use Cases](#use-cases)

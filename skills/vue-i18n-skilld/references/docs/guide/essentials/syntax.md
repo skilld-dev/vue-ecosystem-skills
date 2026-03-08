@@ -1,3 +1,6 @@
+---
+url: /guide/essentials/syntax.md
+---
 # Message Format Syntax
 
 Vue I18n can use message format syntax to localize the messages to be displayed in the UI. Vue I18n messages are interpolations and messages with various feature syntax.
@@ -244,9 +247,7 @@ The `message.snake` has `snake case`. The `message.custom_modifier` has `custom 
 You can use the interpolations (Named, List, and Literal) for the key of Linked messages.
 :::
 
-
 This example shows the use of modifiers (`@.lower`, `@.upper`, `@.capitalize`) combined with named, list, and literal interpolations.
-
 
 ```js
 const messages = {
@@ -265,6 +266,7 @@ const messages = {
   }
 }
 ```
+
 ### Named interpolation with modifier
 
 In `message.greeting`, we use a named interpolation for `{count}` and link to `message.name`, applying the .lower modifier.
@@ -276,6 +278,7 @@ The `message.greeting` is linked to the locale message key `message.name`.
 ```html
 <p>{{ $t('message.greeting', { name: 'Alice', count: 5 }) }}</p>
 ```
+
 As result, the below
 
 ```html
@@ -316,13 +319,61 @@ As result, the below
 
 The following characters used in the message format syntax are processed by the compiler as special characters:
 
-- `{`
-- `}`
-- `@`
-- `$`
-- `|`
+* `{`
+* `}`
+* `@`
+* `$`
+* `|`
 
-If you want to use these characters, you will need to use the [Literal interpolation](#literal-interpolation).
+If you want to use these characters, you can use the [Literal interpolation](#literal-interpolation) or **escape sequences**.
+
+### Escape Sequences
+
+:::tip NOTE
+Escape sequences are supported from v11.3 onwards.
+:::
+
+You can escape special characters with a backslash (`\`) prefix, similar to escape sequences in C:
+
+| Escape | Result | Description |
+|--------|--------|-------------|
+| `\{` | `{` | Literal open brace |
+| `\}` | `}` | Literal close brace |
+| `\@` | `@` | Literal at sign |
+| `\|` | `\|` | Literal pipe |
+| `\\` | `\` | Literal backslash |
+
+For example, the following locale messages resource:
+
+```js
+const messages = {
+  en: {
+    address: '{account}\\@{domain}',
+    braces: 'hello \\{world\\}',
+    choices: 'option A \\| option B'
+  }
+}
+```
+
+The following is an example of the use of `$t` in a template:
+
+```html
+<p>{{ $t('address', { account: 'foo', domain: 'domain.com' }) }}</p>
+<p>{{ $t('braces') }}</p>
+<p>{{ $t('choices') }}</p>
+```
+
+As result the below:
+
+```html
+<p>foo@domain.com</p>
+<p>hello {world}</p>
+<p>option A | option B</p>
+```
+
+:::tip NOTE
+A backslash followed by a character that is not a special character is treated as a literal backslash. For example, `\n` in a message remains as `\n` (backslash + n), not a newline.
+:::
 
 ## Rails i18n format
 
@@ -373,7 +424,7 @@ We recommended using the [Component interpolation](../advanced/component).
 :::
 
 :::warning NOTICE
-If the message contains HTML, Vue I18n outputs a warning to console when development mode (`process.env`<wbr/>`.NODE_ENV !== 'production'`), Vue I18n outputs  warning to console.
+If the message contains HTML, Vue I18n outputs a warning to console when development mode (`process.env``.NODE_ENV !== 'production'`), Vue I18n outputs  warning to console.
 
 You can control warning output with the `warnHtmlInMessage` or `warnHtmlMessage` options in `createI18n` or `useI18n`.
 :::
@@ -412,9 +463,10 @@ To help mitigate XSS risks when using HTML messages, Vue I18n provides escape pa
 
 :::tip NOTE
 The option name depends on which API mode you're using:
-- **Legacy API**: use `escapeParameterHtml`
-- **Composition API**: use `escapeParameter`
-:::
+
+* **Legacy API**: use `escapeParameterHtml`
+* **Composition API**: use `escapeParameter`
+  :::
 
 #### Legacy API
 
@@ -461,11 +513,12 @@ t('message.welcome', { name: userInput }, { escapeParameter: true })
 #### How it works
 
 When the escape parameter option is enabled:
-- HTML special characters (`<`, `>`, `"`, `'`, `&`, `/`, `=`) in interpolation parameters are escaped
-- The final translated HTML is sanitized to prevent XSS attacks:
-  - Dangerous characters in HTML attribute values are escaped
-  - Event handler attributes (`onclick`, `onerror`, etc.) are neutralized
-  - JavaScript URLs in href, src, action, formaction, and style attributes are disabled
+
+* HTML special characters (`<`, `>`, `"`, `'`, `&`, `/`, `=`) in interpolation parameters are escaped
+* The final translated HTML is sanitized to prevent XSS attacks:
+  * Dangerous characters in HTML attribute values are escaped
+  * Event handler attributes (`onclick`, `onerror`, etc.) are neutralized
+  * JavaScript URLs in href, src, action, formaction, and style attributes are disabled
 
 #### Example
 

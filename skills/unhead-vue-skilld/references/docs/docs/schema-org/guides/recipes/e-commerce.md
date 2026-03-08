@@ -1,0 +1,351 @@
+---
+title: "Schema.org for eCommerce Sites · Unhead"
+meta:
+  "og:description": "Add Product structured data with defineProduct(). Enable rich results with prices, ratings, stock status, and reviews in search."
+  "og:title": "Schema.org for eCommerce Sites · Unhead"
+  description: "Add Product structured data with defineProduct(). Enable rich results with prices, ratings, stock status, and reviews in search."
+---
+
+**Recipes**
+
+# **Schema.org for eCommerce Sites**
+
+Copy for LLMs
+
+**On this page **
+
+- [Useful Links](#useful-links)
+- [How do I mark up a product?](#how-do-i-mark-up-a-product)
+- [What does a complete product schema look like?](#what-does-a-complete-product-schema-look-like)
+- [How do I mark up product variants?](#how-do-i-mark-up-product-variants)
+- [What are the product availability values?](#what-are-the-product-availability-values)
+- [How do I mark up a product collection page?](#how-do-i-mark-up-a-product-collection-page)
+- [How do I mark up shopping cart and checkout pages?](#how-do-i-mark-up-shopping-cart-and-checkout-pages)
+- [How do I set up a store's identity?](#how-do-i-set-up-a-stores-identity)
+- [What are the best practices for eCommerce schema?](#what-are-the-best-practices-for-ecommerce-schema)
+- [What schema should I use on different eCommerce pages?](#what-schema-should-i-use-on-different-ecommerce-pages)
+- [Related Recipes](#related-recipes)
+
+Use `defineProduct()` with `offers`, `aggregateRating`, and `review` properties to enable product rich results. Google can display price, availability, ratings, and review counts directly in search results.
+
+Product structured data enables rich snippets showing prices, star ratings, stock status, and reviews - significantly improving visibility and click-through rates for eCommerce pages.
+
+## [Useful Links](#useful-links)
+
+- **defineProduct**
+- **Product | Google Search Central**
+- **Product | Yoast**
+
+## [How do I mark up a product?](#how-do-i-mark-up-a-product)
+
+**defineProduct** creates Product Schemas whilst handling relations for you.
+
+Note that some fields may already be inferred, see **Schema.org Params**
+
+```
+import { defineProduct, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineProduct({
+    name: 'Schema.org Book',
+    description: 'Discover how to use Schema.org',
+    image: [
+      'https://example.com/photos/16x9/photo.jpg'
+    ],
+    offers: [
+      { price: 50 },
+    ],
+  })
+])
+```
+
+## [What does a complete product schema look like?](#what-does-a-complete-product-schema-look-like)
+
+For optimal product markup, include as much information as possible:
+
+```
+import { defineProduct, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineProduct({
+    name: 'Premium Ergonomic Office Chair',
+    description: 'High-quality office chair with lumbar support and adjustable height.',
+    image: [
+      'https://example.com/images/chair-front.jpg',
+      'https://example.com/images/chair-side.jpg',
+      'https://example.com/images/chair-back.jpg'
+    ],
+    sku: 'CHAIR-123',
+    mpn: 'ERGO-2023-BLK',
+    gtin13: '9780123456789',
+    brand: {
+      name: 'ErgoComfort'
+    },
+    offers: {
+      price: 299.99,
+      priceCurrency: 'USD',
+      priceValidUntil: '2023-12-31',
+      url: 'https://example.com/chair-ergonomic',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition'
+    },
+    aggregateRating: {
+      ratingValue: 4.7,
+      reviewCount: 89
+    },
+    review: [
+      {
+        author: 'Jane Doe',
+        datePublished: '2023-01-15',
+        reviewBody: 'This chair has dramatically improved my posture and comfort throughout the workday.',
+        reviewRating: {
+          ratingValue: 5
+        }
+      },
+      {
+        author: 'John Smith',
+        datePublished: '2023-02-20',
+        reviewBody: 'Excellent build quality, but took some time to adjust properly.',
+        reviewRating: {
+          ratingValue: 4
+        }
+      }
+    ]
+  })
+])
+```
+
+## [How do I mark up product variants?](#how-do-i-mark-up-product-variants)
+
+For products with multiple variants (color, size, etc.), use the following approach:
+
+```
+import { defineProduct, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineProduct({
+    name: 'Cotton T-Shirt',
+    description: 'Comfortable 100% cotton t-shirt, available in multiple colors and sizes.',
+    image: [
+      'https://example.com/images/tshirt-main.jpg',
+      'https://example.com/images/tshirt-red.jpg',
+      'https://example.com/images/tshirt-blue.jpg'
+    ],
+    offers: [
+      {
+        name: 'Small Red T-Shirt',
+        price: 19.99,
+        priceCurrency: 'USD',
+        sku: 'TSHIRT-S-RED',
+        availability: 'https://schema.org/InStock',
+        url: 'https://example.com/tshirt-small-red'
+      },
+      {
+        name: 'Medium Red T-Shirt',
+        price: 19.99,
+        priceCurrency: 'USD',
+        sku: 'TSHIRT-M-RED',
+        availability: 'https://schema.org/InStock',
+        url: 'https://example.com/tshirt-medium-red'
+      },
+      {
+        name: 'Small Blue T-Shirt',
+        price: 19.99,
+        priceCurrency: 'USD',
+        sku: 'TSHIRT-S-BLUE',
+        availability: 'https://schema.org/OutOfStock',
+        url: 'https://example.com/tshirt-small-blue'
+      }
+    ]
+  })
+])
+```
+
+## [What are the product availability values?](#what-are-the-product-availability-values)
+
+For the `availability` property, use one of these Schema.org values:
+
+- `https://schema.org/InStock`: Item is in stock
+- `https://schema.org/OutOfStock`: Item is out of stock
+- `https://schema.org/PreOrder`: Item is available for pre-order
+- `https://schema.org/Discontinued`: Item has been discontinued
+- `https://schema.org/BackOrder`: Item is on backorder and will be available later
+- `https://schema.org/InStoreOnly`: Item is available only in physical stores
+- `https://schema.org/OnlineOnly`: Item is available only online
+- `https://schema.org/SoldOut`: Item is sold out
+
+## [How do I mark up a product collection page?](#how-do-i-mark-up-a-product-collection-page)
+
+For category or collection pages that list multiple products, use the CollectionPage type:
+
+```
+import { defineWebPage, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CollectionPage',
+    'name': 'Office Furniture Collection',
+    'description': 'Browse our collection of high-quality office furniture.'
+  })
+])
+```
+
+## [How do I mark up shopping cart and checkout pages?](#how-do-i-mark-up-shopping-cart-and-checkout-pages)
+
+For shopping cart and checkout pages, you can use specific page types:
+
+```
+import { defineWebPage, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+// For a shopping cart page
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CheckoutPage',
+    'name': 'Your Shopping Cart',
+    'description': 'Review and edit your shopping cart items before checkout.'
+  })
+])
+
+// For a checkout page
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'CheckoutPage',
+    'name': 'Checkout',
+    'description': 'Complete your purchase securely.'
+  })
+])
+```
+
+## [How do I set up a store's identity?](#how-do-i-set-up-a-stores-identity)
+
+For eCommerce sites, it's important to establish your brand's identity. This can be done using **Organization** or **LocalBusiness** depending on whether your store has a physical location.
+
+See the **Identity** guide for more details.
+
+```
+// Organization Example
+import { defineOrganization, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineOrganization({
+    name: 'My eCommerce Store',
+    logo: 'https://example.com/logo.png',
+    sameAs: [
+      'https://facebook.com/mystore',
+      'https://instagram.com/mystore',
+      'https://twitter.com/mystore'
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        'telephone': '+1-555-123-4567',
+        'contactType': 'customer service',
+        'areaServed': 'US',
+        'availableLanguage': ['English', 'Spanish']
+      }
+    ]
+  })
+])
+```
+
+```
+// LocalBusiness Example
+import { defineLocalBusiness, useSchemaOrg } from '@unhead/schema-org/typescript'
+
+useSchemaOrg([
+  defineLocalBusiness({
+    'name': 'My Retail Store',
+    'image': 'https://example.com/store-front.jpg',
+    '@type': 'ClothingStore',
+    'address': {
+      streetAddress: '123 Main St',
+      addressLocality: 'Anytown',
+      addressRegion: 'CA',
+      postalCode: '12345',
+      addressCountry: 'US'
+    },
+    'telephone': '+1-555-123-4567',
+    'priceRange': '$$',
+    'openingHoursSpecification': [
+      {
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday'
+        ],
+        opens: '09:00',
+        closes: '17:00'
+      },
+      {
+        dayOfWeek: ['Saturday'],
+        opens: '10:00',
+        closes: '16:00'
+      }
+    ]
+  })
+])
+```
+
+## [What are the best practices for eCommerce schema?](#what-are-the-best-practices-for-ecommerce-schema)
+
+1. **Include all product details**: Provide complete information including prices, SKUs, availability, and images.
+2. **Update availability regularly**: Keep product availability status up-to-date to avoid misleading users.
+3. **Add multiple images**: Include several high-quality product images from different angles.
+4. **Include reviews**: Genuine customer reviews and aggregate ratings improve trust signals.
+5. **Use structured data testing**: Regularly test your schema with **Google's Rich Results Test**.
+6. **Keep pricing accurate**: Ensure pricing information matches what's displayed on your website.
+7. **Include breadcrumbs**: Add **breadcrumb navigation** to help users understand your site structure.
+8. **Ensure consistency**: Make sure your schema markup matches the visible content on your page.
+9. **Add brand information**: Clearly identify the brand of each product to help with brand recognition.
+10. **Link to product URLs**: Each product variant should link to its specific URL for direct access.
+
+For comprehensive eCommerce SEO, combine product schema with other relevant schemas like breadcrumbs, FAQ (for product questions), and organization/local business schemas.
+
+## [What schema should I use on different eCommerce pages?](#what-schema-should-i-use-on-different-ecommerce-pages)
+
+For a typical eCommerce site, consider implementing this schema structure:
+
+1. **Site-wide schema** (on all pages):
+  - Organization or LocalBusiness
+  - WebSite with SearchAction
+2. **Product listing/category pages**:
+  - WebPage (CollectionPage)
+  - Breadcrumb
+3. **Product detail pages**:
+  - Product with all details
+  - Breadcrumb
+  - Optional: FAQPage (for product Q&A)
+4. **Checkout pages**:
+  - WebPage (CheckoutPage)
+
+This comprehensive structure helps search engines understand your eCommerce site and can improve visibility for your products in search results.
+
+## [Related Recipes](#related-recipes)
+
+- **Setting Up Your Identity** - Define your organization
+- **Breadcrumbs** - Navigation for product pages
+- **FAQ Page** - Product FAQs
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**Breadcrumbs** Add BreadcrumbList structured data with defineBreadcrumb(). Display clickable navigation paths instead of URLs in Google search results. **FAQ** Add FAQPage structured data with defineQuestion(). Enable expandable Q&A rich snippets directly in Google search results.
+
+**On this page **
+
+- [Useful Links](#useful-links)
+- [How do I mark up a product?](#how-do-i-mark-up-a-product)
+- [What does a complete product schema look like?](#what-does-a-complete-product-schema-look-like)
+- [How do I mark up product variants?](#how-do-i-mark-up-product-variants)
+- [What are the product availability values?](#what-are-the-product-availability-values)
+- [How do I mark up a product collection page?](#how-do-i-mark-up-a-product-collection-page)
+- [How do I mark up shopping cart and checkout pages?](#how-do-i-mark-up-shopping-cart-and-checkout-pages)
+- [How do I set up a store's identity?](#how-do-i-set-up-a-stores-identity)
+- [What are the best practices for eCommerce schema?](#what-are-the-best-practices-for-ecommerce-schema)
+- [What schema should I use on different eCommerce pages?](#what-schema-should-i-use-on-different-ecommerce-pages)
+- [Related Recipes](#related-recipes)

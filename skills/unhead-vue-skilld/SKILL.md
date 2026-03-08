@@ -3,8 +3,8 @@ name: unhead-vue-skilld
 description: "Full-stack head manager built for Vue. ALWAYS use when writing code importing \"@unhead/vue\". Consult for debugging, best practices, or modifying @unhead/vue, unhead/vue, unhead vue, unhead."
 metadata:
   version: 2.1.10
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # unjs/unhead `@unhead/vue`

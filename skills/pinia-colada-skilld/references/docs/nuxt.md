@@ -1,3 +1,6 @@
+---
+url: /nuxt.md
+---
 # Nuxt
 
 Pinia Colada integrates seamlessly with Nuxt via its dedicated module. It provides advanced caching, automatic deduplication, mutations with optimistic updates, and cross-component data sharing that goes beyond what Nuxt's built-in data fetching offers.
@@ -19,21 +22,21 @@ Both Nuxt's native composables (`useFetch`/`useAsyncData`) and Pinia Colada can 
 
 ::: tip When to use Nuxt's native `useFetch`/`useAsyncData`
 
-- Simple page-specific data that isn't shared across components
-- One-off API calls without complex caching needs
-- Single requests without parallel fetching
+* Simple page-specific data that isn't shared across components
+* One-off API calls without complex caching needs
+* Single requests without parallel fetching
 
 :::
 
 ::: tip When to use Pinia Colada
 
-- Data shared across multiple components or pages
-- When you need automatic cache invalidation and garbage collection
-- When you have parallel requests within a component
-- If you need cache persistence
-- Mutations with optimistic updates
-- Complex apps with lots of interdependent data
-- When deduplication and stale-while-revalidate matter
+* Data shared across multiple components or pages
+* When you need automatic cache invalidation and garbage collection
+* When you have parallel requests within a component
+* If you need cache persistence
+* Mutations with optimistic updates
+* Complex apps with lots of interdependent data
+* When deduplication and stale-while-revalidate matter
 
 :::
 
@@ -175,12 +178,12 @@ const { data, isPending, error, refresh } = useQuery({ // [!code ++]
 
 Key differences:
 
-- `pending` → `isPending`
-- Add a unique `key` for caching
-- Wrap the fetch in `query` option
-- Remove `await`:
-  - SSR works automatically
-  - Add `await refresh()` if you want to block navigation until data loads
+* `pending` → `isPending`
+* Add a unique `key` for caching
+* Wrap the fetch in `query` option
+* Remove `await`:
+  * SSR works automatically
+  * Add `await refresh()` if you want to block navigation until data loads
 
 ### `useAsyncData` → `useQuery`
 

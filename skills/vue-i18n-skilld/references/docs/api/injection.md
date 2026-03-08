@@ -1,11 +1,14 @@
+---
+url: /api/injection.md
+---
 # Component Injections
-
 
 ## ComponentCustomOptions
 
 Component Custom Properties for Vue I18n
 
 **Signature:**
+
 ```typescript
 export interface ComponentCustomOptions;
 ```
@@ -15,18 +18,21 @@ export interface ComponentCustomOptions;
 Vue I18n options for Component
 
 **Signature:**
+
 ```typescript
 i18n?: VueI18nOptions;
 ```
 
 **See Also**
-- [VueI18nOptions](legacy#vuei18noptions)
+
+* [VueI18nOptions](legacy#vuei18noptions)
 
 ## ComponentCustomProperties
 
 Component Custom Options for Vue I18n
 
 **Signature:**
+
 ```typescript
 export interface ComponentCustomProperties;
 ```
@@ -40,6 +46,7 @@ These properties are injected into every child component
 Exported Global Composer instance, or global VueI18n instance.
 
 **Signature:**
+
 ```typescript
 $i18n: VueI18n | ExportedGlobalComposer;
 ```
@@ -55,14 +62,16 @@ The locales, locale messages, and other resources managed by the instance refere
 If the `i18n` component option is not specified, it’s the same as the VueI18n instance that can be referenced by the i18n instance [global](general#global).
 
 **See Also**
-- [Scope and Locale Changing](../guide/essentials/scope)
-- [Composition API](../guide/advanced/composition)
+
+* [Scope and Locale Changing](../guide/essentials/scope)
+* [Composition API](../guide/advanced/composition)
 
 ### $t(key)
 
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key): TranslateResult;
 ```
@@ -76,10 +85,12 @@ In [Composition API mode](general#mode), the `$t` is injected by `app.config.glo
 In [Legacy API mode](general#mode), the input / output is the same as for VueI18n instance. About details, see [VueI18n#t](legacy#t-key).
 
 **See Also**
-- [Scope and Locale Changing](../guide/essentials/scope)
-- [Composition API](../guide/advanced/composition)
+
+* [Scope and Locale Changing](../guide/essentials/scope)
+* [Composition API](../guide/advanced/composition)
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -97,6 +108,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, locale: Locale): TranslateResult;
 ```
@@ -106,6 +118,7 @@ $t(key: Key, locale: Locale): TranslateResult;
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -124,6 +137,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, locale: Locale, list: unknown[]): TranslateResult;
 ```
@@ -133,11 +147,12 @@ $t(key: Key, locale: Locale, list: unknown[]): TranslateResult;
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
 | locale | Locale | A locale, override locale that global scope or local scope |
-| list | unknown[] | A values of list interpolation |
+| list | unknown\[] | A values of list interpolation |
 
 #### Returns
 
@@ -152,6 +167,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, locale: Locale, named: object): TranslateResult;
 ```
@@ -161,6 +177,7 @@ $t(key: Key, locale: Locale, named: object): TranslateResult;
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -176,6 +193,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, plural: number): TranslateResult;
 ```
@@ -189,6 +207,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -203,6 +222,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, plural: number, options: TranslateOptions): TranslateResult;
 ```
@@ -216,6 +236,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -231,6 +252,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, defaultMsg: string): TranslateResult;
 ```
@@ -244,6 +266,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -258,6 +281,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, defaultMsg: string, options: TranslateOptions): TranslateResult;
 ```
@@ -271,6 +295,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -286,6 +311,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, list: unknown[]): TranslateResult;
 ```
@@ -295,10 +321,11 @@ $t(key: Key, list: unknown[]): TranslateResult;
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
-| list | unknown[] | A values of list interpolation |
+| list | unknown\[] | A values of list interpolation |
 
 #### Returns
 
@@ -309,6 +336,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, list: unknown[], plural: number): TranslateResult;
 ```
@@ -322,10 +350,11 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
-| list | unknown[] | A values of list interpolation |
+| list | unknown\[] | A values of list interpolation |
 | plural | number | A choice number of plural |
 
 #### Returns
@@ -337,6 +366,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, list: unknown[], defaultMsg: string): TranslateResult;
 ```
@@ -350,10 +380,11 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
-| list | unknown[] | A values of list interpolation |
+| list | unknown\[] | A values of list interpolation |
 | defaultMsg | string | A default message to return if no translation was found |
 
 #### Returns
@@ -365,6 +396,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, list: unknown[], options: TranslateOptions): TranslateResult;
 ```
@@ -378,10 +410,11 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
-| list | unknown[] | A values of list interpolation |
+| list | unknown\[] | A values of list interpolation |
 | options | TranslateOptions | An options, see the [TranslateOptions](general#translateoptions) |
 
 #### Returns
@@ -393,6 +426,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, named: NamedValue): TranslateResult;
 ```
@@ -402,6 +436,7 @@ $t(key: Key, named: NamedValue): TranslateResult;
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -416,6 +451,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, named: NamedValue, plural: number): TranslateResult;
 ```
@@ -429,6 +465,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -444,6 +481,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, named: NamedValue, defaultMsg: string): TranslateResult;
 ```
@@ -457,6 +495,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -472,6 +511,7 @@ Translation message
 Locale message translation
 
 **Signature:**
+
 ```typescript
 $t(key: Key, named: NamedValue, options: TranslateOptions): TranslateResult;
 ```
@@ -485,6 +525,7 @@ Supported for **Composition API mode only until v9. v10 or later can also be use
 Overloaded `$t`. About details, see the [$t](injection#t-key) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -500,6 +541,7 @@ Translation message
 Resolve locale message translation
 
 **Signature:**
+
 ```typescript
 $rt(message: MessageFunction<VueMessageType> | VueMessageType): string;
 ```
@@ -513,13 +555,15 @@ In [Composition API mode](general#mode), the `$rt` is injected by `app.config.gl
 In [Legacy API mode](general#mode), the input / output is the same as for VueI18n instance. About details, see [VueI18n#rt](legacy#rt-message).
 
 **See Also**
-- [Scope and Locale Changing](../guide/essentials/scope)
-- [Composition API](../guide/advanced/composition)
+
+* [Scope and Locale Changing](../guide/essentials/scope)
+* [Composition API](../guide/advanced/composition)
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| message | MessageFunction<VueMessageType> \| VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
+| message | MessageFunction\<VueMessageType> | VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
 
 #### Returns
 
@@ -530,6 +574,7 @@ Translation message
 Resolve locale message translation for plurals
 
 **Signature:**
+
 ```typescript
 $rt(message: MessageFunction<VueMessageType> | VueMessageType, plural: number, options?: TranslationOptions): string;
 ```
@@ -539,9 +584,10 @@ $rt(message: MessageFunction<VueMessageType> | VueMessageType, plural: number, o
 Overloaded `$rt`. About details, see the [$rt](injection#rt-message) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| message | MessageFunction<VueMessageType> \| VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
+| message | MessageFunction\<VueMessageType> | VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
 | plural | number | Which plural string to get. `1` returns the first one. |
 | options | TranslateOptions | Additional [TranslateOptions](general#translateoptions) |
 
@@ -554,6 +600,7 @@ Translation message
 Resolve locale message translation for list interpolations
 
 **Signature:**
+
 ```typescript
 $rt(message: MessageFunction<VueMessageType> | VueMessageType, list: unknown[], options?: TranslationOptions): string;
 ```
@@ -563,10 +610,11 @@ $rt(message: MessageFunction<VueMessageType> | VueMessageType, list: unknown[], 
 Overloaded `$rt`. About details, see the [$rt](injection#rt-message) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| message | MessageFunction<VueMessageType> \| VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
-| list | unknown[] | A values of list interpolation. |
+| message | MessageFunction\<VueMessageType> | VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
+| list | unknown\[] | A values of list interpolation. |
 | options | TranslateOptions | Additional [TranslateOptions](general#translateoptions) |
 
 #### Returns
@@ -578,6 +626,7 @@ Translation message
 Resolve locale message translation for named interpolations
 
 **Signature:**
+
 ```typescript
 $rt(message: MessageFunction<VueMessageType> | VueMessageType, named: NamedValue, options?: TranslationOptions): string;
 ```
@@ -587,9 +636,10 @@ $rt(message: MessageFunction<VueMessageType> | VueMessageType, named: NamedValue
 Overloaded `$rt`. About details, see the [$rt](injection#rt-message) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| message | MessageFunction<VueMessageType> \| VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
+| message | MessageFunction\<VueMessageType> | VueMessageType | A target locale message to be resolved. You will need to specify the locale message returned by `$tm`. |
 | named | NamedValue | A values of named interpolation. |
 | options | TranslateOptions | Additional [TranslateOptions](general#translateoptions) |
 
@@ -602,6 +652,7 @@ Translation message
 Translation message exist
 
 **Signature:**
+
 ```typescript
 $te(key: Key, locale?: Locale): boolean;
 ```
@@ -611,6 +662,7 @@ $te(key: Key, locale?: Locale): boolean;
 About that details, see [VueI18n#te](legacy#te-key-locale)
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -625,6 +677,7 @@ If found locale message, `true`, else `false`.
 Locale messages getter
 
 **Signature:**
+
 ```typescript
 $tm(key: Key): LocaleMessageValue<VueMessageType> | {}
 ```
@@ -642,6 +695,7 @@ If you change the `locale`, the locale messages returned will also correspond to
 If there are no locale messages for the given `key` in the composer instance messages, they will be returned with [fallbacking](../guide/essentials/fallback).
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | key | Key | A target locale message key |
@@ -659,6 +713,7 @@ You need to use `$rt` for the locale message returned by `$tm`.
 Datetime formatting
 
 **Signature:**
+
 ```typescript
 $d(value: number | Date): DateTimeFormatResult | string;
 ```
@@ -672,14 +727,16 @@ In [Composition API mode](general#i18nmode), the input / output is the same as f
 In [Composition API mode](general#i18nmode), the `$d` is injected by `app.config.globalProperties`. The input / output is the same as for Composer instance, and it works on **global scope**. About that details, see [Composer#d](composition#d-value).
 
 **See Also**
-- [Datetime Formatting](../guide/essentials/datetime)
-- [Scope and Locale Changing](../guide/essentials/scope)
-- [Composition API](../guide/advanced/composition#datetime-formatting)
+
+* [Datetime Formatting](../guide/essentials/datetime)
+* [Scope and Locale Changing](../guide/essentials/scope)
+* [Composition API](../guide/advanced/composition#datetime-formatting)
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| value | number \| Date | A value, timestamp number or `Date` instance |
+| value | number | Date | A value, timestamp number or `Date` instance |
 
 #### Returns
 
@@ -690,6 +747,7 @@ Formatted value
 Datetime formatting
 
 **Signature:**
+
 ```typescript
 $d(value: number | Date, key: string): DateTimeFormatResult | string;
 ```
@@ -699,9 +757,10 @@ $d(value: number | Date, key: string): DateTimeFormatResult | string;
 Overloaded `$d`. About details, see the [$d](injection#d-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| value | number \| Date | A value, timestamp number or `Date` instance |
+| value | number | Date | A value, timestamp number or `Date` instance |
 | key | string | A key of datetime formats |
 
 #### Returns
@@ -713,6 +772,7 @@ Formatted value
 Datetime formatting
 
 **Signature:**
+
 ```typescript
 $d(value: number | Date, key: string, locale: Locale): DateTimeFormatResult | string;
 ```
@@ -722,9 +782,10 @@ $d(value: number | Date, key: string, locale: Locale): DateTimeFormatResult | st
 Overloaded `$d`. About details, see the [$d](injection#d-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| value | number \| Date | A value, timestamp number or `Date` instance |
+| value | number | Date | A value, timestamp number or `Date` instance |
 | key | string | A key of datetime formats |
 | locale | Locale | A locale, override locale that global scope or local scope |
 
@@ -737,6 +798,7 @@ Formatted value
 Datetime formatting
 
 **Signature:**
+
 ```typescript
 $d(value: number | Date, args: { [key: string]: string | boolean | number }): DateTimeFormatResult;
 ```
@@ -746,10 +808,11 @@ $d(value: number | Date, args: { [key: string]: string | boolean | number }): Da
 Overloaded `$d`. About details, see the [$d](injection#d-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| value | number \| Date | A value, timestamp number or `Date` instance |
-| args | { [key: string]: string } | An argument values |
+| value | number | Date | A value, timestamp number or `Date` instance |
+| args | { \[key: string]: string } | An argument values |
 
 #### Returns
 
@@ -760,6 +823,7 @@ Formatted value
 Datetime formatting
 
 **Signature:**
+
 ```typescript
 $d(value: number | Date, options: DateTimeOptions): string;
 ```
@@ -769,9 +833,10 @@ $d(value: number | Date, options: DateTimeOptions): string;
 Overloaded `$d`. About details, see the [$d](injection#d-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| value | number \| Date | A value, timestamp number or `Date` instance |
+| value | number | Date | A value, timestamp number or `Date` instance |
 | options | DateTimeOptions | An options, see the [DateTimeOptions](general#datetimeoptions) |
 
 #### Returns
@@ -783,6 +848,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number): NumberFormatResult | string;
 ```
@@ -796,11 +862,13 @@ In [Legacy API mode](general#i18nmode), the input / output is the same as for Vu
 In [Composition API mode](general#i18nmode), the `$n` is injected by `app.config.globalProperties`. The input / output is the same as for Composer instance, and it works on **global scope**. About that details, see [Composer#n](composition#n-value).
 
 **See Also**
-- [Number Formatting](../guide/essentials/number)
-- [Scope and Locale Changing](../guide/essentials/scope)
-- [Composition API](../guide/advanced/composition#number-formatting)
+
+* [Number Formatting](../guide/essentials/number)
+* [Scope and Locale Changing](../guide/essentials/scope)
+* [Composition API](../guide/advanced/composition#number-formatting)
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
@@ -814,6 +882,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, key: string): NumberFormatResult | string;
 ```
@@ -823,6 +892,7 @@ $n(value: number, key: string): NumberFormatResult | string;
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
@@ -837,6 +907,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, key: string, locale: Locale): NumberFormatResult | string;
 ```
@@ -846,6 +917,7 @@ $n(value: number, key: string, locale: Locale): NumberFormatResult | string;
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
@@ -861,6 +933,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, args: { [key: string]: string | boolean | number }): NumberFormatResult;
 ```
@@ -870,10 +943,11 @@ $n(value: number, args: { [key: string]: string | boolean | number }): NumberFor
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
-| args | { [key: string]: string } | An argument values |
+| args | { \[key: string]: string } | An argument values |
 
 #### Returns
 
@@ -884,6 +958,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, key: string, args: { [key: string]: string | boolean | number }): NumberFormatResult
 ```
@@ -893,11 +968,12 @@ $n(value: number, key: string, args: { [key: string]: string | boolean | number 
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
 | key | string | A key of number formats |
-| args | { [key: string]: string } | An argument values |
+| args | { \[key: string]: string } | An argument values |
 
 #### Returns
 
@@ -908,6 +984,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, key: string, locale: Locale, args: { [key: string]: string | boolean | number }): NumberFormatResult
 ```
@@ -917,12 +994,13 @@ $n(value: number, key: string, locale: Locale, args: { [key: string]: string | b
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |
 | key | string | A key of number formats |
 | locale | Locale | A locale, override locale that global scope or local scope |
-| args | { [key: string]: string } | An argument values |
+| args | { \[key: string]: string } | An argument values |
 
 #### Returns
 
@@ -933,6 +1011,7 @@ Formatted value
 Number formatting
 
 **Signature:**
+
 ```typescript
 $n(value: number, options: NumberOptions): string;
 ```
@@ -942,6 +1021,7 @@ $n(value: number, options: NumberOptions): string;
 Overloaded `$n`. About details, see the [$n](injection#n-value) remarks.
 
 #### Parameters
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | value | number | A number value |

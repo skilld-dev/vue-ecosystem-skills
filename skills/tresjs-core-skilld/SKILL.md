@@ -3,8 +3,8 @@ name: tresjs-core-skilld
 description: "Declarative ThreeJS using Vue Components. ALWAYS use when writing code importing \"@tresjs/core\". Consult for debugging, best practices, or modifying @tresjs/core, tresjs/core, tresjs core, tres."
 metadata:
   version: 5.6.0
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # Tresjs/tres `@tresjs/core`

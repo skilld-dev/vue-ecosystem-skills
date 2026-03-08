@@ -1,0 +1,235 @@
+---
+title: "HowTo Schema - JSON-LD Guide & Examples · Unhead"
+meta:
+  "og:description": "Add HowTo structured data to your site with Unhead. Step-by-step JSON-LD examples, required properties, and Google rich result guidance."
+  "og:title": "HowTo Schema - JSON-LD Guide & Examples · Unhead"
+  description: "Add HowTo structured data to your site with Unhead. Step-by-step JSON-LD examples, required properties, and Google rich result guidance."
+---
+
+**Schema**
+
+# **HowTo Schema - JSON-LD Guide & Examples**
+
+Copy for LLMs
+
+**On this page **
+
+- [JSON-LD Example](#json-ld-example)
+- [Schema.org HowTo](#schemaorg-howto)
+- [Useful Links](#useful-links)
+- [Required properties](#required-properties)
+- [Examples](#examples)
+- [Defaults](#defaults)
+- [Types](#types)
+- [Related Schemas](#related-schemas)
+
+HowTo schema marks up step-by-step instructions so Google can display them as rich results with expandable steps. Use it for tutorials, guides, DIY instructions, and how-to content.
+
+### [JSON-LD Example](#json-ld-example)
+
+```
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Tie a Tie",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Drape the tie around your neck with the wide end on your right, about 1/3 longer than the narrow end.",
+      "image": "https://example.com/step1.jpg"
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cross the wide end over the narrow end, then bring it underneath.",
+      "image": "https://example.com/step2.jpg"
+    }
+  ],
+  "totalTime": "PT5M"
+}
+```
+
+With Unhead, generate this using the `defineHowTo()` composable — see the [**API reference**](#schema-org-howto) below.
+
+Use the **Schema.org Generator** to build your structured data visually.
+
+## [Schema.org HowTo](#schemaorg-howto)
+
+- **Type**: `defineHowTo(input?: HowTo)`Describes a HowTo guide, which contains a series of steps.
+
+## [Useful Links](#useful-links)
+
+- **HowTo - Schema.org**
+- **How-To Schema Markup - Google Search Central**
+- **HowTo - Yoast**
+
+## [Required properties](#required-properties)
+
+- **name** `string`A string describing the guide. This can be provided using route meta on the `title` key, see [**defaults**](#defaults).
+- **step** `HowToStep[]`.An array of objects describing the steps in the guide. Appends the **HowToStep** entries on to the HowTo. Completes `@type` and resolves `url` and `image`.
+- **step.text** The full instruction text of this step.
+
+## [Examples](#examples)
+
+### [Minimal](#minimal)
+
+```
+defineHowTo({
+  name: 'How to tie a tie',
+  step: [
+    {
+      url: '#step-one',
+      text: 'Button your shirt how you\'d like to wear it, then drape the tie around your neck. Make the thick end about 1/3rd longer than the short end. For formal button down shirts, it usually works best with the small end of the tie between 4th and 5th button.',
+      image: '/1x1/photo.jpg',
+    },
+    {
+      url: '#step-two',
+      text: 'Cross the long end over the short end. This will form the basis for your knot.',
+      image: '/1x1/photo.jpg',
+    },
+    {
+      url: '#step-three',
+      text: 'Bring the long end back under the short end, then throw it back over the top of the short end in the other direction. ',
+      image: '/1x1/photo.jpg',
+    },
+    {
+      text: 'Now pull the long and through the loop near your neck, forming another loop near your neck.',
+      image: '/1x1/photo.jpg',
+    },
+    {
+      text: 'Pull the long end through that new loop and tighten to fit! ',
+      image: '/1x1/photo.jpg',
+    },
+  ]
+})
+```
+
+## [Defaults](#defaults)
+
+- **@type**: `HowTo`
+- **@id**: `${canonicalUrl}#howTo`
+- **name**: `currentRouteMeta.title` _(see: **Schema.org Params**)_
+- **image**: `currentRouteMeta.image` _(see: **Schema.org Params**)_
+- **description**: `currentRouteMeta.description` _(see: **Schema.org Params**)_
+- **inLanguage**: `options.defaultLanguage` _(see: **user Config**)_
+- **mainEntityOfPage**: WebPage Reference
+
+## [Types](#types)
+
+```
+/**
+ * Instructions that explain how to achieve a result by performing a sequence of steps.
+ */
+export interface HowToSimple extends Thing {
+  /**
+   * A string describing the guide.
+   */
+  name: string
+  /**
+   * An array of howToStep objects
+   */
+  step: NodeRelations<HowToStep | string>[]
+  /**
+   * The total time required to perform all instructions or directions (including time to prepare the supplies),
+   * in ISO 8601 duration format.
+   */
+  totalTime?: string
+  /**
+   * Introduction or description content relating to the HowTo guide.
+   */
+  description?: string
+  /**
+   * The language code for the guide; e.g., en-GB.
+   */
+  inLanguage?: string
+  /**
+   * The estimated cost of the supplies consumed when performing instructions.
+   */
+  estimatedCost?: string | unknown
+  /**
+   * Image of the completed how-to.
+   */
+  image?: NodeRelations<ImageObject | string>
+  /**
+   * A supply consumed when performing instructions or a direction.
+   */
+  supply?: string | unknown
+  /**
+   * An object used (but not consumed) when performing instructions or a direction.
+   */
+  tool?: string | unknown
+  /**
+   * A video of the how-to. Follow the list of required and recommended Video properties.
+   * Mark steps of the video with hasPart.
+   */
+  video?: NodeRelations<VideoObject | string>
+  /**
+   * The time required to prepare for the how-to, in ISO 8601 duration format.
+   */
+  prepTime?: string
+  /**
+   * The time it takes to perform the how-to, in ISO 8601 duration format.
+   */
+  performTime?: string
+  /**
+   * The quantity that results from performing the how-to.
+   */
+  yield?: string
+}
+```
+
+```
+export interface HowToStepSimple extends Thing {
+  /**
+   * A link to a fragment identifier (an 'ID anchor') of the individual step
+   * (e.g., https://www.example.com/example-page/#recipe-step-5).
+   */
+  url?: string
+  /**
+   * The instruction string
+   * ("e.g., "Bake at 200*C for 40 minutes, or until golden-brown, stirring periodically throughout").
+   */
+  text: string
+  /**
+   * The word or short phrase summarizing the step (for example, "Attach wires to post" or "Dig").
+   * Don't use non-descriptive text (for example, "Step 1: [text]") or other form of step number (for example, "1. [text]").
+   */
+  name?: string
+  /**
+   * An image representing the step, referenced by ID.
+   */
+  image?: NodeRelations<ImageObject | string>
+  /**
+   * A video for this step or a clip of the video.
+   */
+  video?: NodeRelations<VideoObject | string>
+  /**
+   * A list of detailed substeps, including directions or tips.
+   */
+  itemListElement?: NodeRelations<HowToDirection | string>[]
+}
+```
+
+## [Related Schemas](#related-schemas)
+
+- **Recipe** - Cooking instructions
+- **Article** - Tutorial articles
+- **Person** - Instruction author
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**Food Establishment Schema** Use defineFoodEstablishment() to add Restaurant structured data. Display menu, reservations, and cuisine info in Google Maps and local search. **Image Schema** Use defineImage() to add ImageObject structured data. Provide image metadata with captions, dimensions, and alt text for rich results.
+
+**On this page **
+
+- [JSON-LD Example](#json-ld-example)
+- [Schema.org HowTo](#schemaorg-howto)
+- [Useful Links](#useful-links)
+- [Required properties](#required-properties)
+- [Examples](#examples)
+- [Defaults](#defaults)
+- [Types](#types)
+- [Related Schemas](#related-schemas)

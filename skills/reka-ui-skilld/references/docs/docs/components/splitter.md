@@ -1,0 +1,213 @@
+---
+url: /docs/components/splitter.md
+description: A component that divides your layout into resizable sections.
+---
+
+# Splitter
+
+## Features
+
+## Installation
+
+Install the component from your command line.
+
+## Anatomy
+
+Import all parts and piece them together.
+
+```vue
+<script setup>
+import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
+</script>
+
+<template>
+  <SplitterGroup>
+    <SplitterPanel />
+    <SplitterResizeHandle />
+  </SplitterGroup>
+</template>
+```
+
+## API Reference
+
+### Group
+
+Contains all the parts of a Splitter.
+
+### Panel
+
+A collapsible section.
+
+### Resize Handle
+
+Handle that use for resizing.
+
+## Examples
+
+### Collapsible
+
+Use the `collapsible` prop to allow the panel to collapse into `collapsedSize` when `minSize` is reached.
+
+(`collapsedSize` and `minSize` props are required.)
+
+```vue line=4-6
+<template>
+  <SplitterGroup>
+    <SplitterPanel
+      collapsible
+      :collapsed-size="10"
+      :min-size="35"
+    >
+      Panel A
+    </SplitterPanel>
+    <SplitterResizeHandle />
+    <SplitterPanel>
+      Panel B
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+### Persist in localStorage
+
+Use the `autoSaveId` prop to save the layout data into `localStorage`.
+
+```vue line=2
+<template>
+  <SplitterGroup auto-save-id="any-id">
+    …
+  </SplitterGroup>
+</template>
+```
+
+### Persist layout with SSR
+
+By default, Splitter uses `localStorage` to persist layouts. With server rendering, this can cause a flicker when the default layout (rendered on the server) is replaced with the persisted layout (in `localStorage`). The way to avoid this flicker is to also persist the layout with a cookie like so:
+
+```vue line=3,,8-9,11,15
+
+<script setup lang="ts">
+const layout = useCookie<number[]>('splitter:layout')
+</script>
+
+<template>
+  <SplitterGroup
+    direction="horizontal"
+    @layout="layout = $event"
+  >
+    <SplitterPanel :default-size="layout[0]">
+      …
+    </SplitterPanel>
+    <SplitterResizeHandle />
+    <SplitterPanel :default-size="layout[1]">
+      …
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+### Collapse/Expand programmatically
+
+Sometimes panels need to resize or collapse/expand in response to user actions. `SplitterPanel` exposes the `collapse` and `expand` methods to achieve this.
+
+```vue line=2,7,14
+<script setup lang="ts">
+const panelRef = ref<InstanceType<typeof SplitterPanel>>()
+</script>
+
+<template>
+  <button
+    @click="panelRef?.isCollapsed ? panelRef?.expand() : panelRef?.collapse() "
+  >
+    {{ panelRef?.isCollapsed ? 'Expand' : 'Collapse' }}
+  </button>
+
+  <SplitterGroup>
+    <SplitterPanel
+      ref="panelRef"
+      collapsible
+      :collapsed-size="10"
+      :min-size="35"
+    >
+      …
+    </SplitterPanel>
+    <SplitterResizeHandle />
+    <SplitterPanel>
+      …
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+### Pixel sizing
+
+Use `sizeUnit="px"` when you need a panel to stay a fixed pixel width (great for sidebars) even if the parent container resizes. All sizing props (`defaultSize`, `minSize`, `maxSize`, `collapsedSize`) are interpreted using the chosen unit.
+
+```vue line=4-10
+<template>
+  <SplitterGroup direction="horizontal">
+    <SplitterPanel
+      size-unit="px"
+      :default-size="240"
+      :min-size="160"
+      :max-size="320"
+    >
+      Fixed-width sidebar
+    </SplitterPanel>
+    <SplitterResizeHandle />
+    <SplitterPanel>
+      Flexible content
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+Pixel-sized panels also work with persistence (`autoSaveId`) and collapse/expand APIs; sizes are restored using the correct unit.
+
+### Custom handle
+
+Customize the handle by passing any element as the slot.
+
+```vue line=6-8
+<template>
+  <SplitterGroup>
+    <SplitterPanel>
+      …
+    </SplitterPanel>
+    <SplitterResizeHandle>
+      <Icon icon="radix-icons-drag-handle-dots-2" />
+    </SplitterResizeHandle>
+    <SplitterPanel>
+      …
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+### SSR
+
+Splitter component heavily relies on unique `id`, however for Vue<3.4 we don't have a reliable way of generating SSR-friendly `id`.
+
+Thus, if you are using Nuxt or other SSR framework, you are required to manually add the `id` for all Splitter components. Alternatively, you can wrap the component with `<ClientOnly>`.
+
+```vue
+<template>
+  <SplitterGroup id="group-1">
+    <SplitterPanel id="group-1-panel-1">
+      …
+    </SplitterPanel>
+    <SplitterResizeHandle id="group-1-resize-1">
+      <Icon icon="radix-icons-drag-handle-dots-2" />
+    </SplitterResizeHandle>
+    <SplitterPanel id="group-1-panel-2">
+      …
+    </SplitterPanel>
+  </SplitterGroup>
+</template>
+```
+
+## Accessibility
+
+Adheres to the Window Splitter WAI-ARIA design pattern.
+
+### Keyboard Interactions

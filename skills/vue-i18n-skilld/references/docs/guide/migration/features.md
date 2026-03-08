@@ -1,15 +1,18 @@
+---
+url: /guide/migration/features.md
+---
 # New Features in v9
 
 Vue I18n v9 offers not only Vue 3 support, but this version also is included new features.
 
 ## Message format syntax
 
-- See the [Literal interpolation](../essentials/syntax#literal-interpolation)
+* See the [Literal interpolation](../essentials/syntax#literal-interpolation)
 
 ## Message functions
 
-- See the [Linked messages](../advanced/function#linked-messages)
-- See the [Pluralization](../advanced/function#pluralization)
+* See the [Linked messages](../advanced/function#linked-messages)
+* See the [Pluralization](../advanced/function#pluralization)
 
 ## Composition API
 
@@ -57,4 +60,4 @@ See the [Datetime localization custom formatting](../essentials/datetime#custom-
 
 ## i18n Custom Block
 
-- See the [`global` attribute](../advanced/sfc#define-locale-messages-for-global-scope)
+* See the [`global` attribute](../advanced/sfc#define-locale-messages-for-global-scope)

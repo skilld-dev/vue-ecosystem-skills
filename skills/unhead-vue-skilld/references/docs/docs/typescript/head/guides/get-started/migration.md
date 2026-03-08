@@ -1,0 +1,380 @@
+---
+title: "Upgrade Guide · Unhead"
+meta:
+  "og:description": "Learn how to migrate between Unhead versions for TypeScript users."
+  "og:title": "Upgrade Guide · Unhead"
+  description: "Learn how to migrate between Unhead versions for TypeScript users."
+---
+
+**Get Started**
+
+# **Upgrade Guide**
+
+Copy for LLMs
+
+**On this page **
+
+- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
+- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)
+
+## [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
+
+Unhead v3 removes all deprecated APIs and focuses on performance improvements. This guide covers the breaking changes.
+
+### [Legacy Property Names](#legacy-property-names)
+
+ Impact Level: High
+
+The `DeprecationsPlugin` that automatically converted legacy property names has been removed. You must update your head entries to use the current property names.
+
+**`children` → `innerHTML`**
+
+```
+useHead({
+  script: [{
+-   children: 'console.log("hello")',
++   innerHTML: 'console.log("hello")',
+  }]
+})
+```
+
+**`hid` / `vmid` → `key`**
+
+```
+useHead({
+  meta: [{
+-   hid: 'description',
++   key: 'description',
+    name: 'description',
+    content: 'My description'
+  }]
+})
+```
+
+**`body: true` → `tagPosition: 'bodyClose'`**
+
+```
+useHead({
+  script: [{
+    src: '/script.js',
+-   body: true,
++   tagPosition: 'bodyClose',
+  }]
+})
+```
+
+### [Schema.org Plugin](#schemaorg-plugin)
+
+ Impact Level: High
+
+The `PluginSchemaOrg` and `SchemaOrgUnheadPlugin` exports have been removed. Use `UnheadSchemaOrg` instead.
+
+```
+- import { PluginSchemaOrg } from '@unhead/schema-org'
++ import { UnheadSchemaOrg } from '@unhead/schema-org'
+
+const head = createHead({
+  plugins: [
+-   PluginSchemaOrg()
++   UnheadSchemaOrg()
+  ]
+})
+```
+
+### [Server Composables Removed](#server-composables-removed)
+
+ Impact Level: Medium-High
+
+The `useServerHead`, `useServerHeadSafe`, and `useServerSeoMeta` composables have been removed. Use the standard composables instead.
+
+```
+- import { useServerHead, useServerSeoMeta } from 'unhead'
++ import { useHead, useSeoMeta } from 'unhead'
+
+- useServerHead({ title: 'My Page' })
++ useHead({ title: 'My Page' })
+
+- useServerSeoMeta({ description: 'My description' })
++ useSeoMeta({ description: 'My description' })
+```
+
+If you need server-only head management, use conditional logic:
+
+```
+if (import.meta.server) {
+  useHead({ title: 'Server Only' })
+}
+```
+
+### [Core API Changes](#core-api-changes)
+
+ Impact Level: Medium
+
+**`createHeadCore` → `createUnhead`**
+
+```
+- import { createHeadCore } from 'unhead'
++ import { createUnhead } from 'unhead'
+
+- const head = createHeadCore()
++ const head = createUnhead()
+```
+
+**`headEntries()` → `entries` Map**
+
+```
+- const entries = head.headEntries()
++ const entries = [...head.entries.values()]
+```
+
+**`mode` Option Removed**
+
+The `mode` option on head entries has been removed.
+
+```
+head.push({
+  title: 'My Page',
+- }, { mode: 'server' })
++ })
+```
+
+### [Hooks](#hooks)
+
+ Impact Level: Low
+
+The following hooks have been removed:
+
+- `init` - No longer needed
+- `dom:renderTag` - DOM rendering is now synchronous
+- `dom:rendered` - Use code after `renderDOMHead()` instead
+
+The `dom:beforeRender` hook is now synchronous and `renderDOMHead` no longer returns a Promise:
+
+```
+- await renderDOMHead(head, { document })
++ renderDOMHead(head, { document })
+```
+
+The SSR hooks (`ssr:beforeRender`, `ssr:render`, `ssr:rendered`) are now synchronous and `renderSSRHead` no longer returns a Promise:
+
+```
+- const head = await renderSSRHead(head)
++ const head = renderSSRHead(head)
+```
+
+### [Type Changes](#type-changes)
+
+ Impact Level: Low
+
+| **Removed Type** | **Replacement** |
+| --- | --- |
+| `Head` | `HeadTag` or specific tag types |
+| `ResolvedHead` | `ResolvedHeadTag` |
+| `MetaFlatInput` | `MetaFlat` |
+| `RuntimeMode` | Removed (no replacement needed) |
+
+```
+- import type { Head, MetaFlatInput, RuntimeMode } from 'unhead'
++ import type { HeadTag, MetaFlat } from 'unhead'
+```
+
+### [Other Removed APIs](#other-removed-apis)
+
+- `resolveScriptKey` - Internal utility, no longer exported
+- `DeprecationsPlugin` - Update property names directly instead
+- `extractUnheadInputFromHtml` - Use `parseHtmlForUnheadExtraction` from `unhead/parser`
+
+---
+
+## [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)
+
+With the release of Unhead v2, we now have first-class support for other frameworks. This section covers the v1 to v2 migration.
+
+### [Client / Server Subpath Exports](#client-server-subpath-exports)
+
+ Impact Level: Critical
+
+** Breaking Changes:**
+
+- `createServerHead()` and `createHead()` exports from `unhead` are removed
+
+The path where you import `createHead` from has been updated to be a subpath export.
+
+**Client bundle:**
+
+```
+-import { createServerHead } from 'unhead'
++import { createHead } from 'unhead/client'
+
+// avoids bundling server plugins
+createHead()
+```
+
+**Server bundle:**
+
+```
+-import { createServerHead } from 'unhead'
++import { createHead } from 'unhead/server'
+
+// avoids bundling server plugins
+-createServerHead()
++createHead()
+```
+
+### [Removed Implicit Context](#removed-implicit-context)
+
+ Impact Level: Critical
+
+** Breaking Changes:**
+
+- `getActiveHead()`, `activeHead` exports are removed
+
+The implicit context implementation kept a global instance of Unhead available so that you could use the `useHead()` composables anywhere in your application.
+
+In v2, the core composables no longer have access to the Unhead instance. Instead, you must pass the Unhead instance to the composables.
+
+Passing the instance is only relevant if you're importing from `unhead`. In JavaScript frameworks we tie the context to the framework itself so you don't need to worry about this.
+
+TypeScript v2
+
+```
+import { useHead } from 'unhead'
+
+// example of getting the instance
+const unheadInstance = useMyApp().unhead
+useHead(unheadInstance, {
+  title: 'Looks good'
+})
+```
+
+### [Removed `vmid`, `hid`, `children`, `body`](#removed-vmid-hid-children-body)
+
+ Impact Level: High
+
+For legacy support with Vue Meta we allowed end users to provide deprecated properties: `vmid`, `hid`, `children` and `body`.
+
+You must update these properties to the appropriate replacement or remove them. See the [**v3 migration section**](#legacy-property-names) for the replacements.
+
+### [Opt-in Template Params & Tag Alias Sorting](#opt-in-template-params-tag-alias-sorting)
+
+ Impact Level: High
+
+To reduce the bundle size and improve performance, we've moved the template params and tag alias sorting to optional plugins.
+
+```
+import { AliasSortingPlugin, TemplateParamsPlugin } from 'unhead/plugins'
+
+createHead({
+  plugins: [TemplateParamsPlugin, AliasSortingPlugin]
+})
+```
+
+### [Promise Input Support](#promise-input-support)
+
+ Impact Level: Medium
+
+If you have promises as input they will no longer be resolved, either await the promise before passing it along or register the optional promises plugin.
+
+```
+import { PromisePlugin } from 'unhead/plugins'
+
+const unhead = createHead({
+  plugins: [PromisePlugin]
+})
+```
+
+### [Updated `useScript()`](#updated-usescript)
+
+ Impact Level: High
+
+** Breaking Changes:**
+
+- Script instance is no longer augmented as a proxy and promise
+- `script.proxy` is rewritten for simpler, more stable behavior
+- `stub()` and runtime hook `script:instance-fn` are removed
+
+**Replacing promise usage**
+
+```
+const script = useScript()
+
+-script.then(() => console.log('loaded')
++script.onLoaded(() => console.log('loaded'))
+```
+
+**Replacing proxy usage**
+
+```
+const script = useScript('..', {
+  use() { return { foo: [] } }
+})
+
+-script.foo.push('bar')
++script.proxy.foo.push('bar')
+```
+
+### [Tag Sorting Updated](#tag-sorting-updated)
+
+ Impact Level: Low
+
+**Capo.js** sorting is now the default. You can opt-out:
+
+```
+createHead({
+  disableCapoSorting: true,
+})
+```
+
+### [Default SSR Tags](#default-ssr-tags)
+
+ Impact Level: Low
+
+When SSR Unhead will now insert important default tags for you:
+
+- `<meta charset="utf-8">`
+- `<meta name="viewport" content="width=device-width, initial-scale=1">`
+- `<html lang="en">`
+
+```
+import { createHead } from 'unhead/server'
+
+// disable when creating the head instance
+const head = createHead({
+  disableDefaults: true,
+})
+```
+
+### [CJS Exports Removed](#cjs-exports-removed)
+
+ Impact Level: Low
+
+CommonJS exports have been removed in favor of ESM only.
+
+```
+-const { createHead } = require('unhead/client')
++import { createHead } from 'unhead/client'
+```
+
+### [Deprecated `@unhead/schema`](#deprecated-unheadschema)
+
+ Impact Level: Low
+
+The `@unhead/schema` package is deprecated. Import from `unhead/types` or `unhead` instead.
+
+```
+-import { HeadTag } from '@unhead/schema'
++import { HeadTag } from 'unhead/types'
+```
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**Installation** Set up Unhead with pure TypeScript. Framework-agnostic head management with createHead() and useHead() for SSR and client-side apps. **Wrapping Composables** Learn how to create custom head composables by wrapping useHead with your own defaults and context management.
+
+**On this page **
+
+- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
+- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)

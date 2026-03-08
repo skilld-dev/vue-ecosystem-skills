@@ -1,3 +1,6 @@
+---
+url: /plugins/official/cache-persister.md
+---
 # Cache persister
 
 `@pinia/colada-plugin-cache-persister` persists the query cache to storage and restores it on startup.
@@ -42,16 +45,16 @@ app.mount('#app')
 
 You can only configure the plugin globally, not per query:
 
-- `key: string` (default: `'pinia-colada-cache'`) is the key used in storage
-- `storage: Storage` (default: `localStorage`) is the storage to use (must implement `getItem`, `setItem`, and `removeItem`)
-- `debounce: number` (default: `1000`) is the debounce delay in milliseconds before writing to storage
-- `filter: { key: QueryKey[] }` (default: `undefined`) is an optional filter to only persist certain queries (by key)
+* `key: string` (default: `'pinia-colada-cache'`) is the key used in storage
+* `storage: Storage` (default: `localStorage`) is the storage to use (must implement `getItem`, `setItem`, and `removeItem`)
+* `debounce: number` (default: `1000`) is the debounce delay in milliseconds before writing to storage
+* `filter: { key: QueryKey[] }` (default: `undefined`) is an optional filter to only persist certain queries (by key)
 
 ## Notes
 
-- Only successful query results are persisted.
-- Garbage collection still applies: if an entry is removed, it will disappear from persisted data too.
+* Only successful query results are persisted.
+* Garbage collection still applies: if an entry is removed, it will disappear from persisted data too.
 
 ## Links
 
-- Source: https://github.com/posva/pinia-colada/tree/main/plugins/cache-persister
+* Source: https://github.com/posva/pinia-colada/tree/main/plugins/cache-persister

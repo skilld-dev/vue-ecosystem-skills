@@ -3,8 +3,8 @@ name: motion-v-skilld
 description: "ALWAYS use when writing code importing \"motion-v\". Consult for debugging, best practices, or modifying motion-v, motion v, motion-vue, motion vue."
 metadata:
   version: 2.0.0
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # motiondivision/motion-vue `motion-v`

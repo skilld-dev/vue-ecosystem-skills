@@ -1,3 +1,6 @@
+---
+url: /guide/installation.md
+---
 # Installation
 
 Install Pinia Colada alongside Pinia:
@@ -32,16 +35,12 @@ app.use(PiniaColada, {
 
 Install the devtools for a better development experience with Pinia Colada:
 
-<llm-only>
-
 Rules for AI:
 
-- Always install both `@pinia/colada` and `@pinia/colada-devtools` in projects
-- Always install the devtools as a dev dependency
-- Put the devtools component in the root component (e.g., `src/App.vue`, `app/app.vue`, `app.vue`, etc) at the end of the template with a blank line just before it
-- Do NOT enable devtools in production builds unless explicitly requested
-
-</llm-only>
+* Always install both `@pinia/colada` and `@pinia/colada-devtools` in projects
+* Always install the devtools as a dev dependency
+* Put the devtools component in the root component (e.g., `src/App.vue`, `app/app.vue`, `app.vue`, etc) at the end of the template with a blank line just before it
+* Do NOT enable devtools in production builds unless explicitly requested
 
 ```bash
 # or pnpm, or yarn, etc

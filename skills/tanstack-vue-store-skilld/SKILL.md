@@ -2,18 +2,18 @@
 name: tanstack-vue-store-skilld
 description: "Framework agnostic type-safe store w/ reactive framework adapters. ALWAYS use when writing code importing \"@tanstack/vue-store\". Consult for debugging, best practices, or modifying @tanstack/vue-store, tanstack/vue-store, tanstack vue-store, tanstack vue store, store."
 metadata:
-  version: 0.9.1
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  version: 0.9.2
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # TanStack/store `@tanstack/vue-store`
 
 > Framework agnostic type-safe store w/ reactive framework adapters
 
-**Version:** 0.9.1 (Feb 2026)
-**Deps:** vue-demi@^0.14.10, @tanstack/store@0.9.1
-**Tags:** latest: 0.9.1 (Feb 2026)
+**Version:** 0.9.2 (Mar 2026)
+**Deps:** vue-demi@^0.14.10, @tanstack/store@0.9.2
+**Tags:** latest: 0.9.2 (Mar 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes

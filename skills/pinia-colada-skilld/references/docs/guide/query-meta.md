@@ -1,6 +1,9 @@
+---
+url: /guide/query-meta.md
+---
 # Query Meta
 
-Attach metadata to any query and access it through _entries_ in plugins and hooks. This allows you to implement cross-cutting concerns like error handling, logging, or analytics.
+Attach metadata to any query and access it through *entries* in plugins and hooks. This allows you to implement cross-cutting concerns like error handling, logging, or analytics.
 
 ## Basic Usage
 
@@ -129,8 +132,8 @@ useQuery({
 
 Meta is stored in two places:
 
-- `entry.meta` - The resolved value (computed once when entry is created)
-- `entry.options.meta` - The original function/ref/raw value
+* `entry.meta` - The resolved value (computed once when entry is created)
+* `entry.options.meta` - The original function/ref/raw value
 
 ```ts twoslash
 import { useQueryCache, useQuery } from '@pinia/colada'

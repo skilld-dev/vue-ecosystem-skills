@@ -1,3 +1,6 @@
+---
+url: /guide/advanced/sfc.md
+---
 # Single file components
 
 ## Basic Usage
@@ -48,7 +51,6 @@ About how to usage of `useI18n` , see the [Composition API](./composition)
 
 To use i18n custom blocks, you need to use the following plugins for bundler.
 
-
 ## Bundling with Vite
 
 ### unplugin-vue-i18n
@@ -58,9 +60,10 @@ To use i18n custom blocks, you need to use the following plugins for bundler.
 `unplugin-vue-i18n` for vite and webpack.
 
 :::tip REQUIREMENTS
-- vite: **v3 or later**
-- @vitejs/plugin-vue: **v3.2.0 or later**.
-:::
+
+* vite: **v3 or later**
+* @vitejs/plugin-vue: **v3.2.0 or later**.
+  :::
 
 #### Installation
 

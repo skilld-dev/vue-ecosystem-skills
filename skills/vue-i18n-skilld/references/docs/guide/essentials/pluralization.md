@@ -1,3 +1,6 @@
+---
+url: /guide/essentials/pluralization.md
+---
 # Pluralization
 
 To localize the message, you might need to support the pluralization for some languages.
@@ -34,10 +37,10 @@ Vue I18n offers some ways to support pluralization. Here we’ll use the `$t`.
 :::tip NOTE
 Some ways to support pluralization are:
 
-- injected global `$t`
-- built-in Translation component (`i18n-t`)
-- exported `t` from `useI18n` (for Composition API mode)
-:::
+* injected global `$t`
+* built-in Translation component (`i18n-t`)
+* exported `t` from `useI18n` (for Composition API mode)
+  :::
 
 The following is an example of using the translation API.
 
@@ -47,7 +50,7 @@ The following is an example of using the translation API.
 
 <p>{{ $t('apple', 0) }}</p>
 <p>{{ $t('apple', 1) }}</p>
-<p>{{ $t('apple', 10, { count: 10 }) }}</p>
+<p>{{ $t('apple', { count: 10 }) }}</p>
 ```
 
 In the above example of using the `$t`, the first argument is the locale messages key and the second argument is a number. The `$t` returns the choice message as a result.
@@ -142,7 +145,7 @@ function customRule(choice, choicesLength, orgRule) {
 To use the custom rules defined above, inside of `createI18n` set either:
 
 1. `pluralizationRules` (for Options API)
-*or*
+   *or*
 2. `pluralRules` (for Composition API)
 
 like the the following locale:

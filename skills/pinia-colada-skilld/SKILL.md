@@ -3,8 +3,8 @@ name: pinia-colada-skilld
 description: "The smart data fetching layer for Vue.js. ALWAYS use when writing code importing \"@pinia/colada\". Consult for debugging, best practices, or modifying @pinia/colada, pinia/colada, pinia colada, pinia-colada."
 metadata:
   version: 1.0.0
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # posva/pinia-colada `@pinia/colada`

@@ -1,12 +1,9 @@
+---
+url: /guide/infinite-queries.md
+---
 # Infinite Queries
 
 Infinite queries let you load and merge multiple pages into a **single cache entry**.
-
-::: warning Experimental
-
-`useInfiniteQuery()` is currently marked as experimental. Expect some API/behavior changes as it evolves.
-
-:::
 
 This is different from paginated queries with `useQuery()` where each page is a separate cache entry (page is part of the `key`).
 
@@ -16,15 +13,15 @@ If you haven’t read it yet, start with [Paginated Queries](./paginated-queries
 
 `useInfiniteQuery()` isn't for every use case. It’s ideal when:
 
-- you want infinite scrolling / "load more" behavior (most common)
-- you want all loaded pages to be invalidated/refetched as one unit
-- you don't want pages to be garbage-collected independently
+* you want infinite scrolling / "load more" behavior (most common)
+* you want all loaded pages to be invalidated/refetched as one unit
+* you don't want pages to be garbage-collected independently
 
 ## Key design
 
 With infinite queries, **the page/cursor is not part of the query key**.
 
-Put _filters_ in the key (search text, sort order, user id…), but not the `pageParam`:
+Put *filters* in the key (search text, sort order, user id…), but not the `pageParam`:
 
 ```ts
 useInfiniteQuery({
@@ -55,8 +52,8 @@ const {
 
 The result is shaped like:
 
-- `data.value.pages`: array of pages
-- `data.value.pageParams`: the associated params used to fetch each page
+* `data.value.pages`: array of pages
+* `data.value.pageParams`: the associated params used to fetch each page
 
 Each time you call `loadNextPage()`, the new page is merged into the same cache entry as the key is the same.
 

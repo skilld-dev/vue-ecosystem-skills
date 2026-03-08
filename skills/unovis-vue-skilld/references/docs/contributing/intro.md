@@ -1,0 +1,47 @@
+---
+title: "Contributing | Unovis"
+meta:
+  "og:title": "Contributing | Unovis"
+---
+
+## Code of Conduct [](#code-of-conduct "Direct link to Code of Conduct")
+
+F5 has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
+
+## Our Development Process [](#our-development-process "Direct link to Our Development Process")
+
+Adding a new component:
+
+1. Create your new component in the TypeScript version of _Unovis_ (`@unovis/ts`);
+2. Generate or manually create wrappers for React, Angular, Svelte, Vue and Solid;
+3. Write documentation for your new component;
+4. Add examples to Gallery.
+
+More details coming soon, stay tuned!
+
+## Pull Requests [](#pull-requests "Direct link to Pull Requests")
+
+We actively welcome pull requests. If you want to submit one, please follow the following process:
+
+1. Fork the repo and create your branch from `main`;
+2. If you've added a new feature, changed the configuration or public methods, please update the docs;
+3. Make sure your code lints;
+4. Submit your PR!
+
+- And finally, if you haven't already, complete the Contributor License Agreement ("CLA") so we can merge your code.
+
+## Contributor License Agreement ("CLA") [](#contributor-license-agreement-cla "Direct link to Contributor License Agreement (&quot;CLA&quot;)")
+
+Current F5 legal policy requires that external contributors must first agree to the terms outlined in F5's CLA, before any of their changes can be incorporated into an F5 Open Source project.
+
+If you have not yet signed an F5 Open Source CLA before and submit a pull-request to this repository, a bot will prompt you to view and agree to the F5 CLA through a comment. Once the prompted action has been taken, you have officially agreed to the F5 CLA and your changes can be incorporated into the project at maintainer discretion.
+
+## License [](#license "Direct link to License")
+
+By contributing to _Unovis_, you agree that your contributions will be licensed its Apache 2.0 license.
+
+- [Code of Conduct](#code-of-conduct)
+- [Our Development Process](#our-development-process)
+- [Pull Requests](#pull-requests)
+- [Contributor License Agreement ("CLA")](#contributor-license-agreement-cla)
+- [License](#license)

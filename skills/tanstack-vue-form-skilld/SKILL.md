@@ -3,8 +3,8 @@ name: tanstack-vue-form-skilld
 description: "Powerful, type-safe forms for Vue. ALWAYS use when writing code importing \"@tanstack/vue-form\". Consult for debugging, best practices, or modifying @tanstack/vue-form, tanstack/vue-form, tanstack vue-form, tanstack vue form, form."
 metadata:
   version: 1.28.4
-  generated_at: 2026-03-07
-  references_synced_at: 2026-03-07
+  generated_at: 2026-03-08
+  references_synced_at: 2026-03-08
 ---
 
 # TanStack/form `@tanstack/vue-form`

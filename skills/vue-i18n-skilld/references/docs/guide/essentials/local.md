@@ -1,3 +1,6 @@
+---
+url: /guide/essentials/local.md
+---
 # Local Scope Based Localization
 
 ## i18n component options
@@ -58,7 +61,6 @@ app.mount('#app')
 ```
 
 Template:
-
 
 ```html
 <div id="app">

@@ -1,190 +1,198 @@
 ---
-total: 103
+total: 114
 ---
 
 # Docs Index
 
-## 0.nuxt/head/guides/0.get-started (2)
+- [Admin · Unhead](./admin.md): Sign in with your GitHub account to access the admin dashboard.
+- [Unhead · Full stack <head> package](./index.md): Unhead wraps your document template, improving reactive SSR JavaScript framework SEO and performance.
+- [Releases · Unhead](./releases.md): Last fetched: 13 hours ago.
+- [Free Head Management & SEO Tools · Unhead](./tools.md): Free interactive tools to generate, test, and optimize your document head.
+- [Unhead v2: The full-stack <head> package for any framework.](./v2.md): Harlan WiltonHarlan Wilton
 
-- [Installation](./0.nuxt/head/guides/0.get-started/1.installation.md): Quick Start: Unhead is built into Nuxt 3 - just use useHead(), useSeoMeta(), or useScript() directly in your components. No installation needed!
-- [Upgrade Guide](./0.nuxt/head/guides/0.get-started/1.migration.md): As of Nuxt 3.16, Unhead v2 is the default version for Nuxt.
+## docs/head/api/composables (4)
 
-## 0.nuxt/head/guides/1.core-concepts (2)
+- [useHeadSafe() · Unhead](./docs/head/api/composables/use-head-safe.md): Composables
+- [useHead() · Unhead](./docs/head/api/composables/use-head.md): Composables
+- [useScript() · Unhead](./docs/head/api/composables/use-script.md): Composables
+- [useSeoMeta() · Unhead](./docs/head/api/composables/use-seo-meta.md): Composables
 
-- [Context & Reactivity](./0.nuxt/head/guides/1.core-concepts/0.reactivity.md): Quick Answer: In Nuxt, pass refs and computed values directly to useHead() or useSeoMeta(). Reactivity is automatic. Use injectHead() when you need...
-- [Components](./0.nuxt/head/guides/1.core-concepts/1.components.md): Quick Answer: Nuxt includes built-in <Head>, <Title>, , <Link>, and  components. No imports needed - just use them in your templates.
+## docs/head/api/get-started (1)
 
-## 0.nuxt/schema-org/guides/0.get-started (1)
+- [Overview · Unhead](./docs/head/api/get-started/overview.md): Get Started
 
-- [Installation](./0.nuxt/schema-org/guides/0.get-started/0.installation.md): To use Unhead Schema.org with Nuxt, you need to install the Nuxt Schema.org module.
+## docs/head/api/hooks (12)
 
-## 0.nuxt/schema-org/guides/1.core-concepts (1)
+- [dom:beforeRender Hook · Unhead](./docs/head/api/hooks/dom-before-render.md): Hooks
+- [entries:normalize Hook · Unhead](./docs/head/api/hooks/entries-normalize.md): Hooks
+- [entries:resolve Hook · Unhead](./docs/head/api/hooks/entries-resolve.md): Hooks
+- [entries:updated Hook · Unhead](./docs/head/api/hooks/entries-updated.md): Hooks
+- [script:updated Hook · Unhead](./docs/head/api/hooks/script-updated.md): Hooks
+- [ssr:beforeRender Hook · Unhead](./docs/head/api/hooks/ssr-before-render.md): Hooks
+- [ssr:render Hook · Unhead](./docs/head/api/hooks/ssr-render.md): Hooks
+- [ssr:rendered Hook · Unhead](./docs/head/api/hooks/ssr-rendered.md): Hooks
+- [tag:normalise Hook · Unhead](./docs/head/api/hooks/tag-normalise.md): Hooks
+- [tags:afterResolve Hook · Unhead](./docs/head/api/hooks/tags-after-resolve.md): Hooks
+- [tags:beforeResolve Hook · Unhead](./docs/head/api/hooks/tags-before-resolve.md): Hooks
+- [tags:resolve Hook · Unhead](./docs/head/api/hooks/tags-resolve.md): Hooks
 
-- [Vue Components](./0.nuxt/schema-org/guides/1.core-concepts/5.vue-components.md):  Using the components API is no longer recommended. You should use the composables for better developer experience.
+## docs/head/guides/advanced (3)
 
-## 0.typescript/head/guides/0.get-started (2)
+- [Bundle Optimizations · Unhead](./docs/head/guides/advanced/client-only-tags.md): Advanced
+- [Extending Unhead · Unhead](./docs/head/guides/advanced/extending-unhead.md): Advanced
+- [Build Optimization Plugins · Unhead](./docs/head/guides/advanced/vite-plugin.md): Advanced
 
-- [Installation](./0.typescript/head/guides/0.get-started/1.installation.md): Unhead is built for JavaScript applications that need to manage the head of their document in both server and client-rendered environments.
-- [Upgrade Guide](./0.typescript/head/guides/0.get-started/1.migration.md): With the release of Unhead v2, we now have first-class support for other frameworks. However, this guide will focus on
-the changes that affec TypeS...
+## docs/head/guides/core-concepts (7)
 
-## 0.typescript/head/guides/1.core-concepts (1)
+- [Class & Style Attributes · Unhead](./docs/head/guides/core-concepts/class-attr.md): Core Concepts
+- [Handling DOM Events · Unhead](./docs/head/guides/core-concepts/dom-event-handling.md): Core Concepts
+- [Tag Deduplication · Unhead](./docs/head/guides/core-concepts/handling-duplicates.md): Core Concepts
+- [Inline Style & Scripts · Unhead](./docs/head/guides/core-concepts/inner-content.md): Core Concepts
+- [Script Loading · Unhead](./docs/head/guides/core-concepts/loading-scripts.md): Core Concepts
+- [Tag Sorting & Placement · Unhead](./docs/head/guides/core-concepts/positions.md): Core Concepts
+- [Page Titles with Unhead · Unhead](./docs/head/guides/core-concepts/titles.md): Core Concepts
 
-- [Wrapping Composables](./0.typescript/head/guides/1.core-concepts/0.wrapping-composables.md): Quick Answer: Create custom composables by wrapping useHead() with your own defaults. Pass the head instance to reuse across your application.
+## docs/head/guides/get-started (3)
 
-## 0.typescript/schema-org/guides/get-started (1)
+- [Unhead: Full Stack Head Manager · Unhead](./docs/head/guides/get-started/intro-to-unhead.md): Get Started
+- [Unhead - Head Management for Vue, React, Svelte & More · Unhead](./docs/head/guides/get-started/overview.md): Get Started
+- [Starter Recipes · Unhead](./docs/head/guides/get-started/starter-recipes.md): Get Started
 
-- [Installation](./0.typescript/schema-org/guides/get-started/0.installation.md): ::UButton{to="https://stackblitz.com/edit/vitejs-vite-xbb1fa" target="blank" style="margin-right: 10px;"}
-Vite SPA
-::
+## docs/head/guides/plugins (4)
 
-## 0.vue/head/guides/0.get-started (2)
+- [Alias Sorting · Unhead](./docs/head/guides/plugins/alias-sorting.md): Plugins
+- [Canonical Plugin · Unhead](./docs/head/guides/plugins/canonical.md): Plugins
+- [Infer SEO Meta · Unhead](./docs/head/guides/plugins/infer-seo-meta-tags.md): Plugins
+- [Template Params Plugin · Unhead](./docs/head/guides/plugins/template-params.md): Plugins
 
-- [Installation](./0.vue/head/guides/0.get-started/1.installation.md): Quick Start: Install @unhead/vue, create head with createHead(), and use app.use(head). For SSR, use separate client/server entry points with trans...
-- [Upgrade Guide](./0.vue/head/guides/0.get-started/1.migration.md): While Unhead has always been framework-agnostic, the most adoption was by the Vue ecosystem.
+## docs/nuxt/head/guides/core-concepts (2)
 
-## 0.vue/head/guides/1.core-concepts (4)
+- [Components · Unhead](./docs/nuxt/head/guides/core-concepts/components.md): Core Concepts
+- [Vue Reactivity and Async Context · Unhead](./docs/nuxt/head/guides/core-concepts/reactivity.md): Core Concepts
 
-- [Context & Reactivity](./0.vue/head/guides/1.core-concepts/0.reactivity-and-context.md): Quick Answer: In Vue, pass refs and computed values directly to useHead(). Changes are tracked automatically. Use injectHead() in composables outsi...
-- [<Head> Component](./0.vue/head/guides/1.core-concepts/1.components.md): Quick Answer: Use <Head>, <Title>, , <Link>, and  components for template-based head management. Import from @unhead/vue/components.
-- [Options API](./0.vue/head/guides/1.core-concepts/3.options-api.md): Quick Answer: Use the head() option in Vue components to define head tags. It receives the component instance as this, allowing access to data and ...
-- [Pause DOM Rendering](./0.vue/head/guides/1.core-concepts/4.pausing-dom-rendering.md): Pausing the DOM rendering is useful for when you want to ensure your page is fully loaded before updating tags.
+## docs/nuxt/head/guides/get-started (2)
 
-## 0.vue/schema-org/guides/0.get-started (1)
+- [Installing Unhead with Nuxt · Unhead](./docs/nuxt/head/guides/get-started/installation.md): Get Started
+- [Upgrade Guide · Unhead](./docs/nuxt/head/guides/get-started/migration.md): Get Started
 
-- [Installation](./0.vue/schema-org/guides/0.get-started/0.installation.md): Using :Icon{name="logos:nuxt-icon"} Nuxt? Check out nuxt-schema-org.
+## docs/nuxt/schema-org/guides/core-concepts (1)
 
-## 0.vue/schema-org/guides/1.core-concepts (1)
+- [Vue Components · Unhead](./docs/nuxt/schema-org/guides/core-concepts/vue-components.md): Core Concepts
 
-- [Vue Components](./0.vue/schema-org/guides/1.core-concepts/5.vue-components.md):  Using the components API is no longer recommended. You should use the composables for better developer experience.
+## docs/nuxt/schema-org/guides/get-started (1)
 
-## head/1.guides/0.get-started (3)
+- [Install Unhead Schema.org · Unhead](./docs/nuxt/schema-org/guides/get-started/installation.md): Get Started
 
-- [Overview](./head/1.guides/0.get-started/0.overview.md): What is Unhead? A framework-agnostic library for managing your HTML <head> - titles, meta tags, scripts, and more. Works with Vue, React, Svelte, S...
-- [Introduction to Unhead](./head/1.guides/0.get-started/2.intro-to-unhead.md): Adding tags in your <head>{lang="html"} is one of the fundamental tasks in web development. Whether it be setting a page title using <title>{lang="...
-- [Starter Recipes](./head/1.guides/0.get-started/4.starter-recipes.md): Quick Answer: Copy-paste these common head management patterns: basic SEO setup, social sharing meta, favicon configuration, and third-party script...
+## docs/schema-org/api/composables (1)
 
-## head/1.guides/1.core-concepts (7)
+- [useSchemaOrg() · Unhead](./docs/schema-org/api/composables/use-schema-org.md): Composables
 
-- [Titles & Title Templates](./head/1.guides/1.core-concepts/1.titles.md): Page titles are crucial for SEO. They're your primary call-to-action in search results and help users understand your page's content and context.
-- [Tag Sorting & Placement](./head/1.guides/1.core-concepts/2.positions.md): Quick Answer: Use tagPosition: 'head' | 'bodyOpen' | 'bodyClose' to control where tags render. Use tagPriority: 'critical' | 'high' | number | 'low...
-- [Class & Style Attributes](./head/1.guides/1.core-concepts/3.class-attr.md): Quick Answer: Use htmlAttrs and bodyAttrs to set attributes on <html> and <body>. Classes can be strings, arrays, or objects. Example: htmlAttrs: {...
-- [Inline Style & Scripts](./head/1.guides/1.core-concepts/4.inner-content.md): Quick Answer: Use textContent for inline scripts and styles, innerHTML only when you need HTML entities. Example: script: [{ textContent: 'console....
-- [Tag Deduplication](./head/1.guides/1.core-concepts/6.handling-duplicates.md): Quick Answer: Unhead automatically deduplicates tags by key attribute. Meta tags dedupe by name or property. Use unique key values when you need mu...
-- [Handling DOM Events](./head/1.guides/1.core-concepts/8.dom-event-handling.md): Quick Answer: Use onload and onerror attributes in your useHead() script tags. For advanced event handling, use useScript() with onLoaded() and onE...
-- [Script Loading](./head/1.guides/1.core-concepts/9.loading-scripts.md): The useScript composable provides a powerful way to load and manage external scripts in your application. Built on top of useHead(){lang="ts"}, it ...
+## docs/schema-org/api/schema (34)
 
-## head/1.guides/2.advanced (3)
+- [Article Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/article.md): Schema
+- [Book Schema · Unhead](./docs/schema-org/api/schema/book.md): Schema
+- [Breadcrumb Schema · Unhead](./docs/schema-org/api/schema/breadcrumb.md): Schema
+- [Comment Schema · Unhead](./docs/schema-org/api/schema/comment.md): Schema
+- [Course Schema · Unhead](./docs/schema-org/api/schema/course.md): Schema
+- [Dataset Schema · Unhead](./docs/schema-org/api/schema/dataset.md): Schema
+- [Event Schema · Unhead](./docs/schema-org/api/schema/event.md): Schema
+- [Food Establishment Schema · Unhead](./docs/schema-org/api/schema/food-establishment.md): Schema
+- [HowTo Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/how-to.md): Schema
+- [Image Schema · Unhead](./docs/schema-org/api/schema/image.md): Schema
+- [ItemList Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/item-list.md): Schema
+- [JobPosting Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/job-posting.md): Schema
+- [LocalBusiness Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/local-business.md): Schema
+- [Movie Schema · Unhead](./docs/schema-org/api/schema/movie.md): Schema
+- [Music Album Schema · Unhead](./docs/schema-org/api/schema/music-album.md): Schema
+- [Music Group Schema · Unhead](./docs/schema-org/api/schema/music-group.md): Schema
+- [Music Playlist Schema · Unhead](./docs/schema-org/api/schema/music-playlist.md): Schema
+- [Music Recording Schema · Unhead](./docs/schema-org/api/schema/music-recording.md): Schema
+- [Organization Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/organization.md): Schema
+- [Person Schema · Unhead](./docs/schema-org/api/schema/person.md): Schema
+- [Podcast Episode Schema · Unhead](./docs/schema-org/api/schema/podcast-episode.md): Schema
+- [Podcast Season Schema · Unhead](./docs/schema-org/api/schema/podcast-season.md): Schema
+- [Podcast Series Schema · Unhead](./docs/schema-org/api/schema/podcast-series.md): Schema
+- [Product Schema · Unhead](./docs/schema-org/api/schema/product.md): Schema
+- [Question Schema · Unhead](./docs/schema-org/api/schema/question.md): Schema
+- [Recipe Schema · Unhead](./docs/schema-org/api/schema/recipe.md): Schema
+- [Service Schema · Unhead](./docs/schema-org/api/schema/service.md): Schema
+- [SoftwareApplication Schema - JSON-LD Guide & Examples · Unhead](./docs/schema-org/api/schema/software-app.md): Schema
+- [TV Episode Schema · Unhead](./docs/schema-org/api/schema/tv-episode.md): Schema
+- [TV Season Schema · Unhead](./docs/schema-org/api/schema/tv-season.md): Schema
+- [TV Series Schema · Unhead](./docs/schema-org/api/schema/tv-series.md): Schema
+- [Video Schema · Unhead](./docs/schema-org/api/schema/video.md): Schema
+- [WebPage Schema · Unhead](./docs/schema-org/api/schema/webpage.md): Schema
+- [WebSite Schema · Unhead](./docs/schema-org/api/schema/website.md): Schema
 
-- [Extending Unhead](./head/1.guides/2.advanced/11.extending-unhead.md): Unhead is designed with extensibility in mind, providing lower-level primitives that can be composed to create powerful functionality. This guide e...
-- [Bundle Optimizations](./head/1.guides/2.advanced/7.client-only-tags.md): Quick Answer: To reduce bundle size, use import.meta.client to conditionally add tags only on the client. For Vite, use the Unhead Vite plugin to t...
-- [Build Optimization Plugins](./head/1.guides/2.advanced/9.vite-plugin.md): Quick Answer: The Unhead Vite plugin enables build-time optimizations like tree-shaking server-only code and transforming useSeoMeta() for smaller ...
+## docs/schema-org/guides/core-concepts (3)
 
-## head/1.guides/plugins (4)
+- [Deduping Nodes · Unhead](./docs/schema-org/guides/core-concepts/deduping-nodes.md): Core Concepts
+- [Supported Nodes · Unhead](./docs/schema-org/guides/core-concepts/nodes.md): Core Concepts
+- [Schema.org Params · Unhead](./docs/schema-org/guides/core-concepts/params.md): Core Concepts
 
-- [Template Params Plugin](./head/1.guides/plugins/6.template-params.md): Quick Answer: Template params let you use placeholders like %s and %siteName in your head tags. Configure them with templateParams: { siteName: 'My...
-- [Alias Sorting](./head/1.guides/plugins/alias-sorting.md): Quick Answer: The Alias Sorting plugin lets you control head tag order using readable before: and after: prefixes instead of arbitrary numbers. Use...
-- [Canonical Plugin](./head/1.guides/plugins/canonical.md): Quick Answer: The Canonical plugin automatically generates <link rel="canonical"> tags and converts relative URLs to absolute URLs in your meta tag...
-- [Infer SEO Meta](./head/1.guides/plugins/infer-seo-meta-tags.md): Quick Answer: The Infer SEO Meta plugin automatically generates og:title, og:description, and twitter:card from your existing title and description...
+## docs/schema-org/guides/get-started (1)
 
-## head/7.api/0.get-started (1)
+- [Unhead Schema.org · Unhead](./docs/schema-org/guides/get-started/overview.md): Get Started
 
-- [Overview](./head/7.api/0.get-started/overview.md): Quick Reference: The main composables are useHead() for general head management, useSeoMeta() for SEO tags, and useScript() for script loading. All...
+## docs/schema-org/guides/recipes (8)
 
-## head/7.api/composables (5)
+- [Schema.org for a Blog · Unhead](./docs/schema-org/guides/recipes/blog.md): Recipes
+- [Schema.org Breadcrumbs · Unhead](./docs/schema-org/guides/recipes/breadcrumbs.md): Recipes
+- [Custom Nodes · Unhead](./docs/schema-org/guides/recipes/custom-nodes.md): Recipes
+- [Schema.org for eCommerce Sites · Unhead](./docs/schema-org/guides/recipes/e-commerce.md): Recipes
+- [FAQ · Unhead](./docs/schema-org/guides/recipes/faq.md): Recipes
+- [Schema.org for How-To Content · Unhead](./docs/schema-org/guides/recipes/how-to.md): Recipes
+- [Choosing a Schema.org Identity · Unhead](./docs/schema-org/guides/recipes/identity.md): Recipes
+- [Site Search · Unhead](./docs/schema-org/guides/recipes/site-search.md): Recipes
 
-- [useHead()](./head/7.api/composables/0.use-head.md): Quick Start:
-- [useHeadSafe()](./head/7.api/composables/1.use-head-safe.md): The useHeadSafe composable is a security-focused wrapper around the useHead composable that restricts input to only allow safe values, providing pr...
-- [useSeoMeta()](./head/7.api/composables/3.use-seo-meta.md): The useSeoMeta composable lets you define your site's SEO meta tags as a flat object with full TypeScript support.
-- [useScript()](./head/7.api/composables/4.use-script.md): The useScript composable provides an enhanced developer experience for loading third-party scripts with intelligent defaults for performance, secur...
-- [useServerHead()](./head/7.api/composables/6.use-server-head.md): ::warning
-DEPRECATED: All useServer composables (including useServerHead, useServerSeoMeta, etc.) are deprecated.
-Use useHead(){lang="ts"} with imp...
+## docs/typescript/head/guides/core-concepts (2)
 
-## head/7.api/hooks (15)
+- [Streaming SSR · Unhead](./docs/typescript/head/guides/core-concepts/streaming.md): Core Concepts
+- [Wrapping Composables · Unhead](./docs/typescript/head/guides/core-concepts/wrapping-composables.md): Core Concepts
 
-- [init](./head/7.api/hooks/01.init.md): The init hook is called when a new Unhead instance is created and initialized. This hook provides a great opportunity to set up any global configur...
-- [entries:updated](./head/7.api/hooks/02.entries-updated.md): The entries:updated hook is called whenever the collection of head entries is modified, either by adding new entries, updating existing ones, or re...
-- [entries:resolve](./head/7.api/hooks/03.entries-resolve.md): The entries:resolve hook is called when head entries need to be resolved into tags. This hook provides access to both the entries and the tags bein...
-- [entries:normalize](./head/7.api/hooks/04.entries-normalize.md): The entries:normalize hook is called for each entry when it's being normalized into tags. This hook gives you access to the tags generated from a s...
-- [tag:normalise](./head/7.api/hooks/05.tag-normalise.md): The tag:normalise hook is called for each individual tag during the normalization process. This hook gives you access to a single tag, its parent e...
-- [tags:beforeResolve](./head/7.api/hooks/06.tags-before-resolve.md): The tags:beforeResolve hook is called just before the tag resolution process begins. This hook provides access to all tags that have been collected...
-- [tags:resolve](./head/7.api/hooks/07.tags-resolve.md): The tags:resolve hook is one of the most important hooks in Unhead, called during the main tag resolution process. This hook provides access to all...
-- [tags:afterResolve](./head/7.api/hooks/08.tags-after-resolve.md): The tags:afterResolve hook is called after all tags have been resolved but before they are rendered. This is the final opportunity to modify tags b...
-- [dom:beforeRender](./head/7.api/hooks/09.dom-before-render.md): The dom:beforeRender hook is called before tags are rendered to the DOM in client-side environments. This hook allows you to control whether render...
-- [dom:renderTag](./head/7.api/hooks/10.dom-render-tag.md): The dom:renderTag hook is called for each individual tag as it's being rendered to the DOM. This hook gives you fine-grained control over how each ...
-- [dom:rendered](./head/7.api/hooks/11.dom-rendered.md): The dom:rendered hook is called after all tags have been rendered to the DOM. This hook provides access to the rendered elements and is useful for ...
-- [ssr:beforeRender](./head/7.api/hooks/12.ssr-before-render.md): The ssr:beforeRender hook is called before the server-side rendering process begins. This hook allows you to control whether the SSR rendering shou...
-- [ssr:render](./head/7.api/hooks/13.ssr-render.md): The ssr:render hook is called during the server-side rendering process after tags have been resolved but before they're converted to HTML strings. ...
-- [ssr:rendered](./head/7.api/hooks/14.ssr-rendered.md): The ssr:rendered hook is called after the server-side rendering process has completed and all head tags have been converted to HTML strings. This h...
-- [script:updated](./head/7.api/hooks/15.script-updated.md): The script:updated hook is called when a script instance managed by Unhead is updated. This hook is specific to Unhead's script management features...
+## docs/typescript/head/guides/get-started (2)
 
-## schema-org/2.guides/0.get-started (1)
+- [Install Unhead on TypeScript Projects · Unhead](./docs/typescript/head/guides/get-started/installation.md): Get Started
+- [Upgrade Guide · Unhead](./docs/typescript/head/guides/get-started/migration.md): Get Started
 
-- [Introduction](./schema-org/2.guides/0.get-started/0.overview.md): Unhead Schema.org automatically generates valid JSON-LD structured data for Google Rich Results. Instead of manually writing complex JSON-LD, you u...
+## docs/typescript/schema-org/guides/get-started (1)
 
-## schema-org/2.guides/1.core-concepts (3)
+- [Install Unhead Schema.org · Unhead](./docs/typescript/schema-org/guides/get-started/installation.md): Get Started
 
-- [Deduping Nodes](./schema-org/2.guides/1.core-concepts/2.deduping-nodes.md): Quick Answer: Schema.org nodes are automatically deduplicated by their @id. Only one node of each type (like WebPage) can exist by default. Later d...
-- [Supported Nodes](./schema-org/2.guides/1.core-concepts/2.nodes.md): Quick Answer: Schema.org nodes are created with define functions like defineArticle(), defineProduct(), etc. Each function validates input and outp...
-- [Schema.org Params](./schema-org/2.guides/1.core-concepts/3.params.md): Quick Answer: Schema.org params configure site-wide defaults like host, path, currency, and inLanguage. Set them once and they're automatically app...
+## docs/vue/head/guides/core-concepts (5)
 
-## schema-org/2.guides/4.recipes (8)
+- [<Head> Component · Unhead](./docs/vue/head/guides/core-concepts/components.md): Core Concepts
+- [Options API · Unhead](./docs/vue/head/guides/core-concepts/options-api.md): Core Concepts
+- [Pause DOM Rendering · Unhead](./docs/vue/head/guides/core-concepts/pausing-dom-rendering.md): Core Concepts
+- [Vue Reactivity and Async Context · Unhead](./docs/vue/head/guides/core-concepts/reactivity-and-context.md): Core Concepts
+- [Streaming SSR · Unhead](./docs/vue/head/guides/core-concepts/streaming.md): Core Concepts
 
-- [Custom Nodes](./schema-org/2.guides/4.recipes/0.custom-nodes.md): Quick Answer: Create custom Schema.org nodes by passing a plain object to useSchemaOrg(). Use @type for the schema type and any valid Schema.org pr...
-- [Identity](./schema-org/2.guides/4.recipes/1.identity.md): Quick Answer: Set up your site identity with defineOrganization() or definePerson(). This establishes who owns/creates your content and enables Goo...
-- [Blog](./schema-org/2.guides/4.recipes/blog.md): Use defineArticle() with @type: 'BlogPosting' to mark up blog posts. This enables rich snippets showing author, publish date, and article images in...
-- [Breadcrumbs](./schema-org/2.guides/4.recipes/breadcrumbs.md): Use defineBreadcrumb() with an array of { name, item } objects to create breadcrumb navigation markup. Google displays this as a clickable path in ...
-- [eCommerce](./schema-org/2.guides/4.recipes/e-commerce.md): Use defineProduct() with offers, aggregateRating, and review properties to enable product rich results. Google can display price, availability, rat...
-- [FAQ](./schema-org/2.guides/4.recipes/faq.md): Use defineQuestion() with defineWebPage({ '@type': 'FAQPage' }) to mark up FAQ content. Google can display your questions and answers directly in s...
-- [How To](./schema-org/2.guides/4.recipes/how-to.md): Creating How-To content is an excellent way to provide valuable instructions to your users. With Schema.org markup, you can help search engines bet...
-- [Site Search](./schema-org/2.guides/4.recipes/site-search.md): If your site offers a search function, you may like to define markup to help Google understand it.
+## docs/vue/head/guides/get-started (2)
 
-## schema-org/5.api/0.composables (1)
+- [Installing Unhead with Vue · Unhead](./docs/vue/head/guides/get-started/installation.md): Get Started
+- [Upgrade Guide · Unhead](./docs/vue/head/guides/get-started/migration.md): Get Started
 
-- [useSchemaOrg()](./schema-org/5.api/0.composables/0.use-schema-org.md): The useSchemaOrg(){lang="ts"} composable is the primary way to add Schema.org structured data to your pages.
+## docs/vue/schema-org/guides/core-concepts (1)
 
-## schema-org/5.api/9.schema (34)
+- [Vue Components · Unhead](./docs/vue/schema-org/guides/core-concepts/vue-components.md): Core Concepts
 
-- [Article Schema](./schema-org/5.api/9.schema/article.md): WebPage
-- [Book Schema](./schema-org/5.api/9.schema/book.md): ::alert{type="warning"}
- Schema in development
-::
-- [Breadcrumb Schema](./schema-org/5.api/9.schema/breadcrumb.md): WebPage
-- [Comment Schema](./schema-org/5.api/9.schema/comment.md): See the blog recipe for more examples.
-- [Course Schema](./schema-org/5.api/9.schema/course.md): ::alert{type="warning"}
- Documentation in progress
-::
-- [Dataset Schema](./schema-org/5.api/9.schema/dataset.md): Type: defineDataset(input?: Dataset){lang="ts"}
-- [Event Schema](./schema-org/5.api/9.schema/event.md): ::alert{type="warning"}
- Documentation in progress
-::
-- [Food Establishment Schema](./schema-org/5.api/9.schema/food-establishment.md): Type: defineFoodEstablishment(input?: FoodEstablishment){lang="ts"}
-- [HowTo Schema](./schema-org/5.api/9.schema/how-to.md)
-- [Image Schema](./schema-org/5.api/9.schema/image.md): Describes an individual image (usually in the context of an embedded media object).
-- [ItemList Schema](./schema-org/5.api/9.schema/item-list.md): A list of items of any sort. Mainly used for breadcrumbs and carousels.
-- [Job Posting Schema](./schema-org/5.api/9.schema/job-posting.md): See Global Resolves for full context.
-- [Local Business Schema](./schema-org/5.api/9.schema/local-business.md): Type: defineLocalBusiness(input?: LocalBusiness){lang="ts"}
-- [Movie Schema](./schema-org/5.api/9.schema/movie.md): Type: defineMovie(input?: Movie){lang="ts"}
-- [Music Album Schema](./schema-org/5.api/9.schema/music-album.md): Type: defineMusicAlbum(input?: MusicAlbum){lang="ts"}
-- [Music Group Schema](./schema-org/5.api/9.schema/music-group.md): Type: defineMusicGroup(input?: MusicGroup){lang="ts"}
-- [Music Playlist Schema](./schema-org/5.api/9.schema/music-playlist.md): Type: defineMusicPlaylist(input?: MusicPlaylist){lang="ts"}
-- [Music Recording Schema](./schema-org/5.api/9.schema/music-recording.md): Type: defineMusicRecording(input?: MusicRecording){lang="ts"}
-- [Organization Schema](./schema-org/5.api/9.schema/organization.md): See Global Resolves for full context.
-- [Person Schema](./schema-org/5.api/9.schema/person.md): See Global Resolves for full context.
-- [Podcast Episode Schema](./schema-org/5.api/9.schema/podcast-episode.md): Type: definePodcastEpisode(input?: PodcastEpisode){lang="ts"}
-- [Podcast Season Schema](./schema-org/5.api/9.schema/podcast-season.md): Type: definePodcastSeason(input?: PodcastSeason){lang="ts"}
-- [Podcast Series Schema](./schema-org/5.api/9.schema/podcast-series.md): Type: definePodcastSeries(input?: PodcastSeries){lang="ts"}
-- [Product Schema](./schema-org/5.api/9.schema/product.md): See Global Resolves for full context.
-- [Question Schema](./schema-org/5.api/9.schema/question.md): See Global Resolves for full context.
-- [Recipe Schema](./schema-org/5.api/9.schema/recipe.md): See Global Resolves for full context.
-- [Service Schema](./schema-org/5.api/9.schema/service.md): Type: defineService(input?: Service){lang="ts"}
-- [Software App Schema](./schema-org/5.api/9.schema/software-app.md): ::alert{type="warning"}
- Documentation in development
-::
-- [TV Episode Schema](./schema-org/5.api/9.schema/tv-episode.md): Type: defineTVEpisode(input?: TVEpisode){lang="ts"}
-- [TV Season Schema](./schema-org/5.api/9.schema/tv-season.md): Type: defineTVSeason(input?: TVSeason){lang="ts"}
-- [TV Series Schema](./schema-org/5.api/9.schema/tv-series.md): Type: defineTVSeries(input?: TVSeries){lang="ts"}
-- [Video Schema](./schema-org/5.api/9.schema/video.md): See Global Resolves for full context.
-- [WebPage Schema](./schema-org/5.api/9.schema/webpage.md): Home page only
-- [WebSite Schema](./schema-org/5.api/9.schema/website.md)
+## docs/vue/schema-org/guides/get-started (1)
+
+- [Install Unhead Schema.org · Unhead](./docs/vue/schema-org/guides/get-started/installation.md): Get Started
+
+## learn/guides (1)
+
+- [What is Capo.js? Why HTML Head Tag Order Matters · Unhead](./learn/guides/what-is-capo.md): Guide10 min read
+
+## learn/research (3)
+
+- [Does Head Tag Order Actually Affect Performance? Original Research · Unhead](./learn/research/capo-performance-research.md): Research12 min read
+- [The State of <head> in 2026: 660,000 Sites Audited · Unhead](./learn/research/state-of-head-2026.md): Research22 min read
+- [Server-Side Streaming SEO in 2026: A Cross-Framework Study · Unhead](./learn/research/streaming-head-performance.md): Research12 min read
+
+## tools (4)
+
+- [Capo.js Head Analyzer - Check Your HTML Head Tag Order · Unhead](./tools/capo-analyzer.md): Analyze your HTML head tag order for optimal page load performance. Get a score, identify issues, and generate optimized code.
+- [Meta Tag Generator - Generate useSeoMeta Code · Unhead](./tools/meta-tag-generator.md): Generate useSeoMeta() code for Vue, React, Nuxt, and more. Preview how your page will look in search results and social shares.
+- [OG Image Generator - Create Open Graph Images · Unhead](./tools/og-image-generator.md): Design and generate Open Graph images for your website. Live preview and export as PNG.
+- [Schema.org Generator - Free Structured Data Markup Tool · Unhead](./tools/schema-generator.md): Generate useSchemaOrg() code for rich search results. Build structured data for articles, products, FAQs, and more.

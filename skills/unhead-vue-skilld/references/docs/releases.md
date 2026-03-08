@@ -1,0 +1,195 @@
+---
+title: "Releases · Unhead"
+meta:
+  "og:description": "Unhead is the any-framework document head manager built for performance and delightful developer experience."
+  "og:title": "Releases · Unhead"
+  description: "Unhead is the any-framework document head manager built for performance and delightful developer experience."
+---
+
+## **Release Notes **
+
+Last fetched: 13 hours ago.
+
+See GitHub Releases for realtime updates.
+
+- 5 months ago <h3>v 2.0.**19**** Latest release **</h3>Release v2.0.19 ### [    Bug Fixes](#bug-fixes)
+  - **vue**: Tree shaking breaking some reactivity  -  by @harlan-zw `(7abb5)` #####      **View changes on GitHub**
+- 5 months ago <h3>v 2.0.**18**</h3>Release v2.0.18 ### [    Performance](#performance)
+  - **unhead**: Avoid server side effects  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/585** `(3fd09)` #####      **View changes on GitHub**
+- 6 months ago <h3>v 2.0.**17**</h3>Release v2.0.17_No significant changes_#####      **View changes on GitHub**
+- 6 months ago <h3>v 2.0.**16**</h3>Release v2.0.16_No significant changes_#####      **View changes on GitHub**
+- 6 months ago <h3>v 2.0.**15**</h3>Release v2.0.15 ### [    Bug Fixes](#bug-fixes)
+  - NPM Trusted Publishing  -  by @harlan-zw `(a5d9f)`
+  - **ssr**: Broken `extractUnheadInputFromHtml` regex  -  by @harlan-zw `(e23db)` ### [    Performance](#performance)
+  - Walker based `transformHtmlTemplate`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/581** `(37fc9)` #####      **View changes on GitHub**
+- 7 months ago <h3>v 2.0.**14**</h3>Release v2.0.14 ### [    Bug Fixes](#bug-fixes)
+  - **unhead**: Multiword attributes in template  -  by @NikSimonov in **https://github.com/unjs/unhead/issues/568** `(f635b)` #####      **View changes on GitHub**
+- 7 months ago <h3>v 2.0.**13**</h3>Release v2.0.13 ### [    Bug Fixes](#bug-fixes)
+  - **unhead**:
+    - Canonical plugin modifying non-url properties  -  by @paraboul `(ee8fd)`
+    - Avoid normalizing template param input  -  by @harlan-zw `(1d205)`
+    - Safer removal of leading / trailing separators  -  by @harlan-zw `(d4501)` #####      **View changes on GitHub**
+- 8 months ago <h3>v 2.0.**12**</h3>Release v2.0.12 ### [    Bug Fixes](#bug-fixes)
+  - **react**: Force invalidation on entry disposal  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/559** `(4ee5e)` #####      **View changes on GitHub**
+- 9 months ago <h3>v 2.0.**11**</h3>Release v2.0.11 ### [    Bug Fixes](#bug-fixes)
+  - Allow non-standard meta tags to be intentionally duped  -  by @harlan-zw `(9a899)` #####      **View changes on GitHub**
+- 10 months ago <h3>v 2.0.**10**</h3>Release v2.0.10 ### [    Bug Fixes](#bug-fixes)
+  - Safer meta array deduping  -  by @harlan-zw `(32486)` #####      **View changes on GitHub**
+- 10 months ago <h3>v 2.0.**9**</h3>Release v2.0.9 ### [    Performance](#performance)
+  - **unhead**: Normalize canonicalHost only once in canonical plugin  -  by @negezor in **https://github.com/unjs/unhead/issues/550** `(92713)` #####      **View changes on GitHub**
+- 11 months ago <h3>v 2.0.**8**</h3>Release v2.0.8_No significant changes_#####      **View changes on GitHub**
+- 11 months ago <h3>v 2.0.**7**</h3>Release v2.0.7 ### [    Bug Fixes](#bug-fixes)
+  - **schema-org**: `unhead` hoisting issue  -  by @harlan-zw `(bb0e4)` #####      **View changes on GitHub**
+- 11 months ago <h3>v 2.0.**6**</h3>Release v2.0.6 ### [    Bug Fixes](#bug-fixes)
+  - **ssr**: Less aggressive encoding of non-title tags  -  by @harlan-zw `(f4d4f)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.**5**</h3>Release v2.0.5 ### [    Bug Fixes](#bug-fixes)
+  - **vue**: Use `setTimeout` as render's debounced delayer  -  by @kricsleo in **https://github.com/unjs/unhead/issues/540** `(8f7c5)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.**4**</h3>Release v2.0.4 ### [    Bug Fixes](#bug-fixes)
+  - **InferSeoMetaPlugin**: Template param replacement broken  -  by @harlan-zw `(4e1c8)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.**3**</h3>Release v2.0.3 ### [    Bug Fixes](#bug-fixes)
+  - **InferSeoMetaPlugin**:
+    - Function title templates not respected  -  by @harlan-zw `(a855f)`
+  - **react**:
+    - Ensure `<Head>` updates context immediately for SSR compatibility  -  by @Narixius in **https://github.com/unjs/unhead/issues/533** `(463b2)`
+    - Update unhead context on initial render  -  by @Narixius in **https://github.com/unjs/unhead/issues/534** `(24ee3)`
+    - Process tag content and memoize elements  -  by @harlan-zw `(585bf)`
+    - Support >= React v18  -  by @harlan-zw `(c64ba)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.**2**</h3>Release v2.0.2 ### [    Bug Fixes](#bug-fixes)
+  - Export extra server/client types  -  by @harlan-zw `(9c7f6)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.**1**</h3>Release v2.0.1 ### [    Bug Fixes](#bug-fixes)
+  - **scripts**: Preserve function overload types  -  by @harlan-zw `(293bd)`
+  - **unhead**: Respect truthy `data-*` empty strings  -  by @harlan-zw `(95aab)` #####      **View changes on GitHub**
+- last year <h3>v**2.0.0**</h3>Release v2.0.0 ### [Unhead v2 ](#unhead-v2) The latest major is now stable! Check out the **v2 release notes** and the **Vue migration guide** or **TypeScript migration guide**. ### [    Breaking Changes](#breaking-changes)
+  - Only handle promise input when opted in  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/445** `(af0af)`
+  - Client / server subpaths  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/448** `(49634)`
+  - Drop implicit context  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/459** `(7fc77)`
+  - Property debounce dom updates  -  by @harlan-zw `(c97ec)`
+  - Properly debounce dom updates  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/475** `(3141d)`
+  - Drop `CJS` exports  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/482** `(0f14f)`
+  - V2 core rewrite  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/488** `(2f85b)`
+  - **core**:
+    - Remove `HashHydrationPlugin`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/444** `(fa511)`
+    - `unctx` fallback context  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/437** `(eb6ff)`
+    - Default capo sorting  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/440** `(889e6)`
+    - Drop `vmid`, `hid`, `children` `body` keys  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/447** `(e1f44)`
+    - Make `TemplateParamsPlugin` opt-in  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/493** `(85c19)`
+  - **scripts**:
+    - `useScript` overhaul, `@unhead/scripts`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/436** `(c234e)`
+  - **vue**:
+    - Drop Vue 2 support  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/439** `(838a7)` ### [    Features](#features)
+  - Vanilla function resolves  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/443** `(b2ed4)`
+  - Angular support  -  by @harlan-zw `(0e5c2)`
+  - Angular support  -  by @harlan-zw `(671fd)`
+  - `@unhead/react`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/477** `(4b0e0)`
+  - Default important head tags  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/479** `(8bd16)`
+  - `@unhead/svelte`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/452** `(9c9b0)`
+  - Solid.js support  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/500** `(a796d)`
+  - `@unhead/angular`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/467** `(92f3f)`
+  - **core**:
+    - Whitelist styles with `useHeadSafe()`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/490** `(e2d4e)`
+    - Whitelist styles with `useHeadSafe()`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/491** `(e4b1f)`
+    - Canonical plugin  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/492** `(b1fd5)`
+  - **react**:
+    - Simplified API, `useScript()`  -  by @harlan-zw `(4eafe)`
+  - **schema**:
+    - Support `blocking` attributes  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/489** `(eb1b0)`
+  - **schemaOrg,react**:
+    - `@unhead/schema-org/react`  -  by @harlan-zw `(04ce9)`
+  - **ssr**:
+    - `transformHtmlTemplate`  -  by @harlan-zw `(a4720)`
+    - TransformHtmlTemplate  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/473** `(cefd6)`
+  - **svelte**:
+    - `useScript()`  -  by @harlan-zw `(83870)`
+    - `useSchemaOrg()`  -  by @harlan-zw `(7019b)`
+  - **vue**:
+    - Fully typed `style`  -  by @harlan-zw `(45401)` ### [    Bug Fixes](#bug-fixes)
+  - Export `InferSeoMetaPlugin` from `unhead/optionalPlugins`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/449** `(13db8)`
+  - Handle boolean props  -  by @harlan-zw `(41210)`
+  - Support legacy  -  by @harlan-zw `(fb516)`
+  - Clear resolved input when patching a node  -  by @harlan-zw `(f47c4)`
+  - Deprecate `@unhead/schema`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/483** `(6e424)`
+  - Deprecate `@unhead/shared`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/484** `(74343)`
+  - `SerializableHead` input support and exports  -  by @harlan-zw `(b67d6)`
+  - V1 deprecations  -  by @harlan-zw `(ee866)`
+  - Cjs compat  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/512** `(2496f)`
+  - Validate correct type exports  -  by @harlan-zw `(648c4)`
+  - Track title side effects  -  by @harlan-zw `(1a349)`
+  - Avoid normalizing class and style strings  -  by @harlan-zw `(9b892)`
+  - Ensure json strings are properly encoded  -  by @harlan-zw and **Copilot Autofix powered by AI** in **https://github.com/unjs/unhead/issues/520** `(f6564)`
+  - Use a backwards-compatible alternative to `Object.hasOwn`  -  by @Ingramz in **https://github.com/unjs/unhead/issues/526** `(6ae58)`
+  - **addons**:
+    - Stabilize useSeoMeta tree shaking  -  by @harlan-zw `(a3ed9)`
+    - Stabilize `useSeoMeta()` -> `useHead()` transformer  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/506** `(a8505)`
+    - Implicit peer dependencies  -  by @harlan-zw `(48e81)`
+  - **angular**:
+    - Broken subpath exports  -  by @harlan-zw `(4fecb)`
+    - Use `DOCUMENT` injection for client  -  by @harlan-zw `(a92a4)`
+    - SSR support existing tag replacements  -  by @harlan-zw `(1b43b)`
+    - Broken `typings` export  -  by @harlan-zw `(4c5a6)`
+  - **core**:
+    - Avoid recursive function patching  -  by @harlan-zw `(68b89)`
+    - Broken `style` types  -  by @harlan-zw `(ce0ac)`
+    - Broken promise resolving for proxy objects  -  by @harlan-zw `(ad314)`
+    - Clone tags for immutability  -  by @harlan-zw `(cecac)`
+    - Server template params missing from SSR payload  -  by @harlan-zw `(b2ca1)`
+  - **core,types**:
+    - Revert breaking change on `Head` type  -  by @harlan-zw `(4d9e1)`
+  - **core,vue**:
+    - Missing subpath exports  -  by @harlan-zw `(927f1)`
+    - Deprecate server composables  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/505** `(214f9)`
+  - **schema-org,vue**:
+    - Support `useSchemaOrg` options  -  by @harlan-zw `(3d1bf)`
+  - **schema.org**:
+    - Support `name`'d addresses  -  by @harlan-zw `(e7a6e)`
+    - Avoid appending trailing slash on `@id`'s  -  by @harlan-zw `(6e599)`
+    - Avoid appending trailing slash on `@id`'s  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/511** `(c0ddf)`
+  - **schemaOrg**:
+    - Broken entry patching types  -  by @harlan-zw `(e3034)`
+    - Eagerly load node resolver  -  by @harlan-zw `(f3908)`
+    - Broken nested reactivity types  -  by @harlan-zw `(f46bd)`
+  - **scripts**:
+    - Respect user privacy overrides  -  by @harlan-zw `(2ab26)`
+  - **unhead**:
+    - `init` option should trigger DOM renders  -  by @harlan-zw `(6e1df)`
+  - **useScript**:
+    - Avoid triggering use() server-side for proxy  -  by @harlan-zw `(5085e)`
+  - **useSeoMeta**:
+    - Broken required types  -  by @harlan-zw `(82ca7)`
+  - **vue**:
+    - Missing `/scripts` subpath export  -  by @harlan-zw `(fe9c8)`
+    - Export missing script types  -  by @harlan-zw `(6245e)`
+    - Broken reactivity  -  by @harlan-zw `(a255d)` ### [    Performance](#performance)
+  - Isolate plugin logic  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/451** `(66a46)`
+  - Drop `packrup` dependency  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/487** `(6d0e4)`
+  - Prefer mapped entries  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/486** `(db1a4)`
+  - Mark explicit no side effects on `createHead` variants  -  by @harlan-zw `(05828)`
+  - **core**:
+    - Make `AliasSortingPlugin` opt-in  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/494** `(4d96c)`
+    - Normalize entries once  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/504** `(ee341)`
+  - **useScript**:
+    - Avoid registering callbacks when ssr  -  by @harlan-zw `(57861)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**13**</h3>Release v2.0.0-rc.13 ### [    Bug Fixes](#bug-fixes)
+  - Ensure json strings are properly encoded  -  by @harlan-zw and **Copilot Autofix powered by AI** in **https://github.com/unjs/unhead/issues/520** `(f6564)`
+  - **schemaOrg**:
+    - Eagerly load node resolver  -  by @harlan-zw `(f3908)`
+    - Broken nested reactivity types  -  by @harlan-zw `(f46bd)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**12**</h3>Release v2.0.0-rc.12 ### [    Bug Fixes](#bug-fixes)
+  - **useSeoMeta**: Broken required types  -  by @harlan-zw `(82ca7)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**11**</h3>Release v2.0.0-rc.11 ### [    Bug Fixes](#bug-fixes)
+  - **core**: Server template params missing from SSR payload  -  by @harlan-zw `(b2ca1)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**10**</h3>Release v2.0.0-rc.10 ### [    Bug Fixes](#bug-fixes)
+  - **addons**: Implicit peer dependencies  -  by @harlan-zw `(48e81)`
+  - **vue**: Broken reactivity  -  by @harlan-zw `(a255d)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**9**</h3>Release v2.0.0-rc.9 ### [    Bug Fixes](#bug-fixes)
+  - Avoid normalizing class and style strings  -  by @harlan-zw `(9b892)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**8**</h3>Release v2.0.0-rc.8 ### [    Bug Fixes](#bug-fixes)
+  - **scripts**: Respect user privacy overrides  -  by @harlan-zw `(2ab26)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**7**</h3>Release v2.0.0-rc.7_No significant changes_#####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**6**</h3>Release v2.0.0-rc.6 ### [    Bug Fixes](#bug-fixes)
+  - **unhead**: `init` option should trigger DOM renders  -  by @harlan-zw `(6e1df)` #####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**5**</h3>Release v2.0.0-rc.5_No significant changes_#####      **View changes on GitHub**
+- last year <h3>v 2.0.0-rc.**4**</h3>Release v2.0.0-rc.4_No significant changes_#####      **View changes on GitHub**
+
+Looking for older releases?
+
+**View all releases on GitHub **

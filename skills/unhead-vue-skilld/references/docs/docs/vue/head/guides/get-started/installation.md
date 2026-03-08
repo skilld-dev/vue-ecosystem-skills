@@ -1,0 +1,231 @@
+---
+title: "Installing Unhead with Vue · Unhead"
+meta:
+  "og:description": "Set up Unhead in Vue with createHead() and app.use(). Full SSR support with transformHtmlTemplate(). Works with Vue 3 and Vite."
+  "og:title": "Installing Unhead with Vue · Unhead"
+  description: "Set up Unhead in Vue with createHead() and app.use(). Full SSR support with transformHtmlTemplate(). Works with Vue 3 and Vite."
+---
+
+**Get Started**
+
+# **Installing Unhead with Vue**
+
+Copy for LLMs
+
+**On this page **
+
+- [Introduction](#introduction)
+- [Setup](#setup)
+- [Next Steps](#next-steps)
+
+## [Introduction](#introduction)
+
+**Quick Start:** Install `@unhead/vue`, create head with `createHead()`, and use `app.use(head)`. For SSR, use separate client/server entry points with `transformHtmlTemplate()`.
+
+Unhead has first-class support for Vue. In fact much of the code belongs to the original **@vueuse/head** repo which was a Vue 3 version of **Vue Meta**.
+
+Vue Unhead works both for CSR and SSR, and it's designed to be framework-agnostic, so you can use it with any Vue setup.
+
+This guide assumes you're following a similar structure to the **vite-ssr-vue** template or a SPA Vue setup.
+
+Using **Nuxt**? Unhead is already integrated, and you can skip this guide.
+
+### [Demos](#demos)
+
+- **StackBlitz - Unhead - Vite + Vue SSR**
+- **StackBlitz - Unhead - Vue SPA**
+
+## [Setup](#setup)
+
+### [1. Add Dependency](#_1-add-dependency)
+
+Install `@unhead/vue` dependency to your project.
+
+`pnpm add @unhead/vue@next`
+
+#### [How do I use Unhead with Vue 2?](#how-do-i-use-unhead-with-vue-2)
+
+In Unhead v2, official support for Vue 2 has been dropped. If you're using Vue 2, you will need to install v1 of `@unhead/vue@^1` instead.
+
+`pnpm add @unhead/vue@^1`
+
+To continue, please follow the **v1 Unhead Vue installation**.
+
+### [2. Setup Client-Side Rendering](#_2-setup-client-side-rendering)
+
+To begin with, we'll import the function to initialize Unhead in our _client_ Vue app from `@unhead/vue/client`.
+
+In Vite this entry file is typically named `entry-client.ts`. If you're not server-side rendering, you can add this to your main Vue app entry instead.
+
+src/entry-client.ts
+
+```
+import './style.css'
+import { createApp } from './main'
+import { createHead } from '@unhead/vue/client'
+
+const { app } = createApp()
+const head = createHead()
+app.use(head)
+
+app.mount('#app')
+```
+
+### [3. Setup Server-Side Rendering](#_3-setup-server-side-rendering)
+
+Serving your app as an SPA? You can [**skip**](#4-your-first-tags) this step.
+
+Setting up server-side rendering is more complicated as it requires rendering out the tags to the HTML string before sending it to the client.
+
+We'll start with setting up the plugin in the _server_ entry this time. Make sure to import from `@unhead/vue/server` instead and add the `head` in the return object.
+
+src/entry-server.ts
+
+```
+import { createHead } from '@unhead/vue/server'
+import { renderToString } from 'vue/server-renderer'
+import { createApp } from './main'
+
+export async function render(_url: string) {
+  const { app } = createApp()
+  const head = createHead()
+  app.use(head)
+
+  const ctx = {}
+  const html = await renderToString(app, ctx)
+
+  return { html, head }
+}
+```
+
+Now we need to render out the head tags _after_ Vue has rendered the app.
+
+Within your `server.js` file or wherever you're handling the template logic, you need to transform the template data for the head tags using `transformHtmlTemplate()`.
+
+server.ts
+
+```
+import { transformHtmlTemplate } from '@unhead/vue/server'
+// ...
+
+// Serve HTML
+app.use('*all', async (req, res) => {
+  try {
+    // ...
+
+    const rendered = await render(url)
+
+    const html = await transformHtmlTemplate(
+      rendered.head,
+      template.replace(\`\`, rendered.html ?? '')
+    )
+
+    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
+  }
+  catch (e) {
+    // ...
+  }
+})
+// ..
+```
+
+### [4. What default tags does Unhead add?](#_4-what-default-tags-does-unhead-add)
+
+Done! Your app should now be rendering head tags on the server and client.
+
+To improve your apps stability, Unhead will now insert important default tags for you.
+
+- `<meta charset="utf-8">`
+- `<meta name="viewport" content="width=device-width, initial-scale=1">`
+- `<html lang="en">`
+
+You may need to change these for your app requirements, for example you may want to change the default language. Adding tags in your server entry means you won't add any weight to your client bundle.
+
+src/entry-server.ts
+
+```
+import { createHead } from '@unhead/vue/server'
+
+export async function render(_url: string) {
+  // ...
+  const head = createHead({
+    init: [
+      // change default initial lang
+      {
+        title: 'Default title',
+        titleTemplate: '%s | My Site',
+        htmlAttrs: { lang: 'fr' }
+      },
+    ]
+  })
+  // ...
+}
+```
+
+Feel free to play around with adding tags to your apps. Here's an example of adding some styles to the body.
+
+src/App.vue
+
+```
+<script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
+useHead({
+  bodyAttrs: {
+    style: 'background: salmon; color: cyan;'
+  },
+})
+</script>
+```
+
+### [5. How do I enable auto-imports?](#_5-how-do-i-enable-auto-imports)
+
+If you're using **unplugin-auto-import**, you can automatically import the composables.
+
+vite.config.ts
+
+```
+import { unheadVueComposablesImports } from '@unhead/vue'
+import AutoImport from 'unplugin-auto-import/vite'
+
+export default defineConfig({
+  plugins: [
+    AutoImport({
+      imports: [
+        unheadVueComposablesImports,
+      ],
+    }),
+    // ...
+  ]
+})
+```
+
+## [Next Steps](#next-steps)
+
+Your Vue app is now setup for head management, congrats! 
+
+You can get started with any of the composables:
+
+- `useHead()`
+- `useSeoMeta()`
+
+Or explore some of the optional extras:
+
+- Add support for the **Options API**
+- Setup a `<Head>`** component**
+- Add `useSchemaOrg()` for structured data
+- Use `useScript()` for performance optimized script loading
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**Installation** Add Schema.org to TypeScript apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results. **Upgrade Guide** Learn how to migrate between Unhead versions for Vue users.
+
+**On this page **
+
+- [Introduction](#introduction)
+- [Setup](#setup)
+- [Next Steps](#next-steps)

@@ -1,0 +1,195 @@
+---
+title: "Recipe Schema · Unhead"
+meta:
+  "og:description": "Use defineRecipe() to add Recipe structured data. Enable rich snippets with cooking time, ingredients, nutrition, and step-by-step instructions in search."
+  "og:title": "Recipe Schema · Unhead"
+  description: "Use defineRecipe() to add Recipe structured data. Enable rich snippets with cooking time, ingredients, nutrition, and step-by-step instructions in search."
+---
+
+**Schema**
+
+# **Recipe Schema**
+
+Copy for LLMs
+
+**On this page **
+
+- [Schema.org Recipe](#schemaorg-recipe)
+- [Useful Links](#useful-links)
+- [Required properties](#required-properties)
+- [Defaults](#defaults)
+- [Resolves](#resolves)
+- [Types](#types)
+- [Related Schemas](#related-schemas)
+
+## [Schema.org Recipe](#schemaorg-recipe)
+
+- **Type**: `defineRecipe(input?: Recipe)`Describes a Recipe, which contains a series of instructions, ingredients, and optional fields.
+
+## [Useful Links](#useful-links)
+
+- **Schema.org Recipe**
+- **Recipe Structured Data**
+
+## [Required properties](#required-properties)
+
+- **name** `string`A string describing the recipe.A name can be provided using route meta on the `title` key, see [**defaults**](#defaults).
+- **image** `string|ImageObject`An image representing the completed recipe, referenced by ID.A single image URL can be provided using route meta on the `image` key, see [**defaults**](#defaults).
+- **recipeIngredient** `string[]`An array of strings representing each ingredient and quantity (e.g., "3 apples").
+- **recipeInstructions** `Arrayable<HowToStepInput>`An array of instructions for how to prepare the recipe.
+
+## [Defaults](#defaults)
+
+- **@type**: `Recipe`
+- **@id**: `${canonicalUrl}#recipe`
+- **name**: `currentRouteMeta.title` _(see: **Schema.org Params**)_
+- **image**: `currentRouteMeta.image` _(see: **Schema.org Params**)_
+- **description**: `currentRouteMeta.description` _(see: **Schema.org Params**)_
+- **inLanguage**: `options.defaultLanguage` _(see: **user Config**)_
+- **datePublished**: `currentRouteMeta.datePublished` _(see: **Schema.org Params**)_
+- **author**: (conditional) set to the current page article's author if one exists
+- **mainEntityOfPage**: WebPage Reference
+
+## [Resolves](#resolves)
+
+See **Global Resolves** for full context.
+
+- `datePublished` can be resolved from Date objects
+
+### [Minimal](#minimal)
+
+```
+defineRecipe({
+  name: 'Peanut Butter Cookies',
+  image: 'https://example.com/photos/1x1/photo.jpg',
+  recipeInstructions: [
+    {
+      text: 'Bake at 200*C for 40 minutes, or until golden-brown, stirring periodically throughout',
+    },
+    {
+      text: 'Eat them up',
+    },
+  ],
+  recipeIngredient: ['Peanut Butter', 'Cookie Dough'],
+})
+```
+
+## [Types](#types)
+
+```
+export interface RecipeSimple extends Thing {
+  /**
+   * A string describing the recipe.
+   */
+  name?: string
+  /**
+   * An image representing the completed recipe, referenced by ID.
+   */
+  image?: NodeRelation<ImageObject | string>
+  /**
+   * An array of strings representing each ingredient and quantity (e.g., "3 apples").
+   */
+  recipeIngredient: string[]
+  /**
+   * An array of HowToStep objects.
+   */
+  recipeInstructions: NodeRelations<HowToStep | string>
+  /**
+   * A string describing the recipe.
+   */
+  description?: string
+  /**
+   * The cooking time in ISO 8601 format.
+   */
+  cookTime?: string
+  /**
+   * The time required to prepare the recipe.
+   */
+  prepTime?: string
+  /**
+   * The total time required to prepare and cook the recipe in ISO 8601 format.
+   */
+  totalTime?: string
+  /**
+   * The cooking method used to prepare the recipe.
+   */
+  cookingMethod?: string
+  /**
+   * A NutritionInformation node, with a calories property which defines a calorie count as a string (e.g., "270 calories").
+   */
+  nutrition?: NutritionInformation
+  /**
+   * The number of servings the recipe creates (not the number of individual items, if these are different), as a string
+   * (e.g., "6", rather than 6).
+   */
+  recipeYield?: string
+  /**
+   * An array of strings representing the tools required in the recipe.
+   */
+  tools?: string[]
+  /**
+   * An array of keywords describing the recipe.
+   */
+  keywords?: string[]
+  /**
+   * A string describing the cuisine type (e.g., "American" or "Spanish").
+   */
+  recipeCuisine?: string
+  /**
+   * The category of the recipe.
+   */
+  recipeCategory?: 'Appetizer' | 'Breakfast' | 'Brunch' | 'Dessert' | 'Dinner' | 'Drink' | 'Lunch' | 'Main course' | 'Sauce' | 'Side dish' | 'Snack' | 'Starter'
+  /**
+   * A RestrictedDiet node, with a value (or array of values
+   */
+  suitableForDiet?: Partial<'DiabeticDiet' | 'GlutenFreeDiet' | 'HalalDiet' | 'HinduDiet' | 'KosherDiet' | 'LowCalorieDiet' | 'LowFatDiet' | 'LowLactoseDiet' | 'LowSaltDiet' | 'VeganDiet' | 'VegetarianDiet'>[]
+  /**
+   *  A reference to a video representing the recipe instructions, by ID.
+   */
+  video?: NodeRelations<VideoObject | IdReference>
+  /**
+   * The language code for the guide; e.g., en-GB.
+   */
+  inLanguage?: string
+  /**
+   * A reference-by-ID to the author of the article.
+   */
+  author?: NodeRelation<Person>
+  /**
+   * The date when the recipe was added, in ISO 8601 format.
+   */
+  datePublished?: ResolvableDate
+}
+
+export interface NutritionInformation extends Thing {
+  '@type': 'NutritionInformation'
+  /**
+   * A calorie count as a string (e.g., "270 calories").
+   */
+  'calories': string
+}
+```
+
+## [Related Schemas](#related-schemas)
+
+- **HowTo** - Step-by-step instructions
+- **Person** - Recipe author
+- **Organization** - Recipe publisher
+
+Edit this page
+
+Markdown For LLMs
+
+**Did this page help you? **
+
+**Question Schema** Use defineQuestion() to add FAQ structured data. Enable FAQ rich snippets with expandable Q&A directly in Google search results. **Service Schema** Use defineService() to add Service structured data. Display service offerings with pricing, provider info, and reviews in search results.
+
+**On this page **
+
+- [Schema.org Recipe](#schemaorg-recipe)
+- [Useful Links](#useful-links)
+- [Required properties](#required-properties)
+- [Defaults](#defaults)
+- [Resolves](#resolves)
+- [Types](#types)
+- [Related Schemas](#related-schemas)

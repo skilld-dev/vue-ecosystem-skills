@@ -1,8 +1,11 @@
+---
+url: /ecosystem/tools.md
+---
 # Third-party tooling
 
 ## Loccy (VS Code extension)
 
-<a href="https://loccy.dev" target="_blank" rel="noopener">Loccy</a> is a VS Code extension designed to address common challenges in i18n workflows for Vue projects. It helps you easily find and update translations directly in your code.
+Loccy is a VS Code extension designed to address common challenges in i18n workflows for Vue projects. It helps you easily find and update translations directly in your code.
 
 Loccy also makes it easier to discover and reuse existing translations, helping you avoid duplication. AI-assisted suggestions support consistent terminology, provide initial wording, and enable quick syncing after edits in any language.
 
@@ -34,7 +37,6 @@ Sherlock is a VS Code extension that helps you to extract, edit & inspect your i
 
 Sherlock is part of the inlang ecosystem, which gives you multiple apps with awesome developer experience for your i18n development, like a Figma plugin, a web editor or a GitHub Action.
 
-
 ## BabelEdit
 
 BabelEdit is translation editor for web apps.
@@ -47,8 +49,8 @@ Read more about BabelEdit in tutorial page.
 
 vue-i18n-extract performs static analysis on a Vue.js project based on vue-i18n and reports the following information:
 
-- list of all the **unused vue-i18n keys** (entries found in the language files but not used in the project)
-- list of all the **missing keys** (entries fond in the project but not in the language files)
+* list of all the **unused vue-i18n keys** (entries found in the language files but not used in the project)
+* list of all the **missing keys** (entries fond in the project but not in the language files)
 
 It’s possible to show the output in the console or to write it in a json file.
 

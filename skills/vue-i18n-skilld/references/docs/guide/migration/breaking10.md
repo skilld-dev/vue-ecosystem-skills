@@ -1,3 +1,6 @@
+---
+url: /guide/migration/breaking10.md
+---
 # Breaking Changes in v10
 
 ## Default enable for JIT compilation
@@ -63,12 +66,12 @@ Starting from v10, Legacy API mode can use the same `$t` and `t` overload signat
 
 If you are using the following APIs in Legacy API mode, you must change to another signature because of the breaking changes:
 
-- `$t(key: Key, locale: Locale): TranslateResult;`
-- `$t(key: Key, locale: Locale, list: unknown[]): TranslateResult;`
-- `$t(key: Key, locale: Locale, named: NamedValue): TranslateResult;`
-- `t(key: Key, locale: Locale): TranslateResult;`
-- `t(key: Key, locale: Locale, list: unknown[]): TranslateResult;`
-- `t(key: Key, locale: Locale, named: NamedValue): TranslateResult;`
+* `$t(key: Key, locale: Locale): TranslateResult;`
+* `$t(key: Key, locale: Locale, list: unknown[]): TranslateResult;`
+* `$t(key: Key, locale: Locale, named: NamedValue): TranslateResult;`
+* `t(key: Key, locale: Locale): TranslateResult;`
+* `t(key: Key, locale: Locale, list: unknown[]): TranslateResult;`
+* `t(key: Key, locale: Locale, named: NamedValue): TranslateResult;`
 
 ### `$t(key: Key, locale: Locale): TranslateResult;`
 
@@ -212,29 +215,28 @@ console.log(i18n.global.t('message.hello', { name: 'dio' }, { locale: 'ja' }))
 
 The following APIs are deprecated in v10:
 
-- `tc(key: Key | ResourceKeys): TranslateResult;`
-- `tc(key: Key | ResourceKeys, locale: Locales | Locale): TranslateResult;`
-- `tc(key: Key | ResourceKeys, list: unknown[]): TranslateResult;`
-- `tc(key: Key | ResourceKeys, named: Record<string, unknown>): TranslateResult;`
-- `tc(key: Key | ResourceKeys, choice: number): TranslateResult;`
-- `tc(key: Key | ResourceKeys, choice: number, locale: Locales | Locale): TranslateResult;`
-- `tc(key: Key | ResourceKeys, choice: number, list: unknown[]): TranslateResult;`
-- `tc(key: Key | ResourceKeys, choice: number, named: Record<string, unknown>): TranslateResult;`
-- `$tc(key: Key): TranslateResult;`
-- `$tc(key: Key, locale: Locale): TranslateResult;`
-- `$tc(key: Key, list: unknown[]): TranslateResult;`
-- `$tc(key: Key, named: Record<string, unknown>): TranslateResult;`
-- `$tc(key: Key, choice: number): TranslateResult;`
-- `$tc(key: Key, choice: number, locale: Locale): TranslateResult;`
-- `$tc(key: Key, choice: number, list: unknown[]): TranslateResult;`
-- `$tc(key: Key, choice: number, named: Record<string, unknown>): TranslateResult;`
+* `tc(key: Key | ResourceKeys): TranslateResult;`
+* `tc(key: Key | ResourceKeys, locale: Locales | Locale): TranslateResult;`
+* `tc(key: Key | ResourceKeys, list: unknown[]): TranslateResult;`
+* `tc(key: Key | ResourceKeys, named: Record<string, unknown>): TranslateResult;`
+* `tc(key: Key | ResourceKeys, choice: number): TranslateResult;`
+* `tc(key: Key | ResourceKeys, choice: number, locale: Locales | Locale): TranslateResult;`
+* `tc(key: Key | ResourceKeys, choice: number, list: unknown[]): TranslateResult;`
+* `tc(key: Key | ResourceKeys, choice: number, named: Record<string, unknown>): TranslateResult;`
+* `$tc(key: Key): TranslateResult;`
+* `$tc(key: Key, locale: Locale): TranslateResult;`
+* `$tc(key: Key, list: unknown[]): TranslateResult;`
+* `$tc(key: Key, named: Record<string, unknown>): TranslateResult;`
+* `$tc(key: Key, choice: number): TranslateResult;`
+* `$tc(key: Key, choice: number, locale: Locale): TranslateResult;`
+* `$tc(key: Key, choice: number, list: unknown[]): TranslateResult;`
+* `$tc(key: Key, choice: number, named: Record<string, unknown>): TranslateResult;`
 
 **Reason**: Legacy API mode has `t` and `$t` support plural interfaces, so they can be replaced.
 
 In v10, `tc` and `$tc` still exist to give benefit migration. These will be dropped completely in v11.
 
 If you will use them, Vue I18n will output the console warning in your application.
-
 
 ### `tc(key: Key | ResourceKeys): TranslateResult;`
 
@@ -285,7 +287,6 @@ console.log(i18n.global.t('banana', 1, { locale: 'ja' }))
 ```
 
 ### `tc(key: Key | ResourceKeys, list: unknown[]): TranslateResult;`
-
 
 Vue I18n v9.x:
 
