@@ -1,10 +1,13 @@
+---
+url: /guide/queries.md
+---
 # Queries
 
 Queries manage asynchronous state declaratively, allowing you to focus on the state, its status, and any potential errors. They automatically deduplicate multiple requests and cache results, enhancing user experience and your app performance.
 
 They are designed to **read** data from asynchronous sources, such as handling `GET` requests in a REST API but they can be used along **any function returning a Promise** (GraphQL, WebSockets, etc). For **writing** or mutating data, consider using [mutations](./mutations.md), which are better suited for those operations.
 
-Queries are created with `useQuery()` and can be combined with [`defineQueryOptions()` for organization and typing](./query-keys.md#Typing-query-keys). There is also [`defineQuery()`](../advanced/reusable-queries.md) to combine queries with extra state, similar to a _tiny_ Pinia store.
+Queries are created with `useQuery()` and can be combined with [`defineQueryOptions()` for organization and typing](./query-keys.md#Typing-query-keys). There is also [`defineQuery()`](../advanced/reusable-queries.md) to combine queries with extra state, similar to a *tiny* Pinia store.
 
 ## Foundations
 
@@ -50,8 +53,8 @@ const {
 
 All queries require two properties:
 
-- A unique `key` that defines the query in the cache
-- A `query` function that retrieves (e.g. fetches) the data
+* A unique `key` that defines the query in the cache
+* A `query` function that retrieves (e.g. fetches) the data
 
 `useQuery` accepts other options to configure its behavior. You can find more about the options in the docs or explore them by using auto-completion in your editor!
 
@@ -59,31 +62,34 @@ What's great about queries is that they are automatically triggered **when neede
 
 Most of the time you will find yourself using just `state` and `asyncStatus` to render the UI based on the query's status (e.g. is it still fetching, is it refreshing, did it throw?, ...). Let's cover the basics of these properties:
 
-- `state`: state of the query. It contains the following properties:
-  - `data`: the data returned by the query. It automatically updates when the query is refetched.
-  - `error`: the error returned by the query. It's `null` if the query was successful.
-  - `status`: the data status of the query. It starts as `'pending'`, and then it changes to `'success'` or `'error'` depending on the outcome of the `query` function:
+* `state`: state of the query. It contains the following properties:
+  * `data`: the data returned by the query. It automatically updates when the query is refetched.
+  * `error`: the error returned by the query. It's `null` if the query was successful.
+  * `status`: the data status of the query. It starts as `'pending'`, and then it changes to `'success'` or `'error'` depending on the outcome of the `query` function:
 
     | status      | data                     | error     |
     | ----------- | ------------------------ | --------- |
     | `'pending'` | `undefined`              | `null`    |
-    | `'success'` | _defined_                | `null`    |
-    | `'error'`   | `undefined` or _defined_ | _defined_ |
+    | `'success'` | *defined*                | `null`    |
+    | `'error'`   | `undefined` or *defined* | *defined* |
 
-- `asyncStatus`: the async status of the query. It's either `'idle'` or `'loading'` if the query is currently being fetched.
+* `asyncStatus`: the async status of the query. It's either `'idle'` or `'loading'` if the query is currently being fetched.
 
   ::: details `state.status`/`status` vs `asyncStatus` ?
 
   `state.status` (and `status`) is the status of the data itself, while `asyncStatus` is the status of the query call. The query `asyncStatus` is `'idle'` when the query is not fetching and `'loading'` when the query is fetching. While the `state.status` starts as `'pending'` and then becomes `'success'` if the query is successful, and `'error'` if the query fails.
 
-  Technically, these two states could be combined into a single one but having them separate allows you to have more control over the UI and the logic of your application. For example, you might want to show a different loading message if the query is _pending_ (it hasn't ever resolved or rejected) or if it's _loading_ (it's currently fetching data independently from the current `state`).
+  Technically, these two states could be combined into a single one but having them separate allows you to have more control over the UI and the logic of your application. For example, you might want to show a different loading message if the query is *pending* (it hasn't ever resolved or rejected) or if it's *loading* (it's currently fetching data independently from the current `state`).
 
   :::
 
-- `refresh()`: manually triggers the query, deduplicates requests, and reuses the cached data if it's still fresh.
-- `refetch()`: manually triggers the query, ignoring the cache, and fetching the data again.
-- `data`, `error`, `status`: are aliases for the properties in `state` for convenience and facilitating migration. `state` allows for [type narrowing in TypeScript](#typescript-narrowing-data-and-errors-type-with-status) but depending on your template usage, you might not need it so we simply provide both approaches for convenience.
-- _For everything else, hover over the different properties in the code block above to see their types and documentation_ .
+* `refresh()`: manually triggers the query, deduplicates requests, and reuses the cached data if it's still fresh.
+
+* `refetch()`: manually triggers the query, ignoring the cache, and fetching the data again.
+
+* `data`, `error`, `status`: are aliases for the properties in `state` for convenience and facilitating migration. `state` allows for [type narrowing in TypeScript](#typescript-narrowing-data-and-errors-type-with-status) but depending on your template usage, you might not need it so we simply provide both approaches for convenience.
+
+* *For everything else, hover over the different properties in the code block above to see their types and documentation* .
 
 ## Using External Properties in Queries
 
@@ -161,7 +167,7 @@ You will notice that the docs use a lot `useQuery()` with simple options. This i
 
 ### Passing extra options + `defineQueryOptions()`
 
-Sometimes, you need to customize the behavior of a query _just_ in one page or component, for example, `enable` it conditionally. Since `defineQueryOptions()` only types what is passed to it, you can use it as is and pass a getter for the options to `useQuery()`:
+Sometimes, you need to customize the behavior of a query *just* in one page or component, for example, `enable` it conditionally. Since `defineQueryOptions()` only types what is passed to it, you can use it as is and pass a getter for the options to `useQuery()`:
 
 ```ts twoslash
 import { ref } from 'vue'
@@ -199,7 +205,7 @@ useQuery(() => ({
 
 ## Refetching Queries
 
-You can manually trigger queries using the `refetch()` and `refresh()` methods. Both return a promise, with errors caught to prevent _Uncaught Promise Rejection_ errors when used directly in the template. They both return the `state` object, which contains the `status`, `data`, and `error` properties.
+You can manually trigger queries using the `refetch()` and `refresh()` methods. Both return a promise, with errors caught to prevent *Uncaught Promise Rejection* errors when used directly in the template. They both return the `state` object, which contains the `status`, `data`, and `error` properties.
 
 ```ts twoslash
 // ---cut-start---
@@ -237,12 +243,12 @@ refetch(true).catch((error) => {
 
 In practice, aim to use `refresh()` as much as possible because it will **reuse any loading request** and **avoid unnecessary network calls** based on `staleTime`.
 
-Use `refetch()` when you are certain you need to refetch the data, regardless of the current status. This is useful when you want to force a new request, such as when the user explicitly requests a _refresh_.
+Use `refetch()` when you are certain you need to refetch the data, regardless of the current status. This is useful when you want to force a new request, such as when the user explicitly requests a *refresh*.
 
 ## Pausing queries
 
 It's possible to temporarily stop a query from refreshing, like pausing it. This has many use cases and is especially handy when you have some kind of auto refetch happening.
-This is crucial when some of the data used to query is required but not always present. The most common example is using a _param_ or _query_ from the route in a query that is used across pages (e.g. within a store). Such usage will make the query trigger while not in the page, causing unnecessary network requests. It's easy to disable the query when the required data is absent:
+This is crucial when some of the data used to query is required but not always present. The most common example is using a *param* or *query* from the route in a query that is used across pages (e.g. within a store). Such usage will make the query trigger while not in the page, causing unnecessary network requests. It's easy to disable the query when the required data is absent:
 
 ```ts
 export const useCurrentDeck = defineQuery(() => {
@@ -266,7 +272,7 @@ export const useCurrentDeck = defineQuery(() => {
 Since this query can be used in multiple components, it's important to pause it when the `deckId` is not present in the route. This way, the query won't be triggered when the `deckId` is not present, avoiding invalid network requests while keeping the data alive.
 
 ::: warning
-This is also valid for any _global_ query, e.g. a query within a store. Since stores are never destroyed, the query will continuously watch the `key` and refresh when needed. Most of the time, it's a bad idea to consume a query within a store, as it will make the query _immortal_. If you need to use the data from the store, you can instead, [consume the query cache with `useQueryCache()`](../advanced/query-cache.md).
+This is also valid for any *global* query, e.g. a query within a store. Since stores are never destroyed, the query will continuously watch the `key` and refresh when needed. Most of the time, it's a bad idea to consume a query within a store, as it will make the query *immortal*. If you need to use the data from the store, you can instead, [consume the query cache with `useQueryCache()`](../advanced/query-cache.md).
 :::
 
 ## TypeScript: Narrowing `data` and `error`'s type with `status`
@@ -312,7 +318,7 @@ const {
 
 ::: details Why is this necessary?
 
-This approach is necessary because in Vue we have to use `Ref` wrappers for variables, and TypeScript is not able to narrow down the type like it does with a plain object. When using `status` to conditionally render different UI states, you will notice that TypeScript is unable to narrow down the type of `data` _not being `undefined`_ when `status` is `'pending'` or `'error'`.
+This approach is necessary because in Vue we have to use `Ref` wrappers for variables, and TypeScript is not able to narrow down the type like it does with a plain object. When using `status` to conditionally render different UI states, you will notice that TypeScript is unable to narrow down the type of `data` *not being `undefined`* when `status` is `'pending'` or `'error'`.
 
 ```vue twoslash
 <script setup lang="ts">

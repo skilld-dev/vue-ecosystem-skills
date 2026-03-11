@@ -1,82 +1,22 @@
 ---
-total: 70
+total: 39
 ---
 
 # Docs Index
 
-- [Component-oriented](./index.md)
+## api (6)
 
-## .ja/api (6)
-
-- [Components](./.ja/api/component.md): BaseFormat Props for Components that is offered Vue I18n
-- [Composition API](./.ja/api/composition.md): Composer interfaces
-- [Directives](./.ja/api/directive.md): Translation Directive (v-t)
-- [General](./.ja/api/general.md): Vue I18n factory
-- [Component Injections](./.ja/api/injection.md): Component Custom Properties for Vue I18n
-- [Legacy API](./.ja/api/legacy.md): Signature:
-
-## .ja/ecosystem (3)
-
-- [Third-party integrations](./.ja/ecosystem/integrations.md)
-- [Official tooling](./.ja/ecosystem/official.md): vue-cli-plugin-i18n is officially provided as the Vue CLI Plugin.
-- [Third-party tooling](./.ja/ecosystem/tools.md): Nuxt I18n (@nuxtjs/i18n) fully integrates Vue I18n for Nuxt 3 (v8 and higher).
-
-## .ja/guide/advanced (9)
-
-- [Component Interpolation](./.ja/guide/advanced/component.md): Sometimes, we need to localize with a locale message that was included in a HTML tag or component. For example:
-- [Composition API](./.ja/guide/advanced/composition.md): The introduction of setup and Vue’s Composition API open up new possibilities. But to be able to get the full potential out of Vue I18n, we will ne...
-- [Custom Directive](./.ja/guide/advanced/directive.md): You can translate not only with $t, but also with the v-t custom directive.
-- [Messages Functions](./.ja/guide/advanced/function.md): Vue I18n recommends using the string base on list, named, and literal format as locale messages when translating messages.
-- [Lazy loading](./.ja/guide/advanced/lazy.md): Loading all of your localization files at once is overkill and unnecessary.
-- [Optimization](./.ja/guide/advanced/optimization.md): As described in "installation" section, Vue I18n offer the following two built ES modules for Bundler.
-- [Single file components](./.ja/guide/advanced/sfc.md): If you are building Vue component or Vue application using single file components, you can manage the locale messages with using i18n custom block.
-- [TypeScript Support](./.ja/guide/advanced/typescript.md): :::tip Supported Versions
-:new: 9.2+
-:::
-- [Web components](./.ja/guide/advanced/wc.md): :::tip Supported Versions
-:new: 9.2+
-:::
-
-## .ja/guide/essentials (7)
-
-- [日時フォーマット](./.ja/guide/essentials/datetime.md): 日時を各地域のフォーマットでローカライズできます。
-- [フォールバック](./.ja/guide/essentials/fallback.md): fallbackLocale: '<lang>'を指定することで、希望する言語の翻訳がない場合にどの言語を使用するかを選択することができます。
-- [ローカルスコープベースのローカライゼーション](./.ja/guide/essentials/local.md): スコープとロケールの変更で示したように、Vue I18nには、グローバルスコープとローカルスコープという2つのスコープの概念があります。
-- [数フォーマット](./.ja/guide/essentials/number.md): 定義したフォーマットに従って数をローカライズできます。
-- [複数化](./.ja/guide/essentials/pluralization.md): メッセージをローカライズするには、いくつかの言語で複数形をサポートする必要があります。
-- [スコープとロケールの変更](./.ja/guide/essentials/scope.md): Vue I18nは、ロケールの切り替え、ロケールメッセージと呼ばれる各言語のメッセージ、日時や数の名前付きフォーマットなどのi18n機能を提供するリソースを管理します。これらは、VueI18nインスタンスで管理されます。
-- [メッセージフォーマット構文](./.ja/guide/essentials/syntax.md): Vue I18nでは、メッセージフォーマット構文を使って、UIに表示するメッセージをローカライズすることができます。Vue I18nのmessagesは、様々な機能の構文を持つ補間やメッセージです。
-
-## .ja/guide (1)
-
-- [はじめよう](./.ja/guide/index.md): :::tip 備考
-このガイド内のコードサンプルではES6を使用します。
-
-## .ja/guide/migration (4)
-
-- [Breaking Changes](./.ja/guide/migration/breaking.md): Most of the APIs offered in Vue I18n v9 (for Vue 3) strive to maintain compatibility, to ease the pain of migration from v8 (for Vue 2). But there ...
-- [New Features](./.ja/guide/migration/features.md): Vue I18n v9 offers not only Vue 3 support, but this version also is included new features.
-- [Migration from Vue 2](./.ja/guide/migration/vue2.md): vue-i18n-bridge is a bridge to make the upgrade as easy as possible between vue-i18n@v8.26.1 or later and vue-i18n@v9.x.
-- [Migration in Vue 3](./.ja/guide/migration/vue3.md): Vue I18n supports both styles which are Legacy API mode and Composiyion API mode. Legacy API mode is Options API style, and Composition API mode su...
-
-## .ja (4)
-
-- [index](./.ja/index.md)
-- [インストール](./.ja/installation.md): https://unpkg.com/vue-i18n@9
-- [イントロダクション](./.ja/introduction.md): :::tip 備考
-Vue I18n v8.xに知見があり、Vue I18n v9の新機能について知りたい場合、マイグレーションガイドをご覧ください。
-:::
-- [Documentation for v8.x](./.ja/v8-docs.md)
-
-## api (1)
-
+- [Components](./api/component.md): BaseFormat Props for Components that is offered Vue I18n
+- [Composition API](./api/composition.md): Composer interfaces
+- [Directives](./api/directive.md): Translation Directive (v-t)
+- [General](./api/general.md): Vue I18n factory
 - [Component Injections](./api/injection.md): Component Custom Properties for Vue I18n
+- [Legacy API](./api/legacy.md): Signature:
 
-## ecosystem (3)
+## ecosystem (2)
 
-- [Third-party integrations](./ecosystem/integrations.md)
 - [Official tooling](./ecosystem/official.md): vue-cli-plugin-i18n is officially provided as the Vue CLI Plugin.
-- [Third-party tooling](./ecosystem/tools.md): <a href="https://loccy.dev" target="blank" rel="noopener">Loccy</a> is a VS Code extension designed to address common challenges in i18n workflows ...
+- [Third-party tooling](./ecosystem/tools.md): Loccy is a VS Code extension designed to address common challenges in i18n workflows for Vue projects. It helps you easily find and update translat...
 
 ## guide/advanced (11)
 

@@ -1,7 +1,9 @@
+---
+url: /guide/migration/breaking.md
+---
 # Breaking Changes in v9
 
 Most of the APIs offered in Vue I18n v9 (for Vue 3) strive to maintain compatibility, to ease the pain of migration from v8 (for Vue 2). But there are still a few breaking changes that you might encounter while migrating your application. This guide is how to adapt your application to make it work with Vue I18n v9.
-
 
 ## APIs
 
@@ -149,7 +151,7 @@ Similar to *[Translation API return value](#translation-api-return-value)*, the 
 
 ### Remove `getChoiceIndex`
 
-> [!CAUTION]
+> \[!CAUTION]
 > `getChoiceIndex` option implementation code is be going to fully remove in v10.
 
 To customize the pluralization rules, Vue I18n v8.x extends `getChoiceIndex` of VueI18n class.
@@ -260,8 +262,8 @@ In Vue I18n v8.x, the value of `warnHtmlInMessage` was `"off"`. Therefore, by de
 
 In Vue I18n v9 and later, change the default values as follows:
 
-- Legacy API mode: `warnHtmlInMessage` property: `"warn"`
-- Composition API mode: `warnHtmlMessage` boolean property, default `true`
+* Legacy API mode: `warnHtmlInMessage` property: `"warn"`
+* Composition API mode: `warnHtmlMessage` boolean property, default `true`
 
 In development mode, unless you change this value, you will **receive the warning to the console by default**.
 
@@ -307,7 +309,7 @@ console.log(VueI18n.availability)
 
 ### Remove Custom formatter
 
-> [!CAUTION]
+> \[!CAUTION]
 > `formatter` option implementation code is be going to fully remove in v10.
 > As an alternative, vue-i18n has the [custome message format](../advanced/format.md) as an experimental feature.
 
@@ -315,7 +317,7 @@ console.log(VueI18n.availability)
 
 ### Remove `preserveDirectiveContent` option
 
-> [!CAUTION]
+> \[!CAUTION]
 > `preserveDirectiveContent` option implementation code is be going to fully remove in v10.
 
 The `v-t` directive for Vue 3 now preserves the default content. Therefore, this option and its properties have been removed from the VueI18n instance.
@@ -376,7 +378,7 @@ The messages that can be translated by Vue I18n can be highly translated using m
 
 The message format syntax can be expressed using the following special characters that are used:
 
-- `{`, `}`, `@`, `$`, `|`
+* `{`, `}`, `@`, `$`, `|`
 
 Since Vue I18n v9 and later, message format syntax is now handled by the message format compiler, if you use these special characters as part of a message, the message will occur error at compile. If you want to use these special characters, you **have to use literal interpolation**.
 
@@ -407,6 +409,7 @@ const messages = {
 In Vue I18n v9 and later, brackets are no longer needed as the message format compiler allows you to handle **named, list, and literal interpolations**.
 
 Vue I18n v9 or later:
+
 ```js
 const messages = {
   en: {
@@ -422,7 +425,7 @@ const messages = {
 
 ### Remove `preserve` modifier
 
-> [!CAUTION]
+> \[!CAUTION]
 > `preserve` modifier implementation code is be going to fully remove in v10.
 
 Similar to *[Remove `preserveDirectiveContent` option](#remove-preservedirectivecontent-option)*, the `v-t` directive for Vue 3 now preserves the default content. Therefore, `preserve` modifier and it’s have been removed from `v-t` directive.

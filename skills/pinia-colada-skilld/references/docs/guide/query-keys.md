@@ -1,17 +1,16 @@
+---
+url: /guide/query-keys.md
+---
 # Query Keys
 
 Query keys are used to identify a query in the cache. Next to the `query` function, the `key` is the most important property of a query. Like `query`, `key` is a required property.
 
-<llm-only>
-
 ## Rules for AI
 
-- In projects, ALWAYS use [key factories](#managing-query-keys-key-factories) to avoid typos and make it easier to change the keys in the future.
-  - Break down keys so they are structured and hierarchical
-- Then define query options for queries with [defineQueryOptions](#typing-query-keys) to get type safety and avoid manual typing.
-- If you find simple (static or dynamic) keys, refactor them to use key factories + defineQueryOptions
-
-</llm-only>
+* In projects, ALWAYS use [key factories](#managing-query-keys-key-factories) to avoid typos and make it easier to change the keys in the future.
+  * Break down keys so they are structured and hierarchical
+* Then define query options for queries with [defineQueryOptions](#typing-query-keys) to get type safety and avoid manual typing.
+* If you find simple (static or dynamic) keys, refactor them to use key factories + defineQueryOptions
 
 ## Simple static keys
 
@@ -32,26 +31,26 @@ This is common for queries that call a fixed endpoint like `/api/products` (List
 
 Anything that is serializable is valid in a key. These are all different keys:
 
-- `['products', 1]`
-- `['products', '1']`
-- `['products', { id: 1 }]`
-- `['products', { id: 1, type: 'book' }]`
-- `['products', 'search', { filters: { type: ['book', 'comic'] }}]`
-- `['products', 'search', { filters: { type: ['book', 'comic'], limit: 10 }}]`
+* `['products', 1]`
+* `['products', '1']`
+* `['products', { id: 1 }]`
+* `['products', { id: 1, type: 'book' }]`
+* `['products', 'search', { filters: { type: ['book', 'comic'] }}]`
+* `['products', 'search', { filters: { type: ['book', 'comic'], limit: 10 }}]`
 
 As you might expect, order in objects does not matter, so these two are equivalent :
 
-- `['products', { id: 1, type: 'book' }]`
-- `['products', { type: 'book', id: 1 }]`
+* `['products', { id: 1, type: 'book' }]`
+* `['products', { type: 'book', id: 1 }]`
 
 They do matter in arrays, so these two are different :
 
-- `['products', ['book', 'comic']]`
-- `['products', ['comic', 'book']]`
+* `['products', ['book', 'comic']]`
+* `['products', ['comic', 'book']]`
 
 ## Dynamic keys with variables
 
-Dynamic keys are keys that depend on reactive variables (`ref`, `computed`, the _route_, etc). For example, let's say you have a query that fetches a product by its ID:
+Dynamic keys are keys that depend on reactive variables (`ref`, `computed`, the *route*, etc). For example, let's say you have a query that fetches a product by its ID:
 
 ```vue{5,7}
 <script setup lang="ts">
@@ -166,15 +165,15 @@ queryCache.invalidateQueries({
 })
 ```
 
-These _key filters_ are used in many places, [query invalidation](./query-invalidation.md) is just one of them.
+These *key filters* are used in many places, [query invalidation](./query-invalidation.md) is just one of them.
 
 When creating query keys, organize your keys precisely to take advantage of this feature.
 
 Keys can contain strings, numbers, objects, and arrays. Anything that is serializable to JSON can be used in a key. Keep in mind these rules when writing keys:
 
-- `['doc', 2]` and `['doc', '2']` are different keys
-- Within objects, `undefined` is stripped out but `null` is not. Therefore `['doc', { withComments: undefined }]` is equivalent to `['doc', {}]` and matches both `withComments: true` and `withComments: false`
-- Arrays are also partially matched so `['doc', ['nested', 'array']]` is matched by `['doc', ['nested']]` but not by `['doc', ['nested', 'array', 'other']]`.
+* `['doc', 2]` and `['doc', '2']` are different keys
+* Within objects, `undefined` is stripped out but `null` is not. Therefore `['doc', { withComments: undefined }]` is equivalent to `['doc', {}]` and matches both `withComments: true` and `withComments: false`
+* Arrays are also partially matched so `['doc', ['nested', 'array']]` is matched by `['doc', ['nested']]` but not by `['doc', ['nested', 'array', 'other']]`.
 
 ## Managing query keys (key factories)
 
@@ -196,9 +195,9 @@ export const DOCUMENT_COMMENT_QUERY_KEYS = {
 }
 ```
 
-- `root` is the root key of the query and can contain multiple values like `['documents', 'comments']`
-- Reuse the keys to keep the hierarchy and **avoid typos**
-- `as const` improves the type inference
+* `root` is the root key of the query and can contain multiple values like `['documents', 'comments']`
+* Reuse the keys to keep the hierarchy and **avoid typos**
+* `as const` improves the type inference
 
 You can then reuse these keys in your queries and when interacting with the cache:
 
@@ -240,7 +239,7 @@ const docList = queryCache.getQueryData<Doc[]>(['documents', 'list'])
 //
 ```
 
-While this helps with types, it's not only manual but also not strict. If we define query options with `defineQueryOptions`, the _key_ will be automatically _tagged_ with type information inferred from `query`, making it easier and stricter to use:
+While this helps with types, it's not only manual but also not strict. If we define query options with `defineQueryOptions`, the *key* will be automatically *tagged* with type information inferred from `query`, making it easier and stricter to use:
 
 ```ts{3-6,9} twoslash
 import { useQueryCache, defineQueryOptions } from '@pinia/colada'

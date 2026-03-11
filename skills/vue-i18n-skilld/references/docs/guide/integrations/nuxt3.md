@@ -1,3 +1,6 @@
+---
+url: /guide/integrations/nuxt3.md
+---
 # Nuxt 3 integration
 
 We recommend using Nuxt I18n (@nuxtjs/i18n) to use Vue I18n with Nuxt 3 with advanced features such as localized routing, SEO tags and more.
@@ -41,7 +44,6 @@ pnpm dlx nuxi init nuxt3-app-vue-i18n
 ```
 
 :::
-
 
 Once we have run the above command, the created Nuxt 3 initial project will have the following directory structure:
 
@@ -145,7 +147,6 @@ pnpm dev
 ```
 
 :::
-
 
 Once the application is served on `http://localhost:3000`, we'll see the following:
 

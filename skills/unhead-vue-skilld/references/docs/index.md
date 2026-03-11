@@ -209,23 +209,23 @@ Unhead was started at the end of 2022 and has received continuous bug fixes and 
 
 
 
-2K
+2.1K
 
 Commits
 
-196
+198
 
 Issues Closed
 
-55
+53
 
 Contributors
 
-**205K downloads**per day, on average
+**208K downloads**per day, on average
 
 Unhead is used and trusted by thousands of developers and companies around the world.
 
-7.4M
+7.2M
 
 Downloads/ month
 

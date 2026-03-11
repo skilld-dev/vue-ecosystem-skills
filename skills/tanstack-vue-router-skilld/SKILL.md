@@ -2,18 +2,18 @@
 name: tanstack-vue-router-skilld
 description: "Modern and scalable routing for Vue applications. ALWAYS use when writing code importing \"@tanstack/vue-router\". Consult for debugging, best practices, or modifying @tanstack/vue-router, tanstack/vue-router, tanstack vue-router, tanstack vue router, router."
 metadata:
-  version: 1.166.6
-  generated_at: 2026-03-10
-  references_synced_at: 2026-03-10
+  version: 1.166.7
+  generated_at: 2026-03-11
+  references_synced_at: 2026-03-11
 ---
 
 # TanStack/router `@tanstack/vue-router`
 
 > Modern and scalable routing for Vue applications
 
-**Version:** 1.166.6 (Mar 2026)
-**Deps:** @tanstack/vue-store@^0.9.1, @vue/runtime-dom@^3.5.25, isbot@^5.1.22, jsesc@^3.0.2, tiny-invariant@^1.3.3, tiny-warning@^1.0.3, @tanstack/history@1.161.4, @tanstack/router-core@1.166.6
-**Tags:** latest: 1.166.6 (Mar 2026)
+**Version:** 1.166.7 (Mar 2026)
+**Deps:** @tanstack/vue-store@^0.9.1, @vue/runtime-dom@^3.5.25, isbot@^5.1.22, jsesc@^3.0.2, tiny-invariant@^1.3.3, tiny-warning@^1.0.3, @tanstack/history@1.161.4, @tanstack/router-core@1.166.7
+**Tags:** latest: 1.166.7 (Mar 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes

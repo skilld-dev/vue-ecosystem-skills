@@ -1,3 +1,6 @@
+---
+url: /plugins/official/retry.md
+---
 # Retry
 
 `@pinia/colada-plugin-retry` retries failed **query** fetches automatically.
@@ -30,9 +33,9 @@ app.use(PiniaColada, {
 
 You can configure retry behavior globally (plugin option) and/or per query.
 
-- `retry: false` disables retries
-- `retry: number` retries that many times with no delay
-- `retry: (failureCount, error) => boolean | number` retries based on the failure count and error. Return `true` to retry immediately, a number to retry after a delay in milliseconds, or `false` to stop retrying.
+* `retry: false` disables retries
+* `retry: number` retries that many times with no delay
+* `retry: (failureCount, error) => boolean | number` retries based on the failure count and error. Return `true` to retry immediately, a number to retry after a delay in milliseconds, or `false` to stop retrying.
 
 Per-query example:
 
@@ -59,10 +62,10 @@ useQuery({
 
 ## Notes
 
-- Retries stop if the query becomes inactive or disabled.
-- If you trigger multiple fetches quickly, the plugin avoids retrying outdated work.
+* Retries stop if the query becomes inactive or disabled.
+* If you trigger multiple fetches quickly, the plugin avoids retrying outdated work.
 
 ## Links
 
-- API reference: [/api/plugins/retry](/api/plugins/retry/src/functions/PiniaColadaRetry.html)
-- Source: https://github.com/posva/pinia-colada/tree/main/plugins/retry
+* API reference: [/api/plugins/retry](/api/plugins/retry/src/functions/PiniaColadaRetry.html)
+* Source: https://github.com/posva/pinia-colada/tree/main/plugins/retry

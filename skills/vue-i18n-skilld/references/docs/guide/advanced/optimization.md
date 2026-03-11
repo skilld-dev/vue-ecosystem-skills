@@ -1,12 +1,14 @@
+---
+url: /guide/advanced/optimization.md
+---
 # Optimization
-
 
 ## Performance
 
 As described in "[Different Distribution files](../extra/dist##from-cdn-or-without-a-bundler)" section, Vue I18n offer the following two built ES modules for Bundler.
 
-- message compiler + runtime: **`vue-i18n.esm-bundler.js`**
-- runtime only: **`vue-i18n.runtime.esm-bundler.js`**
+* message compiler + runtime: **`vue-i18n.esm-bundler.js`**
+* runtime only: **`vue-i18n.runtime.esm-bundler.js`**
 
 For bundler, it’s configured to bundle `vue-i18n.esm-bundler.js` with `@intlify/unplugin-vue-i18n` as default. If you want to reduce the bundle size further, you can configure the bundler to use `vue-i18n.runtime.esm-bundler.js`, which is runtime only.
 
@@ -62,7 +64,6 @@ pnpm add -D @intlify/unplugin-vue-i18n
 
 :::
 
-
 #### Configure plugin for vite
 
 ```js
@@ -109,11 +110,9 @@ module.exports = {
 
 About options and features, see the detail page
 
-
 ### Quasar CLI
 
 No need to do anything. Quasar CLI takes care of the optimizations for you.
-
 
 ## Feature build flags
 
@@ -121,8 +120,8 @@ No need to do anything. Quasar CLI takes care of the optimizations for you.
 
 The `esm-bundler` builds now exposes global feature flags that can be overwritten at compile time:
 
-- `__VUE_I18N_FULL_INSTALL__` (enable/disable, in addition to vue-i18n APIs, components and directives all fully support installation: `true`)
-- `__VUE_I18N_LEGACY_API__` (enable/disable vue-i18n legacy style APIs support, default: `true`)
+* `__VUE_I18N_FULL_INSTALL__` (enable/disable, in addition to vue-i18n APIs, components and directives all fully support installation: `true`)
+* `__VUE_I18N_LEGACY_API__` (enable/disable vue-i18n legacy style APIs support, default: `true`)
 
 The build will work without configuring these flags, however it is **strongly recommended** to properly configure them in order to get proper tree shaking in the final bundle.
 
@@ -138,8 +137,8 @@ Before v9.3, vue-i18n message compiler precompiled locale messages like AOT (Ahe
 
 However, it had the following issues:
 
-- CSP issues: hard to work on service/web workers, edge-side runtimes of CDNs and etc.
-- Back-end integration: hard to get messages from back-end such as database via API and localize them dynamically
+* CSP issues: hard to work on service/web workers, edge-side runtimes of CDNs and etc.
+* Back-end integration: hard to get messages from back-end such as database via API and localize them dynamically
 
 To solve these issues, JIT (Just In Time) style compilation is supported message compiler.
 
@@ -147,8 +146,8 @@ Each time localization is performed in an application using `$t` or `t` function
 
 You need to configure the following feature flag with `esm-bundler` build and bundler such as vite:
 
-- `__INTLIFY_JIT_COMPILATION__`  (enable/disable message compiler for JIT style, default: `false`)
-- `__INTLIFY_DROP_MESSAGE_COMPILER__`  (enable/disable whether to tree-shake message compiler when we will be bundling, this flag works when `__INTLIFY_JIT_COMPILATION__` is enabled. default: `false`)
+* `__INTLIFY_JIT_COMPILATION__`  (enable/disable message compiler for JIT style, default: `false`)
+* `__INTLIFY_DROP_MESSAGE_COMPILER__`  (enable/disable whether to tree-shake message compiler when we will be bundling, this flag works when `__INTLIFY_JIT_COMPILATION__` is enabled. default: `false`)
 
 :::warning NOTICE
 This feature is opted out as default, because compatibility with previous version before v9.3.
@@ -160,18 +159,16 @@ From v10, JIT compilation is enabled by default, so it is no longer necessary to
 
 About how to configure for bundler, see the [here](#configure-feature-flags-for-bundler).
 
-
 ### Configure feature flags for bundler
 
-- webpack: use DefinePlugin
-- Rollup: use @rollup/plugin-replace
-- Vite: configured by default, but can be overwritten using the `define` option
-- Quasar CLI: configured by default, but can be overwritten using quasar.conf.js > build > rawDefine
+* webpack: use DefinePlugin
+* Rollup: use @rollup/plugin-replace
+* Vite: configured by default, but can be overwritten using the `define` option
+* Quasar CLI: configured by default, but can be overwritten using quasar.conf.js > build > rawDefine
 
 :::tip NOTE
 The replacement value **must be boolean literals** and cannot be strings, otherwise the bundler/minifier will not be able to properly evaluate the conditions.
 :::
-
 
 ## Pre translations with extensions
 

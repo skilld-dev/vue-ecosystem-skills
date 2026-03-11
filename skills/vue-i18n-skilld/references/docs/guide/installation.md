@@ -1,13 +1,15 @@
+---
+url: /guide/installation.md
+---
 # Installation
-
 
 ## Compatibility Note
 
-- Vue.js `3.0.0`+
+* Vue.js `3.0.0`+
 
 ## Package managers
 
-> [!IMPORTANT]
+> \[!IMPORTANT]
 > When running `npm install`, v11 may appear as deprecated. **This was a mistake when deprecating v9 and v10. v11 will continue to be maintained**.
 
 ::: code-group
@@ -29,7 +31,6 @@ pnpm add vue-i18n@11
 When using with a module system, you must explicitly install the `vue-i18n`
 via `app.use()`:
 
-
 ```js
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
@@ -45,7 +46,6 @@ const app = createApp({
 app.use(i18n)
 app.mount('#app')
 ```
-
 
 ## Direct Download
 
@@ -70,4 +70,3 @@ You can also use a specific version/tag via URLs like <https://unpkg.com/vue-i18
 ```
 
 You can also use a specific version/tag via URLs like <https://unpkg.com/vue-i18n@11.0.0/dist/vue-i18n.esm-browser.js>
-

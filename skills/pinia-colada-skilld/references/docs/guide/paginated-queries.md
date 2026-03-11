@@ -1,3 +1,6 @@
+---
+url: /guide/paginated-queries.md
+---
 # Paginated Queries
 
 Paginated queries are a way to retrieve a subset of the results of a query. In Pinia Colada all you need for paginated queries is to **pass the page to the `key` function**.
@@ -16,7 +19,7 @@ const { state } = useQuery({
 </script>
 ```
 
-Make sure you provide a _function_ to `key` and not just a plain value. This will ensure the key is reactive and changes when the page changes.
+Make sure you provide a *function* to `key` and not just a plain value. This will ensure the key is reactive and changes when the page changes.
 
 ## Keeping the old data
 

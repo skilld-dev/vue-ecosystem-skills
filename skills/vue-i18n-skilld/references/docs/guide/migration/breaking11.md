@@ -1,3 +1,6 @@
+---
+url: /guide/migration/breaking11.md
+---
 # Breaking Changes in v11
 
 ## Deprecate Legacy API mode
@@ -8,8 +11,8 @@ The Legacy API mode was the API mode compatible with v8 for Vue 2. When v9 was r
 
 Legacy API mode will be deprecated in v11, as previous vue-i18n releases have already provided the following to support migration to Composition API mode
 
-- Migration from Legacy API mode to Composition API mode: https://vue-i18n.intlify.dev/guide/migration/vue3.html
-- Composition API usage: https://vue-i18n.intlify.dev/guide/advanced/composition.html
+* Migration from Legacy API mode to Composition API mode: https://vue-i18n.intlify.dev/guide/migration/vue3.html
+* Composition API usage: https://vue-i18n.intlify.dev/guide/advanced/composition.html
 
 For compatibility, Legacy API mode still works in v11, but will be removed entirely in v12, so Legacy API mode will not work after that version.
 
@@ -20,7 +23,7 @@ For compatibility, Legacy API mode still works in v11, but will be removed entir
 The advantage of `v-t` was that it could optimize performance using the vue compiler transform and the pre-translation of `vue-i18n-extension`.
 
 This feature was supported from Vue 2.
-About details see the blog article: https://medium.com/@kazu_pon/performance-optimization-of-vue-i18n-83099eb45c2d
+About details see the blog article: https://medium.com/@kazu\_pon/performance-optimization-of-vue-i18n-83099eb45c2d
 
 In Vue 3, due to the Composition API, the pre-translation of `vue-i18n-extension` is now limited only for global scope.
 

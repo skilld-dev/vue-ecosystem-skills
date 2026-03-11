@@ -1,3 +1,6 @@
+---
+url: /guide/advanced/directive.md
+---
 # Custom Directive
 
 :::danger NOTE
@@ -122,9 +125,8 @@ As mentioned in [the scope section](../essentials/scope.md), vue-i18n has a glob
 
 The scope under which `v-t` is also affected by scope when it works.
 
-- local scope: using the i18n option in Legacy API style or using `useScope: ‘local'` in `useI18n`.
-- global scope: all cases other than the above.
-
+* local scope: using the i18n option in Legacy API style or using `useScope: ‘local'` in `useI18n`.
+* global scope: all cases other than the above.
 
 ## `$t` vs `v-t`
 

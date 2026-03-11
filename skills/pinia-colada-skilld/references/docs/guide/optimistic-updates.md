@@ -1,3 +1,6 @@
+---
+url: /guide/optimistic-updates.md
+---
 # Optimistic updates
 
 Optimistic updates are a way to update the UI **before the mutation has completed**, optimistically assuming that the mutation will succeed. This is a way to provide a more responsive UI and a better user experience. Pinia Colada provides multiple ways to implement optimistic updates, depending on the use case.
@@ -142,8 +145,8 @@ As you see, depending on the mutation, you might need to update multiple queries
 
 In large projects, you might face two issues:
 
-- `key` isn't typed, so it's very easy to have a typo in a query key: _was it **todos** or **todo**?_
-- You have to manually pass a type parameter (here `TodoItem[]`) to `getQueryData()` and `setQueryData()` to ensure type safety
+* `key` isn't typed, so it's very easy to have a typo in a query key: *was it **todos** or **todo**?*
+* You have to manually pass a type parameter (here `TodoItem[]`) to `getQueryData()` and `setQueryData()` to ensure type safety
 
 This can be solved by using [Key Factories](./query-keys.md#Managing-query-keys-key-factories-) and by [defining options with `defineQueryOptions()`](./query-keys.md#Typing-query-keys).
 

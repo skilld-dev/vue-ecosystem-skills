@@ -1,3 +1,6 @@
+---
+url: /plugins/writing-plugins.md
+---
 # Writing Plugins
 
 Plugins are install-time functions that subscribe to **Pinia Colada cache actions** allowing you to observe and modify query/mutation lifecycles globally without needing to change your components or the core library.
@@ -6,10 +9,10 @@ This behavior is based on Pinia's `$onAction()` subscriptions and is possible be
 
 Most plugin work falls into one of these categories:
 
-- add extra reactive fields to `useQuery()` / `useMutation()` return values (entry **extensions**)
-- add new options to queries/mutations (via TypeScript module augmentation)
-- observe outcomes centrally (logging, analytics, notifications)
-- coordinate timers/retries/refetch policies
+* add extra reactive fields to `useQuery()` / `useMutation()` return values (entry **extensions**)
+* add new options to queries/mutations (via TypeScript module augmentation)
+* observe outcomes centrally (logging, analytics, notifications)
+* coordinate timers/retries/refetch policies
 
 ::: tip
 
@@ -21,8 +24,8 @@ Pinia Colada's core is intentionally minimal. The plugin system is designed to b
 
 Pinia Colada plugins:
 
-- should have a clear name with `pinia-colada-plugin-` prefix.
-- include `pinia-colada-plugin` keyword in package.json.
+* should have a clear name with `pinia-colada-plugin-` prefix.
+* include `pinia-colada-plugin` keyword in package.json.
 
 ## Plugin Options
 
@@ -94,9 +97,9 @@ export function PiniaColadaFeaturePlugin(options: FeaturePluginOptions = {}): Pi
 
 The plugin context is automatically passed to the plugin function and includes:
 
-- `queryCache`: the [Query Cache](../advanced/query-cache.md) store (powers `useQuery()` and query utilities)
-- `pinia`: the Pinia instance (use it to access other stores, like the mutation cache)
-- `scope`: a Vue `EffectScope` for any reactive work your plugin creates (`ref()`, `watch()`, ...)
+* `queryCache`: the [Query Cache](../advanced/query-cache.md) store (powers `useQuery()` and query utilities)
+* `pinia`: the Pinia instance (use it to access other stores, like the mutation cache)
+* `scope`: a Vue `EffectScope` for any reactive work your plugin creates (`ref()`, `watch()`, ...)
 
 When using a factory function, the context is passed to the returned function:
 
@@ -116,10 +119,10 @@ Pinia Colada plugins rely on Pinia's action subscriptions.
 
 When you subscribe to a store with `$onAction()`, Pinia gives you:
 
-- `name`: the action name
-- `args`: the action parameters
-- `after(cb)`: register a callback that runs when the action completes successfully
-- `onError(cb)`: register a callback that runs when the action throws/rejects
+* `name`: the action name
+* `args`: the action parameters
+* `after(cb)`: register a callback that runs when the action completes successfully
+* `onError(cb)`: register a callback that runs when the action throws/rejects
 
 ```ts
 queryCache.$onAction(({ name, args, after, onError }) => {
@@ -166,10 +169,10 @@ All these steps happen when using `useQuery()` and are observable via the query 
 
 Most query plugins hook into:
 
-- `extend(entry)` to define `entry.ext.*`
-- `fetch(entry, options?)` to observe success/error of the query function
-- `setEntryState(entry, state)` to observe _any_ state change (including `setQueryData()`)
-- `remove(entry)` to cleanup timers/resources
+* `extend(entry)` to define `entry.ext.*`
+* `fetch(entry, options?)` to observe success/error of the query function
+* `setEntryState(entry, state)` to observe *any* state change (including `setQueryData()`)
+* `remove(entry)` to cleanup timers/resources
 
 ::: tip
 
@@ -232,9 +235,9 @@ Before writing a plugin to augment or modify `useMutation()`'s behavior, it's im
 
 Most mutation plugins hook into:
 
-- `extend(entry)` to define `entry.ext.*`
-- `setEntryState(entry, state)` to react to success/error transitions
-- `remove(entry)` for cleanup
+* `extend(entry)` to define `entry.ext.*`
+* `setEntryState(entry, state)` to react to success/error transitions
+* `remove(entry)` for cleanup
 
 ## Plugin Patterns
 
