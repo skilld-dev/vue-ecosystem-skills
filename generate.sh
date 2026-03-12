@@ -215,7 +215,7 @@ for pkg in "${PACKAGES[@]}"; do
     old_body=$(extract_body "$skill_md.bak")
 
     # 2. Run skilld eject without --model (syncs refs + header)
-    eject_args=("$pkg" --out "$EJECT_DIR" --yes --force --debug --no-search)
+    eject_args=("$pkg" --out "$EJECT_DIR" --yes --debug --no-search)
     if ! $SKILLD eject "${eject_args[@]}"; then
       echo "  ✗ $pkg (failed)"
       # Restore backup on failure
