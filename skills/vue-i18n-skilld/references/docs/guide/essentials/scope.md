@@ -1,6 +1,3 @@
----
-url: /guide/essentials/scope.md
----
 # Scope and Locale Changing
 
 ## Scope
@@ -11,8 +8,8 @@ The Vue application is built from some components on the tree structure. To loca
 
 Vue I18n has two scopes the below:
 
-* global scope
-* local scope
+- global scope
+- local scope
 
 ![scope](/scope.png)
 
@@ -23,6 +20,7 @@ The global scope in Vue allows you to access and manage internationalization (i1
 When you create an i18n instance using createI18n, a global scope is automatically created. This global scope is tied to the VueI18n instance, which can be accessed through the global property of the i18n instance. Essentially, the global scope refers to the VueI18n instance that is accessible via the i18n instance’s global property.
 
 If the i18n option is not specified in a component, the global scope is automatically enabled for that component. In this case, the VueI18n instance accessed through this.$i18n within the component is the same as the global instance available via the i18n instance’s global property.
+
 
 ### Local Scope
 

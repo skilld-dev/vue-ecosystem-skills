@@ -1,6 +1,3 @@
----
-url: /guide/advanced/typescript.md
----
 # TypeScript Support
 
 :::tip Supported Versions
@@ -142,10 +139,9 @@ const { t, n } = useI18n<{
 the above codes, by specifying the defined schema as the first type parameter of `useI18n`, you can use TypeScript to check for undefined resources for locale messages and number formats. Also, by specifying the locale to be defined in the second type parameter, TypeScript can check for undefined locales.
 
 :::warning Limitation
-
-* Type safety is not supported for i18n custom blocks in SFC. We'll plan to support it in the future.
-* Currently support for `JSON` format only.
-  :::
+- Type safety is not supported for i18n custom blocks in SFC. We'll plan to support it in the future.
+- Currently support for `JSON` format only.
+:::
 
 The code described so far is available as example. Let's check it!
 
@@ -153,20 +149,20 @@ The code described so far is available as example. Let's check it!
 
 Other APIs support a type parameter that allows you to specify the schema of a resource for type-safe resource manipulation, such as:
 
-* `getLocaleMessage`
-* `setLocaleMessage`
-* `mergeLocaleMessage`
-* `getDateTimeFormat`
-* `setDateTimeFormat`
-* `mergeDateTimeFormat`
-* `getNumberFormat`
-* `setNumberFormat`
-* `mergeNumberFormat`
+- `getLocaleMessage`
+- `setLocaleMessage`
+- `mergeLocaleMessage`
+- `getDateTimeFormat`
+- `setDateTimeFormat`
+- `mergeDateTimeFormat`
+- `getNumberFormat`
+- `setNumberFormat`
+- `mergeNumberFormat`
 
 For more details, check out these following API documentation pages.
 
-* Legacy API
-* Composition API
+- Legacy API
+- Composition API
 
 ## Resource Keys completion supporting
 
@@ -246,9 +242,9 @@ If your project uses all resources as global scope, it is very convenient to han
 
 VueI18n provides the following interfaces:
 
-* `DefineLocaleMessage`: Interface to globally define the schema for Locale messages
-* `DefineDateTimeFormat`: Interface to globally define the schema for Datetime formats
-* `DefineNumberFormat`: Interface to globally define the schema for Number formats
+- `DefineLocaleMessage`: Interface to globally define the schema for Locale messages
+- `DefineDateTimeFormat`: Interface to globally define the schema for Datetime formats
+- `DefineNumberFormat`: Interface to globally define the schema for Number formats
 
 With using these interfaces and the `declare module`, you can define a global schema for VueI18n.
 

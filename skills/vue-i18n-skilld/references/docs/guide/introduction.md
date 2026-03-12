@@ -1,6 +1,5 @@
----
-url: /guide/introduction.md
----
+
+
 # What is Vue I18n?
 
 :::tip NOTE
@@ -11,4 +10,7 @@ Vue I18n is internationalization plugin of Vue.js. And that is one of Intlify pr
 
 Go to [Installation](./installation)
 
+
 ## Meet the team
+
+<VPTeamMembers size="small" :members="members" />

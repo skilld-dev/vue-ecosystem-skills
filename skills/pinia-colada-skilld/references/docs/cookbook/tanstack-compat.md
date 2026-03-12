@@ -1,6 +1,3 @@
----
-url: /cookbook/tanstack-compat.md
----
 # TanStack Query Compatibility Plugin
 
 This plugin provides a compatibility layer for developers migrating from TanStack Query (Vue) to Pinia Colada, or for those who prefer the TanStack Query API style. It might not cover every single property or feature of TanStack Query, but it implements the most commonly used ones to make the transition smoother. If you find anything missing, please open a pull request to add it!
@@ -276,15 +273,15 @@ The following TanStack Query properties are NOT implemented:
 
 When migrating from TanStack Query:
 
-* Install the plugin and register it
-* Replace `queryKey` with `key`
-* Replace `queryFn` with `query`
-* Replace `isLoading` checks with `isPending` for initial load
-* Update `status === 'loading'` to `status === 'pending'`
-* For mutations, access `isPending` via mutation cache if needed
-* Remove any `networkMode` options (not supported)
-* Replace `select` with Vue `computed` properties
-* If using retry features, install `@pinia/colada-plugin-retry`
+- Install the plugin and register it
+- Replace `queryKey` with `key`
+- Replace `queryFn` with `query`
+- Replace `isLoading` checks with `isPending` for initial load
+- Update `status === 'loading'` to `status === 'pending'`
+- For mutations, access `isPending` via mutation cache if needed
+- Remove any `networkMode` options (not supported)
+- Replace `select` with Vue `computed` properties
+- If using retry features, install `@pinia/colada-plugin-retry`
 
 ## TypeScript Support
 
@@ -305,6 +302,6 @@ const { isSuccess, dataUpdatedAt } = useQuery({
 
 ## Future Roadmap
 
-* Progressive feature disabling (opt-out of specific extensions)
-* Integration with retry plugin for `failureCount`/`failureReason`
-* Expose mutation extensions directly on `useMutation()` return (requires core change)
+- Progressive feature disabling (opt-out of specific extensions)
+- Integration with retry plugin for `failureCount`/`failureReason`
+- Expose mutation extensions directly on `useMutation()` return (requires core change)

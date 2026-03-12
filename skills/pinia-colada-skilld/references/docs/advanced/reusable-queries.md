@@ -1,9 +1,8 @@
----
-url: /advanced/reusable-queries.md
----
 # Reusable Queries
 
-While `useQuery()` can be directly called in components, we often need to reuse the same query across components or even add extra properties like consuming the route via `useRoute()` or passing a *search* text to the API request. In those scenarios, it's more convenient to *define* queries and reuse them where needed.
+While `useQuery()` can be directly called in components, we often need to reuse the same query across components or even add extra properties like consuming the route via `useRoute()` or passing a _search_ text to the API request. In those scenarios, it's more convenient to _define_ queries and reuse them where needed.
+
+
 
 But why is this necessary? Can't we just create a regular composable for this?
 
@@ -22,10 +21,10 @@ export function useFilteredTodos() {
 }
 ```
 
-*Not exactly* because we are mixing component state (`search`) with global state (`useQuery()` creates global state). There are two main issues with this approach:
+_Not exactly_ because we are mixing component state (`search`) with global state (`useQuery()` creates global state). There are two main issues with this approach:
 
-* The ref `search` isn't shared among components. Each component instance creates a new ref for themselves
-* If the query is reused across different components, there will be a de-synchronization between the `search` ref instantiated in each component and the one used in the query's key. Since the query is global, it's only instantiated once, and only the first `search` is used. Therefore, if we use this approach, only the changes to the `search` **of the component that first instantiated the query will take effect**.
+- The ref `search` isn't shared among components. Each component instance creates a new ref for themselves
+- If the query is reused across different components, there will be a de-synchronization between the `search` ref instantiated in each component and the one used in the query's key. Since the query is global, it's only instantiated once, and only the first `search` is used. Therefore, if we use this approach, only the changes to the `search` **of the component that first instantiated the query will take effect**.
 
 Because of this, Pinia Colada provides an alternative way of defining a query, through the `defineQuery` composable. Simply wrap your composable with it:
 

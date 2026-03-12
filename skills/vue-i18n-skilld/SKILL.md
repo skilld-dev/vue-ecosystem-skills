@@ -3,8 +3,8 @@ name: vue-i18n-skilld
 description: "Internationalization plugin for Vue.js. ALWAYS use when writing code importing \"vue-i18n\". Consult for debugging, best practices, or modifying vue-i18n, vue i18n."
 metadata:
   version: 11.3.0
-  generated_at: 2026-03-11
-  references_synced_at: 2026-03-11
+  generated_at: 2026-03-12
+  references_synced_at: 2026-03-12
 ---
 
 # intlify/vue-i18n `vue-i18n`

@@ -1,6 +1,3 @@
----
-url: /guide/advanced/format.md
----
 # Custom Message Format
 
 :::tip Supported Versions
@@ -11,6 +8,7 @@ url: /guide/advanced/format.md
 
 If you want to use a message format like ICU Message Format, you can use a custom format by implementing the message compiler yourself.
 
+
 :::warning
 This topic requires understanding Vue I18n message format compilation and how formats are resolved.
 :::
@@ -19,17 +17,18 @@ This topic requires understanding Vue I18n message format compilation and how fo
 The feature is experimental. It may receive breaking changes or be removed in the future.
 :::
 
+
 ## Message Compiler implementation
 
 You can make a message compiler by implementing functions with the following interfaces.
 
 The following is a TypeScript type definition:
-
 ```js
 export declare type MessageCompiler<Message = string, MessageSource = string | ResourceNode> = (message: MessageSource, context: MessageCompilerContext) => MessageFunction<Message>;
 ```
 
 The following is an example of a message compiler implementation that uses `intl-messageformat` to support the ICU Message format.
+
 
 ```ts
 import IntlMessageFormat from 'intl-messageformat'

@@ -1,6 +1,3 @@
----
-url: /cookbook/query-hooks.md
----
 # Query Hooks
 
 You might notice that `useQuery` does not support `onSuccess`, `onError`, or `onSettled` callbacks. This is intentional. Local callbacks introduce side effects directly into the data layer and are triggered for each component using the query. This can lead to duplicated behavior and makes it harder to keep side effects separate from data logic so **they simply do not exist** in query options.

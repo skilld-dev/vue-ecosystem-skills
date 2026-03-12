@@ -1,6 +1,3 @@
----
-url: /quick-start.md
----
 # Quick Start
 
 Pinia Colada is the perfect companion to Pinia to handle **async** state management in your Vue applications. It will remove the need to write boilerplate code for data fetching and transparently bring **caching**, **deduplication**, **invalidation**, **stale while revalidate (swr)** and much more. Allowing you to focus on building the best user experience for your users. **You don't even need to learn Pinia to use Pinia Colada** because it exposes its own composables.
@@ -67,31 +64,31 @@ const {
 </script>
 ```
 
-* The `key` is a serializable array that **uniquely** identifies the query. The array allows to establish [a hierarchy](./guide/query-keys.md#keys-are-hierarchical) of keys that can be invalidated at once.
-* The `query` function is automatically run by Pinia Colada when needed .
+- The `key` is a serializable array that **uniquely** identifies the query. The array allows to establish [a hierarchy](./guide/query-keys.md#keys-are-hierarchical) of keys that can be invalidated at once.
+- The `query` function is automatically run by Pinia Colada when needed .
 
 `useQuery()` returns an object with quite a few properties. In the example above we use:
 
-* `state`: state of the query. It contains the following properties:
-  * `data`: the **last** data returned by the query. It automatically updates when the query is refetched.
-  * `error`: the error thrown by the query if it failed, `null` otherwise.
-  * `status`: the data status of the query. It starts as `'pending'`, and then it changes to `'success'` or `'error'` depending on the outcome of the `query` function:
+- `state`: state of the query. It contains the following properties:
+  - `data`: the **last** data returned by the query. It automatically updates when the query is refetched.
+  - `error`: the error thrown by the query if it failed, `null` otherwise.
+  - `status`: the data status of the query. It starts as `'pending'`, and then it changes to `'success'` or `'error'` depending on the outcome of the `query` function:
 
     | status      | data                     | error     |
     | ----------- | ------------------------ | --------- |
     | `'pending'` | `undefined`              | `null`    |
-    | `'success'` | *defined*                | `null`    |
-    | `'error'`   | `undefined` or *defined* | *defined* |
+    | `'success'` | _defined_                | `null`    |
+    | `'error'`   | `undefined` or _defined_ | _defined_ |
 
-* `asyncStatus`: the async status of the query. It's either `'idle'` or `'loading'` if the query is currently being fetched.
-
-* `refresh()`: manually triggers the query and conditionally runs it depending on if the cache is fresh or stale.
-
-* `refetch()`: manually force triggers the query, ignoring if the cache is fresh or stale.
+- `asyncStatus`: the async status of the query. It's either `'idle'` or `'loading'` if the query is currently being fetched.
+- `refresh()`: manually triggers the query and conditionally runs it depending on if the cache is fresh or stale.
+- `refetch()`: manually force triggers the query, ignoring if the cache is fresh or stale.
 
 There are a couple of other properties that can be accessed, most of them are just for convenience like `data` (which is an alias for `state.data`) and `error` (which is an alias for `state.error`).
 
 Let's see a more complete example with a list view and a detail view:
+
+
 
 ::: code-group
 
@@ -179,7 +176,7 @@ In this example, we have two pages: one that lists all products and another that
 
 ### Mutating data
 
-Mutations allow us to **modify** data on the server and notify related queries so they can automatically refetch the data. Create mutations with `useMutation()` in any component. Unlike *queries*, mutations can take **one** parameter and only require a `mutation` function, the `key` is optional:
+Mutations allow us to **modify** data on the server and notify related queries so they can automatically refetch the data. Create mutations with `useMutation()` in any component. Unlike _queries_, mutations can take **one** parameter and only require a `mutation` function, the `key` is optional:
 
 ```vue twoslash
 <script setup lang="ts">
@@ -193,7 +190,7 @@ const { mutate, state, asyncStatus } = useMutation({
 </script>
 ```
 
-Mutations are never called automatically, you **have to call them manually** with `mutate`. This allows you to pass one single argument to the mutation function. In general, prefer explicitly passing data to mutations instead of relying on the component's state, *this will make everything so much better* .
+Mutations are never called automatically, you **have to call them manually** with `mutate`. This allows you to pass one single argument to the mutation function. In general, prefer explicitly passing data to mutations instead of relying on the component's state, _this will make everything so much better_ .
 
 `useMutation()` returns a very similar object to `useQuery()`, it's mostly about the mutation async state. Instead of `refresh()` we have `mutate()`.
 
@@ -259,11 +256,11 @@ The examples above show simple use cases where we manually pass query options su
 
 This approach offers several key advantages:
 
-* **Type Safety**: Passing the key to the `queryCache` makes it fully typed
-* **Reusability**: Avoid typos in keys, reuse the options across your app
-* **Refactoring**: Update query logic in one place, changes propagate everywhere
+- **Type Safety**: Passing the key to the `queryCache` makes it fully typed
+- **Reusability**: Avoid typos in keys, reuse the options across your app
+- **Refactoring**: Update query logic in one place, changes propagate everywhere
 
-On top of using `defineQueryOptions()`, we can also organize the query keys in an object to avoid typos and have a single source of truth for our keys. We call these *key factories*:
+On top of using `defineQueryOptions()`, we can also organize the query keys in an object to avoid typos and have a single source of truth for our keys. We call these _key factories_:
 
 ```ts twoslash
 export const PRODUCT_QUERY_KEYS = {
@@ -273,7 +270,7 @@ export const PRODUCT_QUERY_KEYS = {
 }
 ```
 
-Here's how to refactor the product detail example using `defineQueryOptions()` and *key factories*:
+Here's how to refactor the product detail example using `defineQueryOptions()` and _key factories_:
 
 ::: code-group
 
@@ -359,12 +356,12 @@ queryCache.setQueryData(productDetailsQuery('24').key, {
 ```
 
 ::: tip
-For simple, one-off queries that won't be reused, inline options with `useQuery()` are fine. But as soon as you find yourself using the same query in multiple places, or need to access its cached data from mutations or other queries, **reach for `defineQueryOptions()`** and *key factories*.
+For simple, one-off queries that won't be reused, inline options with `useQuery()` are fine. But as soon as you find yourself using the same query in multiple places, or need to access its cached data from mutations or other queries, **reach for `defineQueryOptions()`** and _key factories_.
 :::
 
 ### The Query Cache
 
-In the mutation example we introduce the usage of the *Query Cache*. It allows us to access and modify the cache from anywhere as well as trigger cache invalidations. It's a powerful tool that enables us to write decoupled Mutations and Queries in a well organized way.
+In the mutation example we introduce the usage of the _Query Cache_. It allows us to access and modify the cache from anywhere as well as trigger cache invalidations. It's a powerful tool that enables us to write decoupled Mutations and Queries in a well organized way.
 
 It's also what makes Pinia Colada extensible! It's a Pinia store under the hood, so it's easy to intercept actions with `$onAction()` and create plugins that enhance its capabilities.
 
@@ -372,10 +369,10 @@ It's also what makes Pinia Colada extensible! It's a Pinia store under the hood,
 
 Pinia Colada offers a wealth of features to enhance your application's performance and user experience, all while helping you write more maintainable code. Explore the following guides to learn more:
 
-* [Why use Pinia Colada?](./why.md)
-* [Query Keys](./guide/query-keys.md)
-* [Mutations](./guide/mutations.md)
-* [Cache Invalidation](./guide/query-invalidation.md)
-* [Optimistic updates](./guide/optimistic-updates.md)
-* [Query Cache](./advanced/query-cache.md)
-* [Reusable Queries](./advanced/reusable-queries.md)
+- [Why use Pinia Colada?](./why.md)
+- [Query Keys](./guide/query-keys.md)
+- [Mutations](./guide/mutations.md)
+- [Cache Invalidation](./guide/query-invalidation.md)
+- [Optimistic updates](./guide/optimistic-updates.md)
+- [Query Cache](./advanced/query-cache.md)
+- [Reusable Queries](./advanced/reusable-queries.md)

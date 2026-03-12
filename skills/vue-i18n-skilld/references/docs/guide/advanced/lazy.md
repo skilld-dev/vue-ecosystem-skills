@@ -1,6 +1,3 @@
----
-url: /guide/advanced/lazy.md
----
 # Lazy loading
 
 Loading all of your localization files at once is overkill and unnecessary.
@@ -73,9 +70,9 @@ export async function loadLocaleMessages(i18n, locale) {
 
 The following three functions are exported:
 
-* `setupI18n`
-* `setI18nLanguage`
-* `loadLocaleMessages`
+- `setupI18n`
+- `setI18nLanguage`
+- `loadLocaleMessages`
 
 :::tip NOTE
 This code example also shows how to handle it outside of the component using the [`global` property of i18n instance](../../api/general#global).

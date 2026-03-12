@@ -3,8 +3,8 @@ name: vueuse-core-skilld
 description: "Collection of essential Vue Composition Utilities. ALWAYS use when writing code importing \"@vueuse/core\". Consult for debugging, best practices, or modifying @vueuse/core, vueuse/core, vueuse core, vueuse."
 metadata:
   version: 14.2.1
-  generated_at: 2026-03-11
-  references_synced_at: 2026-03-11
+  generated_at: 2026-03-12
+  references_synced_at: 2026-03-12
 ---
 
 # vueuse/vueuse `@vueuse/core`

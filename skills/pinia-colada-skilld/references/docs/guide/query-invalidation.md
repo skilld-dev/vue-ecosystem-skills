@@ -1,6 +1,3 @@
----
-url: /guide/query-invalidation.md
----
 # Query Invalidation
 
 Query invalidation is crucial for maintaining up-to-date data in your application. Typically, you should invalidate queries following mutations to ensure the cache stays synchronized with the server. However, you can also manually invalidate queries using the [Query Cache](../advanced/query-cache.md). Let's cover both methods.

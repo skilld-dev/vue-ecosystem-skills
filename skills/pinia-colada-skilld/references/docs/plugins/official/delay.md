@@ -1,6 +1,3 @@
----
-url: /plugins/official/delay.md
----
 # Delay
 
 `@pinia/colada-plugin-delay` delays the transition of `asyncStatus` to `'loading'`.
@@ -38,8 +35,8 @@ When using `placeholderData`, you can keep the previous content while the refres
 
 You can configure the delay globally (plugin option) and/or per query.
 
-* `delay: number` (milliseconds) delays setting `asyncStatus` to `'loading'`
-* `delay: false` disables the behavior
+- `delay: number` (milliseconds) delays setting `asyncStatus` to `'loading'`
+- `delay: false` disables the behavior
 
 You can also override per query:
 
@@ -53,5 +50,5 @@ useQuery({
 
 ## Links
 
-* API reference: [/api/plugins/delay](/api/plugins/delay/src/functions/PiniaColadaDelay.html)
-* Source: https://github.com/posva/pinia-colada/tree/main/plugins/delay
+- API reference: [/api/plugins/delay](/api/plugins/delay/src/functions/PiniaColadaDelay.html)
+- Source: https://github.com/posva/pinia-colada/tree/main/plugins/delay

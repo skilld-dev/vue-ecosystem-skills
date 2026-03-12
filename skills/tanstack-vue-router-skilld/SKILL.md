@@ -3,8 +3,8 @@ name: tanstack-vue-router-skilld
 description: "Modern and scalable routing for Vue applications. ALWAYS use when writing code importing \"@tanstack/vue-router\". Consult for debugging, best practices, or modifying @tanstack/vue-router, tanstack/vue-router, tanstack vue-router, tanstack vue router, router."
 metadata:
   version: 1.166.7
-  generated_at: 2026-03-11
-  references_synced_at: 2026-03-11
+  generated_at: 2026-03-12
+  references_synced_at: 2026-03-12
 ---
 
 # TanStack/router `@tanstack/vue-router`

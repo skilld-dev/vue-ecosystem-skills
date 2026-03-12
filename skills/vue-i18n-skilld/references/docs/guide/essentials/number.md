@@ -1,6 +1,3 @@
----
-url: /guide/essentials/number.md
----
 # Number Formatting
 
 ## Basic Usage

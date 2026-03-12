@@ -1,6 +1,3 @@
----
-url: /guide/migration/vue3.md
----
 # Migration in Vue 3
 
 ## Migration to Composition API from Legacy API
@@ -29,8 +26,8 @@ This migration support will be removed in the next major version v10. If your Vu
 You should understand as a limited feature for migration.
 :::
 
-* The Composition API in Legacy API mode does not support SSR
-* If you want to use correctly Vue I18n Composition API (e.g `t`) on `setup` function context directly not `<template>`, you need to call via `nextTick` callback context.
+- The Composition API in Legacy API mode does not support SSR
+- If you want to use correctly Vue I18n Composition API (e.g `t`) on `setup` function context directly not `<template>`, you need to call via `nextTick` callback context.
 
 ### How to migration
 
@@ -58,7 +55,6 @@ console.log(i18n.allowComposition) // output is true
 ```
 
 ### `useI18n` in Vue Component
-
 #### `setup` option
 
 ```vue

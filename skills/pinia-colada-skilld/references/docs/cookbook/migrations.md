@@ -1,6 +1,3 @@
----
-url: /cookbook/migrations.md
----
 # Migration Codemods
 
 Pinia Colada ships ast-grep codemods to automate breaking-change migrations. Always **commit your changes before running a codemod** so you can review the diff.

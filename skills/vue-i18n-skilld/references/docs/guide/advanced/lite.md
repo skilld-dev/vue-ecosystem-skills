@@ -1,38 +1,35 @@
----
-url: /guide/advanced/lite.md
----
 # Small size subset of Vue I18n
 
 `petite-vue-i18n` is an alternative distribution of Vue I18n, which provides only minimal features.
 
 ## What is the difference from Vue I18n ?
 
-* The Size is smaller than vue-i18n
-  * CDN or without a Bundler
-    * Package reduce size: runtime + compiler `~32%`, runtime only `~45%`
-    * `petite-vue-i18n`: runtime + compiler `~9.61KB`, runtime only `~5.51KB` (production build, brotli compression)
-    * `vue-i18n`: runtime + compiler `~14.18KB`, runtime only `~10.12KB` (production build, brotli compression)
-  * ES Modules for browser
-    * Package reduce size: runtime + compiler `~32%`, runtime only `~45%`
-    * `petite-vue-i18n`: runtime + compiler `~10.51KB`, runtime only `~6.20KB` (production build, brotli compression)
-    * `vue-i18n`: runtime + compiler `~15.40KB`, runtime only `~11.12KB` (production build, brotli compression)
-  * Application bundle size
-    * Reduce size from `vue-i18n`: `~10%` (Code size check measurement of vue-i18n and petite-vue-i18n)
-* The legacy API is not supported, **only the composition API**
-* The APIs for the following DateTime Formats, Number Formats, and utilities aren’t included. **Translation only**
-  * `n`, `$n`
-  * `d`, `$d`
-  * `rt`, `$rt`
-  * `tm`, `$tm`
-  * `getDateTimeFormat`, `setDateTimeFormat`, `mergeDateTimeFormat`
-  * `getNumberFormat`, `setNumberFormat`, `mergeNumberFormat`
-* **The only locale messages that can be handled are simple key-values**. if you can handle hierarchical locale messages, you need to customize them using the API
-* The algorithm of local fallback is **the array order** specified in `fallbackLocale`
-* Custom directive `v-t` isn’t included
-* The following components provided by `vue-i18n` aren’t included
-  * Translation `i18n-t`
-  * DatetimeFormat `i18n-d`
-  * NumberFormat `i18n-n`
+- The Size is smaller than vue-i18n
+  - CDN or without a Bundler
+    - Package reduce size: runtime + compiler `~32%`, runtime only `~45%`
+    - `petite-vue-i18n`: runtime + compiler `~9.61KB`, runtime only `~5.51KB` (production build, brotli compression)
+    - `vue-i18n`: runtime + compiler `~14.18KB`, runtime only `~10.12KB` (production build, brotli compression)
+  - ES Modules for browser
+    - Package reduce size: runtime + compiler `~32%`, runtime only `~45%`
+    - `petite-vue-i18n`: runtime + compiler `~10.51KB`, runtime only `~6.20KB` (production build, brotli compression)
+    - `vue-i18n`: runtime + compiler `~15.40KB`, runtime only `~11.12KB` (production build, brotli compression)
+  - Application bundle size
+    - Reduce size from `vue-i18n`: `~10%` (Code size check measurement of vue-i18n and petite-vue-i18n)
+- The legacy API is not supported, **only the composition API**
+- The APIs for the following DateTime Formats, Number Formats, and utilities aren’t included. **Translation only**
+  - `n`, `$n`
+  - `d`, `$d`
+  - `rt`, `$rt`
+  - `tm`, `$tm`
+  - `getDateTimeFormat`, `setDateTimeFormat`, `mergeDateTimeFormat`
+  - `getNumberFormat`, `setNumberFormat`, `mergeNumberFormat`
+- **The only locale messages that can be handled are simple key-values**. if you can handle hierarchical locale messages, you need to customize them using the API
+- The algorithm of local fallback is **the array order** specified in `fallbackLocale`
+- Custom directive `v-t` isn’t included
+- The following components provided by `vue-i18n` aren’t included
+  - Translation `i18n-t`
+  - DatetimeFormat `i18n-d`
+  - NumberFormat `i18n-n`
 
 ## The use case of `petite-vue-i18n`
 
@@ -45,7 +42,6 @@ If your project only uses `t` or `$t` API for translation, so we recommended you
 Basically, it’s the same as installing `vue-i18n`. The only difference is that the part of URL or part of path are changed from `vue-i18n` to `petite-vue-i18n`.
 
 ### CDN
-
 You need to insert the following scripts to end of `<head>`:
 
 ```html
@@ -88,8 +84,8 @@ yarn add petite-vue-i18n@next
 ```sh [pnpm]
 pnpm add petite-vue-i18n@next
 ```
-
 :::
+
 
 ```js
 import { createApp } from 'vue'
@@ -112,7 +108,6 @@ app.mount('#app')
 ### Hello world
 
 Template:
-
 ```html
 <div id="app">
   <h1>{{ t('hello world') }}</h1>
@@ -120,7 +115,6 @@ Template:
 ```
 
 Scripts:
-
 ```js
 const { createApp } = Vue
 const { createI18n, useI18n } = PetiteVueI18n
@@ -202,11 +196,11 @@ If you need to use hierarchical locale messages with `petite-vue-i18n`, you need
 
 In `petite-vue-i18n`, the message resolver and locale fallbacker use simple implementations to optimize code size:
 
-* message resolver
-  * Resolves key-value style locale messages only (flat `message[key]` lookup)
-* locale fallbacker
-  * Fallback according to the array order specified in `fallbackLocale`
-  * If a simple string locale is specified, fallback to that locale
+- message resolver
+  - Resolves key-value style locale messages only (flat `message[key]` lookup)
+- locale fallbacker
+  - Fallback according to the array order specified in `fallbackLocale`
+  - If a simple string locale is specified, fallback to that locale
 
 If you want to use hierarchical locale messages or the same locale fallback behavior as `vue-i18n`, you can change them using the API.
 
@@ -227,7 +221,6 @@ yarn add @intlify/core-base@next
 ```sh [pnpm]
 pnpm add @intlify/core-base@next
 ```
-
 :::
 
 Then, at the entry point of the application, configure the message resolver and locale fallbacker using the API as the below:
@@ -261,10 +254,10 @@ With the above settings, locale message resolving and locale fallbacking will be
 If you are building your application with a build toolchain like vite, you must configure it.
 Please set the ‘module’ option in `@intlify/unplugin-vue-i18n` configuration as follows.
 
-> \[!NOTE]
+> [!NOTE]
 > About `@intlify/unplugin-vue-i18n` setting, see the ['performance' section](./optimization.md) and `@intlify/unplugin-vue-i18n` docs
 
-> \[!IMPORTANT]
+> [!IMPORTANT]
 > `@intlify/unplugin-vue-i18n` version must **5.1.0 and later**
 
 ```diff
@@ -293,7 +286,6 @@ Please set the ‘module’ option in `@intlify/unplugin-vue-i18n` configuration
 You can switch from vue-i18n to petite-vue-i18n in your application using npm alias without changing the import id.
 
 package.json:
-
 ```diff
  {
    // ...

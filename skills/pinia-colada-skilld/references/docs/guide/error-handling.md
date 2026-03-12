@@ -1,6 +1,3 @@
----
-url: /guide/error-handling.md
----
 # Error Handling
 
 Queries and mutations expose `error` and `status` refs. Handle errors in the template, with hooks, or via global plugins.
@@ -41,8 +38,8 @@ When a query refetch fails, the new `error` is set **but the previous `data` is 
 
 `useMutation()` exposes the same `error` and `status` refs. The difference is how each method handles errors:
 
-* **`mutate()`** — swallows errors. The error is set on the `error` ref and passed to `onError` hooks, but it is **not** rethrown. Use hooks to react.
-* **`mutateAsync()`** — rethrows the error after running hooks. Wrap it in `try/catch`.
+- **`mutate()`** — swallows errors. The error is set on the `error` ref and passed to `onError` hooks, but it is **not** rethrown. Use hooks to react.
+- **`mutateAsync()`** — rethrows the error after running hooks. Wrap it in `try/catch`.
 
 ```vue twoslash
 <script setup lang="ts">

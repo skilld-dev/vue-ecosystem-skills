@@ -1,6 +1,3 @@
----
-url: /guide/advanced/function.md
----
 # Messages Functions
 
 Vue I18n recommends using the string base on list, named, and literal format as locale messages when translating messages.
@@ -9,10 +6,10 @@ However, sometimes string-based message format syntax is difficult to resolve.
 
 For example, suppose you want to handle the following message in French:
 
-* Manger de la soupe
-* Manger une pomme
-* Manger du pain
-* Manger de l’orge
+- Manger de la soupe
+- Manger une pomme
+- Manger du pain
+- Manger de l’orge
 
 As you can see, the article preceding the noun will vary based on gender and phonetics.
 
@@ -132,6 +129,7 @@ Output is the below:
 ```
 
 You need to specify the index that resolves the value specified with the list of `$t` or `t`.
+
 
 ## Linked messages
 

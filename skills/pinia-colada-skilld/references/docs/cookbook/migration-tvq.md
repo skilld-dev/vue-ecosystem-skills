@@ -1,6 +1,3 @@
----
-url: /cookbook/migration-tvq.md
----
 # Migrating from `@tanstack/vue-query` to `@pinia/colada`
 
 This guide will help you migrate from `@tanstack/vue-query` to `@pinia/colada`. The two libraries have similar function names and API options, so it should be mostly a matter of updating the imports and adjusting the function names but there are still a couple of differences to be aware of.
@@ -13,21 +10,21 @@ This guide is a work in progress and may not cover all the differences between t
 
 ## Different status values
 
-* `fetchStatus` is named `asyncStatus`
-* `asyncStatus` values are `idle` and `loading` instead of `idle` and `fetching`
-* Mutations also have an `asyncStatus` property and they match the query status values instead of having two different conventions
+- `fetchStatus` is named `asyncStatus`
+- `asyncStatus` values are `idle` and `loading` instead of `idle` and `fetching`
+- Mutations also have an `asyncStatus` property and they match the query status values instead of having two different conventions
 
 ## Different defaults
 
 Most of the sensible defaults from `@tanstack/vue-query` are kept in `@pinia/colada`, but there are a few differences to be aware of:
 
-* Default `staleTime` is 5 seconds instead of 0
+- Default `staleTime` is 5 seconds instead of 0
 
 ## Different option names
 
-* `queryFn` is named `query`
-* `queryKey` is named `key`
-* `mutationFn` is named `mutation`
+- `queryFn` is named `query`
+- `queryKey` is named `key`
+- `mutationFn` is named `mutation`
 
 ## API Differences
 
@@ -54,7 +51,7 @@ useQuery({
 
 ### Component-specific side effects in mutations
 
-TanStack's `mutate` function allows passing the promise resolution callbacks as mutation hooks. In Pinia Colada, to avoid *having multiple ways of doing the same thing*, use the `mutateAsync` method to handle those effects:
+TanStack's `mutate` function allows passing the promise resolution callbacks as mutation hooks. In Pinia Colada, to avoid _having multiple ways of doing the same thing_, use the `mutateAsync` method to handle those effects:
 
 ```ts
 mutate(todo, { // [!code --]
@@ -141,7 +138,7 @@ export function useIsMutating(filters?: UseMutationEntryFilter): ComputedRef<boo
 
 :::
 
-Given the agnostic nature of TanStack Query, these utilities are not straightforward to implement but Pinia Colada's tight integration with Vue makes them *just work*
+Given the agnostic nature of TanStack Query, these utilities are not straightforward to implement but Pinia Colada's tight integration with Vue makes them _just work_
 
 For example, `useMutationState()` becomes `computed(() => mutationCache.getEntries(...).map(...))`. Differently from `useQueryState()`, `useMutationState()` always returns the state of multiple mutations so there are no helpers like `data`, `status`, etc
 

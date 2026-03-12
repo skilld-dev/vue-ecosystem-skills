@@ -1,6 +1,3 @@
----
-url: /cookbook/testing.md
----
 # Testing
 
 When testing components that use Pinia Colada, focus on **testing your app behavior**, not Pinia Colada internals.
@@ -21,9 +18,8 @@ npm i -D msw vitest @vue/test-utils
 ```
 
 Set up MSW for your test runner before following the examples:
-
-* MSW Getting Started
-* MSW Node integration
+- MSW Getting Started
+- MSW Node integration
 
 ### Test Boilerplate
 
@@ -186,9 +182,9 @@ it('creates a contact', async () => {
 
 ## Tips
 
-* **`flushPromises()`**: Use `flushPromises()` from `@vue/test-utils` after actions that trigger async updates (initial query run, submit handlers, refetches).
-* **Inspecting cache state**: Use `useQueryCache()` inside tests to inspect or seed cache state. Since you're using a real `createPinia()`, the cache works exactly as it does in production.
-* **Simpler cases without MSW**: For narrow unit tests, pass a mocked query function directly:
+- **`flushPromises()`**: Use `flushPromises()` from `@vue/test-utils` after actions that trigger async updates (initial query run, submit handlers, refetches).
+- **Inspecting cache state**: Use `useQueryCache()` inside tests to inspect or seed cache state. Since you're using a real `createPinia()`, the cache works exactly as it does in production.
+- **Simpler cases without MSW**: For narrow unit tests, pass a mocked query function directly:
 
   ```ts
   import { vi } from 'vitest'

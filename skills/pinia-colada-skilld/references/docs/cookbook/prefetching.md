@@ -1,13 +1,10 @@
----
-url: /cookbook/prefetching.md
----
 # Prefetching queries
 
 Prefetching queries is a way to ensure that your data is ready before `useQuery()` is called. Usually done before navigating to a page or to prefetch results in paginated results. You have multiple ways to prefetch queries.
 
 ## Thanks to defineQueryOptions
 
-When options do not contain dynamic keys, they can be easily prefetched by *ensuring* and *refreshing* an entry:
+When options do not contain dynamic keys, they can be easily prefetched by _ensuring_ and _refreshing_ an entry:
 
 ```ts
 import { defineQueryOptions, useQueryCache } from '@pinia/colada'
@@ -40,7 +37,7 @@ queryCache.setQueryData(
 )
 ```
 
-Differently from using `ensure()` or `useQuery()`, this does not attach any query options to the cache entry, so it won't be able to refetch or know when the data is stale. In most cases this is fine, but if you want to have a fully functional query, it's better to use `ensure()` first to attach options to the *query entry*. We can combine this with [`defineQueryOptions`](/guide/queries.md#Organizing-Queries) to have type safety and a consistent way to reference queries:
+Differently from using `ensure()` or `useQuery()`, this does not attach any query options to the cache entry, so it won't be able to refetch or know when the data is stale. In most cases this is fine, but if you want to have a fully functional query, it's better to use `ensure()` first to attach options to the _query entry_. We can combine this with [`defineQueryOptions`](/guide/queries.md#Organizing-Queries) to have type safety and a consistent way to reference queries:
 
 ```ts
 import { defineQueryOptions } from '@pinia/colada'

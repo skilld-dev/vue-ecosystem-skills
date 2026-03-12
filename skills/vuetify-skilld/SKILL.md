@@ -3,8 +3,8 @@ name: vuetify-skilld
 description: "Vue Material Component Framework. ALWAYS use when writing code importing \"vuetify\". Consult for debugging, best practices, or modifying vuetify."
 metadata:
   version: 4.0.1
-  generated_at: 2026-03-11
-  references_synced_at: 2026-03-11
+  generated_at: 2026-03-12
+  references_synced_at: 2026-03-12
 ---
 
 # vuetifyjs/vuetify `vuetify`
@@ -12,7 +12,7 @@ metadata:
 > Vue Material Component Framework
 
 **Version:** 4.0.1 (Mar 2026)
-**Tags:** v1-stable: 1.5.24 (Mar 2020), dev: 4.0.1 (Mar 2026), v2-stable: 2.7.2 (Feb 2024), next: 4.0.1 (Mar 2026), latest: 4.0.1 (Mar 2026), v3-stable: 3.12.2 (Mar 2026)
+**Tags:** v1-stable: 1.5.24 (Mar 2020), v2-stable: 2.7.2 (Feb 2024), dev: 4.0.1 (Mar 2026), next: 4.0.1 (Mar 2026), latest: 4.0.2 (Mar 2026), v3-stable: 3.12.3 (Mar 2026)
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes

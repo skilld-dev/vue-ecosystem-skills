@@ -1,10 +1,6 @@
----
-url: /guide/essentials/datetime.md
----
 # Datetime Formatting
 
 ## Basic Usage
-
 You can localize the datetime with your definition formats.
 
 Datetime formats the below:
@@ -55,10 +51,10 @@ Note that the option name is **`datetimeFormats`** in VueI18n v9, not `dateTimeF
 :::tip NOTE
 Some ways to support localize are:
 
-* `$d` (for Legacy API mode & Composition API mode)
-* built-in DatetimeFormat component (`i18n-d`)
-* exported `d` from `useI18n` (for Composition API mode)
-  :::
+- `$d` (for Legacy API mode & Composition API mode)
+- built-in DatetimeFormat component (`i18n-d`)
+- exported `d` from `useI18n` (for Composition API mode)
+:::
 
 The following is an example of the use of `$d` in a template:
 

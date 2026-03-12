@@ -1,6 +1,3 @@
----
-url: /guide/ssr.md
----
 # Server Side Rendering
 
 Pinia Colada relies on Pinia for server side rendering. This means that you should follow Pinia's SSR guide to setup your server side rendering.

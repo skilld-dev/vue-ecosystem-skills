@@ -1,6 +1,3 @@
----
-url: /ecosystem/official.md
----
 # Official tooling
 
 ## Vue CLI Plugin

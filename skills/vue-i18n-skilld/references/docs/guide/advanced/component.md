@@ -1,6 +1,3 @@
----
-url: /guide/advanced/component.md
----
 # Component Interpolation
 
 ## Basic Usage
@@ -102,7 +99,9 @@ Is interpolated with `term` locale message.
 
 In the above example, the component interpolation follows the **list interpolation**. The children of translation component are interpolated by their order of appearance.
 
+
 You can choose the root node element type by specifying a `tag` prop. If omitted, it defaults to Fragments.
+
 
 ## Slots syntax usage
 
@@ -235,7 +234,6 @@ app.mount('#app')
 ```
 
 The following output:
-
 ```html
 <div id="app" data-v-app="">
   
@@ -277,3 +275,4 @@ This warning is not output to the browser console in production builds.
 :::warning NOTE
 This is not available in petite-vue-i18n
 :::
+

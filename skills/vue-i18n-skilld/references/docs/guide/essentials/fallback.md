@@ -1,6 +1,3 @@
----
-url: /guide/essentials/fallback.md
----
 # Fallbacking
 
 `fallbackLocale: '<lang>'` to choose which language to use when your preferred language lacks a translation.
@@ -10,10 +7,9 @@ url: /guide/essentials/fallback.md
 If a `locale` is given containing a territory and an optional dialect, the implicit fallback is activated automatically.
 
 For example `de-DE-bavarian` would fallback
-
 1. `de-DE-bavarian`
-2. `de-DE`
-3. `de`
+1. `de-DE`
+1. `de`
 
 To suppress the automatic fallback, add the postfix exclamation mark `!`, for example `de-DE!`
 
@@ -63,7 +59,7 @@ By default, falling back to `fallbackLocale` generates two console warnings:
 The first warning message is printed the key, due to  given to the translation function `$t` is not in the `ja` locale messages and the second warning message that comes out when you fall back to resolve localized messages from `en` locale messages. These warning messages are output to support debugging using Vue I18n.
 
 :::tip NOTE
-These warning messages are only warned in development mode (`process.env``.NODE_ENV !== 'production'`) by default, not for production.
+These warning messages are only warned in development mode (`process.env`<wbr/>`.NODE_ENV !== 'production'`) by default, not for production.
 :::
 
 To suppress the first warning(`Not found key...`), set `silentTranslationWarn: true` in Legacy API mode or set `missingWarn: false` in Composition API mode when initializing the `createI18n`.

@@ -1,5 +1,5 @@
 ---
-total: 229
+total: 248
 ---
 
 # Docs Index
@@ -40,18 +40,21 @@ cre...
 - [Overview](./getting-started/overview.md): TanStack AI is a lightweight, type-safe SDK for building production-ready AI experiences. Its framework-agnostic core provides type-safe tool/funct...
 - [Quick Start](./getting-started/quick-start.md): Get started with TanStack AI in minutes. This guide will walk you through creating a simple chat application using the React integration and OpenAI...
 
-## guides (20)
+## guides (23)
 
 - [Agentic Cycle](./guides/agentic-cycle.md): The agentic cycle is the pattern where the LLM repeatedly calls tools, receives results, and continues reasoning until it can provide a final answe...
 - [Client Tools](./guides/client-tools.md): Client tools execute in the browser, enabling UI updates, local storage access, and browser API interactions. Unlike server tools, client tools don...
 - [Connection Adapters](./guides/connection-adapters.md): Connection adapters handle the communication between your client and server for streaming chat responses. TanStack AI provides built-in adapters an...
 - [Extending Adapters with Custom Models](./guides/extend-adapter.md): The extendAdapter utility allows you to extend existing adapter factories (like openaiText, anthropicText) with custom model names while maintainin...
+- [Generations](./guides/generations.md): TanStack AI provides a unified pattern for non-chat AI activities: image generation, text-to-speech, transcription, summarization, and video genera...
 - [Image Generation](./guides/image-generation.md): TanStack AI provides support for image generation through dedicated image adapters. This guide covers how to use the image generation functionality...
+- [Middleware](./guides/middleware.md): Middleware lets you hook into every stage of the chat() lifecycle — from configuration to streaming, tool execution, usage tracking, and completion...
 - [Migration Guide](./guides/migration.md): This guide helps you migrate from the previous version of TanStack AI to the latest version. The major changes focus on improved tree-shaking, clea...
 - [Multimodal Content](./guides/multimodal-content.md): TanStack AI supports multimodal content in messages, allowing you to send images, audio, video, and documents alongside text to AI models that supp...
 - [Observability](./guides/observability.md): The @tanstack/ai package offers you an event client for observability and debugging purposes.
 It's a fully type-safe decoupled event-driven system ...
 - [Per-Model Type Safety](./guides/per-model-type-safety.md): The AI SDK provides model-specific type safety for modelOptions. Each model's capabilities determine which model options are allowed, and TypeScrip...
+- [Realtime Voice Chat](./guides/realtime-chat.md): TanStack AI provides a complete realtime voice chat system for building voice-to-voice AI interactions. The realtime API supports multiple provider...
 - [Runtime Adapter Switching](./guides/runtime-adapter-switching.md): Learn how to build interfaces where users can switch between LLM providers at runtime while maintaining full TypeScript type safety.
 - [Server Tools](./guides/server-tools.md): Server tools execute automatically when called by the LLM. They have full access to server resources like databases, APIs, and environment variables.
 - [Streaming](./guides/streaming.md): TanStack AI supports streaming responses for real-time chat experiences. Streaming allows you to display responses as they're generated, rather tha...
@@ -70,18 +73,19 @@ It's a fully type-safe decoupled event-driven system ...
 - [HTTP Stream Protocol](./protocol/http-stream-protocol.md): HTTP streaming with newline-delimited JSON (NDJSON) is a simpler protocol than SSE that sends one JSON object per line. It's useful when:
 - [Server-Sent Events (SSE) Protocol](./protocol/sse-protocol.md): Server-Sent Events (SSE) is a standard HTTP-based protocol for server-to-client streaming. It provides:
 
-## reference/classes (8)
+## reference/classes (9)
 
 - [BatchStrategy](./reference/classes/BatchStrategy.md): Defined in: activities/chat/stream/strategies.ts:34
 - [CompositeStrategy](./reference/classes/CompositeStrategy.md): Defined in: activities/chat/stream/strategies.ts:68
 - [ImmediateStrategy](./reference/classes/ImmediateStrategy.md): Defined in: activities/chat/stream/strategies.ts:12
 - [PartialJSONParser](./reference/classes/PartialJSONParser.md): Defined in: activities/chat/stream/json-parser.ts:25
 - [PunctuationStrategy](./reference/classes/PunctuationStrategy.md): Defined in: activities/chat/stream/strategies.ts:22
+- [RealtimeClient](./reference/classes/RealtimeClient.md): Defined in: realtime-client.ts
 - [StreamProcessor](./reference/classes/StreamProcessor.md): Defined in: activities/chat/stream/processor.ts:127
 - [ToolCallManager](./reference/classes/ToolCallManager.md): Defined in: activities/chat/tools/tool-calls.ts:48
 - [WordBoundaryStrategy](./reference/classes/WordBoundaryStrategy.md): Defined in: activities/chat/stream/strategies.ts:57
 
-## reference/functions (34)
+## reference/functions (35)
 
 - [chat](./reference/functions/chat.md): Defined in: activities/chat/index.ts:1196
 - [combineStrategies](./reference/functions/combineStrategies.md): Defined in: activities/chat/agent-loop-strategies.ts:79
@@ -108,6 +112,7 @@ It's a fully type-safe decoupled event-driven system ...
 - [modelMessageToUIMessage](./reference/functions/modelMessageToUIMessage.md): Defined in: activities/chat/messages.ts:305
 - [normalizeToUIMessage](./reference/functions/normalizeToUIMessage.md): Defined in: activities/chat/messages.ts:413
 - [parsePartialJSON](./reference/functions/parsePartialJSON.md): Defined in: activities/chat/stream/json-parser.ts:56
+- [realtimeToken](./reference/functions/realtimeToken.md): Defined in: realtime/index.ts:33
 - [streamToText](./reference/functions/streamToText.md): Defined in: stream-to-response.ts:23
 - [summarize](./reference/functions/summarize.md): Defined in: activities/summarize/index.ts:146
 - [toHttpResponse](./reference/functions/toHttpResponse.md): Defined in: stream-to-response.ts:247
@@ -122,11 +127,12 @@ It's a fully type-safe decoupled event-driven system ...
 
 - [@tanstack/ai](./reference/index.md)
 
-## reference/interfaces (113)
+## reference/interfaces (122)
 
 - [AgentLoopState](./reference/interfaces/AgentLoopState.md): Defined in: types.ts:599
 - [AIDevtoolsEventMap](./reference/interfaces/AIDevtoolsEventMap.md): Defined in: event-client.ts:431
 - [AudioPart](./reference/interfaces/AudioPart.md): Defined in: types.ts:173
+- [AudioVisualization](./reference/interfaces/AudioVisualization.md): Defined in: realtime/types.ts
 - [BaseAGUIEvent](./reference/interfaces/BaseAGUIEvent.md): Defined in: types.ts:746
 - [ChunkRecording](./reference/interfaces/ChunkRecording.md): Defined in: activities/chat/stream/types.ts:73
 - [ChunkStrategy](./reference/interfaces/ChunkStrategy.md): Defined in: activities/chat/stream/types.ts:33
@@ -158,6 +164,14 @@ It's a fully type-safe decoupled event-driven system ...
 - [ModelMessage](./reference/interfaces/ModelMessage.md): Defined in: types.ts:260
 - [ProcessorResult](./reference/interfaces/ProcessorResult.md): Defined in: activities/chat/stream/types.ts:51
 - [ProcessorState](./reference/interfaces/ProcessorState.md): Defined in: activities/chat/stream/types.ts:61
+- [RealtimeAdapter](./reference/interfaces/RealtimeAdapter.md): Defined in: realtime-types.ts
+- [RealtimeClientOptions](./reference/interfaces/RealtimeClientOptions.md): Defined in: realtime-types.ts
+- [RealtimeConnection](./reference/interfaces/RealtimeConnection.md): Defined in: realtime-types.ts
+- [RealtimeMessage](./reference/interfaces/RealtimeMessage.md): Defined in: realtime/types.ts
+- [RealtimeSessionConfig](./reference/interfaces/RealtimeSessionConfig.md): Defined in: realtime/types.ts
+- [RealtimeToken](./reference/interfaces/RealtimeToken.md): Defined in: realtime/types.ts
+- [RealtimeTokenAdapter](./reference/interfaces/RealtimeTokenAdapter.md): Defined in: realtime/types.ts
+- [RealtimeTokenOptions](./reference/interfaces/RealtimeTokenOptions.md): Defined in: realtime/types.ts
 - [ResponseFormat](./reference/interfaces/ResponseFormat.md): Defined in: types.ts:515
 - [RunErrorEvent](./reference/interfaces/RunErrorEvent.md): Defined in: types.ts:791
 - [RunFinishedEvent](./reference/interfaces/RunFinishedEvent.md): Defined in: types.ts:774
@@ -238,7 +252,7 @@ It's a fully type-safe decoupled event-driven system ...
 - [VideoUrlResult](./reference/interfaces/VideoUrlResult.md): Defined in: types.ts:1101
 - [VideoUsageEvent](./reference/interfaces/VideoUsageEvent.md): Defined in: event-client.ts:381
 
-## reference/type-aliases (29)
+## reference/type-aliases (34)
 
 - [AgentLoopStrategy](./reference/type-aliases/AgentLoopStrategy.md): Defined in: types.ts:620
 - [AGUIEvent](./reference/type-aliases/AGUIEvent.md): Defined in: types.ts:932
@@ -264,6 +278,11 @@ It's a fully type-safe decoupled event-driven system ...
 - [MessagePart](./reference/type-aliases/MessagePart.md): Defined in: types.ts:311
 - [ModalitiesArrayToUnion](./reference/type-aliases/ModalitiesArrayToUnion.md): Defined in: types.ts:246
 - [Modality](./reference/type-aliases/Modality.md): Defined in: types.ts:108
+- [RealtimeEvent](./reference/type-aliases/RealtimeEvent.md): Defined in: realtime/types.ts
+- [RealtimeMessagePart](./reference/type-aliases/RealtimeMessagePart.md): Defined in: realtime/types.ts
+- [RealtimeMode](./reference/type-aliases/RealtimeMode.md): Defined in: realtime/types.ts
+- [RealtimeStateChangeCallback](./reference/type-aliases/RealtimeStateChangeCallback.md): Defined in: ai-client/src/realtime-types.ts
+- [RealtimeStatus](./reference/type-aliases/RealtimeStatus.md): Defined in: realtime/types.ts
 - [SchemaInput](./reference/type-aliases/SchemaInput.md): Defined in: types.ts:77
 - [StreamChunk](./reference/type-aliases/StreamChunk.md): Defined in: types.ts:952
 - [StreamChunkType](./reference/type-aliases/StreamChunkType.md): Defined in: types.ts:740

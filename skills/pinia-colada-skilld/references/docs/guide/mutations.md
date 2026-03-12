@@ -1,9 +1,6 @@
----
-url: /guide/mutations.md
----
 # Mutations
 
-Mutations allow us to trigger and track the status of an async operation meant to have side effects. While [queries](./queries.md) are meant to **read** data, mutations are meant to **write** data. In terms of REST, queries *usually* handle `GET` requests and mutations handle `POST`, `PUT`, `PATCH`, and `DELETE` requests (without limiting you to do so).
+Mutations allow us to trigger and track the status of an async operation meant to have side effects. While [queries](./queries.md) are meant to **read** data, mutations are meant to **write** data. In terms of REST, queries _usually_ handle `GET` requests and mutations handle `POST`, `PUT`, `PATCH`, and `DELETE` requests (without limiting you to do so).
 
 Similarly to queries, mutations are defined with the `useMutation()` composable.
 
@@ -64,8 +61,8 @@ const {
 
 Using mutations allows us to easily keep the changed data up to date. We have multiple strategies to do so:
 
-* [Invalidate queries](./query-invalidation.md#Invalidation-in-Mutation-Hooks) that depend on the data that was changed.
-* [Optimistic updates](./optimistic-updates.md) to update the UI before the mutation is completed.
+- [Invalidate queries](./query-invalidation.md#Invalidation-in-Mutation-Hooks) that depend on the data that was changed.
+- [Optimistic updates](./optimistic-updates.md) to update the UI before the mutation is completed.
 
 ## Reusable mutations
 
@@ -141,8 +138,8 @@ export const useCreateTodo = defineMutation({
 
 Mutations expose two different methods for executing the mutation:
 
-* `mutate`: The main method to execute the mutation. It accepts the same parameters as the mutation function and does not return anything.
-* `mutateAsync`: A method that returns a promise that resolves when the mutation is completed. It accepts the same parameters as the mutation function.
+- `mutate`: The main method to execute the mutation. It accepts the same parameters as the mutation function and does not return anything.
+- `mutateAsync`: A method that returns a promise that resolves when the mutation is completed. It accepts the same parameters as the mutation function.
 
 ```vue twoslash
 <script setup lang="ts">

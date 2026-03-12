@@ -3,8 +3,8 @@ name: vueuse-shared-skilld
 description: "ALWAYS use when writing code importing \"@vueuse/shared\". Consult for debugging, best practices, or modifying @vueuse/shared, vueuse/shared, vueuse shared, vueuse."
 metadata:
   version: 14.2.1
-  generated_at: 2026-03-11
-  references_synced_at: 2026-03-11
+  generated_at: 2026-03-12
+  references_synced_at: 2026-03-12
 ---
 
 # vueuse/vueuse `@vueuse/shared`

@@ -1,6 +1,3 @@
----
-url: /guide/advanced/composition.md
----
 # Composition API
 
 The introduction of `setup` and Vue’s Composition API opens up new possibilities. But to be able to get the full potential out of Vue I18n, we will need to use a few new functions to replace access to `this`.
@@ -44,9 +41,9 @@ You can set `legacy: false` to allow Vue I18n to switch the API mode, from Legac
 :::tip NOTE
 The following properties of i18n instance created by `createI18n` change its behavior:
 
-* `mode` property: `"legacy"` to `"composition"`
-* `global` property: VueI18n instance to Composer instance
-  :::
+- `mode` property: `"legacy"` to `"composition"`
+- `global` property: VueI18n instance to Composer instance
+:::
 
 You are now ready to use `useI18n` in the `App.vue` component. The code looks like this:
 
@@ -301,28 +298,27 @@ vue-i18n v9.2-beta.34 or later, `globalInjection` is `true` by default.
 
 This allows Vue I18n to inject the following properties and functions into the components:
 
-* `$i18n`: An object wrapped with the following global scope Composer instance properties
-  * `locale`
-  * `fallbackLocale`
-  * `availableLocales`
-* `$t`: `t` function of Composer that is global scope
-* `$rt`: `rt` function of Composer that is global scope
-* `$d`: `d` function of Composer that is global scope
-* `$n`: `n` function of Composer that is global scope
-* `$tm`: `tm` function of Composer that is global scope
+- `$i18n`: An object wrapped with the following global scope Composer instance properties
+  - `locale`
+  - `fallbackLocale`
+  - `availableLocales`
+- `$t`: `t` function of Composer that is global scope
+- `$rt`: `rt` function of Composer that is global scope
+- `$d`: `d` function of Composer that is global scope
+- `$n`: `n` function of Composer that is global scope
+- `$tm`: `tm` function of Composer that is global scope
 
 The Vue 3 runtime globally injects components with what is set in `app.config.globalProperties`. Thus, the ones listed above are injected by the Vue 3 runtime and can therefore be used implicitly in template.
 
 :::warning NOTICE
-
-* The `setup` does not allow to see these properties and functions injected into the component
-* In Legacy API mode, some Vue I18n APIs prefixed with `$` were injected, but the properties and functions prefixing components with `$` and injected in Composition API mode are different from the Legacy API mode.
-  :::
+- The `setup` does not allow to see these properties and functions injected into the component
+- In Legacy API mode, some Vue I18n APIs prefixed with `$` were injected, but the properties and functions prefixing components with `$` and injected in Composition API mode are different from the Legacy API mode.
+:::
 
 You’ve noticed that the ones listed above are prefixed with `$`. The reason for prefixing them with `$` is that they are:
 
-* The `setup` does not conflict with the properties and functions returned by render context
-* Global scope accessible identifier for Vue I18n Composition API mode
+- The `setup` does not conflict with the properties and functions returned by render context
+- Global scope accessible identifier for Vue I18n Composition API mode
 
 By doing so, the user is made aware that they are special properties and functions.
 
@@ -385,10 +381,9 @@ When using `useI18n`, the `useScope` option has implicit resolution behavior tha
 
 :::info Default Behavior
 If you don't explicitly specify `useScope`, Vue I18n will implicitly determine the scope based on whether the component has an i18n block:
-
-* **With i18n block**: Defaults to `local` scope
-* **Without i18n block**: Defaults to `global` scope
-  :::
+- **With i18n block**: Defaults to `local` scope
+- **Without i18n block**: Defaults to `global` scope
+:::
 
 ```js
 // In a component WITH i18n block
@@ -472,6 +467,7 @@ When you violate this rule, you'll see the following warning in development mode
 ```
 
 If you need to use i18n features in multiple places within your component, destructure all the needed properties from a single `useI18n` call or store the returned object and access its properties as needed.
+
 
 ### Locale messages
 

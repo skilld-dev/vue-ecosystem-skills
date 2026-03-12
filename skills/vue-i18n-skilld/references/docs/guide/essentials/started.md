@@ -1,6 +1,3 @@
----
-url: /guide/essentials/started.md
----
 # Getting started
 
 Creating a global application with Vue + Vue I18n is dead simple. With Vue.js, we are already composing our application with components. When adding Vue I18n to the mix, all we need to do is ready resource messages and simply use the localization API that are offered with Vue I18n.
@@ -13,7 +10,7 @@ This guide will assume that you are already familiar with Vue itself. You don't 
 
 we're going to consider this example:
 
-* StackBlitz example
+- StackBlitz example
 
 Let's start by looking at the root component, `App.vue`.
 
@@ -91,7 +88,7 @@ If you're curious about what this plugin does, some of its responsibilities incl
 
 Vue I18n is most commonly used in applications built using a bundler (e.g. Vite) and SFCs (i.e. `.vue ` files). Most of the examples in this guide will be written in that style, but Vue I18n itself doesn't require you to use build tools or SFCs.
 
-For example, if you're using the *global builds* of Vue and [Vue I18n](../installation#Direct-Download-CDN), the libraries are exposed via global objects, rather than imports:
+For example, if you're using the _global builds_ of Vue and [Vue I18n](../installation#Direct-Download-CDN), the libraries are exposed via global objects, rather than imports:
 
 ```js
 const { createApp } = Vue
