@@ -13,22 +13,6 @@ meta:
 
 Harlan Wilton Published **Mar 5, 2026**
 
-**On this page **
-
-- [What We Measured](#what-we-measured)
-- [Framework Scorecard](#framework-scorecard)
-- [The Description Problem](#the-description-problem)
-- [The Social Sharing Gap](#the-social-sharing-gap)
-- [What Streaming Drops](#what-streaming-drops)
-- [Head-Breakers: The Silent Parser Bug](#head-breakers-the-silent-parser-bug)
-- [Duplicate & Conflicting Tags](#duplicate-conflicting-tags)
-- [Third-Party Head Pollution](#third-party-head-pollution)
-- [Why Heads Break](#why-heads-break)
-- [Does Any of This Affect Performance?](#does-any-of-this-affect-performance)
-- [What's Next](#whats-next)
-- [How Unhead Addresses This](#how-unhead-addresses-this)
-- [Method](#method)
-
 37.5% of **Angular** sites show a different title after JavaScript runs than what the server sent. 68% are missing a `<meta name="description">` entirely.
 
 We queried HTTP Archive (Feb 2026) and CrUX (Jan 2026) across **660,000+ desktop origins** and 8 frameworks. Most frameworks ship incomplete `<head>` tags, the causes vary, and the frameworks with the "best" heads don't have the best performance.
@@ -222,19 +206,3 @@ useSeoMeta({
 **Did this page help you? **
 
 **Capo.js Performance** **Streaming SSR SEO**
-
-**On this page **
-
-- [What We Measured](#what-we-measured)
-- [Framework Scorecard](#framework-scorecard)
-- [The Description Problem](#the-description-problem)
-- [The Social Sharing Gap](#the-social-sharing-gap)
-- [What Streaming Drops](#what-streaming-drops)
-- [Head-Breakers: The Silent Parser Bug](#head-breakers-the-silent-parser-bug)
-- [Duplicate & Conflicting Tags](#duplicate-conflicting-tags)
-- [Third-Party Head Pollution](#third-party-head-pollution)
-- [Why Heads Break](#why-heads-break)
-- [Does Any of This Affect Performance?](#does-any-of-this-affect-performance)
-- [What's Next](#whats-next)
-- [How Unhead Addresses This](#how-unhead-addresses-this)
-- [Method](#method)

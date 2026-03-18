@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `script:updated` hook is called when a script instance managed by Unhead is updated. This hook is specific to Unhead's script management features and provides a way to react to changes in script status, such as loading, execution, or errors.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -258,10 +251,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **ssr:rendered** Hook called after SSR completes. Post-process HTML output, implement caching, and collect rendering metrics. **Introduction** Generate JSON-LD structured data for Google Rich Results. TypeScript functions like defineArticle() and defineProduct() with automatic validation.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

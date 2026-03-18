@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Why wrap Unhead composables?](#why-wrap-unhead-composables)
-- [How do I create a context for Unhead?](#how-do-i-create-a-context-for-unhead)
-- [How do I wrap useHead with my context?](#how-do-i-wrap-usehead-with-my-context)
-
 **Quick Answer:** Create custom composables by wrapping `useHead()` with your own defaults. Pass the `head` instance to reuse across your application.
 
 ## [Why wrap Unhead composables?](#why-wrap-unhead-composables)
@@ -94,9 +88,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Upgrade Guide** Learn how to migrate between Unhead versions for TypeScript users. **Streaming** Stream head tags as async content resolves during server-side rendering
-
-**On this page **
-
-- [Why wrap Unhead composables?](#why-wrap-unhead-composables)
-- [How do I create a context for Unhead?](#how-do-i-create-a-context-for-unhead)
-- [How do I wrap useHead with my context?](#how-do-i-wrap-usehead-with-my-context)

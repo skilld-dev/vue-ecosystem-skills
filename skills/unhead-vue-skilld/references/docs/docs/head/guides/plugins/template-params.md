@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Are Template Params?](#what-are-template-params)
-- [How Do I Set Up Template Params?](#how-do-i-set-up-template-params)
-- [What Built-in Params Are Available?](#what-built-in-params-are-available)
-- [Which Separator Should I Use?](#which-separator-should-i-use)
-- [How Do Template Params Work with Meta Tags?](#how-do-template-params-work-with-meta-tags)
-- [How Do I Use Template Params in Scripts?](#how-do-i-use-template-params-in-scripts)
-- [Common Use Cases](#common-use-cases)
-- [Related](#related)
-
 **Quick Answer:** Template params let you use placeholders like `%s` and `%siteName` in your head tags. Configure them with `templateParams: { siteName: 'My Site', separator: '·' }` in `useHead()`.
 
 ## [What Are Template Params?](#what-are-template-params)
@@ -268,14 +257,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Build Plugins** Vite and Webpack plugins for Unhead. Tree-shake server composables, transform useSeoMeta, save ~3kb in production bundles. **Alias Sorting** Order head tags with before: and after: prefixes. More readable than numeric priorities for script loading and CSS dependencies.
-
-**On this page **
-
-- [What Are Template Params?](#what-are-template-params)
-- [How Do I Set Up Template Params?](#how-do-i-set-up-template-params)
-- [What Built-in Params Are Available?](#what-built-in-params-are-available)
-- [Which Separator Should I Use?](#which-separator-should-i-use)
-- [How Do Template Params Work with Meta Tags?](#how-do-template-params-work-with-meta-tags)
-- [How Do I Use Template Params in Scripts?](#how-do-i-use-template-params-in-scripts)
-- [Common Use Cases](#common-use-cases)
-- [Related](#related)

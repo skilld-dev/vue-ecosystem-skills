@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Person](#schemaorg-person)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Person](#schemaorg-person)
 
 - **Type**: `definePerson(input?: Person)`Describes an individual person. Most commonly used to identify the author of a piece of content (such as an Article or Comment).
@@ -110,15 +98,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Organization** Add Organization structured data with Unhead. JSON-LD examples for company identity, logo, sameAs social profiles, and Google Knowledge Panel setup. **Podcast Episode Schema** Use definePodcastEpisode() to add PodcastEpisode structured data. Enable podcast rich results with episode title, audio, and description.
-
-**On this page **
-
-- [Schema.org Person](#schemaorg-person)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

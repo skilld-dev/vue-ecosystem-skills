@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `entries:updated` hook is called whenever the collection of head entries is modified, either by adding new entries, updating existing ones, or removing entries. This hook provides a way to react to changes in the application's head content.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -120,10 +113,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **useScript()** Load third-party scripts with useScript(). Smart defaults for performance, lazy loading triggers, and API proxying for analytics and widgets. **entries:resolve** Hook for processing head entries before tag conversion. Add global meta tags, extract analytics data, and modify tag collections.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

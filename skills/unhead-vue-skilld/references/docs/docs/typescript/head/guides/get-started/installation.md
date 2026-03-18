@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I install Unhead?](#how-do-i-install-unhead)
-- [How do I setup client-side rendering?](#how-do-i-setup-client-side-rendering)
-- [How do I setup server-side rendering?](#how-do-i-setup-server-side-rendering)
-- [How do I add my first head tags?](#how-do-i-add-my-first-head-tags)
-- [What should I do next?](#what-should-i-do-next)
-
 ## [Introduction](#introduction)
 
 Unhead is built for JavaScript applications that need to manage the head of their document in both server and client-rendered environments.
@@ -184,12 +175,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Add Schema.org to Svelte apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results. **Upgrade Guide** Learn how to migrate between Unhead versions for TypeScript users.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I install Unhead?](#how-do-i-install-unhead)
-- [How do I setup client-side rendering?](#how-do-i-setup-client-side-rendering)
-- [How do I setup server-side rendering?](#how-do-i-setup-server-side-rendering)
-- [How do I add my first head tags?](#how-do-i-add-my-first-head-tags)
-- [What should I do next?](#what-should-i-do-next)

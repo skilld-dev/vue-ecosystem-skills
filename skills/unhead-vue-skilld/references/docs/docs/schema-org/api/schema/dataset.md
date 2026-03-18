@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Dataset](#schemaorg-dataset)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Dataset](#schemaorg-dataset)
 
 **Type**: `defineDataset(input?: Dataset)`
@@ -149,14 +138,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Course Schema** Use defineCourse() to add Course structured data. Enable rich results for educational courses with provider, description, and course details. **Event Schema** Use defineEvent() to add Event structured data to your pages. Enable rich results for concerts, conferences, and meetups with dates, venues, and ticket info.
-
-**On this page **
-
-- [Schema.org Dataset](#schemaorg-dataset)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

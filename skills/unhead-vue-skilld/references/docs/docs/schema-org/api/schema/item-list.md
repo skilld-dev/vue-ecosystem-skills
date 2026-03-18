@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org ItemList](#schemaorg-itemlist)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ItemList schema represents an ordered or unordered list of items. Google uses it to display carousel rich results for recipes, products, courses, and other list-based content.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -106,12 +97,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Image Schema** Use defineImage() to add ImageObject structured data. Provide image metadata with captions, dimensions, and alt text for rich results. **JobPosting** Implement JobPosting structured data with Unhead. JSON-LD examples, required fields for Google Jobs, salary markup, and validation tips.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org ItemList](#schemaorg-itemlist)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

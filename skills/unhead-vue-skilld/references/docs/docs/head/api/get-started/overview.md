@@ -10,11 +10,6 @@ meta:
 
 # **Overview**
 
-**On this page **
-
-- [What composables are available?](#what-composables-are-available)
-- [What hooks can I use?](#what-hooks-can-i-use)
-
 **Quick Reference:** The main composables are `useHead()` for general head management, `useSeoMeta()` for SEO tags, and `useScript()` for script loading. All return an entry with `patch()` and `dispose()` methods.
 
 ## [What composables are available?](#what-composables-are-available)
@@ -79,8 +74,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Infer SEO Meta** Auto-generate og:title, og:description, and twitter:card from existing title and description. Reduce duplicate meta tag definitions. **useHead()** Manage document head tags with useHead(). Set titles, meta tags, scripts, and styles with full TypeScript support and reactive updates.
-
-**On this page **
-
-- [What composables are available?](#what-composables-are-available)
-- [What hooks can I use?](#what-hooks-can-i-use)

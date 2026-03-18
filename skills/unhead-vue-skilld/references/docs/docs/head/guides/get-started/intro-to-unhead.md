@@ -10,13 +10,6 @@ meta:
 
 # **Unhead: Full Stack Head Manager**
 
-**On this page **
-
-- [What is head manager?](#what-is-head-manager)
-- [Introducing Unhead](#introducing-unhead)
-- [Innovating on Head Management](#innovating-on-head-management)
-- [Next Steps](#next-steps)
-
 ## [What is head manager?](#what-is-head-manager)
 
 Adding tags in your `<head>` is one of the fundamental tasks in web development. Whether it be setting a page title using `<title>` or loading in a JavaScript framework using `<script>` tags.
@@ -83,10 +76,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Overview** Framework-agnostic library for managing HTML head tags. Titles, meta tags, scripts, and structured data with SSR support for Vue, React, Svelte, Solid, Angular. **Starter Recipes** Copy-paste recipes for SEO setup, social sharing meta, favicon config, PWA tags, and blog post optimization. Ready-to-use Unhead patterns.
-
-**On this page **
-
-- [What is head manager?](#what-is-head-manager)
-- [Introducing Unhead](#introducing-unhead)
-- [Innovating on Head Management](#innovating-on-head-management)
-- [Next Steps](#next-steps)

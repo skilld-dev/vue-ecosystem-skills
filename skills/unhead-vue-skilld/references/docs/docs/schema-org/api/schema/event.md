@@ -12,14 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Event](#schemaorg-event)
-- [Useful Links](#useful-links)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Event](#schemaorg-event)
 
 - **Type**: `defineEvent(input?: Event)`Describes an Event.
@@ -168,11 +160,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Dataset Schema** Use defineDataset() to add Dataset structured data. Make research data discoverable in Google Dataset Search with metadata and download links. **Food Establishment Schema** Use defineFoodEstablishment() to add Restaurant structured data. Display menu, reservations, and cuisine info in Google Maps and local search.
-
-**On this page **
-
-- [Schema.org Event](#schemaorg-event)
-- [Useful Links](#useful-links)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

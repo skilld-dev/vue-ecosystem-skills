@@ -3,8 +3,8 @@ name: vitepress-skilld
 description: "Vite & Vue powered static site generator. ALWAYS use when writing code importing \"vitepress\". Consult for debugging, best practices, or modifying vitepress."
 metadata:
   version: 1.6.4
-  generated_at: 2026-03-17
-  references_synced_at: 2026-03-17
+  generated_at: 2026-03-18
+  references_synced_at: 2026-03-18
 ---
 
 # vuejs/vitepress `vitepress`

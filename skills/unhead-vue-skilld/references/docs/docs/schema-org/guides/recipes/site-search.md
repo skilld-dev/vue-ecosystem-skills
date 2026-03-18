@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [Define a Search Action](#define-a-search-action)
-- [Define your Search Results Page](#define-your-search-results-page)
-- [Related Recipes](#related-recipes)
-
 If your site offers a search function, you may like to define markup to help Google understand it.
 
 ## [Useful Links](#useful-links)
@@ -77,10 +70,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **How To** Add HowTo structured data with defineHowTo(). Enable step-by-step rich snippets with images, supplies, and time estimates. **useSchemaOrg()** Add Schema.org structured data with useSchemaOrg(). Pass defineArticle(), defineProduct(), and other schema nodes for Google Rich Results.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [Define a Search Action](#define-a-search-action)
-- [Define your Search Results Page](#define-your-search-results-page)
-- [Related Recipes](#related-recipes)

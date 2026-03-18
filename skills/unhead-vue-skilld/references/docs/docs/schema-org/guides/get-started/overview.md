@@ -10,16 +10,6 @@ meta:
 
 # **Unhead Schema.org**
 
-**On this page **
-
-- [What is Unhead Schema.org?](#what-is-unhead-schemaorg)
-- [Background](#background)
-- [How does Schema.org get page data?](#how-does-schemaorg-get-page-data)
-- [How are duplicate nodes handled?](#how-are-duplicate-nodes-handled)
-- [How are values transformed?](#how-are-values-transformed)
-- [How Do Nodes Relate to Each Other?](#how-do-nodes-relate-to-each-other)
-- [Testing Your Schema](#testing-your-schema)
-
 ## [What is Unhead Schema.org?](#what-is-unhead-schemaorg)
 
 Unhead Schema.org automatically generates valid JSON-LD structured data for Google Rich Results. Instead of manually writing complex JSON-LD, you use simple TypeScript functions like `defineArticle()` or `defineProduct()` that handle validation, URL resolution, and Google requirements automatically.
@@ -267,13 +257,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **script:updated** Hook triggered on script status changes. Monitor loading, manage dependencies, and implement error recovery strategies. **Deduping Nodes** Automatic Schema.org node deduplication by @id. Add multiple nodes of same type with custom IDs, replace vs merge strategies.
-
-**On this page **
-
-- [What is Unhead Schema.org?](#what-is-unhead-schemaorg)
-- [Background](#background)
-- [How does Schema.org get page data?](#how-does-schemaorg-get-page-data)
-- [How are duplicate nodes handled?](#how-are-duplicate-nodes-handled)
-- [How are values transformed?](#how-are-values-transformed)
-- [How Do Nodes Relate to Each Other?](#how-do-nodes-relate-to-each-other)
-- [Testing Your Schema](#testing-your-schema)

@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Video](#schemaorg-video)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Example](#example)
-- [Types](#types)
-
 ## [Schema.org Video](#schemaorg-video)
 
 - **Type**: `defineVideo(input?: Video)`Describes an individual video (usually in the context of an embedded media object).
@@ -145,13 +135,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **TV Series Schema** Use defineTVSeries() to add TVSeries structured data. Enable rich results for TV shows with cast, creator, ratings, and season info. **WebPage Schema** Use defineWebPage() to add WebPage structured data. Connect page content to your site hierarchy with automatic page type detection.
-
-**On this page **
-
-- [Schema.org Video](#schemaorg-video)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Example](#example)
-- [Types](#types)

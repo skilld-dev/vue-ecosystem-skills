@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Is Alias Sorting?](#what-is-alias-sorting)
-- [Why Use Aliases Instead of Numbers?](#why-use-aliases-instead-of-numbers)
-- [How Do I Set Up Alias Sorting?](#how-do-i-set-up-alias-sorting)
-- [How Do I Use Alias Sorting?](#how-do-i-use-alias-sorting)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [Related](#related)
-
 **Quick Answer:** The Alias Sorting plugin lets you control head tag order using readable `before:` and `after:` prefixes instead of arbitrary numbers. Use `tagPriority: 'before:script:analytics'` to place a script before another.
 
 ## [What Is Alias Sorting?](#what-is-alias-sorting)
@@ -229,13 +219,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Template Params** Dynamic placeholders like %s and %siteName in head tags. Define site name, separator, and custom variables for consistent branding. **Canonical Plugin** Auto-generate canonical URLs and convert relative paths to absolute. Required for og:image, twitter:image, and SEO canonical links.
-
-**On this page **
-
-- [What Is Alias Sorting?](#what-is-alias-sorting)
-- [Why Use Aliases Instead of Numbers?](#why-use-aliases-instead-of-numbers)
-- [How Do I Set Up Alias Sorting?](#how-do-i-set-up-alias-sorting)
-- [How Do I Use Alias Sorting?](#how-do-i-use-alias-sorting)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [Related](#related)

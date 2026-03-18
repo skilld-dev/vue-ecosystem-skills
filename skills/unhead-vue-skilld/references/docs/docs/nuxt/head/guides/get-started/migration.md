@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)
-
 ## [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
 
 Unhead v3 removes all deprecated APIs and focuses on performance improvements.
@@ -136,8 +131,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Unhead is built into Nuxt 3. Use useHead(), useSeoMeta(), and useScript() directly in components. Zero configuration required. **Context & Reactivity** Use refs and computed with useHead() in Nuxt. Handle async context with injectHead() and effectScope(). Automatic reactivity for head tags.
-
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)

@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How Does Reactivity Work in Unhead?](#how-does-reactivity-work-in-unhead)
-- [What Reactive Values Can I Use?](#what-reactive-values-can-i-use)
-- [How Do I Handle Async Context?](#how-do-i-handle-async-context)
-- [What Are the Best Practices?](#what-are-the-best-practices)
-- [What Are Some Advanced Use Cases?](#what-are-some-advanced-use-cases)
-- [Does Nuxt Handle This Differently?](#does-nuxt-handle-this-differently)
-- [How Does Unhead Work Under the Hood?](#how-does-unhead-work-under-the-hood)
-
 **Quick Answer:** In Vue, pass refs and computed values directly to `useHead()`. Changes are tracked automatically. Use `injectHead()` in composables outside components.
 
 ## [Introduction](#introduction)
@@ -428,14 +417,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Upgrade Guide** Learn how to migrate between Unhead versions for Vue users. **<Head> Component** Template-based head management with Head, Title, Meta, Link, Script components. Alternative to useHead() for Vue templates.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How Does Reactivity Work in Unhead?](#how-does-reactivity-work-in-unhead)
-- [What Reactive Values Can I Use?](#what-reactive-values-can-i-use)
-- [How Do I Handle Async Context?](#how-do-i-handle-async-context)
-- [What Are the Best Practices?](#what-are-the-best-practices)
-- [What Are Some Advanced Use Cases?](#what-are-some-advanced-use-cases)
-- [Does Nuxt Handle This Differently?](#does-nuxt-handle-this-differently)
-- [How Does Unhead Work Under the Hood?](#how-does-unhead-work-under-the-hood)

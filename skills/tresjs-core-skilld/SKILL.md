@@ -4,7 +4,7 @@ description: "Declarative ThreeJS using Vue Components. ALWAYS use when writing 
 metadata:
   version: 5.7.0
   generated_at: 2026-03-17
-  references_synced_at: 2026-03-17
+  references_synced_at: 2026-03-18
 ---
 
 # Tresjs/tres `@tresjs/core`

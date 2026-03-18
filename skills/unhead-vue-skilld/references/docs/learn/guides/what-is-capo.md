@@ -13,15 +13,6 @@ meta:
 
 Harlan Wilton Published **Mar 5, 2026**
 
-**On this page **
-
-- [What is Capo.js?](#what-is-capojs)
-- [Why order matters](#why-order-matters)
-- [Complete Weight Reference](#complete-weight-reference)
-- [Common Mistakes](#common-mistakes)
-- [Automatic Sorting with Unhead](#automatic-sorting-with-unhead)
-- [Check Your Site](#check-your-site)
-
 ## [What is Capo.js?](#what-is-capojs)
 
 **Capo.js** is a set of rules by **Rick Viscomi** (Chrome DevRel) defining the optimal order of HTML `<head>` tags for page load performance. Named after the guitar capo - it tunes your `<head>` by putting every tag in the right position.
@@ -234,12 +225,3 @@ For the measured performance impact of head tag ordering, including the **"Nuxt 
 **Did this page help you? **
 
 **Capo.js Performance**
-
-**On this page **
-
-- [What is Capo.js?](#what-is-capojs)
-- [Why order matters](#why-order-matters)
-- [Complete Weight Reference](#complete-weight-reference)
-- [Common Mistakes](#common-mistakes)
-- [Automatic Sorting with Unhead](#automatic-sorting-with-unhead)
-- [Check Your Site](#check-your-site)

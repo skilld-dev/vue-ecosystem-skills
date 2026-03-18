@@ -12,19 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Organization](#schemaorg-organization)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 Organization schema establishes your company or brand identity for search engines. It powers Google's Knowledge Panel, connects social profiles via `sameAs`, and serves as the publisher/author identity for other schema types like Article and LocalBusiness.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -201,16 +188,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Music Recording Schema** Use defineMusicRecording() to add MusicRecording structured data. Display song info with artist, album, and duration in search results. **Person Schema** Use definePerson() to add Person structured data. Establish author identity for articles and content with name, image, and social profile links.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Organization](#schemaorg-organization)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

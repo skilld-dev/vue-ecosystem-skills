@@ -1,12 +1,11 @@
 ---
-total: 35
+total: 33
 ---
 
 # Docs Index
 
-## guide (18)
+## guide (17)
 
-- [Asset Handling](./guide/asset-handling.md): All Markdown files are compiled into Vue components and processed by Vite. You can, and should, reference any assets using relative URLs:
 - [Connecting to a CMS](./guide/cms.md): Connecting VitePress to a CMS will largely revolve around Dynamic Routes. Make sure to understand how it works before proceeding.
 - [Using a Custom Theme](./guide/custom-theme.md): You can enable a custom theme by creating a .vitepress/theme/index.js or .vitepress/theme/index.ts file (the "theme entry file"):
 - [Build-Time Data Loading](./guide/data-loading.md): VitePress provides a feature called data loaders that allows you to load arbitrary data and import it from pages or components. The data loading is...
@@ -25,11 +24,10 @@ total: 35
 - [Using Vue in Markdown](./guide/using-vue.md): In VitePress, each Markdown file is compiled into HTML and then processed as a Vue Single-File Component. This means you can use any Vue features i...
 - [What is VitePress?](./guide/what-is-vitepress.md): VitePress is a Static Site Generator (SSG) designed for building fast, content-centric websites. In a nutshell, VitePress takes your source content...
 
-## reference (17)
+## reference (16)
 
 - [Command Line Interface](./reference/cli.md): Start VitePress dev server using designated directory as root. Defaults to current directory. The dev command can also be omitted when running in c...
 - [Badge](./reference/default-theme-badge.md): The badge lets you add status to your headers. For example, it could be useful to specify the section's type, or supported version.
-- [Carbon Ads](./reference/default-theme-carbon-ads.md): VitePress has built in native support for Carbon Ads. By defining the Carbon Ads credentials in config, VitePress will display ads on the page.
 - [Default Theme Config](./reference/default-theme-config.md): Theme config lets you customize your theme. You can define theme config via the themeConfig option in the config file:
 - [Edit Link](./reference/default-theme-edit-link.md): Edit Link lets you display a link to edit the page on Git management services such as GitHub, or GitLab. To enable it, add themeConfig.editLink opt...
 - [Footer](./reference/default-theme-footer.md): VitePress will display global footer at the bottom of the page when themeConfig.footer is present.

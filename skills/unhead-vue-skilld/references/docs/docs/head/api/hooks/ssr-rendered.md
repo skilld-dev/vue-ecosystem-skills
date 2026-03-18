@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `ssr:rendered` hook is called after the server-side rendering process has completed and all head tags have been converted to HTML strings. This hook provides access to the final HTML output and allows for post-processing of the rendered HTML.
 
 ## [Hook Signature](#hook-signature)
@@ -205,9 +199,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **ssr:render** Hook for SSR tag processing. Add server-specific tags, apply i18n, and optimize platform-specific rendering. **script:updated** Hook triggered on script status changes. Monitor loading, manage dependencies, and implement error recovery strategies.
-
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

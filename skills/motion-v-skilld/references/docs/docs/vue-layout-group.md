@@ -257,7 +257,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.35.2
+12.37.0
 
 Motion+
 
@@ -275,7 +275,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.35.2
+12.37.0
 
 Motion+
 
@@ -293,7 +293,7 @@ Subscribe for the latest news & updates.
 
 Latest version:
 
-12.35.2
+12.37.0
 
 Motion+
 

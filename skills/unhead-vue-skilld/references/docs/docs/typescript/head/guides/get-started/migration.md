@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)
-
 ## [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
 
 Unhead v3 removes all deprecated APIs and focuses on performance improvements. This guide covers the breaking changes.
@@ -373,8 +368,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Set up Unhead with pure TypeScript. Framework-agnostic head management with createHead() and useHead() for SSR and client-side apps. **Wrapping Composables** Learn how to create custom head composables by wrapping useHead with your own defaults and context management.
-
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)

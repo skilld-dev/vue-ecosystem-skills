@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Book](#schemaorg-book)
-- [Useful Links](#useful-links)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Book](#schemaorg-book)
 
 - **Type**: `defineBook(input?: Book)`Describes a Book.
@@ -130,10 +123,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Article** Implement Article structured data with Unhead. JSON-LD examples for BlogPosting, NewsArticle, TechArticle with datePublished and author markup. **Breadcrumb Schema** Use defineBreadcrumb() to add BreadcrumbList structured data. Display clickable navigation paths in Google search results for better user experience.
-
-**On this page **
-
-- [Schema.org Book](#schemaorg-book)
-- [Useful Links](#useful-links)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

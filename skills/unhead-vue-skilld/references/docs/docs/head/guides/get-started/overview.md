@@ -10,13 +10,6 @@ meta:
 
 # **Unhead - Head Management for Vue, React, Svelte & More**
 
-**On this page **
-
-- [How Do I Get Started?](#how-do-i-get-started)
-- [What Are the Core Concepts?](#what-are-the-core-concepts)
-- [How Can I Extend Unhead?](#how-can-i-extend-unhead)
-- [What Plugins Are Available?](#what-plugins-are-available)
-
 **What is Unhead?** A framework-agnostic library for managing your HTML `<head>` - titles, meta tags, scripts, and more. Works with Vue, React, Svelte, Solid, Angular, and vanilla TypeScript.
 
 Unhead enables you to dynamically control your HTML document's `<head>` elements, enhancing SEO, performance, and user experience across any JavaScript framework.
@@ -142,10 +135,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Vue Components** Schema.org Vue components API (deprecated). Use composables like useSchemaOrg() instead for better TypeScript support. **Introduction to Unhead** Manage document head in SSR and CSR environments. Lazy DOM patching, TypeScript API, flat SEO meta, Schema.org support, and script loading.
-
-**On this page **
-
-- [How Do I Get Started?](#how-do-i-get-started)
-- [What Are the Core Concepts?](#what-are-the-core-concepts)
-- [How Can I Extend Unhead?](#how-can-i-extend-unhead)
-- [What Plugins Are Available?](#what-plugins-are-available)

@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Is Tag Deduplication?](#what-is-tag-deduplication)
-- [How Does Deduplication Work?](#how-does-deduplication-work)
-- [How Do I Allow Multiple Tags with the Same Name?](#how-do-i-allow-multiple-tags-with-the-same-name)
-- [How Do I Use Custom Keys for Deduplication?](#how-do-i-use-custom-keys-for-deduplication)
-- [How Do I Customize the Duplicate Handling Strategy?](#how-do-i-customize-the-duplicate-handling-strategy)
-- [Practical Examples](#practical-examples)
-- [Common Use Cases](#common-use-cases)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)
-
 **Quick Answer:** Unhead automatically deduplicates tags by `key` attribute. Meta tags dedupe by `name` or `property`. Use unique `key` values when you need multiple similar tags.
 
 ## [What Is Tag Deduplication?](#what-is-tag-deduplication)
@@ -295,15 +283,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Inline Style & Scripts** Add inline scripts and styles with textContent and innerHTML. Security best practices for XSS prevention and performance optimization. **DOM Event Handling** Handle DOM events with bodyAttrs for window resize, online/offline status, page lifecycle, and print events. Use onload/onerror for stylesheets.
-
-**On this page **
-
-- [What Is Tag Deduplication?](#what-is-tag-deduplication)
-- [How Does Deduplication Work?](#how-does-deduplication-work)
-- [How Do I Allow Multiple Tags with the Same Name?](#how-do-i-allow-multiple-tags-with-the-same-name)
-- [How Do I Use Custom Keys for Deduplication?](#how-do-i-use-custom-keys-for-deduplication)
-- [How Do I Customize the Duplicate Handling Strategy?](#how-do-i-customize-the-duplicate-handling-strategy)
-- [Practical Examples](#practical-examples)
-- [Common Use Cases](#common-use-cases)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)

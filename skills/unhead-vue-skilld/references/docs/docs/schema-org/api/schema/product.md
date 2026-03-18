@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Product](#schemaorg-product)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Product](#schemaorg-product)
 
 - **Type**: `defineProduct(input?: Product)`Describes an `Product` on a `WebPage`.
@@ -182,15 +170,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Podcast Series Schema** Use definePodcastSeries() to add PodcastSeries structured data. Enable podcast rich results with show info, host, and RSS feed link. **Question Schema** Use defineQuestion() to add FAQ structured data. Enable FAQ rich snippets with expandable Q&A directly in Google search results.
-
-**On this page **
-
-- [Schema.org Product](#schemaorg-product)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

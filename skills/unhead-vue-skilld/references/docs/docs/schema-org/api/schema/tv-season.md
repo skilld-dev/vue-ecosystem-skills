@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org TVSeason](#schemaorg-tvseason)
-- [Useful Links](#useful-links)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org TVSeason](#schemaorg-tvseason)
 
 **Type**: `defineTVSeason(input?: TVSeason)`
@@ -111,13 +101,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **TV Episode Schema** Use defineTVEpisode() to add TVEpisode structured data. Enable rich results for TV episodes with cast, director, and ratings info. **TV Series Schema** Use defineTVSeries() to add TVSeries structured data. Enable rich results for TV shows with cast, creator, ratings, and season info.
-
-**On this page **
-
-- [Schema.org TVSeason](#schemaorg-tvseason)
-- [Useful Links](#useful-links)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

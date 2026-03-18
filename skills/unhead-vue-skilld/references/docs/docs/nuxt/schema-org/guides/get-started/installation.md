@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Next Steps](#next-steps)
-
 ## [Introduction](#introduction)
 
 To use Unhead Schema.org with Nuxt, you need to install the Nuxt Schema.org module.
@@ -47,9 +41,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Components** Use Nuxt built-in Head, Title, Meta, Link, Script components. Template-based head management with no imports required. **Vue Components** Schema.org Vue components API (deprecated). Use composables like useSchemaOrg() instead for better TypeScript support.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Next Steps](#next-steps)

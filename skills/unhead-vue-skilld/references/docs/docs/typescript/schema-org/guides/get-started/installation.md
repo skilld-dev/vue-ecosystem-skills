@@ -12,14 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Demos](#demos)
-- [Setup](#setup)
-- [Recommended: Tree-shaking for SSR](#recommended-tree-shaking-for-ssr)
-- [Optional: Auto-Imports](#optional-auto-imports)
-- [Next Steps](#next-steps)
-
 ## [Demos](#demos)
 
 Vite SPA Vite + Vite SSR
@@ -168,11 +160,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Streaming** Stream head tags as async content resolves during server-side rendering **Installation** Set up Unhead in Vue with createHead() and app.use(). Full SSR support with transformHtmlTemplate(). Works with Vue 3 and Vite.
-
-**On this page **
-
-- [Demos](#demos)
-- [Setup](#setup)
-- [Recommended: Tree-shaking for SSR](#recommended-tree-shaking-for-ssr)
-- [Optional: Auto-Imports](#optional-auto-imports)
-- [Next Steps](#next-steps)

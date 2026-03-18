@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org PodcastEpisode](#schemaorg-podcastepisode)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org PodcastEpisode](#schemaorg-podcastepisode)
 
 **Type**: `definePodcastEpisode(input?: PodcastEpisode)`
@@ -123,14 +112,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Person Schema** Use definePerson() to add Person structured data. Establish author identity for articles and content with name, image, and social profile links. **Podcast Season Schema** Use definePodcastSeason() to add PodcastSeason structured data. Organize podcast episodes by season with episode counts and dates.
-
-**On this page **
-
-- [Schema.org PodcastEpisode](#schemaorg-podcastepisode)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

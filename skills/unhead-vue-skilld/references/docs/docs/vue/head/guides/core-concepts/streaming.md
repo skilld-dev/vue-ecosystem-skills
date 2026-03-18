@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Setup](#setup)
-- [Usage](#usage)
-- [When to Skip](#when-to-skip)
-
 **v3 Only** - Streaming support is only available in Unhead v3 (currently in beta). This API is experimental and may change.
 
 Standard SSR waits for everything to render before sending HTML. Streaming sends the document shell immediately, then streams content as async components resolve.
@@ -123,10 +116,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Pause DOM Rendering** Pause Unhead DOM updates during route transitions. Use dom:beforeRender hook with Vue Suspense for smoother page loads. **Installation** Add Schema.org to Vue apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results.
-
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Setup](#setup)
-- [Usage](#usage)
-- [When to Skip](#when-to-skip)

@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [Understanding the Architecture](#understanding-the-architecture)
-- [Accessing Head State](#accessing-head-state)
-- [Creating Custom Composables](#creating-custom-composables)
-- [Building Plugins](#building-plugins)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [API Reference](#api-reference)
-
 ## [Introduction](#introduction)
 
 Unhead is designed with extensibility in mind, providing lower-level primitives that can be composed to create powerful functionality. This guide explores how to extend Unhead using hooks and plugins to meet your specific requirements.
@@ -243,14 +232,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Script Loading** Load external scripts with useScript(). Singleton deduplication, proxy for safe calls, loading triggers, and warmup strategies for performance. **Bundle Optimizations** Reduce bundle size with client-only and server-only tags. Use mode option or import.meta guards for SSR/CSR optimization.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [Understanding the Architecture](#understanding-the-architecture)
-- [Accessing Head State](#accessing-head-state)
-- [Creating Custom Composables](#creating-custom-composables)
-- [Building Plugins](#building-plugins)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [API Reference](#api-reference)

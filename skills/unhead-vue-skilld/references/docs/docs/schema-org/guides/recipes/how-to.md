@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [Marking up a How-To Guide](#marking-up-a-how-to-guide)
-- [Steps with HowToStep](#steps-with-howtostep)
-- [Adding Time Information](#adding-time-information)
-- [Structured How-To Content](#structured-how-to-content)
-- [Best Practices](#best-practices)
-- [Related Recipes](#related-recipes)
-
 Creating How-To content is an excellent way to provide valuable instructions to your users. With Schema.org markup, you can help search engines better understand your content structure and potentially get rich results in search.
 
 ## [Useful Links](#useful-links)
@@ -243,13 +233,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **FAQ** Add FAQPage structured data with defineQuestion(). Enable expandable Q&A rich snippets directly in Google search results. **Site Search** Add SearchAction to WebSite schema with defineSearchAction(). Enable Google Sitelinks Searchbox for your site in search results.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [Marking up a How-To Guide](#marking-up-a-how-to-guide)
-- [Steps with HowToStep](#steps-with-howtostep)
-- [Adding Time Information](#adding-time-information)
-- [Structured How-To Content](#structured-how-to-content)
-- [Best Practices](#best-practices)
-- [Related Recipes](#related-recipes)

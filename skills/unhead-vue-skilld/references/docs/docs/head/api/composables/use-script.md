@@ -12,22 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Basic Usage](#basic-usage)
-- [Smart Defaults](#smart-defaults)
-- [Input Options](#input-options)
-- [Loading Control](#loading-control)
-- [Script Lifecycle](#script-lifecycle)
-- [Resource Hints](#resource-hints)
-- [API Proxying](#api-proxying)
-- [Common Use Cases](#common-use-cases)
-- [API Reference](#api-reference)
-- [TypeScript](#typescript)
-- [Common Mistakes](#common-mistakes)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)
-
 The `useScript` composable provides an enhanced developer experience for loading third-party scripts with intelligent defaults for performance, security, and lifecycle management.
 
 **Quick Start:**
@@ -391,19 +375,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **useSeoMeta()** Add SEO meta tags with useSeoMeta(). Type-safe API for Open Graph, Twitter cards, and 100+ meta tags with automatic property/name handling. **entries:updated** Hook triggered when head entries change. Track title updates, log changes, and react to modifications in your head configuration.
-
-**On this page **
-
-- [Basic Usage](#basic-usage)
-- [Smart Defaults](#smart-defaults)
-- [Input Options](#input-options)
-- [Loading Control](#loading-control)
-- [Script Lifecycle](#script-lifecycle)
-- [Resource Hints](#resource-hints)
-- [API Proxying](#api-proxying)
-- [Common Use Cases](#common-use-cases)
-- [API Reference](#api-reference)
-- [TypeScript](#typescript)
-- [Common Mistakes](#common-mistakes)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)

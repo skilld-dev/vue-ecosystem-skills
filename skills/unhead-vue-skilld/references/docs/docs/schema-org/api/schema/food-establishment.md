@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org FoodEstablishment](#schemaorg-foodestablishment)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org FoodEstablishment](#schemaorg-foodestablishment)
 
 **Type**: `defineFoodEstablishment(input?: FoodEstablishment)`
@@ -152,15 +140,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Event Schema** Use defineEvent() to add Event structured data to your pages. Enable rich results for concerts, conferences, and meetups with dates, venues, and ticket info. **HowTo** Add HowTo structured data to your site with Unhead. Step-by-step JSON-LD examples, required properties, and Google rich result guidance.
-
-**On this page **
-
-- [Schema.org FoodEstablishment](#schemaorg-foodestablishment)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

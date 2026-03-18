@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `entries:normalize` hook is called for each entry when it's being normalized into tags. This hook gives you access to the tags generated from a specific entry, allowing you to transform, add, or remove tags on a per-entry basis.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -154,10 +147,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **entries:resolve** Hook for processing head entries before tag conversion. Add global meta tags, extract analytics data, and modify tag collections. **tag:normalise** Hook for processing individual head tags. Apply security attributes, transform tags per environment, and handle custom attributes.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

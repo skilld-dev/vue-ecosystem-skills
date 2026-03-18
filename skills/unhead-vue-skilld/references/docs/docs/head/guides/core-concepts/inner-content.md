@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Are Inline Styles and Scripts in Unhead?](#what-are-inline-styles-and-scripts-in-unhead)
-- [How Do I Set Inner Content for Script and Style Tags?](#how-do-i-set-inner-content-for-script-and-style-tags)
-- [Can I Use a String Shorthand Instead of Objects?](#can-i-use-a-string-shorthand-instead-of-objects)
-- [What Are the Best Practices for Inline Content?](#what-are-the-best-practices-for-inline-content)
-- [What Are Common Use Cases for Inline Content?](#what-are-common-use-cases-for-inline-content)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)
-
 **Quick Answer:** Use `textContent` for inline scripts and styles, `innerHTML` only when you need HTML entities. Example: `script: [{ textContent: 'console.log("Hello")' }]`
 
 ## [What Are Inline Styles and Scripts in Unhead?](#what-are-inline-styles-and-scripts-in-unhead)
@@ -240,13 +230,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Class & Style Attributes** Add classes and styles to html and body tags with htmlAttrs and bodyAttrs. Support for strings, arrays, objects, and reactive values. **Tag Deduplication** Automatic tag deduplication by key, name, and property. Override layout tags in pages, manage verification tags, and customize merge strategies.
-
-**On this page **
-
-- [What Are Inline Styles and Scripts in Unhead?](#what-are-inline-styles-and-scripts-in-unhead)
-- [How Do I Set Inner Content for Script and Style Tags?](#how-do-i-set-inner-content-for-script-and-style-tags)
-- [Can I Use a String Shorthand Instead of Objects?](#can-i-use-a-string-shorthand-instead-of-objects)
-- [What Are the Best Practices for Inline Content?](#what-are-the-best-practices-for-inline-content)
-- [What Are Common Use Cases for Inline Content?](#what-are-common-use-cases-for-inline-content)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)

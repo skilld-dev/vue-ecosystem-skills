@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org TVEpisode](#schemaorg-tvepisode)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org TVEpisode](#schemaorg-tvepisode)
 
 **Type**: `defineTVEpisode(input?: TVEpisode)`
@@ -135,14 +124,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **SoftwareApplication** Implement SoftwareApplication structured data with Unhead. JSON-LD examples for app listings, ratings, pricing, and Google rich results. **TV Season Schema** Use defineTVSeason() to add TVSeason structured data. Organize TV episodes by season with episode counts, cast, and air dates.
-
-**On this page **
-
-- [Schema.org TVEpisode](#schemaorg-tvepisode)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

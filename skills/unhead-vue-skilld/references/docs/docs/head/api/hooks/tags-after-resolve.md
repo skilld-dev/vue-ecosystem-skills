@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `tags:afterResolve` hook is called after all tags have been resolved but before they are rendered. This is the final opportunity to modify tags before they are either rendered to the DOM (client-side) or serialized to HTML (server-side).
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -220,10 +213,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **tags:resolve** Main tag resolution hook for deduplication, transformation, and template parameter processing. Modify all tags before rendering. **dom:beforeRender** Hook called before DOM rendering. Control render timing, prepare the DOM environment, and conditionally prevent head tag updates.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

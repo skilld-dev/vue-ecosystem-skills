@@ -12,14 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Demos](#demos)
-- [Setup](#setup)
-- [Recommended: Tree-shaking for SSR](#recommended-tree-shaking-for-ssr)
-- [Optional: Auto-Imports](#optional-auto-imports)
-- [Next Steps](#next-steps)
-
 Using  Nuxt? Check out **nuxt-schema-org**.
 
 ## [Demos](#demos)
@@ -172,11 +164,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Streaming** Stream head tags as async components resolve during Vue SSR **Vue Components** Schema.org Vue components API (deprecated). Use composables like useSchemaOrg() instead for better TypeScript support.
-
-**On this page **
-
-- [Demos](#demos)
-- [Setup](#setup)
-- [Recommended: Tree-shaking for SSR](#recommended-tree-shaking-for-ssr)
-- [Optional: Auto-Imports](#optional-auto-imports)
-- [Next Steps](#next-steps)

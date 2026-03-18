@@ -12,8 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
 Pausing the DOM rendering is useful for when you want to ensure your page is fully loaded before updating tags.
 
 In Vue, this is especially useful when you're using `<Suspense>`.

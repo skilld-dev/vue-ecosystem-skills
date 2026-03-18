@@ -12,19 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How does script deduplication work?](#how-does-script-deduplication-work)
-- [What are the default script loading settings?](#what-are-the-default-script-loading-settings)
-- [How do I call script functions before loading completes?](#how-do-i-call-script-functions-before-loading-completes)
-- [How do I control when scripts load?](#how-do-i-control-when-scripts-load)
-- [Resource Warmup Strategies](#resource-warmup-strategies)
-- [Complete Example](#complete-example)
-- [Best Practices](#best-practices)
-- [Common Use Cases](#common-use-cases)
-- [Key Takeaways](#key-takeaways)
-
 ## [Introduction](#introduction)
 
 The `useScript` composable provides a powerful way to load and manage external scripts in your application. Built on top of `useHead()`, it offers advanced features for script loading, performance optimization, and safe script interaction.
@@ -291,16 +278,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **DOM Event Handling** Handle DOM events with bodyAttrs for window resize, online/offline status, page lifecycle, and print events. Use onload/onerror for stylesheets. **Extending Unhead** Create custom composables and plugins with Unhead's hooks API. Tap into tag resolution, DOM rendering, and SSR lifecycle events.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How does script deduplication work?](#how-does-script-deduplication-work)
-- [What are the default script loading settings?](#what-are-the-default-script-loading-settings)
-- [How do I call script functions before loading completes?](#how-do-i-call-script-functions-before-loading-completes)
-- [How do I control when scripts load?](#how-do-i-control-when-scripts-load)
-- [Resource Warmup Strategies](#resource-warmup-strategies)
-- [Complete Example](#complete-example)
-- [Best Practices](#best-practices)
-- [Common Use Cases](#common-use-cases)
-- [Key Takeaways](#key-takeaways)

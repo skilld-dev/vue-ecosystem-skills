@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What is the Head component?](#what-is-the-head-component)
-- [How do I use the Head component?](#how-do-i-use-the-head-component)
-
 **Quick Answer:** Use `<Head>`, `<Title>`, `<Meta>`, `<Link>`, and `<Script>` components for template-based head management. Import from `@unhead/vue/components`.
 
 ## [What is the Head component?](#what-is-the-head-component)
@@ -51,8 +46,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Context & Reactivity** Use refs, computed, and Pinia with useHead(). Handle async context in lifecycle hooks with injectHead() or effectScope(). **Options API** Use the head() option in Vue components with VueHeadMixin. Access component data and computed properties for reactive head tags.
-
-**On this page **
-
-- [What is the Head component?](#what-is-the-head-component)
-- [How do I use the Head component?](#how-do-i-use-the-head-component)

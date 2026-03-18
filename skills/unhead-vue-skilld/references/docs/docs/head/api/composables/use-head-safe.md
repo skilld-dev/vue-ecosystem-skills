@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How It Works](#how-it-works)
-- [API Reference](#api-reference)
-- [Examples](#examples)
-- [Security Considerations](#security-considerations)
-- [Common Use Cases](#common-use-cases)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)
-
 The `useHeadSafe` composable is a security-focused wrapper around the **useHead** composable that restricts input to only allow safe values, providing protection against XSS attacks when working with untrusted content.
 
 **Quick Start:**
@@ -159,13 +149,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **useHead()** Manage document head tags with useHead(). Set titles, meta tags, scripts, and styles with full TypeScript support and reactive updates. **useSeoMeta()** Add SEO meta tags with useSeoMeta(). Type-safe API for Open Graph, Twitter cards, and 100+ meta tags with automatic property/name handling.
-
-**On this page **
-
-- [How It Works](#how-it-works)
-- [API Reference](#api-reference)
-- [Examples](#examples)
-- [Security Considerations](#security-considerations)
-- [Common Use Cases](#common-use-cases)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)

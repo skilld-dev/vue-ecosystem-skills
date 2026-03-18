@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Example](#example)
-- [Input](#input)
-- [Options](#options)
-- [Entry API](#entry-api)
-- [XSS safety](#xss-safety)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)
-
 The `useSchemaOrg()` composable is the primary way to add Schema.org structured data to your pages.
 
 **Quick Start:**
@@ -154,13 +144,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Site Search** Add SearchAction to WebSite schema with defineSearchAction(). Enable Google Sitelinks Searchbox for your site in search results. **Article** Implement Article structured data with Unhead. JSON-LD examples for BlogPosting, NewsArticle, TechArticle with datePublished and author markup.
-
-**On this page **
-
-- [Example](#example)
-- [Input](#input)
-- [Options](#options)
-- [Entry API](#entry-api)
-- [XSS safety](#xss-safety)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)

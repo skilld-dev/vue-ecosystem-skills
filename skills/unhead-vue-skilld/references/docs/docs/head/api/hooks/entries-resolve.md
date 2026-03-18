@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `entries:resolve` hook is called when head entries need to be resolved into tags. This hook provides access to both the entries and the tags being generated, allowing you to modify or add to the collection before the final tag resolution process.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -161,10 +154,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **entries:updated** Hook triggered when head entries change. Track title updates, log changes, and react to modifications in your head configuration. **entries:normalize** Hook for normalizing individual head entries. Add entry-specific attributes, conditional modifications, and template processing.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

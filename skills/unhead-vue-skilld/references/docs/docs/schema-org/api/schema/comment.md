@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Comment](#schemaorg-comment)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Comment](#schemaorg-comment)
 
 - **Type**: `defineComment(input?: Comment)`Describes a comment. Usually in the context of an Article or a WebPage.
@@ -115,15 +103,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Breadcrumb Schema** Use defineBreadcrumb() to add BreadcrumbList structured data. Display clickable navigation paths in Google search results for better user experience. **Course Schema** Use defineCourse() to add Course structured data. Enable rich results for educational courses with provider, description, and course details.
-
-**On this page **
-
-- [Schema.org Comment](#schemaorg-comment)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

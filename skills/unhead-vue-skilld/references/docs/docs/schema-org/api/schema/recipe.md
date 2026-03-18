@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Recipe](#schemaorg-recipe)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Recipe](#schemaorg-recipe)
 
 - **Type**: `defineRecipe(input?: Recipe)`Describes a Recipe, which contains a series of instructions, ingredients, and optional fields.
@@ -183,13 +173,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Question Schema** Use defineQuestion() to add FAQ structured data. Enable FAQ rich snippets with expandable Q&A directly in Google search results. **Service Schema** Use defineService() to add Service structured data. Display service offerings with pricing, provider info, and reviews in search results.
-
-**On this page **
-
-- [Schema.org Recipe](#schemaorg-recipe)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

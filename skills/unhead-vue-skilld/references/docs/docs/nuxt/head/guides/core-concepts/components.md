@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What head components are available in Nuxt?](#what-head-components-are-available-in-nuxt)
-- [How do I use head components?](#how-do-i-use-head-components)
-
 **Quick Answer:** Nuxt includes built-in `<Head>`, `<Title>`, `<Meta>`, `<Link>`, and `<Script>` components. No imports needed - just use them in your templates.
 
 ## [What head components are available in Nuxt?](#what-head-components-are-available-in-nuxt)
@@ -54,8 +49,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Context & Reactivity** Use refs and computed with useHead() in Nuxt. Handle async context with injectHead() and effectScope(). Automatic reactivity for head tags. **Installation** Add Schema.org structured data to Nuxt apps with the nuxt-schema-org module. Enable Google Rich Results for your pages.
-
-**On this page **
-
-- [What head components are available in Nuxt?](#what-head-components-are-available-in-nuxt)
-- [How do I use head components?](#how-do-i-use-head-components)

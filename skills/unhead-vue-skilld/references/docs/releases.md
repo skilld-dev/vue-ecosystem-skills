@@ -8,7 +8,7 @@ meta:
 
 ## **Release Notes **
 
-Last fetched: 13 hours ago.
+Last fetched: 15 hours ago.
 
 See GitHub Releases for realtime updates.
 
@@ -24,12 +24,12 @@ See GitHub Releases for realtime updates.
   - Walker based `transformHtmlTemplate`  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/581** `(37fc9)` #####      **View changes on GitHub**
 - 7 months ago <h3>v 2.0.**14**</h3>Release v2.0.14 ### [    Bug Fixes](#bug-fixes)
   - **unhead**: Multiword attributes in template  -  by @NikSimonov in **https://github.com/unjs/unhead/issues/568** `(f635b)` #####      **View changes on GitHub**
-- 7 months ago <h3>v 2.0.**13**</h3>Release v2.0.13 ### [    Bug Fixes](#bug-fixes)
+- 8 months ago <h3>v 2.0.**13**</h3>Release v2.0.13 ### [    Bug Fixes](#bug-fixes)
   - **unhead**:
     - Canonical plugin modifying non-url properties  -  by @paraboul `(ee8fd)`
     - Avoid normalizing template param input  -  by @harlan-zw `(1d205)`
     - Safer removal of leading / trailing separators  -  by @harlan-zw `(d4501)` #####      **View changes on GitHub**
-- 8 months ago <h3>v 2.0.**12**</h3>Release v2.0.12 ### [    Bug Fixes](#bug-fixes)
+- 9 months ago <h3>v 2.0.**12**</h3>Release v2.0.12 ### [    Bug Fixes](#bug-fixes)
   - **react**: Force invalidation on entry disposal  -  by @harlan-zw in **https://github.com/unjs/unhead/issues/559** `(4ee5e)` #####      **View changes on GitHub**
 - 9 months ago <h3>v 2.0.**11**</h3>Release v2.0.11 ### [    Bug Fixes](#bug-fixes)
   - Allow non-standard meta tags to be intentionally duped  -  by @harlan-zw `(9a899)` #####      **View changes on GitHub**
@@ -37,10 +37,10 @@ See GitHub Releases for realtime updates.
   - Safer meta array deduping  -  by @harlan-zw `(32486)` #####      **View changes on GitHub**
 - 10 months ago <h3>v 2.0.**9**</h3>Release v2.0.9 ### [    Performance](#performance)
   - **unhead**: Normalize canonicalHost only once in canonical plugin  -  by @negezor in **https://github.com/unjs/unhead/issues/550** `(92713)` #####      **View changes on GitHub**
-- 11 months ago <h3>v 2.0.**8**</h3>Release v2.0.8_No significant changes_#####      **View changes on GitHub**
-- 11 months ago <h3>v 2.0.**7**</h3>Release v2.0.7 ### [    Bug Fixes](#bug-fixes)
+- last year <h3>v 2.0.**8**</h3>Release v2.0.8_No significant changes_#####      **View changes on GitHub**
+- last year <h3>v 2.0.**7**</h3>Release v2.0.7 ### [    Bug Fixes](#bug-fixes)
   - **schema-org**: `unhead` hoisting issue  -  by @harlan-zw `(bb0e4)` #####      **View changes on GitHub**
-- 11 months ago <h3>v 2.0.**6**</h3>Release v2.0.6 ### [    Bug Fixes](#bug-fixes)
+- last year <h3>v 2.0.**6**</h3>Release v2.0.6 ### [    Bug Fixes](#bug-fixes)
   - **ssr**: Less aggressive encoding of non-title tags  -  by @harlan-zw `(f4d4f)` #####      **View changes on GitHub**
 - last year <h3>v 2.0.**5**</h3>Release v2.0.5 ### [    Bug Fixes](#bug-fixes)
   - **vue**: Use `setTimeout` as render's debounced delayer  -  by @kricsleo in **https://github.com/unjs/unhead/issues/540** `(8f7c5)` #####      **View changes on GitHub**

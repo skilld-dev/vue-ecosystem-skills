@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `dom:beforeRender` hook is called before tags are rendered to the DOM in client-side environments. This hook allows you to control whether rendering should proceed and provides access to rendering context.
 
 ## [Hook Signature](#hook-signature)
@@ -169,9 +163,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **tags:afterResolve** Final hook before rendering. Perform security checks, reorder tags for performance, and process content before output. **ssr:beforeRender** Hook called before SSR rendering. Control server rendering, set up environment, and optimize performance with caching strategies.
-
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

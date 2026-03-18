@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org SoftwareApp](#schemaorg-softwareapp)
-- [Useful Links](#useful-links)
-- [Example](#example)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 SoftwareApplication schema describes a software product with its features, pricing, ratings, and platform compatibility. It enables rich result display in Google Search with star ratings and pricing information.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -164,12 +155,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Service Schema** Use defineService() to add Service structured data. Display service offerings with pricing, provider info, and reviews in search results. **TV Episode Schema** Use defineTVEpisode() to add TVEpisode structured data. Enable rich results for TV episodes with cast, director, and ratings info.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org SoftwareApp](#schemaorg-softwareapp)
-- [Useful Links](#useful-links)
-- [Example](#example)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

@@ -1,5 +1,5 @@
 ---
-total: 45
+total: 44
 ---
 
 # Docs Index
@@ -10,9 +10,8 @@ total: 45
 - [Installation](./installation.md): If you have an existing project that uses a JavaScript package manager, you can install Vue Router from the npm registry:
 - [Introduction](./introduction.md): Watch a Free Vue Router Video Course
 
-## data-loaders (12)
+## data-loaders (11)
 
-- [defineBasicLoader()](./data-loaders/basic.md): Basic data loader that always reruns on navigation.
 - [defineColadaLoader()](./data-loaders/colada.md): Loaders that use @pinia/colada under the hood. These loaders provide the most efficient solution to asynchronous state with cache, ssr support and ...
 - [Defining Data Loaders](./data-loaders/defining-loaders.md): In order to use data loaders, you need to define them first. Data loaders themselves are the composables returned by the different defineLoader fun...
 - [Error handling](./data-loaders/error-handling.md): By default, all errors thrown in a loader are considered unexpected errors: they will abort the navigation, just like in a navigation guard. Becaus...
@@ -25,11 +24,12 @@ total: 45
 - [Data Loaders](./data-loaders/rfc.md): List of things that haven't been added to the document yet:
 - [Server side rendering](./data-loaders/ssr.md): Use Colada Loader to take advantage of its SSR caching capabilities. If you don't need SSR, you can use any loader implementation.
 
-## file-based-routing (4)
+## file-based-routing (5)
 
 - [Configuration](./file-based-routing/configuration.md): Have a glimpse of all the existing configuration options with their corresponding default values:
 - [ESLint](./file-based-routing/eslint.md): If you are not using auto imports, you will need to tell ESLint about vue-router/auto-routes. Add these lines to your eslint configuration:
 - [Extending Routes](./file-based-routing/extending-routes.md): You can extend the routes at build time with the extendRoute or the beforeWriteFiles options. Both can return a Promise:
+- [File Conventions](./file-based-routing/file-based-routing.md): The file-based routing is as close as possible to Nuxt.
 - [Hot Module Replacement](./file-based-routing/hmr.md): When using definePage() and <route> blocks, it's possible to enable Hot Module Replacement (HMR) for your routes and avoid the need of reloading th...
 
 ## guide/advanced (12)
@@ -47,9 +47,8 @@ total: 45
 - [Transitions](./guide/advanced/transitions.md): In order to use transitions on your route components and animate navigations, you need to use the <RouterView> slot:
 - [Typed Routes](./guide/advanced/typed-routes.md): RouterLink to autocomplete
 
-## guide/essentials (10)
+## guide/essentials (9)
 
-- [Active links](./guide/essentials/active-links.md): It's common for applications to have a navigation component that renders a list of RouterLink components. Within that list, we might want to style ...
 - [Dynamic Route Matching with Params](./guide/essentials/dynamic-matching.md): Very often we will need to map routes with the given pattern to the same component. For example, we may have a User component which should be rende...
 - [Different History modes](./guide/essentials/history-mode.md): The history option when creating the router instance allows us to choose among different history modes.
 - [Named Routes](./guide/essentials/named-routes.md): When creating a route, we can optionally give the route a name:

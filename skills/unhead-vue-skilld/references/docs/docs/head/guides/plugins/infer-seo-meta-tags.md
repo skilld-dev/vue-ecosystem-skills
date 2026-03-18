@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Does This Plugin Do?](#what-does-this-plugin-do)
-- [How Does the Output Look?](#how-does-the-output-look)
-- [How Do I Set Up the Plugin?](#how-do-i-set-up-the-plugin)
-- [What Options Can I Configure?](#what-options-can-i-configure)
-- [How Do I Customize the OG Title?](#how-do-i-customize-the-og-title)
-- [How Do I Disable Twitter Cards?](#how-do-i-disable-twitter-cards)
-- [How Do I Format OG Descriptions?](#how-do-i-format-og-descriptions)
-- [Related](#related)
-
 **Quick Answer:** The Infer SEO Meta plugin automatically generates `og:title`, `og:description`, and `twitter:card` from your existing `title` and `description` tags, reducing duplicate meta tag definitions.
 
 ## [What Does This Plugin Do?](#what-does-this-plugin-do)
@@ -160,14 +149,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Canonical Plugin** Auto-generate canonical URLs and convert relative paths to absolute. Required for og:image, twitter:image, and SEO canonical links. **Overview** Unhead API reference for useHead(), useSeoMeta(), useScript() composables and DOM/SSR rendering hooks. Full TypeScript support.
-
-**On this page **
-
-- [What Does This Plugin Do?](#what-does-this-plugin-do)
-- [How Does the Output Look?](#how-does-the-output-look)
-- [How Do I Set Up the Plugin?](#how-do-i-set-up-the-plugin)
-- [What Options Can I Configure?](#what-options-can-i-configure)
-- [How Do I Customize the OG Title?](#how-do-i-customize-the-og-title)
-- [How Do I Disable Twitter Cards?](#how-do-i-disable-twitter-cards)
-- [How Do I Format OG Descriptions?](#how-do-i-format-og-descriptions)
-- [Related](#related)

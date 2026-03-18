@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What is DOM Event Handling in Unhead?](#what-is-dom-event-handling-in-unhead)
-- [How Do I Handle Stylesheet Load Events?](#how-do-i-handle-stylesheet-load-events)
-- [How Do I Listen to Window and Document Events?](#how-do-i-listen-to-window-and-document-events)
-- [Practical Examples](#practical-examples)
-- [What Are the Best Practices for DOM Events?](#what-are-the-best-practices-for-dom-events)
-- [When Should I Use DOM Events vs useScript?](#when-should-i-use-dom-events-vs-usescript)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)
-
 **Quick Answer:** Use `onload` and `onerror` attributes in your `useHead()` script tags. For advanced event handling, use `useScript()` with `onLoaded()` and `onError()` callbacks. For window/document events, use `bodyAttrs` with event handlers like `onresize` or `ononline`.
 
 ## [What is DOM Event Handling in Unhead?](#what-is-dom-event-handling-in-unhead)
@@ -256,14 +245,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Tag Deduplication** Automatic tag deduplication by key, name, and property. Override layout tags in pages, manage verification tags, and customize merge strategies. **Script Loading** Load external scripts with useScript(). Singleton deduplication, proxy for safe calls, loading triggers, and warmup strategies for performance.
-
-**On this page **
-
-- [What is DOM Event Handling in Unhead?](#what-is-dom-event-handling-in-unhead)
-- [How Do I Handle Stylesheet Load Events?](#how-do-i-handle-stylesheet-load-events)
-- [How Do I Listen to Window and Document Events?](#how-do-i-listen-to-window-and-document-events)
-- [Practical Examples](#practical-examples)
-- [What Are the Best Practices for DOM Events?](#what-are-the-best-practices-for-dom-events)
-- [When Should I Use DOM Events vs useScript?](#when-should-i-use-dom-events-vs-usescript)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)

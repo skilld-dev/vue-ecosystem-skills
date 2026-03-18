@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up FAQs?](#how-do-i-mark-up-faqs)
-- [How should I structure FAQ content in HTML?](#how-should-i-structure-faq-content-in-html)
-- [Can I use HTML in FAQ answers?](#can-i-use-html-in-faq-answers)
-- [Expected JSON-LD Output](#expected-json-ld-output)
-- [Common Issues](#common-issues)
-- [Related Recipes](#related-recipes)
-
 Use `defineQuestion()` with `defineWebPage({ '@type': 'FAQPage' })` to mark up FAQ content. Google can display your questions and answers directly in search results as expandable rich snippets.
 
 FAQ structured data enables rich results where users can see and expand your Q&A directly in Google search, increasing visibility and click-through rates.
@@ -166,13 +156,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **eCommerce** Add Product structured data with defineProduct(). Enable rich results with prices, ratings, stock status, and reviews in search. **How To** Add HowTo structured data with defineHowTo(). Enable step-by-step rich snippets with images, supplies, and time estimates.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up FAQs?](#how-do-i-mark-up-faqs)
-- [How should I structure FAQ content in HTML?](#how-should-i-structure-faq-content-in-html)
-- [Can I use HTML in FAQ answers?](#can-i-use-html-in-faq-answers)
-- [Expected JSON-LD Output](#expected-json-ld-output)
-- [Common Issues](#common-issues)
-- [Related Recipes](#related-recipes)

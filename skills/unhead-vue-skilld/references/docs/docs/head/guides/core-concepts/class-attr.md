@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How Do I Add Static Classes and Styles?](#how-do-i-add-static-classes-and-styles)
-- [How Do I Add Dynamic Classes and Styles?](#how-do-i-add-dynamic-classes-and-styles)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)
-
 **Quick Answer:** Use `htmlAttrs` and `bodyAttrs` to set attributes on `<html>` and `<body>`. Classes can be strings, arrays, or objects. Example: `htmlAttrs: { class: 'dark-mode', lang: 'en' }`
 
 When you need to style your page by adding classes or styles to the `<html>` or `<body>` tags, Unhead makes it easy by providing object and array support for the `class` and `style` attributes. This allows for both static and reactive styling.
@@ -138,10 +131,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Tag Sorting & Placement** Control where head tags render with tagPosition (head, bodyOpen, bodyClose) and tagPriority for ordering. Optimize performance with Capo.js weights. **Inline Style & Scripts** Add inline scripts and styles with textContent and innerHTML. Security best practices for XSS prevention and performance optimization.
-
-**On this page **
-
-- [How Do I Add Static Classes and Styles?](#how-do-i-add-static-classes-and-styles)
-- [How Do I Add Dynamic Classes and Styles?](#how-do-i-add-dynamic-classes-and-styles)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)

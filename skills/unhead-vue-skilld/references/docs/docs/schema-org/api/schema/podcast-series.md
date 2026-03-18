@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org PodcastSeries](#schemaorg-podcastseries)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org PodcastSeries](#schemaorg-podcastseries)
 
 **Type**: `definePodcastSeries(input?: PodcastSeries)`
@@ -119,14 +108,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Podcast Season Schema** Use definePodcastSeason() to add PodcastSeason structured data. Organize podcast episodes by season with episode counts and dates. **Product Schema** Use defineProduct() to add Product structured data for e-commerce. Enable rich snippets with pricing, reviews, and availability in Google search results.
-
-**On this page **
-
-- [Schema.org PodcastSeries](#schemaorg-podcastseries)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

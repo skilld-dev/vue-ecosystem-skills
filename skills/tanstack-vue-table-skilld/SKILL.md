@@ -3,8 +3,8 @@ name: tanstack-vue-table-skilld
 description: "Headless UI for building powerful tables & datagrids for Vue. ALWAYS use when writing code importing \"@tanstack/vue-table\". Consult for debugging, best practices, or modifying @tanstack/vue-table, tanstack/vue-table, tanstack vue-table, tanstack vue table, table."
 metadata:
   version: 8.21.3
-  generated_at: 2026-03-17
-  references_synced_at: 2026-03-17
+  generated_at: 2026-03-18
+  references_synced_at: 2026-03-18
 ---
 
 # TanStack/table `@tanstack/vue-table`

@@ -15,18 +15,6 @@ Harlan Wilton Published **Mar 5, 2026**
 
 
 
-**On this page **
-
-- [The Four Strategies](#the-four-strategies)
-- [How Each Framework Handles It](#how-each-framework-handles-it)
-- [Strategy Comparison](#strategy-comparison)
-- [Can Bots Read Patched Heads?](#can-bots-read-patched-heads)
-- [Production Breakage](#production-breakage)
-- [Rules of Thumb](#rules-of-thumb)
-- [Verdict](#verdict)
-- [The Future: Interop 2026 and <link rel="expect">](#the-future-interop-2026-and-link-relexpect)
-- [How Unhead Approaches This](#how-unhead-approaches-this)
-
 Streaming SSR sends HTML before your data is ready. Good for TTFB, bad for `<head>` tags.
 
 HTML is linear. You can't send `<body>`, realize you forgot an Open Graph image, and rewind. The framework has to choose: send `<head>` now for speed, or wait for data.
@@ -46,81 +34,6 @@ Every major framework handles this differently. Some block. Some flush and forge
 ## [How Each Framework Handles It](#how-each-framework-handles-it)
 
 The table below tracks two things. **Streams?** means the framework can send HTML to the browser incrementally - the body starts arriving before the server finishes rendering. **Complete Head** means the initial server HTML contains all SEO-critical tags (`<title>`, `<meta name="description">`, Open Graph) without needing client-side JavaScript. "With discipline" means it's possible but requires structuring your code to avoid a default pitfall. "With config" means you must enable a framework setting (like bot detection).
-
-| Framework | Streams? | Complete Head? | How It Works |
-| --- | --- | --- | --- |
-| **Next.js 16** | **Yes** | **With config** | Streams for users, blocks for bots via UA detection |
-| **Nuxt 4** | **No** | **Yes** | Entire response buffered, head always complete |
-| **Remix** | **Yes** | **Yes** | Sync meta() blocks head; body streams deferred data |
-| **Astro** | **Yes** | **Yes** | Frontmatter blocks head; body can stream |
-| **Qwik** | **No** | **Yes** | Loader resolves before render; resumable body |
-| **SvelteKit** | **Yes** | **With discipline** | Head flushed first; streamed data in svelte:head is lost |
-| **Solid Start** | **Opt-in** | **Yes** | Blocks by default; head locked once stream starts |
-| **Angular** | **No** | **With discipline** | Async Title calls can miss SSR serialization |
-
-**Next.js 16**
-
-**With config**
-
-Streams: ** Yes**
-
-Streams for users, blocks for bots via UA detection
-
-**Nuxt 4**
-
-**Yes**
-
-Streams: ** No**
-
-Entire response buffered, head always complete
-
-**Remix**
-
-**Yes**
-
-Streams: ** Yes**
-
-Sync meta() blocks head; body streams deferred data
-
-**Astro**
-
-**Yes**
-
-Streams: ** Yes**
-
-Frontmatter blocks head; body can stream
-
-**Qwik**
-
-**Yes**
-
-Streams: ** No**
-
-Loader resolves before render; resumable body
-
-**SvelteKit**
-
-**With discipline**
-
-Streams: ** Yes**
-
-Head flushed first; streamed data in svelte:head is lost
-
-**Solid Start**
-
-**Yes**
-
-Streams: ** Opt-in**
-
-Blocks by default; head locked once stream starts
-
-**Angular**
-
-**With discipline**
-
-Streams: ** No**
-
-Async Title calls can miss SSR serialization
 
 ### [Next.js 16 - Bot-Aware Streaming](#nextjs-16-bot-aware-streaming)
 
@@ -442,15 +355,3 @@ The State of <head> in 2026Head tag health across 660,000 sites - including non-
 **Did this page help you? **
 
 **State of <head> 2026**
-
-**On this page **
-
-- [The Four Strategies](#the-four-strategies)
-- [How Each Framework Handles It](#how-each-framework-handles-it)
-- [Strategy Comparison](#strategy-comparison)
-- [Can Bots Read Patched Heads?](#can-bots-read-patched-heads)
-- [Production Breakage](#production-breakage)
-- [Rules of Thumb](#rules-of-thumb)
-- [Verdict](#verdict)
-- [The Future: Interop 2026 and <link rel="expect">](#the-future-interop-2026-and-link-relexpect)
-- [How Unhead Approaches This](#how-unhead-approaches-this)

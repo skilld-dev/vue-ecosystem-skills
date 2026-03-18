@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How does node deduplication work?](#how-does-node-deduplication-work)
-- [How do I add multiple nodes of the same type?](#how-do-i-add-multiple-nodes-of-the-same-type)
-- [How do I replace a node instead of merging?](#how-do-i-replace-a-node-instead-of-merging)
-
 **Quick Answer:** Schema.org nodes are automatically deduplicated by their `@id`. Only one node of each type (like `WebPage`) can exist by default. Later definitions merge with earlier ones unless you specify a custom `@id`.
 
 ## [How does node deduplication work?](#how-does-node-deduplication-work)
@@ -96,9 +90,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Introduction** Generate JSON-LD structured data for Google Rich Results. TypeScript functions like defineArticle() and defineProduct() with automatic validation. **Supported Nodes** Schema.org nodes for Google Rich Results with define* functions. Article, Product, Event, Recipe, FAQ, and 30+ more types with TypeScript validation.
-
-**On this page **
-
-- [How does node deduplication work?](#how-does-node-deduplication-work)
-- [How do I add multiple nodes of the same type?](#how-do-i-add-multiple-nodes-of-the-same-type)
-- [How do I replace a node instead of merging?](#how-do-i-replace-a-node-instead-of-merging)

@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org WebSite](#schemaorg-website)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Example](#example)
-- [Types](#types)
-
 ## [Schema.org WebSite](#schemaorg-website)
 
 - **Type**: `defineWebSite(input?: WebSite)`Describes a WebSite. Parent to WebPage.
@@ -100,12 +91,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **WebPage Schema** Use defineWebPage() to add WebPage structured data. Connect page content to your site hierarchy with automatic page type detection.
-
-**On this page **
-
-- [Schema.org WebSite](#schemaorg-website)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Example](#example)
-- [Types](#types)

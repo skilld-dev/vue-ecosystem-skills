@@ -4,7 +4,7 @@ description: "ALWAYS use when writing code importing \"@vueuse/shared\". Consult
 metadata:
   version: 14.2.1
   generated_at: 2026-03-17
-  references_synced_at: 2026-03-17
+  references_synced_at: 2026-03-18
 ---
 
 # vueuse/vueuse `@vueuse/shared`

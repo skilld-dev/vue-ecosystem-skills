@@ -12,8 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
 **Quick Start:** Unhead is built into Nuxt 3 - just use `useHead()`, `useSeoMeta()`, or `useScript()` directly in your components. No installation needed!
 
 ## [Do I need to install Unhead in Nuxt?](#do-i-need-to-install-unhead-in-nuxt)

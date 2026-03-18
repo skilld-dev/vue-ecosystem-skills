@@ -15,16 +15,6 @@ Harlan Wilton Published **Mar 5, 2026**
 
 
 
-**On this page **
-
-- [What We Tested](#what-we-tested)
-- [Results](#results)
-- [The Mechanism: Sync Script Starvation](#the-mechanism-sync-script-starvation)
-- [CrUX: 10.7 Million Origins](#crux-107-million-origins)
-- [When It Matters](#when-it-matters)
-- [How Unhead Handles This](#how-unhead-handles-this)
-- [Reproduce This](#reproduce-this)
-
 **Nuxt** auto-sorts `<head>` tags via **Capo.js weights** and scores **44% good LCP across 88K CrUX origins**. **Shopify** does zero head optimization and scores 87%. The framework doing the most work on head ordering has the worst LCP. That gap isn't explained by ordering - it's TTFB, JavaScript payload, hydration cost.
 
 So does head tag ordering matter? We ran 120 controlled benchmarks to find out.
@@ -106,27 +96,7 @@ Parser-blocking Stylesheet Deferred First paint possible
 
 **Optimal ordering**** FASTER **
 
-Fonts CSS
-
-vendor.js
-
-app.js
-
-interactions.js
-
-lazy-comp.js
-
 **Worst ordering**
-
-interactions.js
-
-lazy-comp.js
-
-vendor.js
-
-app.js
-
-Fonts CSS
 
 **+466ms **
 
@@ -155,54 +125,6 @@ All three major frameworks were flat over the last 8 months. No framework-level 
 ## [When It Matters](#when-it-matters)
 
 While head ordering isn't a silver bullet, it is a critical optimization for specific scenarios.
-
-| **Scenario ** | **Impact of Head Ordering ** | **Verdict ** |
-| --- | --- | --- |
-| **Heavy Head (30+ tags) ** GTM, multiple CSS/JS, many social tags | High (+200ms FCP on 3G) | **Critical** |
-| **Slow/Unstable Networks ** 3G, degraded mobile, or rural users | Significant (Resource contention) | **High** |
-| **Sync Parser-Blocking Scripts ** Legacy analytics or necessary polyfills | High (Blocks rendering completely) | **Critical** |
-| **Simple Page (5-10 tags) ** Few styles, no heavy analytics | Negligible (Preload scanner wins) | **Optional** |
-| **Fast 4G / 5G / Broadband ** Modern devices and fast pipes | Low (<10ms difference) | **Nice-to-have** |
-
-**Heavy Head (30+ tags)**
-
-**Critical**
-
-GTM, multiple CSS/JS, many social tags
-
-High (+200ms FCP on 3G)
-
-**Slow/Unstable Networks**
-
-**High**
-
-3G, degraded mobile, or rural users
-
-Significant (Resource contention)
-
-**Sync Parser-Blocking Scripts**
-
-**Critical**
-
-Legacy analytics or necessary polyfills
-
-High (Blocks rendering completely)
-
-**Simple Page (5-10 tags)**
-
-**Optional**
-
-Few styles, no heavy analytics
-
-Negligible (Preload scanner wins)
-
-**Fast 4G / 5G / Broadband**
-
-**Nice-to-have**
-
-Modern devices and fast pipes
-
-Low (<10ms difference)
 
 Head tag ordering affects performance when: your head has **20+ tags** including sync and deferred scripts, your users are on **slow connections** (3G or degraded mobile), and you have **parser-blocking `<script>` tags**. Remove any one condition and the preload scanner neutralizes the difference.
 
@@ -243,13 +165,3 @@ Streaming SSR &amp; SEOHow streaming SSR drops JSON-LD, canonicals, and OG tags 
 **Did this page help you? **
 
 **What is Capo.js?** **State of <head> 2026**
-
-**On this page **
-
-- [What We Tested](#what-we-tested)
-- [Results](#results)
-- [The Mechanism: Sync Script Starvation](#the-mechanism-sync-script-starvation)
-- [CrUX: 10.7 Million Origins](#crux-107-million-origins)
-- [When It Matters](#when-it-matters)
-- [How Unhead Handles This](#how-unhead-handles-this)
-- [Reproduce This](#reproduce-this)

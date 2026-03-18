@@ -12,14 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Course](#schemaorg-course)
-- [Useful Links](#useful-links)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Course](#schemaorg-course)
 
 - **Type**: `defineCourse(input?: Course)`Describes a Course.
@@ -93,11 +85,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Comment Schema** Use defineComment() to add Comment structured data. Connect user comments to articles and blog posts with author and date information. **Dataset Schema** Use defineDataset() to add Dataset structured data. Make research data discoverable in Google Dataset Search with metadata and download links.
-
-**On this page **
-
-- [Schema.org Course](#schemaorg-course)
-- [Useful Links](#useful-links)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

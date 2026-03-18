@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Headless - Attributes](#headless-attributes)
-- [Headless - Slots](#headless-slots)
-- [Rendered Default slot](#rendered-default-slot)
-
  Using the components API is no longer recommended. You should use the composables for better developer experience.
 
 Each Schema has a component that can be used to configure Schema.
@@ -90,9 +84,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Add Schema.org structured data to Nuxt apps with the nuxt-schema-org module. Enable Google Rich Results for your pages. **Installation** Set up Unhead in React with UnheadProvider and useHead() hook. Drop-in replacement for react-helmet with SSR support.
-
-**On this page **
-
-- [Headless - Attributes](#headless-attributes)
-- [Headless - Slots](#headless-slots)
-- [Rendered Default slot](#rendered-default-slot)

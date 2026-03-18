@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org WebPage](#schemaorg-webpage)
-- [Useful Links](#useful-links)
-- [Recommended properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Example](#example)
-- [Types](#types)
-
 ## [Schema.org WebPage](#schemaorg-webpage)
 
 - **Type**: `defineWebPage(input?: WebPage)`Describes a single page on a WebSite. Acts as a container for sub-page elements (such as Article).Acts as a connector from a page's content to the parent WebSite (and in turn, to the Organization).
@@ -196,15 +184,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Video Schema** Use defineVideo() to add VideoObject structured data. Enable video rich snippets with thumbnails, duration, and upload date in Google search results. **WebSite Schema** Use defineWebSite() to add WebSite structured data. Establish your site identity and enable sitelinks search box in Google search results.
-
-**On this page **
-
-- [Schema.org WebPage](#schemaorg-webpage)
-- [Useful Links](#useful-links)
-- [Recommended properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Example](#example)
-- [Types](#types)

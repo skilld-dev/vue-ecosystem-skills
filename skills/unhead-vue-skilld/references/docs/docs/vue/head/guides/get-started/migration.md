@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)
-
 ## [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
 
 Unhead v3 removes all deprecated APIs and focuses on performance improvements. This guide covers the breaking changes for Vue users.
@@ -412,8 +407,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Set up Unhead in Vue with createHead() and app.use(). Full SSR support with transformHtmlTemplate(). Works with Vue 3 and Vite. **Context & Reactivity** Use refs, computed, and Pinia with useHead(). Handle async context in lifecycle hooks with injectHead() or effectScope().
-
-**On this page **
-
-- [Migrate to v3 (from v2)](#migrate-to-v3-from-v2)
-- [Migrate to v2 (from v1)](#migrate-to-v2-from-v1)

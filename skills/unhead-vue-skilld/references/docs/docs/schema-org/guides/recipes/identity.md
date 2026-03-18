@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Why does Schema.org identity matter for SEO?](#why-does-schemaorg-identity-matter-for-seo)
-- [Which identity type should I choose?](#which-identity-type-should-i-choose)
-- [How does identity connect to other Schema.org nodes?](#how-does-identity-connect-to-other-schemaorg-nodes)
-- [Related Recipes](#related-recipes)
-
 **Quick Answer:** Set up your site identity with `defineOrganization()` or `definePerson()`. This establishes who owns/creates your content and enables Google Knowledge Panel eligibility.
 
 ## [Why does Schema.org identity matter for SEO?](#why-does-schemaorg-identity-matter-for-seo)
@@ -129,10 +122,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Custom Nodes** Create custom Schema.org types not in built-in helpers. Pass plain objects to useSchemaOrg() with TypeScript support via schema-dts. **Blog** Add Article/BlogPosting structured data with defineArticle(). Enable rich snippets for author, publish date, and thumbnails in search results.
-
-**On this page **
-
-- [Why does Schema.org identity matter for SEO?](#why-does-schemaorg-identity-matter-for-seo)
-- [Which identity type should I choose?](#which-identity-type-should-i-choose)
-- [How does identity connect to other Schema.org nodes?](#how-does-identity-connect-to-other-schemaorg-nodes)
-- [Related Recipes](#related-recipes)

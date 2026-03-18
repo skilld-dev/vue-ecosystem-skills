@@ -12,21 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Article](#schemaorg-article)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 Article schema identifies written content like blog posts, news articles, and technical documentation. It helps search engines understand authorship, publish dates, and content type for rich results in Google Search.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -290,18 +275,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **useSchemaOrg()** Add Schema.org structured data with useSchemaOrg(). Pass defineArticle(), defineProduct(), and other schema nodes for Google Rich Results. **Book Schema** Use defineBook() to add Book structured data. Enable rich results with book editions, ISBN, author, and purchase actions in Google search.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Article](#schemaorg-article)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

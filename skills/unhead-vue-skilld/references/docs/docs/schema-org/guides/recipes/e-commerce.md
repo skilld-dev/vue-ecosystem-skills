@@ -12,20 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up a product?](#how-do-i-mark-up-a-product)
-- [What does a complete product schema look like?](#what-does-a-complete-product-schema-look-like)
-- [How do I mark up product variants?](#how-do-i-mark-up-product-variants)
-- [What are the product availability values?](#what-are-the-product-availability-values)
-- [How do I mark up a product collection page?](#how-do-i-mark-up-a-product-collection-page)
-- [How do I mark up shopping cart and checkout pages?](#how-do-i-mark-up-shopping-cart-and-checkout-pages)
-- [How do I set up a store's identity?](#how-do-i-set-up-a-stores-identity)
-- [What are the best practices for eCommerce schema?](#what-are-the-best-practices-for-ecommerce-schema)
-- [What schema should I use on different eCommerce pages?](#what-schema-should-i-use-on-different-ecommerce-pages)
-- [Related Recipes](#related-recipes)
-
 Use `defineProduct()` with `offers`, `aggregateRating`, and `review` properties to enable product rich results. Google can display price, availability, ratings, and review counts directly in search results.
 
 Product structured data enables rich snippets showing prices, star ratings, stock status, and reviews - significantly improving visibility and click-through rates for eCommerce pages.
@@ -335,17 +321,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Breadcrumbs** Add BreadcrumbList structured data with defineBreadcrumb(). Display clickable navigation paths instead of URLs in Google search results. **FAQ** Add FAQPage structured data with defineQuestion(). Enable expandable Q&A rich snippets directly in Google search results.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up a product?](#how-do-i-mark-up-a-product)
-- [What does a complete product schema look like?](#what-does-a-complete-product-schema-look-like)
-- [How do I mark up product variants?](#how-do-i-mark-up-product-variants)
-- [What are the product availability values?](#what-are-the-product-availability-values)
-- [How do I mark up a product collection page?](#how-do-i-mark-up-a-product-collection-page)
-- [How do I mark up shopping cart and checkout pages?](#how-do-i-mark-up-shopping-cart-and-checkout-pages)
-- [How do I set up a store's identity?](#how-do-i-set-up-a-stores-identity)
-- [What are the best practices for eCommerce schema?](#what-are-the-best-practices-for-ecommerce-schema)
-- [What schema should I use on different eCommerce pages?](#what-schema-should-i-use-on-different-ecommerce-pages)
-- [Related Recipes](#related-recipes)

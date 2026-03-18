@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `ssr:render` hook is called during the server-side rendering process after tags have been resolved but before they're converted to HTML strings. This hook provides access to the finalized tags and allows for last-minute modifications specific to server-side rendering.
 
 ## [Hook Signature](#hook-signature)
@@ -226,9 +220,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **ssr:beforeRender** Hook called before SSR rendering. Control server rendering, set up environment, and optimize performance with caching strategies. **ssr:rendered** Hook called after SSR completes. Post-process HTML output, implement caching, and collect rendering metrics.
-
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

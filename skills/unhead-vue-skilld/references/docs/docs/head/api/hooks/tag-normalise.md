@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `tag:normalise` hook is called for each individual tag during the normalization process. This hook gives you access to a single tag, its parent entry, and resolved options, allowing you to apply fine-grained modifications to specific tags.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -172,10 +165,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **entries:normalize** Hook for normalizing individual head entries. Add entry-specific attributes, conditional modifications, and template processing. **tags:beforeResolve** Hook called before tag resolution. Pre-process tags, add global meta tags, and filter based on environment conditions.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

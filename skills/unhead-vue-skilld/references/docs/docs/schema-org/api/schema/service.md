@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Service](#schemaorg-service)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Service](#schemaorg-service)
 
 **Type**: `defineService(input?: Service)`
@@ -180,15 +168,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Recipe Schema** Use defineRecipe() to add Recipe structured data. Enable rich snippets with cooking time, ingredients, nutrition, and step-by-step instructions in search. **SoftwareApplication** Implement SoftwareApplication structured data with Unhead. JSON-LD examples for app listings, ratings, pricing, and Google rich results.
-
-**On this page **
-
-- [Schema.org Service](#schemaorg-service)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

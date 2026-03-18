@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org MusicAlbum](#schemaorg-musicalbum)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org MusicAlbum](#schemaorg-musicalbum)
 
 **Type**: `defineMusicAlbum(input?: MusicAlbum)`
@@ -117,14 +106,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Movie Schema** Use defineMovie() to add Movie structured data. Enable rich results with ratings, cast, director, and release date in Google search. **Music Group Schema** Use defineMusicGroup() to add MusicGroup structured data. Display band info with members, genre, and discography in search results.
-
-**On this page **
-
-- [Schema.org MusicAlbum](#schemaorg-musicalbum)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

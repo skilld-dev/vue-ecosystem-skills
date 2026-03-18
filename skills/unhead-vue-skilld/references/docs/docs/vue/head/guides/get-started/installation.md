@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Next Steps](#next-steps)
-
 ## [Introduction](#introduction)
 
 **Quick Start:** Install `@unhead/vue`, create head with `createHead()`, and use `app.use(head)`. For SSR, use separate client/server entry points with `transformHtmlTemplate()`.
@@ -223,9 +217,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Add Schema.org to TypeScript apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results. **Upgrade Guide** Learn how to migrate between Unhead versions for Vue users.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Next Steps](#next-steps)

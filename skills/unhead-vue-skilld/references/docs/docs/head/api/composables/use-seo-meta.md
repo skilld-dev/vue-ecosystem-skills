@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Basic Usage](#basic-usage)
-- [Common Use Cases](#common-use-cases)
-- [How it works](#how-it-works)
-- [API Reference](#api-reference)
-- [Best Practices](#best-practices)
-- [Super-charged SEO](#super-charged-seo)
-- [Common Mistakes](#common-mistakes)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)
-
 The `useSeoMeta` composable lets you define your site's SEO meta tags as a flat object with full TypeScript support.
 
 **Quick Start:**
@@ -211,15 +199,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **useHeadSafe()** Safely manage head tags with XSS protection using useHeadSafe(). Sanitize untrusted user input for titles, meta tags, and other head elements. **useScript()** Load third-party scripts with useScript(). Smart defaults for performance, lazy loading triggers, and API proxying for analytics and widgets.
-
-**On this page **
-
-- [Basic Usage](#basic-usage)
-- [Common Use Cases](#common-use-cases)
-- [How it works](#how-it-works)
-- [API Reference](#api-reference)
-- [Best Practices](#best-practices)
-- [Super-charged SEO](#super-charged-seo)
-- [Common Mistakes](#common-mistakes)
-- [Common Questions](#common-questions)
-- [See Also](#see-also)

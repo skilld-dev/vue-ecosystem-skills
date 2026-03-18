@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [What is the title tag?](#what-is-the-title-tag)
-- [Core Concepts](#core-concepts)
-- [Dynamic Page Titles with useHead()](#dynamic-page-titles-with-usehead)
-- [How do I add a site name to all titles?](#how-do-i-add-a-site-name-to-all-titles)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [Key Takeaways](#key-takeaways)
-
 ## [Introduction](#introduction)
 
 Page titles are crucial for SEO. They're your primary call-to-action in search results and help users understand your page's content and context.
@@ -182,6 +171,8 @@ Resetting the title template will remove any branding elements from your page ti
 ### [Social Share Titles](#social-share-titles)
 
 Social platforms use different meta tags for sharing titles.
+
+_Nuxt X Share_
 
 In the above we can see the title "Nuxt: The Intuitive Vue Framework".
 
@@ -349,14 +340,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Starter Recipes** Copy-paste recipes for SEO setup, social sharing meta, favicon config, PWA tags, and blog post optimization. Ready-to-use Unhead patterns. **Tag Sorting & Placement** Control where head tags render with tagPosition (head, bodyOpen, bodyClose) and tagPriority for ordering. Optimize performance with Capo.js weights.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [What is the title tag?](#what-is-the-title-tag)
-- [Core Concepts](#core-concepts)
-- [Dynamic Page Titles with useHead()](#dynamic-page-titles-with-usehead)
-- [How do I add a site name to all titles?](#how-do-i-add-a-site-name-to-all-titles)
-- [Common Use Cases](#common-use-cases)
-- [Best Practices](#best-practices)
-- [Key Takeaways](#key-takeaways)

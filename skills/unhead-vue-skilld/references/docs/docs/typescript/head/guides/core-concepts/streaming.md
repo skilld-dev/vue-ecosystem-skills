@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Setup](#setup)
-- [Manual Stream Control](#manual-stream-control)
-- [Template-Free Integration](#template-free-integration)
-- [API Reference](#api-reference)
-- [When to Skip](#when-to-skip)
-
 **v3 Only** - Streaming support is only available in Unhead v3 (currently in beta). This API is experimental and may change.
 
 Standard SSR waits for everything to render before sending HTML. Streaming sends the document shell immediately, then streams content as async operations complete.
@@ -187,12 +178,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Wrapping Composables** Learn how to create custom head composables by wrapping useHead with your own defaults and context management. **Installation** Add Schema.org to TypeScript apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results.
-
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Setup](#setup)
-- [Manual Stream Control](#manual-stream-control)
-- [Template-Free Integration](#template-free-integration)
-- [API Reference](#api-reference)
-- [When to Skip](#when-to-skip)

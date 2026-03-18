@@ -12,19 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Job Posting](#schemaorg-job-posting)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 JobPosting schema enables your job listings to appear in Google Jobs search results with salary, location, and application details. It's required for Google Jobs integration.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -225,16 +212,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **ItemList** Add ItemList structured data with Unhead. JSON-LD examples for carousels, ranked lists, and product collections with Google rich result support. **LocalBusiness** Implement LocalBusiness structured data with Unhead. JSON-LD examples, required properties, subtypes (Dentist, Restaurant, Store), and Google rich result setup.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org Job Posting](#schemaorg-job-posting)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

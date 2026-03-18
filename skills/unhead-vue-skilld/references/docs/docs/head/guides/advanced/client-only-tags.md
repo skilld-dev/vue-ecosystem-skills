@@ -12,14 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How Do I Add Client-Only Tags?](#how-do-i-add-client-only-tags)
-- [How Do I Add Server-Only Tags?](#how-do-i-add-server-only-tags)
-- [Example Use Cases](#example-use-cases)
-- [What Are the Caveats?](#what-are-the-caveats)
-- [See Also](#see-also)
-
 **Quick Answer:** To reduce bundle size, use `import.meta.client` to conditionally add tags only on the client. For Vite, use the Unhead Vite plugin to tree-shake server-only code.
 
 Unhead runs on both server and client. You can conditionally render tags in one environment to optimize bundle size.
@@ -143,11 +135,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Extending Unhead** Create custom composables and plugins with Unhead's hooks API. Tap into tag resolution, DOM rendering, and SSR lifecycle events. **Build Plugins** Vite and Webpack plugins for Unhead. Tree-shake server composables, transform useSeoMeta, save ~3kb in production bundles.
-
-**On this page **
-
-- [How Do I Add Client-Only Tags?](#how-do-i-add-client-only-tags)
-- [How Do I Add Server-Only Tags?](#how-do-i-add-server-only-tags)
-- [Example Use Cases](#example-use-cases)
-- [What Are the Caveats?](#what-are-the-caveats)
-- [See Also](#see-also)

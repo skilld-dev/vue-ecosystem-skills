@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Headless - Attributes](#headless-attributes)
-- [Headless - Slots](#headless-slots)
-- [Rendered Default slot](#rendered-default-slot)
-
  Using the components API is no longer recommended. You should use the composables for better developer experience.
 
 Each Schema has a component that can be used to configure Schema.
@@ -90,9 +84,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Installation** Add Schema.org to Vue apps with @unhead/schema-org. Setup defineWebSite(), defineWebPage() for Google Rich Results. **Overview** Framework-agnostic library for managing HTML head tags. Titles, meta tags, scripts, and structured data with SSR support for Vue, React, Svelte, Solid, Angular.
-
-**On this page **
-
-- [Headless - Attributes](#headless-attributes)
-- [Headless - Slots](#headless-slots)
-- [Rendered Default slot](#rendered-default-slot)

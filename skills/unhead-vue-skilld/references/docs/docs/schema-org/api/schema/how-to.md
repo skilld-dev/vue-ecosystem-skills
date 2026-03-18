@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org HowTo](#schemaorg-howto)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 HowTo schema marks up step-by-step instructions so Google can display them as rich results with expandable steps. Use it for tutorials, guides, DIY instructions, and how-to content.
 
 ### [JSON-LD Example](#json-ld-example)
@@ -222,14 +211,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Food Establishment Schema** Use defineFoodEstablishment() to add Restaurant structured data. Display menu, reservations, and cuisine info in Google Maps and local search. **Image Schema** Use defineImage() to add ImageObject structured data. Provide image metadata with captions, dimensions, and alt text for rich results.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org HowTo](#schemaorg-howto)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

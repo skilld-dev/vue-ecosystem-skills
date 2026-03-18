@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up breadcrumbs?](#how-do-i-mark-up-breadcrumbs)
-- [How do I add multiple breadcrumb trails?](#how-do-i-add-multiple-breadcrumb-trails)
-- [Related Recipes](#related-recipes)
-
 Use `defineBreadcrumb()` with an array of `{ name, item }` objects to create breadcrumb navigation markup. Google displays this as a clickable path in search results instead of showing the raw URL.
 
 Breadcrumb structured data replaces URLs in search results with a readable navigation path (Home > Category > Page), helping users understand your site hierarchy.
@@ -116,10 +109,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Blog** Add Article/BlogPosting structured data with defineArticle(). Enable rich snippets for author, publish date, and thumbnails in search results. **eCommerce** Add Product structured data with defineProduct(). Enable rich results with prices, ratings, stock status, and reviews in search.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up breadcrumbs?](#how-do-i-mark-up-breadcrumbs)
-- [How do I add multiple breadcrumb trails?](#how-do-i-add-multiple-breadcrumb-trails)
-- [Related Recipes](#related-recipes)

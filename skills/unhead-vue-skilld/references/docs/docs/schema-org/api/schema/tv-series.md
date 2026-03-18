@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org TVSeries](#schemaorg-tvseries)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-
 ## [Schema.org TVSeries](#schemaorg-tvseries)
 
 **Type**: `defineTVSeries(input?: TVSeries)`
@@ -126,13 +116,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **TV Season Schema** Use defineTVSeason() to add TVSeason structured data. Organize TV episodes by season with episode counts, cast, and air dates. **Video Schema** Use defineVideo() to add VideoObject structured data. Enable video rich snippets with thumbnails, duration, and upload date in Google search results.
-
-**On this page **
-
-- [Schema.org TVSeries](#schemaorg-tvseries)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)

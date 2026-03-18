@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Question](#schemaorg-question)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Relation Transforms](#relation-transforms)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Question](#schemaorg-question)
 
 - **Type**: `defineQuestion(input?: Question)`Describes an individual question. Most commonly used for creating an FAQ type page.
@@ -125,15 +113,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Product Schema** Use defineProduct() to add Product structured data for e-commerce. Enable rich snippets with pricing, reviews, and availability in Google search results. **Recipe Schema** Use defineRecipe() to add Recipe structured data. Enable rich snippets with cooking time, ingredients, nutrition, and step-by-step instructions in search.
-
-**On this page **
-
-- [Schema.org Question](#schemaorg-question)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Relation Transforms](#relation-transforms)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

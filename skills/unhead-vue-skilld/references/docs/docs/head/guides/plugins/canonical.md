@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Why Do I Need Absolute URLs in Meta Tags?](#why-do-i-need-absolute-urls-in-meta-tags)
-- [What Tags Does the Plugin Transform?](#what-tags-does-the-plugin-transform)
-- [How Do I Set Up the Canonical Plugin?](#how-do-i-set-up-the-canonical-plugin)
-- [What Are the Configuration Options?](#what-are-the-configuration-options)
-- [How Do I Integrate with a CDN?](#how-do-i-integrate-with-a-cdn)
-- [Related](#related)
-
 **Quick Answer:** The Canonical plugin automatically generates `<link rel="canonical">` tags and converts relative URLs to absolute URLs in your meta tags. Enable it with `CanonicalPlugin({ canonicalHost: 'https://mysite.com' })` in your head configuration.
 
 ## [Why Do I Need Absolute URLs in Meta Tags?](#why-do-i-need-absolute-urls-in-meta-tags)
@@ -147,12 +138,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Alias Sorting** Order head tags with before: and after: prefixes. More readable than numeric priorities for script loading and CSS dependencies. **Infer SEO Meta** Auto-generate og:title, og:description, and twitter:card from existing title and description. Reduce duplicate meta tag definitions.
-
-**On this page **
-
-- [Why Do I Need Absolute URLs in Meta Tags?](#why-do-i-need-absolute-urls-in-meta-tags)
-- [What Tags Does the Plugin Transform?](#what-tags-does-the-plugin-transform)
-- [How Do I Set Up the Canonical Plugin?](#how-do-i-set-up-the-canonical-plugin)
-- [What Are the Configuration Options?](#what-are-the-configuration-options)
-- [How Do I Integrate with a CDN?](#how-do-i-integrate-with-a-cdn)
-- [Related](#related)

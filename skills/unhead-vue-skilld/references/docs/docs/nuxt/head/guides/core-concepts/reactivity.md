@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How Does Reactivity Work in Nuxt?](#how-does-reactivity-work-in-nuxt)
-- [What Reactive Values Can I Use?](#what-reactive-values-can-i-use)
-- [How Do I Handle Async Context?](#how-do-i-handle-async-context)
-- [Best Practices](#best-practices)
-- [Advanced Uses](#advanced-uses)
-- [Does Nuxt Handle Async Context Automatically?](#does-nuxt-handle-async-context-automatically)
-- [How Does Unhead Work Under the Hood?](#how-does-unhead-work-under-the-hood)
-
 **Quick Answer:** In Nuxt, pass refs and computed values directly to `useHead()` or `useSeoMeta()`. Reactivity is automatic. Use `injectHead()` when you need the head instance outside components.
 
 ## [Introduction](#introduction)
@@ -416,14 +405,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Upgrade Guide** Learn how to migrate between Unhead versions in Nuxt. **Components** Use Nuxt built-in Head, Title, Meta, Link, Script components. Template-based head management with no imports required.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How Does Reactivity Work in Nuxt?](#how-does-reactivity-work-in-nuxt)
-- [What Reactive Values Can I Use?](#what-reactive-values-can-i-use)
-- [How Do I Handle Async Context?](#how-do-i-handle-async-context)
-- [Best Practices](#best-practices)
-- [Advanced Uses](#advanced-uses)
-- [Does Nuxt Handle Async Context Automatically?](#does-nuxt-handle-async-context-automatically)
-- [How Does Unhead Work Under the Hood?](#how-does-unhead-work-under-the-hood)

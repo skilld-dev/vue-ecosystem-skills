@@ -12,19 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org LocalBusiness](#schemaorg-localbusiness)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 LocalBusiness schema tells search engines about a physical business location — its name, address, opening hours, and services. It powers Google's local business panels, Maps listings, and "near me" search results.
 
 For better visibility, use a specific subtype like `Dentist`, `Restaurant`, or `ProfessionalService` rather than the generic `LocalBusiness` type.
@@ -252,16 +239,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **JobPosting** Implement JobPosting structured data with Unhead. JSON-LD examples, required fields for Google Jobs, salary markup, and validation tips. **Movie Schema** Use defineMovie() to add Movie structured data. Enable rich results with ratings, cast, director, and release date in Google search.
-
-**On this page **
-
-- [JSON-LD Example](#json-ld-example)
-- [Schema.org LocalBusiness](#schemaorg-localbusiness)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Sub-Types](#sub-types)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

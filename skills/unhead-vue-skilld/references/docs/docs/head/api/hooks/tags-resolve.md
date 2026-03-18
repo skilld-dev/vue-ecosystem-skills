@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `tags:resolve` hook is one of the most important hooks in Unhead, called during the main tag resolution process. This hook provides access to all collected tags after basic normalization but before final rendering, allowing for comprehensive transformations, deduplication, and other processing.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -221,10 +214,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **tags:beforeResolve** Hook called before tag resolution. Pre-process tags, add global meta tags, and filter based on environment conditions. **tags:afterResolve** Final hook before rendering. Perform security checks, reorder tags for performance, and process content before output.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

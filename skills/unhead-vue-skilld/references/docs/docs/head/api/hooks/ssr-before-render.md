@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `ssr:beforeRender` hook is called before the server-side rendering process begins. This hook allows you to control whether the SSR rendering should proceed and is a good place to perform any initialization or checks specific to the server environment.
 
 ## [Hook Signature](#hook-signature)
@@ -167,9 +161,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **dom:beforeRender** Hook called before DOM rendering. Control render timing, prepare the DOM environment, and conditionally prevent head tag updates. **ssr:render** Hook for SSR tag processing. Add server-specific tags, apply i18n, and optimize platform-specific rendering.
-
-**On this page **
-
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

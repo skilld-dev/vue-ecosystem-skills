@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)
-
 The `tags:beforeResolve` hook is called just before the tag resolution process begins. This hook provides access to all tags that have been collected from entries and allows for bulk modifications before the main resolution process.
 
 ## [Lifecycle Position](#lifecycle-position)
@@ -186,10 +179,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **tag:normalise** Hook for processing individual head tags. Apply security attributes, transform tags per environment, and handle custom attributes. **tags:resolve** Main tag resolution hook for deduplication, transformation, and template parameter processing. Modify all tags before rendering.
-
-**On this page **
-
-- [Lifecycle Position](#lifecycle-position)
-- [Hook Signature](#hook-signature)
-- [Usage Example](#usage-example)
-- [Use Cases](#use-cases)

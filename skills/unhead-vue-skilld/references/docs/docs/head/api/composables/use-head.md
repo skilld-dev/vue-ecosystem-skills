@@ -12,22 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Reactivity Model](#reactivity-model)
-- [API Reference](#api-reference)
-- [Input Schema](#input-schema)
-- [Options](#options)
-- [Reactivity](#reactivity)
-- [Security Considerations](#security-considerations)
-- [TypeScript](#typescript)
-- [Common Mistakes](#common-mistakes)
-- [Choosing the Right Composable](#choosing-the-right-composable)
-- [Common Questions](#common-questions)
-- [Advanced Examples](#advanced-examples)
-- [Common Use Cases](#common-use-cases)
-
 **Quick Start:**
 
 ```
@@ -472,19 +456,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Overview** Unhead API reference for useHead(), useSeoMeta(), useScript() composables and DOM/SSR rendering hooks. Full TypeScript support. **useHeadSafe()** Safely manage head tags with XSS protection using useHeadSafe(). Sanitize untrusted user input for titles, meta tags, and other head elements.
-
-**On this page **
-
-- [How It Works](#how-it-works)
-- [Reactivity Model](#reactivity-model)
-- [API Reference](#api-reference)
-- [Input Schema](#input-schema)
-- [Options](#options)
-- [Reactivity](#reactivity)
-- [Security Considerations](#security-considerations)
-- [TypeScript](#typescript)
-- [Common Mistakes](#common-mistakes)
-- [Choosing the Right Composable](#choosing-the-right-composable)
-- [Common Questions](#common-questions)
-- [Advanced Examples](#advanced-examples)
-- [Common Use Cases](#common-use-cases)

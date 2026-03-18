@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org MusicPlaylist](#schemaorg-musicplaylist)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org MusicPlaylist](#schemaorg-musicplaylist)
 
 **Type**: `defineMusicPlaylist(input?: MusicPlaylist)`
@@ -109,14 +98,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Music Group Schema** Use defineMusicGroup() to add MusicGroup structured data. Display band info with members, genre, and discography in search results. **Music Recording Schema** Use defineMusicRecording() to add MusicRecording structured data. Display song info with artist, album, and duration in search results.
-
-**On this page **
-
-- [Schema.org MusicPlaylist](#schemaorg-musicplaylist)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

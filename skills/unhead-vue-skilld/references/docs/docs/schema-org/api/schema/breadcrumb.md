@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Breadcrumb](#schemaorg-breadcrumb)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Breadcrumb](#schemaorg-breadcrumb)
 
 - **Type**: `defineBreadcrumb(input?: Breadcrumb)`Describes an `Breadcrumb` on a `WebPage`.
@@ -91,15 +79,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Book Schema** Use defineBook() to add Book structured data. Enable rich results with book editions, ISBN, author, and purchase actions in Google search. **Comment Schema** Use defineComment() to add Comment structured data. Connect user comments to articles and blog posts with author and date information.
-
-**On this page **
-
-- [Schema.org Breadcrumb](#schemaorg-breadcrumb)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Examples](#examples)
-- [Defaults](#defaults)
-- [Relation Transforms](#relation-transforms)
-- [Resolves](#resolves)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up a blog article?](#how-do-i-mark-up-a-blog-article)
-- [How do I specify the article type?](#how-do-i-specify-the-article-type)
-- [How do I add an author?](#how-do-i-add-an-author)
-- [How do I mark up blog archive pages?](#how-do-i-mark-up-blog-archive-pages)
-- [Expected JSON-LD Output](#expected-json-ld-output)
-- [Common Issues](#common-issues)
-- [Related Recipes](#related-recipes)
-
 Use `defineArticle()` with `@type: 'BlogPosting'` to mark up blog posts. This enables rich snippets showing author, publish date, and article images in search results.
 
 Schema.org Article markup helps Google display enhanced search results with author info, thumbnails, and publication dates - improving click-through rates.
@@ -163,14 +152,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Identity** Set up Organization, Person, or LocalBusiness as your site identity. Enable Google Knowledge Panel and connect content to E-E-A-T signals. **Breadcrumbs** Add BreadcrumbList structured data with defineBreadcrumb(). Display clickable navigation paths instead of URLs in Google search results.
-
-**On this page **
-
-- [Useful Links](#useful-links)
-- [How do I mark up a blog article?](#how-do-i-mark-up-a-blog-article)
-- [How do I specify the article type?](#how-do-i-specify-the-article-type)
-- [How do I add an author?](#how-do-i-add-an-author)
-- [How do I mark up blog archive pages?](#how-do-i-mark-up-blog-archive-pages)
-- [Expected JSON-LD Output](#expected-json-ld-output)
-- [Common Issues](#common-issues)
-- [Related Recipes](#related-recipes)

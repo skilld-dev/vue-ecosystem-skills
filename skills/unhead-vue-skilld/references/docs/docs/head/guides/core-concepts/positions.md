@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I control where tags render in the document?](#how-do-i-control-where-tags-render-in-the-document)
-- [How does tag sort order work?](#how-does-tag-sort-order-work)
-- [How can I programmatically reorder tags?](#how-can-i-programmatically-reorder-tags)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)
-
 **Quick Answer:** Use `tagPosition: 'head' | 'bodyOpen' | 'bodyClose'` to control where tags render. Use `tagPriority: 'critical' | 'high' | number | 'low'` to control ordering within those positions.
 
 ## [Introduction](#introduction)
@@ -213,12 +204,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Titles & Title Templates** Learn how to master page titles using useHead, title templates, and SEO best practices. Includes reactive titles, social sharing, and template params. **Class & Style Attributes** Add classes and styles to html and body tags with htmlAttrs and bodyAttrs. Support for strings, arrays, objects, and reactive values.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I control where tags render in the document?](#how-do-i-control-where-tags-render-in-the-document)
-- [How does tag sort order work?](#how-does-tag-sort-order-work)
-- [How can I programmatically reorder tags?](#how-can-i-programmatically-reorder-tags)
-- [Key Takeaways](#key-takeaways)
-- [See Also](#see-also)

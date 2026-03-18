@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Are Schema.org Params?](#what-are-schemaorg-params)
-- [Which Params Are Available?](#which-params-are-available)
-- [How Do Params Cascade to Nodes?](#how-do-params-cascade-to-nodes)
-
 **Quick Answer:** Schema.org params configure site-wide defaults like `host`, `path`, `currency`, and `inLanguage`. Set them once and they're automatically applied to all schema nodes.
 
 ## [What Are Schema.org Params?](#what-are-schemaorg-params)
@@ -97,9 +91,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Supported Nodes** Schema.org nodes for Google Rich Results with define* functions. Article, Product, Event, Recipe, FAQ, and 30+ more types with TypeScript validation. **Custom Nodes** Create custom Schema.org types not in built-in helpers. Pass plain objects to useSchemaOrg() with TypeScript support via schema-dts.
-
-**On this page **
-
-- [What Are Schema.org Params?](#what-are-schemaorg-params)
-- [Which Params Are Available?](#which-params-are-available)
-- [How Do Params Cascade to Nodes?](#how-do-params-cascade-to-nodes)

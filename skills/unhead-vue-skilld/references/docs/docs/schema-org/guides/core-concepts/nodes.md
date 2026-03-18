@@ -12,11 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [How do I add a custom Schema.org node?](#how-do-i-add-a-custom-schemaorg-node)
-- [Which nodes are officially supported?](#which-nodes-are-officially-supported)
-
 **Quick Answer:** Schema.org nodes are created with `define*` functions like `defineArticle()`, `defineProduct()`, etc. Each function validates input and outputs valid JSON-LD.
 
 Official nodes are ones that have a direct impact on Google Rich Results.
@@ -71,8 +66,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Deduping Nodes** Automatic Schema.org node deduplication by @id. Add multiple nodes of same type with custom IDs, replace vs merge strategies. **Schema.org Params** Configure site-wide defaults for Schema.org with host, inLanguage, currency, and trailingSlash. Automatically cascade to all schema nodes.
-
-**On this page **
-
-- [How do I add a custom Schema.org node?](#how-do-i-add-a-custom-schemaorg-node)
-- [Which nodes are officially supported?](#which-nodes-are-officially-supported)

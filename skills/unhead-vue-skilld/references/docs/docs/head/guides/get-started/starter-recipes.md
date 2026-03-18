@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I set up basic SEO tags?](#how-do-i-set-up-basic-seo-tags)
-- [How do I add social sharing meta tags?](#how-do-i-add-social-sharing-meta-tags)
-- [How do I optimize blog post meta tags?](#how-do-i-optimize-blog-post-meta-tags)
-- [How do I configure favicons and theme colors?](#how-do-i-configure-favicons-and-theme-colors)
-- [How do I set up PWA meta tags?](#how-do-i-set-up-pwa-meta-tags)
-- [See Also](#see-also)
-
 **Quick Answer:** Copy-paste these common head management patterns: basic SEO setup, social sharing meta, favicon configuration, and third-party script loading.
 
 ## [Introduction](#introduction)
@@ -292,13 +282,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Introduction to Unhead** Manage document head in SSR and CSR environments. Lazy DOM patching, TypeScript API, flat SEO meta, Schema.org support, and script loading. **Titles & Title Templates** Learn how to master page titles using useHead, title templates, and SEO best practices. Includes reactive titles, social sharing, and template params.
-
-**On this page **
-
-- [Introduction](#introduction)
-- [How do I set up basic SEO tags?](#how-do-i-set-up-basic-seo-tags)
-- [How do I add social sharing meta tags?](#how-do-i-add-social-sharing-meta-tags)
-- [How do I optimize blog post meta tags?](#how-do-i-optimize-blog-post-meta-tags)
-- [How do I configure favicons and theme colors?](#how-do-i-configure-favicons-and-theme-colors)
-- [How do I set up PWA meta tags?](#how-do-i-set-up-pwa-meta-tags)
-- [See Also](#see-also)

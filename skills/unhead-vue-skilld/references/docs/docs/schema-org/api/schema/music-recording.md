@@ -12,17 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org MusicRecording](#schemaorg-musicrecording)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org MusicRecording](#schemaorg-musicrecording)
 
 **Type**: `defineMusicRecording(input?: MusicRecording)`
@@ -117,14 +106,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Music Playlist Schema** Use defineMusicPlaylist() to add MusicPlaylist structured data. Display playlist info with track count, creator, and song list in search. **Organization** Add Organization structured data with Unhead. JSON-LD examples for company identity, logo, sameAs social profiles, and Google Knowledge Panel setup.
-
-**On this page **
-
-- [Schema.org MusicRecording](#schemaorg-musicrecording)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

@@ -12,18 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [What Do the Build Plugins Do?](#what-do-the-build-plugins-do)
-- [How Do I Install the Build Plugins?](#how-do-i-install-the-build-plugins)
-- [How Do I Configure the Plugin?](#how-do-i-configure-the-plugin)
-- [What Options Are Available?](#what-options-are-available)
-- [How Do I Verify the Plugin Is Working?](#how-do-i-verify-the-plugin-is-working)
-- [How Do I Use With Different Frameworks?](#how-do-i-use-with-different-frameworks)
-- [What Are Best Practices?](#what-are-best-practices)
-- [Why Isn't It Working?](#why-isnt-it-working)
-- [See Also](#see-also)
-
 **Quick Answer:** The Unhead Vite plugin enables build-time optimizations like tree-shaking server-only code and transforming `useSeoMeta()` for smaller bundles. Install with `UnheadVite()` in your Vite config.
 
 ## [What Do the Build Plugins Do?](#what-do-the-build-plugins-do)
@@ -177,15 +165,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Bundle Optimizations** Reduce bundle size with client-only and server-only tags. Use mode option or import.meta guards for SSR/CSR optimization. **Template Params** Dynamic placeholders like %s and %siteName in head tags. Define site name, separator, and custom variables for consistent branding.
-
-**On this page **
-
-- [What Do the Build Plugins Do?](#what-do-the-build-plugins-do)
-- [How Do I Install the Build Plugins?](#how-do-i-install-the-build-plugins)
-- [How Do I Configure the Plugin?](#how-do-i-configure-the-plugin)
-- [What Options Are Available?](#what-options-are-available)
-- [How Do I Verify the Plugin Is Working?](#how-do-i-verify-the-plugin-is-working)
-- [How Do I Use With Different Frameworks?](#how-do-i-use-with-different-frameworks)
-- [What Are Best Practices?](#what-are-best-practices)
-- [Why Isn't It Working?](#why-isnt-it-working)
-- [See Also](#see-also)

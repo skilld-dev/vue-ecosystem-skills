@@ -12,13 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Movie](#schemaorg-movie)
-- [Useful Links](#useful-links)
-- [Types](#types)
-- [Related Schemas](#related-schemas)
-
 ## [Schema.org Movie](#schemaorg-movie)
 
 **Type**: `defineMovie(input?: Movie)`
@@ -120,10 +113,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **LocalBusiness** Implement LocalBusiness structured data with Unhead. JSON-LD examples, required properties, subtypes (Dentist, Restaurant, Store), and Google rich result setup. **Music Album Schema** Use defineMusicAlbum() to add MusicAlbum structured data. Display album info with artist, tracks, and release date in search results.
-
-**On this page **
-
-- [Schema.org Movie](#schemaorg-movie)
-- [Useful Links](#useful-links)
-- [Types](#types)
-- [Related Schemas](#related-schemas)

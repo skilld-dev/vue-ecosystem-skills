@@ -12,15 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org PodcastSeason](#schemaorg-podcastseason)
-- [Useful Links](#useful-links)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)
-
 ## [Schema.org PodcastSeason](#schemaorg-podcastseason)
 
 **Type**: `definePodcastSeason(input?: PodcastSeason)`
@@ -103,12 +94,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Podcast Episode Schema** Use definePodcastEpisode() to add PodcastEpisode structured data. Enable podcast rich results with episode title, audio, and description. **Podcast Series Schema** Use definePodcastSeries() to add PodcastSeries structured data. Enable podcast rich results with show info, host, and RSS feed link.
-
-**On this page **
-
-- [Schema.org PodcastSeason](#schemaorg-podcastseason)
-- [Useful Links](#useful-links)
-- [Recommended Properties](#recommended-properties)
-- [Defaults](#defaults)
-- [Examples](#examples)
-- [Types](#types)

@@ -12,16 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Schema.org Image](#schemaorg-image)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)
-
 ## [Schema.org Image](#schemaorg-image)
 
 - **Type**: `defineImage(input?: Image)`
@@ -115,13 +105,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **HowTo** Add HowTo structured data to your site with Unhead. Step-by-step JSON-LD examples, required properties, and Google rich result guidance. **ItemList** Add ItemList structured data with Unhead. JSON-LD examples for carousels, ranked lists, and product collections with Google rich result support.
-
-**On this page **
-
-- [Schema.org Image](#schemaorg-image)
-- [Useful Links](#useful-links)
-- [Required properties](#required-properties)
-- [Defaults](#defaults)
-- [Resolves](#resolves)
-- [Examples](#examples)
-- [Types](#types)

@@ -12,12 +12,6 @@ meta:
 
 Copy for LLMs
 
-**On this page **
-
-- [Why Create Custom Schema.org Nodes?](#why-create-custom-schemaorg-nodes)
-- [How Do I Add TypeScript Support for Custom Nodes?](#how-do-i-add-typescript-support-for-custom-nodes)
-- [Related Recipes](#related-recipes)
-
 **Quick Answer:** Create custom Schema.org nodes by passing a plain object to `useSchemaOrg()`. Use `@type` for the schema type and any valid Schema.org properties.
 
 ## [Why Create Custom Schema.org Nodes?](#why-create-custom-schemaorg-nodes)
@@ -79,9 +73,3 @@ Markdown For LLMs
 **Did this page help you? **
 
 **Schema.org Params** Configure site-wide defaults for Schema.org with host, inLanguage, currency, and trailingSlash. Automatically cascade to all schema nodes. **Identity** Set up Organization, Person, or LocalBusiness as your site identity. Enable Google Knowledge Panel and connect content to E-E-A-T signals.
-
-**On this page **
-
-- [Why Create Custom Schema.org Nodes?](#why-create-custom-schemaorg-nodes)
-- [How Do I Add TypeScript Support for Custom Nodes?](#how-do-i-add-typescript-support-for-custom-nodes)
-- [Related Recipes](#related-recipes)
