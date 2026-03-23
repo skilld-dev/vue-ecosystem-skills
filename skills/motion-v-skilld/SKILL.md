@@ -2,16 +2,16 @@
 name: motion-v-skilld
 description: "ALWAYS use when writing code importing \"motion-v\". Consult for debugging, best practices, or modifying motion-v, motion v, motion-vue, motion vue."
 metadata:
-  version: 2.1.0
-  generated_at: 2026-03-22
-  references_synced_at: 2026-03-22
+  version: 2.2.0
+  generated_at: 2026-03-23
+  references_synced_at: 2026-03-23
 ---
 
 # motiondivision/motion-vue `motion-v`
 
-**Version:** 2.1.0
+**Version:** 2.2.0
 **Deps:** framer-motion@^12.38.0, hey-listen@^1.0.8, motion-dom@^12.38.0, motion-utils@^12.36.0
-**Tags:** latest: 2.1.0
+**Tags:** latest: 2.2.0
 
 **References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
 ## API Changes
