@@ -2,13 +2,13 @@
 name: vue-data-ui-skilld
 description: "A user-empowering data visualization Vue 3 components library for eloquent data storytelling. ALWAYS use when writing code importing \"vue-data-ui\". Consult for debugging, best practices, or modifying vue-data-ui, vue data ui."
 metadata:
-  version: 3.17.2
-  generated_at: 2026-03-30
-  references_synced_at: 2026-03-30
+  version: 3.17.3
+  generated_at: 2026-04-01
+  references_synced_at: 2026-04-01
 ---
 
-# graphieros/vue-data-ui `vue-data-ui@3.17.2`
-**Tags:** beta: 2.15.6-beta.3, next: 3.1.19-next.1, latest: 3.17.2
+# graphieros/vue-data-ui `vue-data-ui@3.17.3`
+**Tags:** beta: 2.15.6-beta.3, next: 3.1.19-next.1, latest: 3.17.3
 
 **References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes

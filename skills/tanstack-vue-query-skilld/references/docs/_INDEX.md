@@ -1,12 +1,12 @@
 ---
-total: 74
+total: 75
 ---
 
 # Docs Index
 
 - ['zodios',](./community-resources.md)
 
-## eslint (8)
+## eslint (9)
 
 - [ESLint Plugin Query](./eslint/eslint-plugin-query.md): TanStack Query comes with its own ESLint plugin. This plugin is used to enforce best practices and to help you avoid common mistakes.
 - [Exhaustive dependencies for query keys](./eslint/exhaustive-deps.md): Query keys should be seen like a dependency array to your query function: Every variable that is used inside the queryFn should be added to the que...
@@ -15,6 +15,7 @@ total: 74
 - [Disallow object rest destructuring on query results](./eslint/no-rest-destructuring.md): Use object rest destructuring on query results automatically subscribes to every field of the query result, which may cause unnecessary re-renders....
 - [Disallow putting the result of query hooks directly in a React hook dependency array](./eslint/no-unstable-deps.md): The object returned from the following query hooks is not referentially stable:
 - [Disallow returning void from query functions](./eslint/no-void-query-fn.md): Query functions must return a value that will be cached by TanStack Query. Functions that don't return a value (void functions) can lead to unexpec...
+- [Prefer the use of queryOptions](./eslint/prefer-query-options.md): Separating queryKey and queryFn can cause unexpected runtime issues when the same query key is accidentally used with more than one queryFn. Wrappi...
 - [Stable Query Client](./eslint/stable-query-client.md): The QueryClient contains the QueryCache, so you'd only want to create one instance of the QueryClient for the lifecycle of your application - not a...
 
 ## framework/vue (7)
