@@ -2,13 +2,13 @@
 name: shadcn-vue-skilld
 description: "Add components to your apps. ALWAYS use when writing code importing \"shadcn-vue\". Consult for debugging, best practices, or modifying shadcn-vue, shadcn vue."
 metadata:
-  version: 2.5.0
-  generated_at: 2026-04-03
-  references_synced_at: 2026-04-03
+  version: 2.5.1
+  generated_at: 2026-04-04
+  references_synced_at: 2026-04-04
 ---
 
-# unovue/shadcn-vue `shadcn-vue@2.5.0`
-**Tags:** radix: 0.11.4, latest: 2.5.0
+# unovue/shadcn-vue `shadcn-vue@2.5.1`
+**Tags:** radix: 0.11.4, latest: 2.5.1
 
 **References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes

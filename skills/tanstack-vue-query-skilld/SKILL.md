@@ -2,12 +2,12 @@
 name: tanstack-vue-query-skilld
 description: "Hooks for managing, caching and syncing asynchronous and remote data in Vue. ALWAYS use when writing code importing \"@tanstack/vue-query\". Consult for debugging, best practices, or modifying @tanstack/vue-query, tanstack/vue-query, tanstack vue-query, tanstack vue query, query."
 metadata:
-  version: 5.96.1
-  generated_at: 2026-04-02
-  references_synced_at: 2026-04-02
+  version: 5.96.2
+  generated_at: 2026-04-04
+  references_synced_at: 2026-04-04
 ---
 
-# TanStack/query `@tanstack/vue-query@5.96.1`
+# TanStack/query `@tanstack/vue-query@5.96.2`
 **Tags:** alpha: 5.0.0-alpha.91, beta: 5.0.0-beta.35, rc: 5.0.0-rc.16
 
 **References:** [Docs](./references/docs/_INDEX.md)
