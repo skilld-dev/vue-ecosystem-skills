@@ -222,4 +222,4 @@ if (rawTokens) {
 
 - Soniox Console - Manage API keys and projects
 - Soniox API docs - Complete Soniox API reference
-- [Transcription Guide](../guides/transcription) - Learn about transcription in TanStack AI
+- [Transcription Guide](../media/transcription) - Learn about transcription in TanStack AI

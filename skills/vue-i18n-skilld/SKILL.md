@@ -2,12 +2,12 @@
 name: vue-i18n-skilld
 description: "Internationalization plugin for Vue.js. ALWAYS use when writing code importing \"vue-i18n\". Consult for debugging, best practices, or modifying vue-i18n, vue i18n."
 metadata:
-  version: 11.3.1
-  generated_at: 2026-04-06
-  references_synced_at: 2026-04-06
+  version: 11.3.2
+  generated_at: 2026-04-09
+  references_synced_at: 2026-04-09
 ---
 
-# intlify/vue-i18n `vue-i18n@11.3.1`
+# intlify/vue-i18n `vue-i18n@11.3.2`
 **Tags:** rc: 9.0.0-rc.9, alpha: 9.2.0-alpha.9, legacy: 8.28.2
 
 **References:** [Docs](./references/docs/_INDEX.md)

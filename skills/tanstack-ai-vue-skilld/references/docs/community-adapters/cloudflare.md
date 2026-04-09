@@ -294,5 +294,5 @@ When using the `env.AI` binding inside a Worker, no environment variables are ne
 - Cloudflare Workers AI — Workers AI documentation
 - Cloudflare AI Gateway — AI Gateway documentation
 - GitHub Repository — Source code and issues
-- [Streaming Guide](../guides/streaming) — Learn about streaming responses
-- [Tools Guide](../guides/tools) — Learn about tool calling
+- [Streaming Guide](../chat/streaming) — Learn about streaming responses
+- [Tools Guide](../tools/tools) — Learn about tool calling

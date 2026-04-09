@@ -2,13 +2,13 @@
 name: tanstack-ai-vue-skilld
 description: "Vue hooks for TanStack AI. ALWAYS use when writing code importing \"@tanstack/ai-vue\". Consult for debugging, best practices, or modifying @tanstack/ai-vue, tanstack/ai-vue, tanstack ai-vue, tanstack ai vue, ai."
 metadata:
-  version: 0.6.12
-  generated_at: 2026-04-04
-  references_synced_at: 2026-04-04
+  version: 0.6.13
+  generated_at: 2026-04-09
+  references_synced_at: 2026-04-09
 ---
 
-# TanStack/ai `@tanstack/ai-vue@0.6.12`
-**Tags:** latest: 0.6.12
+# TanStack/ai `@tanstack/ai-vue@0.6.13`
+**Tags:** latest: 0.6.13
 
 **References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes

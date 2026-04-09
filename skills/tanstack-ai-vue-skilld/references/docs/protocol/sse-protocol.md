@@ -350,5 +350,5 @@ data: [DONE]
 
 - [Chunk Definitions](./chunk-definitions) - StreamChunk type reference
 - [HTTP Stream Protocol](./http-stream-protocol) - Alternative protocol
-- [Connection Adapters Guide](../guides/connection-adapters) - Client implementation
+- [Connection Adapters Guide](../chat/connection-adapters) - Client implementation
 - MDN: Server-Sent Events

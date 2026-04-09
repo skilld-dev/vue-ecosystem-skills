@@ -2,20 +2,15 @@
 name: primevue-skilld
 description: "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and profe.... ALWAYS use when writing code importing \"primevue\". Consult for debugging, best practices, or modifying primevue."
 metadata:
-  version: 4.5.4
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  version: 4.5.5
+  generated_at: 2026-04-09
+  references_synced_at: 2026-04-09
 ---
 
-# primefaces/primevue `primevue`
+# primefaces/primevue `primevue@4.5.5`
+**Tags:** v2-stable: 2.10.4, v3-stable: 3.53.1, latest: 4.5.5
 
-> PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.
-
-**Version:** 4.5.4
-**Deps:** @primeuix/styled@^0.7.4, @primeuix/utils@^0.6.2, @primeuix/styles@^2.0.2, @primevue/core@4.5.4, @primevue/icons@4.5.4
-**Tags:** v2-stable: 2.10.4, v3-stable: 3.53.1, latest: 4.5.4
-
-**References:** [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

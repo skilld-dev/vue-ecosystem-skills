@@ -179,5 +179,5 @@ Creates a custom Cencori adapter factory.
 - Cencori Dashboard — View analytics, logs, and costs
 - Documentation — Complete API reference
 - GitHub Repository — SDK source code
-- [Streaming Guide](../guides/streaming) — Learn about streaming responses
-- [Tools Guide](../guides/tools) — Learn about tool calling
+- [Streaming Guide](../chat/streaming) — Learn about streaming responses
+- [Tools Guide](../tools/tools) — Learn about tool calling
