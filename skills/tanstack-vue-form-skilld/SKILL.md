@@ -2,13 +2,13 @@
 name: tanstack-vue-form-skilld
 description: "Powerful, type-safe forms for Vue. ALWAYS use when writing code importing \"@tanstack/vue-form\". Consult for debugging, best practices, or modifying @tanstack/vue-form, tanstack/vue-form, tanstack vue-form, tanstack vue form, form."
 metadata:
-  version: 1.28.6
-  generated_at: 2026-03-31
-  references_synced_at: 2026-03-31
+  version: 1.29.0
+  generated_at: 2026-04-11
+  references_synced_at: 2026-04-11
 ---
 
-# TanStack/form `@tanstack/vue-form@1.28.6`
-**Tags:** latest: 1.28.6
+# TanStack/form `@tanstack/vue-form@1.29.0`
+**Tags:** latest: 1.29.0
 
 **References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
