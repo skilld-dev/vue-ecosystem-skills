@@ -1,14 +1,13 @@
 ---
-total: 33
+total: 32
 ---
 
 # Docs Index
 
 - [Motion. A production-gradeanimation library for the web.](./index.md): Motion — JavaScript & React animation library
 
-## docs (32)
+## docs (31)
 
-- [AnimateNumber](./docs/vue-animate-number.md): AnimateNumber — Vue number ticker and countdowns | Motion
 - [AnimatePresence](./docs/vue-animate-presence.md): AnimatePresence — Vue exit animations | Motion
 - [Vue animation](./docs/vue-animation.md): Vue animations with Motion for Vue | Motion
 - [Carousel](./docs/vue-carousel.md): Carousel, a performant, infinite scrolling carousel | Motion

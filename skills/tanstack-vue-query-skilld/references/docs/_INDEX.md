@@ -1,5 +1,5 @@
 ---
-total: 76
+total: 79
 ---
 
 # Docs Index
@@ -72,16 +72,19 @@ Previously reactive was returned which led to mult...
 - [broadcastQueryClient (Experimental)](./framework/vue/plugins/broadcastQueryClient.md)
 - [experimental_createQueryPersister](./framework/vue/plugins/createPersister.md): This utility comes as a separate package and is available under the '@tanstack/query-persist-client-core' import.
 
-## framework/vue/reference (11)
+## framework/vue/reference (14)
 
 - [hydration](./framework/vue/reference/hydration.md)
 - [infiniteQueryOptions](./framework/vue/reference/infiniteQueryOptions.md)
+- [mutationOptions](./framework/vue/reference/mutationOptions.md)
 - [queryOptions](./framework/vue/reference/queryOptions.md)
 - [useInfiniteQuery](./framework/vue/reference/useInfiniteQuery.md)
 - [useIsFetching](./framework/vue/reference/useIsFetching.md)
 - [useIsMutating](./framework/vue/reference/useIsMutating.md)
 - [useMutation](./framework/vue/reference/useMutation.md)
 - [useMutationState](./framework/vue/reference/useMutationState.md)
+- [usePrefetchInfiniteQuery](./framework/vue/reference/usePrefetchInfiniteQuery.md)
+- [usePrefetchQuery](./framework/vue/reference/usePrefetchQuery.md)
 - [useQueries](./framework/vue/reference/useQueries.md)
 - [useQuery](./framework/vue/reference/useQuery.md)
 - [useQueryClient](./framework/vue/reference/useQueryClient.md)

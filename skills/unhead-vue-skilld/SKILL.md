@@ -2,12 +2,12 @@
 name: unhead-vue-skilld
 description: "Full-stack head manager built for Vue. ALWAYS use when writing code importing \"@unhead/vue\". Consult for debugging, best practices, or modifying @unhead/vue, unhead/vue, unhead vue, unhead."
 metadata:
-  version: 3.0.2
-  generated_at: 2026-04-10
-  references_synced_at: 2026-04-10
+  version: 3.0.3
+  generated_at: 2026-04-12
+  references_synced_at: 2026-04-12
 ---
 
-# unjs/unhead `@unhead/vue@3.0.2`
+# unjs/unhead `@unhead/vue@3.0.3`
 **Tags:** next: 3.0.0-beta.9, beta: 3.0.0-beta.12, rc: 3.0.0-rc.4
 
 **References:** [Docs](./references/docs/_INDEX.md)

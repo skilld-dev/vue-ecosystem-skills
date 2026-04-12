@@ -1938,10 +1938,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -1950,14 +1956,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
@@ -1999,10 +1997,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -2011,14 +2015,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
@@ -2060,10 +2056,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -2072,14 +2074,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 

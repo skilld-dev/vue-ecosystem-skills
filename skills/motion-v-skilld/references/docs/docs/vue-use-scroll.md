@@ -108,9 +108,11 @@ Copy page
  <motion.div :style="{ scaleX: scrollYProgress }" />  
 </template>
 
+`useScroll` is able to run some animations with the browser's `[ScrollTimeline](https://developer.mozilla.org/en-US/docs/Web/API/ScrollTimeline)` API for optimal hardware-accelerated performance, removing scroll measurements, improving scroll synchronisation and ensuring animations remain smooth even under heavy CPI usage.
+
 ## [Usage](#usage)
 
-Import `useScroll` from Motion:
+Import `useScroll` from Motion for Vue:
 
 import { useScroll } from "motion-v"
 
@@ -215,6 +217,18 @@ Both target and container points can be defined as:
 - **Pixels:** Pixel values like `"100px"`, `"-50px"` will be defined as that number of pixels from the start of the target/container.
 - **Percent:** Same as raw numbers but expressed as `"0%"` to `"100%"`.
 - **Viewport:** `"vh"` and `"vw"` units are accepted.
+
+### [`trackContentSize`](#trackcontentsize)
+
+**Default:** `false`
+
+When the size of a page or element's content changes, its scrollable area can change too. But, because browsers don't provide a callback for changes in content size, by default `useScroll()` will not update until the next `"scroll"` event.
+
+Content size tracking is disabled by default because most of the time, scrollable area remains stable, and tracking changes to it involves a small overhead.
+
+`useScroll` can automatically track changes to content size by setting `trackContentSize` to `true`.
+
+useScroll({ trackContentSize: true })
 
 `useScroll` is used to create scroll-linked animations, like progress indicators and parallax effects.
 
@@ -224,9 +238,11 @@ Both target and container points can be defined as:
  <motion.div :style="{ scaleX: scrollYProgress }" />  
 </template>
 
+`useScroll` is able to run some animations with the browser's `[ScrollTimeline](https://developer.mozilla.org/en-US/docs/Web/API/ScrollTimeline)` API for optimal hardware-accelerated performance, removing scroll measurements, improving scroll synchronisation and ensuring animations remain smooth even under heavy CPI usage.
+
 ## [Usage](#usage)
 
-Import `useScroll` from Motion:
+Import `useScroll` from Motion for Vue:
 
 import { useScroll } from "motion-v"
 
@@ -331,6 +347,18 @@ Both target and container points can be defined as:
 - **Pixels:** Pixel values like `"100px"`, `"-50px"` will be defined as that number of pixels from the start of the target/container.
 - **Percent:** Same as raw numbers but expressed as `"0%"` to `"100%"`.
 - **Viewport:** `"vh"` and `"vw"` units are accepted.
+
+### [`trackContentSize`](#trackcontentsize)
+
+**Default:** `false`
+
+When the size of a page or element's content changes, its scrollable area can change too. But, because browsers don't provide a callback for changes in content size, by default `useScroll()` will not update until the next `"scroll"` event.
+
+Content size tracking is disabled by default because most of the time, scrollable area remains stable, and tracking changes to it involves a small overhead.
+
+`useScroll` can automatically track changes to content size by setting `trackContentSize` to `true`.
+
+useScroll({ trackContentSize: true })
 
 `useScroll` is used to create scroll-linked animations, like progress indicators and parallax effects.
 
@@ -340,9 +368,11 @@ Both target and container points can be defined as:
  <motion.div :style="{ scaleX: scrollYProgress }" />  
 </template>
 
+`useScroll` is able to run some animations with the browser's `[ScrollTimeline](https://developer.mozilla.org/en-US/docs/Web/API/ScrollTimeline)` API for optimal hardware-accelerated performance, removing scroll measurements, improving scroll synchronisation and ensuring animations remain smooth even under heavy CPI usage.
+
 ## [Usage](#usage)
 
-Import `useScroll` from Motion:
+Import `useScroll` from Motion for Vue:
 
 import { useScroll } from "motion-v"
 
@@ -447,6 +477,18 @@ Both target and container points can be defined as:
 - **Pixels:** Pixel values like `"100px"`, `"-50px"` will be defined as that number of pixels from the start of the target/container.
 - **Percent:** Same as raw numbers but expressed as `"0%"` to `"100%"`.
 - **Viewport:** `"vh"` and `"vw"` units are accepted.
+
+### [`trackContentSize`](#trackcontentsize)
+
+**Default:** `false`
+
+When the size of a page or element's content changes, its scrollable area can change too. But, because browsers don't provide a callback for changes in content size, by default `useScroll()` will not update until the next `"scroll"` event.
+
+Content size tracking is disabled by default because most of the time, scrollable area remains stable, and tracking changes to it involves a small overhead.
+
+`useScroll` can automatically track changes to content size by setting `trackContentSize` to `true`.
+
+useScroll({ trackContentSize: true })
 
 Previous
 
@@ -504,10 +546,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -516,14 +564,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
@@ -565,10 +605,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -577,14 +623,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
@@ -626,10 +664,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -638,14 +682,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 

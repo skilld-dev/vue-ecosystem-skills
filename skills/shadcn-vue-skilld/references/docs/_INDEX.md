@@ -13,7 +13,9 @@ total: 98
 - [Components](./02.components.md)
 - [Installation](./02.installation.md): Start by selecting your framework of choice. Then follow the instructions to install the dependencies and structure your app. shadcn-vue is built t...
 - [components.json](./03.components-json.md): The components.json file holds configuration for your project.
-- [Theming](./04.theming.md): You can choose between using CSS variables (recommended) or utility classes for theming.
+- [Theming](./04.theming.md): ::vue-school-link{lesson="theming-with-shadcn-vue" placement="top"}
+Watch a Vue School video about theming with shadcn-vue.
+::
 - [Dark Mode](./05.dark-mode.md)
 - [CLI](./06.cli.md): Use the init command to initialize configuration and dependencies for a new project.
 - [JavaScript](./07.javascript.md): This project and the components are written in TypeScript. We recommend using TypeScript for your project as well.

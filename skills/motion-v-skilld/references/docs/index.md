@@ -114,10 +114,6 @@ Motion is deployed and sponsored by the best teams in the industry, powering UI 
 
    animations.dev  
 
-###### gold sponsors
-
-
-
 Become a sponsor
 
 Premium components
@@ -244,9 +240,9 @@ Follow the latest library releases, inspiring examples, and step-by-step tutoria
 
 ### Changelog
 
+- 5.4.3Apr 8, 2026
 - 12.37.0Mar 16, 2026
 - 12.38.0Mar 16, 2026
-- 12.35.2Mar 9, 2026
 
 See full changelog
 
@@ -314,6 +310,8 @@ From the biggest UI libraries to popular website builders, Motion works with the
 
  Studio Get started with Motion for React
 
+ MotionScore Get started with Motion for React
+
 ### Integration guides
 
  Framer
@@ -337,6 +335,8 @@ From the biggest UI libraries to popular website builders, Motion works with the
 ### Developer tools
 
  Studio Get started with Motion for React
+
+ MotionScore Get started with Motion for React
 
 ### Integration guides
 
@@ -384,10 +384,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -396,14 +402,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
@@ -445,10 +443,16 @@ Subscribe
 - Docs
 - Examples
 - Magazine
-- Motion+
 - Studio
 - Support
 - Tutorials
+
+## Products
+
+- CSS Studio
+- Motion
+- Motion+
+- MotionScore
 
 ###### Most Popular
 
@@ -457,14 +461,6 @@ Subscribe
 - SVG animation
 - Motion component
 - GSAP vs Motion
-
-## Premium APIs
-
-- Carousel
-- Custom Cursor
-- Number animations
-- Ticker
-- Typewriter
 
 ###### Docs
 
