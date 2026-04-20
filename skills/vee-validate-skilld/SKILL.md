@@ -3,19 +3,14 @@ name: vee-validate-skilld
 description: "Painless forms for Vue.js. ALWAYS use when writing code importing \"vee-validate\". Consult for debugging, best practices, or modifying vee-validate, vee validate."
 metadata:
   version: 4.15.1
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# logaretm/vee-validate `vee-validate`
+# logaretm/vee-validate `vee-validate@4.15.1`
+**Tags:** prev: 1.0.0-beta.10, next-edge: 4.5.0-alpha.2, edge: 4.5.0-alpha.6
 
-> Painless forms for Vue.js
-
-**Version:** 4.15.1
-**Deps:** @vue/devtools-api@^7.5.2, type-fest@^4.8.3
-**Tags:** prev: 1.0.0-beta.10, next-edge: 4.5.0-alpha.2, edge: 4.5.0-alpha.6, next: 4.5.8, alpha: 4.12.0-alpha.1, beta: 5.0.0-beta.0, latest: 4.15.1
-
-**References:** [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes for vee-validate v4.x — prioritize these over legacy patterns.

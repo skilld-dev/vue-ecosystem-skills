@@ -3,18 +3,14 @@ name: unovis-vue-skilld
 description: "Modular data visualization framework for React, Angular, Svelte, Vue, and vanilla TypeScript or JavaScript. ALWAYS use when writing code importing \"@unovis/vue\". Consult for debugging, best practices, or modifying @unovis/vue, unovis/vue, unovis vue, unovis."
 metadata:
   version: 1.6.4
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# f5/unovis `@unovis/vue`
-
-> Modular data visualization framework for React, Angular, Svelte, Vue, and vanilla TypeScript or JavaScript
-
-**Version:** 1.6.4
+# f5/unovis `@unovis/vue@1.6.4`
 **Tags:** beta: 1.6.5-topojson.0, latest: 1.6.4
 
-**References:** [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes for `@unovis/vue` — prioritize recent major/minor releases.

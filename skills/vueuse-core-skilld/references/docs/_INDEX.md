@@ -1,5 +1,5 @@
 ---
-total: 290
+total: 291
 ---
 
 # Docs Index
@@ -17,7 +17,7 @@ date: 2026-01-07T03:07:59.027Z
 
 ## components (1)
 
-- [@vueuse/components](./components/README.md): Learn more about component usage.
+- [@vueuse/components](./components/README.md): NPM version
 
 ## core/_template (1)
 
@@ -260,7 +260,7 @@ they are fired, automatically refetch requests when the url ch...
 
 ## core/useFocusWithin (1)
 
-- [useFocusWithin](./core/useFocusWithin/index.md): Reactive utility to track if an element or one of its decendants has focus. It is meant to match the behavior of the :focus-within CSS pseudo-class...
+- [useFocusWithin](./core/useFocusWithin/index.md): Reactive utility to track if an element or one of its descendants has focus. It is meant to match the behavior of the :focus-within CSS pseudo-clas...
 
 ## core/useFps (1)
 
@@ -292,7 +292,7 @@ they are fired, automatically refetch requests when the url ch...
 
 ## core/useIntersectionObserver (1)
 
-- [useIntersectionObserver](./core/useIntersectionObserver/index.md): Detects that a target element's visibility.
+- [useIntersectionObserver](./core/useIntersectionObserver/index.md): Detects changes to a target element's visibility.
 
 ## core/useKeyModifier (1)
 
@@ -308,7 +308,7 @@ they are fired, automatically refetch requests when the url ch...
 
 ## core/useManualRefHistory (1)
 
-- [useManualRefHistory](./core/useManualRefHistory/index.md): Manually track the change history of a ref when the using calls commit(), also provides undo and redo functionality
+- [useManualRefHistory](./core/useManualRefHistory/index.md): Manually track the change history of a ref when the user calls commit(), also provides undo and redo functionality
 
 ## core/useMediaControls (1)
 
@@ -496,7 +496,7 @@ they are fired, automatically refetch requests when the url ch...
 
 ## core/useStorageAsync (1)
 
-- [useStorageAsync](./core/useStorageAsync/index.md): Reactive Storage in with async support.
+- [useStorageAsync](./core/useStorageAsync/index.md): Reactive Storage with async support.
 
 ## core/useStyleTag (1)
 
@@ -614,7 +614,7 @@ Consider using @tanstack/vue-virtual instead, if you are looking for more featur
 
 ## electron (1)
 
-- [@vueuse/electron](./electron/README.md): @vueuse/electron provides the following functions
+- [@vueuse/electron](./electron/README.md): NPM version
 
 ## electron/useIpcRenderer (1)
 
@@ -638,7 +638,7 @@ Consider using @tanstack/vue-virtual instead, if you are looking for more featur
 
 ## firebase (1)
 
-- [@vueuse/firebase](./firebase/README.md): Add-on of VueUse, enables the real-time bindings for Firebase.
+- [@vueuse/firebase](./firebase/README.md): NPM version
 
 ## firebase/useAuth (1)
 
@@ -663,7 +663,7 @@ can easily react to changes in the users' authentication sta...
 
 ## integrations (1)
 
-- [@vueuse/integrations](./integrations/README.md): For better tree-shaking result, import functions from submodules, for example:
+- [@vueuse/integrations](./integrations/README.md): NPM version
 
 ## integrations/useAsyncValidator (1)
 
@@ -735,7 +735,7 @@ can easily react to changes in the users' authentication sta...
 
 ## math (1)
 
-- [@vueuse/math](./math/README.md): MIT License  2019-PRESENT Anthony Fu
+- [@vueuse/math](./math/README.md): NPM version
 
 ## math/useAbs (1)
 
@@ -791,11 +791,11 @@ can easily react to changes in the users' authentication sta...
 
 ## nuxt (1)
 
-- [@vueuse/nuxt](./nuxt/README.md): Install the vueuse module into your application using @nuxt/cli:
+- [@vueuse/nuxt](./nuxt/README.md): NPM version
 
 ## router (1)
 
-- [@vueuse/router](./router/README.md): MIT License  2019-PRESENT Anthony Fu
+- [@vueuse/router](./router/README.md): NPM version
 
 ## router/useRouteHash (1)
 
@@ -815,7 +815,7 @@ can easily react to changes in the users' authentication sta...
 
 ## rxjs (1)
 
-- [@vueuse/rxjs](./rxjs/README.md): MIT License  2019-PRESENT Anthony Fu
+- [@vueuse/rxjs](./rxjs/README.md): NPM version
 
 ## rxjs/toObserver (1)
 
@@ -849,6 +849,10 @@ and automatically unsubscribe from it when the component is unmounted.
 ## shared/computedWithControl (1)
 
 - [computedWithControl](./shared/computedWithControl/index.md): Explicitly define the dependencies of computed.
+
+## shared/createDisposableDirective (1)
+
+- [createDisposableDirective](./shared/createDisposableDirective/index.md): Utility for authoring disposable directives. Reactive effects created within mounted directive hook will be tracked and automatically disposed when...
 
 ## shared/createEventHook (1)
 

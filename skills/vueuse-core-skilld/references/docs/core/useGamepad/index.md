@@ -66,15 +66,13 @@ onDisconnected((index) => {
 
 > The Gamepad Haptics API is sparse, so check the compatibility table before using.
 
-
-
 ```ts
 import { useGamepad } from '@vueuse/core'
+// ---cut---
+import { computed } from 'vue'
 
 const { gamepads, onConnected, onDisconnected } = useGamepad()
 const gamepad = gamepads.value[0]!
-// ---cut---
-import { computed } from 'vue'
 
 const supportsVibration = computed(() => gamepad.hapticActuators.length > 0)
 function vibrate() {

@@ -3,17 +3,14 @@ name: vue-test-utils-skilld
 description: "ALWAYS use when writing code importing \"@vue/test-utils\". Consult for debugging, best practices, or modifying @vue/test-utils, vue/test-utils, vue test-utils, vue test utils, test-utils, test utils."
 metadata:
   version: 2.4.6
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# vuejs/test-utils `@vue/test-utils`
+# vuejs/test-utils `@vue/test-utils@2.4.6`
+**Tags:** latest: 2.4.6, 2.0.0-alpha.0: 2.0.0-alpha.0, 2.0.0-alpha.1: 2.0.0-alpha.1
 
-**Version:** 2.4.6
-**Deps:** js-beautify@^1.14.9, vue-component-type-helpers@^2.0.0
-**Tags:** latest: 2.4.6, 2.0.0-alpha.0: 2.0.0-alpha.0, 2.0.0-alpha.1: 2.0.0-alpha.1, 2.0.0-alpha.2: 2.0.0-alpha.2, 2.0.0-alpha.3: 2.0.0-alpha.3, 2.0.0-alpha.4: 2.0.0-alpha.4, next: 2.4.0-alpha.2, 2.0.0-alpha.8: 2.0.0-alpha.8, 2.0.0-beta.1: 2.0.0-beta.1, 2.0.0-beta.2: 2.0.0-beta.2, 2.0.0-beta.3: 2.0.0-beta.3, 2.0.0-beta.4: 2.0.0-beta.4, 2.0.0-beta.5: 2.0.0-beta.5, 2.0.0-beta.7: 2.0.0-beta.7, 2.0.0-beta.8: 2.0.0-beta.8, 2.0.0-beta.9: 2.0.0-beta.9, 2.0.0-beta.10: 2.0.0-beta.10, 2.0.0-beta.12: 2.0.0-beta.12, 2.0.0-beta.13: 2.0.0-beta.13, 2.0.0-rc.0: 2.0.0-rc.0, 2.0.0-rc.1: 2.0.0-rc.1, 2.0.0-rc.2: 2.0.0-rc.2, 2.0.0-rc.3: 2.0.0-rc.3, 2.0.0-rc.4: 2.0.0-rc.4, 2.0.0-rc.5: 2.0.0-rc.5, 2.0.0-rc.6: 2.0.0-rc.6, 2.0.0-rc.7: 2.0.0-rc.7, 2.0.0-rc.8: 2.0.0-rc.8, 2.0.0-rc.9: 2.0.0-rc.9, 2.0.0-rc.10: 2.0.0-rc.10, 2.0.0-rc.11: 2.0.0-rc.11, 2.0.0-rc.12: 2.0.0-rc.12, 2.0.0-rc.14: 2.0.0-rc.14, 2.0.0-rc.16: 2.0.0-rc.16, 2.0.0-rc.18: 2.0.0-rc.18, legacy: 1.3.6, 2.4.0-alpha.0: 2.4.0-alpha.0, v2.4.0-alpha.2: 2.4.0-alpha.2
-
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

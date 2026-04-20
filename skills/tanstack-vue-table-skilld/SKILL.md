@@ -3,19 +3,14 @@ name: tanstack-vue-table-skilld
 description: "Headless UI for building powerful tables & datagrids for Vue. ALWAYS use when writing code importing \"@tanstack/vue-table\". Consult for debugging, best practices, or modifying @tanstack/vue-table, tanstack/vue-table, tanstack vue-table, tanstack vue table, table."
 metadata:
   version: 8.21.3
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# TanStack/table `@tanstack/vue-table`
+# TanStack/table `@tanstack/vue-table@8.21.3`
+**Tags:** beta: 8.0.0-beta.9, latest: 8.21.3, alpha: 9.0.0-alpha.33
 
-> Headless UI for building powerful tables & datagrids for Vue.
-
-**Version:** 8.21.3
-**Deps:** @tanstack/table-core@8.21.3
-**Tags:** beta: 8.0.0-beta.9, alpha: 9.0.0-alpha.10, latest: 8.21.3
-
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

@@ -3,19 +3,14 @@ name: vueuse-math-skilld
 description: "Math functions for VueUse. ALWAYS use when writing code importing \"@vueuse/math\". Consult for debugging, best practices, or modifying @vueuse/math, vueuse/math, vueuse math, vueuse."
 metadata:
   version: 14.2.1
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# vueuse/vueuse `@vueuse/math`
-
-> Math functions for VueUse
-
-**Version:** 14.2.1
-**Deps:** @vueuse/shared@14.2.1
+# vueuse/vueuse `@vueuse/math@14.2.1`
 **Tags:** alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1, latest: 14.2.1
 
-**References:** [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.

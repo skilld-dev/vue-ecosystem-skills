@@ -8,9 +8,6 @@ Extended `toRefs` that also accepts refs of an object.
 
 ## Usage
 
-
-
-
 ```ts
 import { toRefs } from '@vueuse/core'
 import { reactive, ref } from 'vue'

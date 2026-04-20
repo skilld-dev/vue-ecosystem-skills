@@ -2,20 +2,15 @@
 name: vue-skilld
 description: "The progressive JavaScript framework for building modern web UI. ALWAYS use when editing or working with *.vue files or code importing \"vue\". Consult for debugging, best practices, or modifying vue, core."
 metadata:
-  version: 3.6.0-beta.8
-  generated_at: 2026-03-21
-  references_synced_at: 2026-03-21
+  version: 3.6.0-beta.10
+  generated_at: 2026-04-20
+  references_synced_at: 2026-04-20
 ---
 
-# vuejs/core `vue`
+# vuejs/core `vue@3.6.0-beta.10`
+**Tags:** csp: 1.0.28-csp, v2-latest: 2.7.16, legacy: 2.7.16
 
-> The progressive JavaScript framework for building modern web UI.
-
-**Version:** 3.6.0-beta.8
-**Deps:** @vue/shared@3.6.0-beta.8, @vue/compiler-dom@3.6.0-beta.8, @vue/runtime-vapor@3.6.0-beta.8, @vue/compiler-sfc@3.6.0-beta.8, @vue/runtime-dom@3.6.0-beta.8, @vue/server-renderer@3.6.0-beta.8
-**Tags:** csp: 1.0.28-csp, legacy: 2.7.16, v2-latest: 2.7.16, rc: 3.5.0-rc.1, alpha: 3.6.0-alpha.7, beta: 3.6.0-beta.8, latest: 3.5.30
-
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides • [GitHub Issues](./references/issues/_INDEX.md) — bugs, workarounds, edge cases • [GitHub Discussions](./references/discussions/_INDEX.md) — Q&A, patterns, recipes • [Releases](./references/releases/_INDEX.md) — changelog, breaking changes, new APIs
+**References:** [Docs](./references/docs/_INDEX.md)
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.
