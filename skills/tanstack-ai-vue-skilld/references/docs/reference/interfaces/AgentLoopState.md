@@ -5,7 +5,7 @@ title: AgentLoopState
 
 # Interface: AgentLoopState
 
-Defined in: types.ts:604
+Defined in: packages/typescript/ai/src/types.ts:630
 
 State passed to agent loop strategy for determining whether to continue
 
@@ -17,7 +17,7 @@ State passed to agent loop strategy for determining whether to continue
 finishReason: string | null;
 ```
 
-Defined in: types.ts:610
+Defined in: packages/typescript/ai/src/types.ts:636
 
 Finish reason from the last response
 
@@ -29,7 +29,7 @@ Finish reason from the last response
 iterationCount: number;
 ```
 
-Defined in: types.ts:606
+Defined in: packages/typescript/ai/src/types.ts:632
 
 Current iteration count (0-indexed)
 
@@ -44,6 +44,6 @@ messages: ModelMessage<
   | null>[];
 ```
 
-Defined in: types.ts:608
+Defined in: packages/typescript/ai/src/types.ts:634
 
 Current messages array

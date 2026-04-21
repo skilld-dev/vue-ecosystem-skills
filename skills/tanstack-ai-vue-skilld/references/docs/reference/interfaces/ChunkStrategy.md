@@ -5,7 +5,7 @@ title: ChunkStrategy
 
 # Interface: ChunkStrategy
 
-Defined in: activities/chat/stream/types.ts:33
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:33
 
 Strategy for determining when to emit text updates
 
@@ -17,7 +17,7 @@ Strategy for determining when to emit text updates
 optional reset: () => void;
 ```
 
-Defined in: activities/chat/stream/types.ts:45
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:45
 
 Optional: Reset strategy state (called when streaming starts)
 
@@ -33,7 +33,7 @@ Optional: Reset strategy state (called when streaming starts)
 shouldEmit: (chunk, accumulated) => boolean;
 ```
 
-Defined in: activities/chat/stream/types.ts:40
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:40
 
 Called for each text chunk received
 

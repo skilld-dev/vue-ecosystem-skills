@@ -5,7 +5,7 @@ title: RealtimeError
 
 # Interface: RealtimeError
 
-Defined in: realtime/types.ts:290
+Defined in: packages/typescript/ai/src/realtime/types.ts:290
 
 Extended error with realtime-specific information
 
@@ -21,7 +21,7 @@ Extended error with realtime-specific information
 code: RealtimeErrorCode;
 ```
 
-Defined in: realtime/types.ts:291
+Defined in: packages/typescript/ai/src/realtime/types.ts:291
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: realtime/types.ts:291
 optional details: unknown;
 ```
 
-Defined in: realtime/types.ts:293
+Defined in: packages/typescript/ai/src/realtime/types.ts:293
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: realtime/types.ts:293
 optional provider: string;
 ```
 
-Defined in: realtime/types.ts:292
+Defined in: packages/typescript/ai/src/realtime/types.ts:292

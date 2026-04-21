@@ -5,7 +5,7 @@ title: JSONParser
 
 # Interface: JSONParser
 
-Defined in: activities/chat/stream/json-parser.ts:12
+Defined in: packages/typescript/ai/src/activities/chat/stream/json-parser.ts:12
 
 JSON Parser interface - allows for custom parser implementations
 
@@ -17,7 +17,7 @@ JSON Parser interface - allows for custom parser implementations
 parse: (jsonString) => any;
 ```
 
-Defined in: activities/chat/stream/json-parser.ts:18
+Defined in: packages/typescript/ai/src/activities/chat/stream/json-parser.ts:18
 
 Parse a JSON string (may be incomplete/partial)
 

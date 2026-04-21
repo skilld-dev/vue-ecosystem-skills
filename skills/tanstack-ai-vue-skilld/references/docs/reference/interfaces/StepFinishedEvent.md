@@ -5,13 +5,22 @@ title: StepFinishedEvent
 
 # Interface: StepFinishedEvent
 
-Defined in: types.ts:900
+Defined in: packages/typescript/ai/src/types.ts:969
 
 Emitted when a thinking/reasoning step finishes.
 
+@ag-ui/core provides: `stepName`
+TanStack AI adds: `model?`, `stepId?` (deprecated alias), `delta?`, `content?`
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `StepFinishedEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -21,21 +30,21 @@ Emitted when a thinking/reasoning step finishes.
 optional content: string;
 ```
 
-Defined in: types.ts:907
+Defined in: packages/typescript/ai/src/types.ts:980
 
-Full accumulated thinking content (optional, for debugging)
+Full accumulated thinking content (TanStack AI internal)
 
 ***
 
-### delta
+### delta?
 
 ```ts
-delta: string;
+optional delta: string;
 ```
 
-Defined in: types.ts:905
+Defined in: packages/typescript/ai/src/types.ts:978
 
-Incremental thinking content
+Incremental thinking content (TanStack AI internal)
 
 ***
 
@@ -45,66 +54,21 @@ Incremental thinking content
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:971
 
 Model identifier for multi-model support
 
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
 ***
 
-### rawEvent?
+### ~~stepId?~~
 
 ```ts
-optional rawEvent: unknown;
+optional stepId: string;
 ```
 
-Defined in: types.ts:758
+Defined in: packages/typescript/ai/src/types.ts:976
 
-Original provider event for debugging/advanced use cases
+#### Deprecated
 
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
-
-***
-
-### stepId
-
-```ts
-stepId: string;
-```
-
-Defined in: types.ts:903
-
-Step identifier
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
-
-***
-
-### type
-
-```ts
-type: "STEP_FINISHED";
-```
-
-Defined in: types.ts:901
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)
+Use `stepName` instead (from @ag-ui/core spec).
+Kept for backward compatibility.

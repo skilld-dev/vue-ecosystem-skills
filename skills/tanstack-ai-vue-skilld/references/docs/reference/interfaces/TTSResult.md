@@ -5,7 +5,7 @@ title: TTSResult
 
 # Interface: TTSResult
 
-Defined in: types.ts:1160
+Defined in: packages/typescript/ai/src/types.ts:1327
 
 Result of text-to-speech generation.
 
@@ -17,7 +17,7 @@ Result of text-to-speech generation.
 audio: string;
 ```
 
-Defined in: types.ts:1166
+Defined in: packages/typescript/ai/src/types.ts:1333
 
 Base64-encoded audio data
 
@@ -29,7 +29,7 @@ Base64-encoded audio data
 optional contentType: string;
 ```
 
-Defined in: types.ts:1172
+Defined in: packages/typescript/ai/src/types.ts:1339
 
 Content type of the audio (e.g., 'audio/mp3')
 
@@ -41,7 +41,7 @@ Content type of the audio (e.g., 'audio/mp3')
 optional duration: number;
 ```
 
-Defined in: types.ts:1170
+Defined in: packages/typescript/ai/src/types.ts:1337
 
 Duration of the audio in seconds, if available
 
@@ -53,7 +53,7 @@ Duration of the audio in seconds, if available
 format: string;
 ```
 
-Defined in: types.ts:1168
+Defined in: packages/typescript/ai/src/types.ts:1335
 
 Audio format of the generated audio
 
@@ -65,7 +65,7 @@ Audio format of the generated audio
 id: string;
 ```
 
-Defined in: types.ts:1162
+Defined in: packages/typescript/ai/src/types.ts:1329
 
 Unique identifier for the generation
 
@@ -77,6 +77,6 @@ Unique identifier for the generation
 model: string;
 ```
 
-Defined in: types.ts:1164
+Defined in: packages/typescript/ai/src/types.ts:1331
 
 Model used for generation

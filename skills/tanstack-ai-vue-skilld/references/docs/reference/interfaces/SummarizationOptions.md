@@ -5,7 +5,7 @@ title: SummarizationOptions
 
 # Interface: SummarizationOptions
 
-Defined in: types.ts:993
+Defined in: packages/typescript/ai/src/types.ts:1160
 
 ## Properties
 
@@ -15,7 +15,7 @@ Defined in: types.ts:993
 optional focus: string[];
 ```
 
-Defined in: types.ts:998
+Defined in: packages/typescript/ai/src/types.ts:1165
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: types.ts:998
 optional maxLength: number;
 ```
 
-Defined in: types.ts:996
+Defined in: packages/typescript/ai/src/types.ts:1163
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: types.ts:996
 model: string;
 ```
 
-Defined in: types.ts:994
+Defined in: packages/typescript/ai/src/types.ts:1161
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: types.ts:994
 optional style: "bullet-points" | "paragraph" | "concise";
 ```
 
-Defined in: types.ts:997
+Defined in: packages/typescript/ai/src/types.ts:1164
 
 ***
 
@@ -55,4 +55,4 @@ Defined in: types.ts:997
 text: string;
 ```
 
-Defined in: types.ts:995
+Defined in: packages/typescript/ai/src/types.ts:1162

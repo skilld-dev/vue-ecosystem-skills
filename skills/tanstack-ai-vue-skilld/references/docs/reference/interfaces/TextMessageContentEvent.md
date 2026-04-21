@@ -5,13 +5,22 @@ title: TextMessageContentEvent
 
 # Interface: TextMessageContentEvent
 
-Defined in: types.ts:822
+Defined in: packages/typescript/ai/src/types.ts:861
 
 Emitted when text content is generated (streaming tokens).
 
+@ag-ui/core provides: `messageId`, `delta`
+TanStack AI adds: `model?`, `content?` (accumulated)
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `TextMessageContentEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -21,33 +30,9 @@ Emitted when text content is generated (streaming tokens).
 optional content: string;
 ```
 
-Defined in: types.ts:829
+Defined in: packages/typescript/ai/src/types.ts:865
 
-Full accumulated content so far (optional, for debugging)
-
-***
-
-### delta
-
-```ts
-delta: string;
-```
-
-Defined in: types.ts:827
-
-The incremental content token
-
-***
-
-### messageId
-
-```ts
-messageId: string;
-```
-
-Defined in: types.ts:825
-
-Message identifier
+Full accumulated content so far (TanStack AI internal, for debugging)
 
 ***
 
@@ -57,54 +42,6 @@ Message identifier
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:863
 
 Model identifier for multi-model support
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
-***
-
-### rawEvent?
-
-```ts
-optional rawEvent: unknown;
-```
-
-Defined in: types.ts:758
-
-Original provider event for debugging/advanced use cases
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
-
-***
-
-### type
-
-```ts
-type: "TEXT_MESSAGE_CONTENT";
-```
-
-Defined in: types.ts:823
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)

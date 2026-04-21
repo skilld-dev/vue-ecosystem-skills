@@ -5,7 +5,7 @@ title: BatchStrategy
 
 # Class: BatchStrategy
 
-Defined in: activities/chat/stream/strategies.ts:34
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:34
 
 Batch Strategy - emit every N chunks
 Useful for reducing UI update frequency
@@ -22,7 +22,7 @@ Useful for reducing UI update frequency
 new BatchStrategy(batchSize): BatchStrategy;
 ```
 
-Defined in: activities/chat/stream/strategies.ts:37
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:37
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: activities/chat/stream/strategies.ts:37
 reset(): void;
 ```
 
-Defined in: activities/chat/stream/strategies.ts:48
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:48
 
 Optional: Reset strategy state (called when streaming starts)
 
@@ -62,7 +62,7 @@ Optional: Reset strategy state (called when streaming starts)
 shouldEmit(_chunk, _accumulated): boolean;
 ```
 
-Defined in: activities/chat/stream/strategies.ts:39
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:39
 
 Called for each text chunk received
 

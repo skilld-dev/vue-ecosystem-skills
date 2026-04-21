@@ -9,7 +9,7 @@ title: AnyTextAdapter
 type AnyTextAdapter = TextAdapter<any, any, any, any>;
 ```
 
-Defined in: activities/chat/adapter.ts:98
+Defined in: packages/typescript/ai/src/activities/chat/adapter.ts:98
 
 A TextAdapter with any/unknown type parameters.
 Useful as a constraint in generic functions and interfaces.

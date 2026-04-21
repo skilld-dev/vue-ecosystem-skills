@@ -9,7 +9,7 @@ title: streamToText
 function streamToText(stream): Promise<string>;
 ```
 
-Defined in: stream-to-response.ts:23
+Defined in: packages/typescript/ai/src/stream-to-response.ts:23
 
 Collect all text content from a StreamChunk async iterable and return as a string.
 

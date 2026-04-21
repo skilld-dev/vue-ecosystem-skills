@@ -5,7 +5,7 @@ title: ContentPartUrlSource
 
 # Interface: ContentPartUrlSource
 
-Defined in: types.ts:136
+Defined in: packages/typescript/ai/src/types.ts:162
 
 Source specification for URL-based content.
 mimeType is optional as it can often be inferred from the URL or response headers.
@@ -18,7 +18,7 @@ mimeType is optional as it can often be inferred from the URL or response header
 optional mimeType: string;
 ```
 
-Defined in: types.ts:148
+Defined in: packages/typescript/ai/src/types.ts:174
 
 Optional MIME type hint for cases where providers can't infer it from the URL.
 
@@ -30,7 +30,7 @@ Optional MIME type hint for cases where providers can't infer it from the URL.
 type: "url";
 ```
 
-Defined in: types.ts:140
+Defined in: packages/typescript/ai/src/types.ts:166
 
 Indicates this is URL-referenced content.
 
@@ -42,6 +42,6 @@ Indicates this is URL-referenced content.
 value: string;
 ```
 
-Defined in: types.ts:144
+Defined in: packages/typescript/ai/src/types.ts:170
 
 HTTP(S) URL or data URI pointing to the content.

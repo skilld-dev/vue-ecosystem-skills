@@ -5,13 +5,22 @@ title: ToolCallStartEvent
 
 # Interface: ToolCallStartEvent
 
-Defined in: types.ts:844
+Defined in: packages/typescript/ai/src/types.ts:885
 
 Emitted when a tool call starts.
 
+@ag-ui/core provides: `toolCallId`, `toolCallName`, `parentMessageId?`
+TanStack AI adds: `model?`, `toolName` (deprecated alias), `index?`, `providerMetadata?`
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `ToolCallStartEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -21,7 +30,7 @@ Emitted when a tool call starts.
 optional index: number;
 ```
 
-Defined in: types.ts:853
+Defined in: packages/typescript/ai/src/types.ts:894
 
 Index for parallel tool calls
 
@@ -33,25 +42,9 @@ Index for parallel tool calls
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:887
 
 Model identifier for multi-model support
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
-***
-
-### parentMessageId?
-
-```ts
-optional parentMessageId: string;
-```
-
-Defined in: types.ts:851
-
-ID of the parent message that initiated this tool call
 
 ***
 
@@ -61,74 +54,21 @@ ID of the parent message that initiated this tool call
 optional providerMetadata: Record<string, unknown>;
 ```
 
-Defined in: types.ts:855
+Defined in: packages/typescript/ai/src/types.ts:896
 
 Provider-specific metadata to carry into the ToolCall
 
 ***
 
-### rawEvent?
-
-```ts
-optional rawEvent: unknown;
-```
-
-Defined in: types.ts:758
-
-Original provider event for debugging/advanced use cases
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
-
-***
-
-### toolCallId
-
-```ts
-toolCallId: string;
-```
-
-Defined in: types.ts:847
-
-Unique identifier for this tool call
-
-***
-
-### toolName
+### ~~toolName~~
 
 ```ts
 toolName: string;
 ```
 
-Defined in: types.ts:849
+Defined in: packages/typescript/ai/src/types.ts:892
 
-Name of the tool being called
+#### Deprecated
 
-***
-
-### type
-
-```ts
-type: "TOOL_CALL_START";
-```
-
-Defined in: types.ts:845
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)
+Use `toolCallName` instead (from @ag-ui/core spec).
+Kept for backward compatibility.

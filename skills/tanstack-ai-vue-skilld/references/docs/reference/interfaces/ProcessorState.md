@@ -5,7 +5,7 @@ title: ProcessorState
 
 # Interface: ProcessorState
 
-Defined in: activities/chat/stream/types.ts:79
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:80
 
 Current state of the processor
 
@@ -17,7 +17,7 @@ Current state of the processor
 content: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:80
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:81
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: activities/chat/stream/types.ts:80
 done: boolean;
 ```
 
-Defined in: activities/chat/stream/types.ts:85
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:86
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: activities/chat/stream/types.ts:85
 finishReason: string | null;
 ```
 
-Defined in: activities/chat/stream/types.ts:84
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:85
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: activities/chat/stream/types.ts:84
 thinking: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:81
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:82
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: activities/chat/stream/types.ts:81
 toolCallOrder: string[];
 ```
 
-Defined in: activities/chat/stream/types.ts:83
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:84
 
 ***
 
@@ -67,4 +67,4 @@ Defined in: activities/chat/stream/types.ts:83
 toolCalls: Map<string, InternalToolCallState>;
 ```
 
-Defined in: activities/chat/stream/types.ts:82
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:83

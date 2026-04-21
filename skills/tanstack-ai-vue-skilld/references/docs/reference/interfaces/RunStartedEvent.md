@@ -5,14 +5,23 @@ title: RunStartedEvent
 
 # Interface: RunStartedEvent
 
-Defined in: types.ts:769
+Defined in: packages/typescript/ai/src/types.ts:801
 
 Emitted when a run starts.
 This is the first event in any streaming response.
 
+@ag-ui/core provides: `threadId`, `runId`, `parentRunId?`, `input?`
+TanStack AI adds: `model?`
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `RunStartedEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -22,78 +31,6 @@ This is the first event in any streaming response.
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:803
 
 Model identifier for multi-model support
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
-***
-
-### rawEvent?
-
-```ts
-optional rawEvent: unknown;
-```
-
-Defined in: types.ts:758
-
-Original provider event for debugging/advanced use cases
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
-
-***
-
-### runId
-
-```ts
-runId: string;
-```
-
-Defined in: types.ts:772
-
-Unique identifier for this run
-
-***
-
-### threadId?
-
-```ts
-optional threadId: string;
-```
-
-Defined in: types.ts:774
-
-Optional thread/conversation ID
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
-
-***
-
-### type
-
-```ts
-type: "RUN_STARTED";
-```
-
-Defined in: types.ts:770
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)

@@ -5,7 +5,7 @@ title: ResponseFormat
 
 # Interface: ResponseFormat\<TData\>
 
-Defined in: types.ts:520
+Defined in: packages/typescript/ai/src/types.ts:546
 
 Structured output format specification.
 
@@ -33,7 +33,7 @@ TypeScript type of the expected data structure (for type safety)
 optional __data: TData;
 ```
 
-Defined in: types.ts:598
+Defined in: packages/typescript/ai/src/types.ts:624
 
 **`Internal`**
 
@@ -50,7 +50,7 @@ Allows the SDK to know what type to expect when parsing the response.
 optional json_schema: object;
 ```
 
-Defined in: types.ts:537
+Defined in: packages/typescript/ai/src/types.ts:563
 
 JSON schema specification (required when type is "json_schema").
 
@@ -139,7 +139,7 @@ https://platform.openai.com/docs/guides/structured-outputs#strict-mode
 type: "json_object" | "json_schema";
 ```
 
-Defined in: types.ts:529
+Defined in: packages/typescript/ai/src/types.ts:555
 
 Type of structured output.
 

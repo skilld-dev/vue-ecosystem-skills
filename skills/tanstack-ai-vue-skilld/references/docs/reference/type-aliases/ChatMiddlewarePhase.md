@@ -9,7 +9,7 @@ title: ChatMiddlewarePhase
 type ChatMiddlewarePhase = "init" | "beforeModel" | "modelStream" | "beforeTools" | "afterTools";
 ```
 
-Defined in: activities/chat/middleware/types.ts:15
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:15
 
 Phase of the chat middleware lifecycle.
 - 'init': Initial config transform before the chat engine starts

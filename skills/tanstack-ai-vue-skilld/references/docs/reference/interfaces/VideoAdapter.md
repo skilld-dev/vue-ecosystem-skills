@@ -5,7 +5,7 @@ title: VideoAdapter
 
 # Interface: VideoAdapter\<TModel, TProviderOptions, TModelProviderOptionsByName, TModelSizeByName\>
 
-Defined in: activities/generateVideo/adapter.ts:35
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:35
 
 **`Experimental`**
 
@@ -48,7 +48,7 @@ Generic parameters:
 ~types: object;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:51
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:51
 
 **`Internal`**
 
@@ -80,7 +80,7 @@ providerOptions: TProviderOptions;
 createVideoJob: (options) => Promise<VideoJobResult>;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:61
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:61
 
 **`Experimental`**
 
@@ -105,7 +105,7 @@ Returns a job ID that can be used to poll for status and retrieve the video.
 getVideoStatus: (jobId) => Promise<VideoStatusResult>;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:68
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:68
 
 **`Experimental`**
 
@@ -129,7 +129,7 @@ Get the current status of a video generation job.
 getVideoUrl: (jobId) => Promise<VideoUrlResult>;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:74
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:74
 
 **`Experimental`**
 
@@ -154,7 +154,7 @@ Should only be called after status is 'completed'.
 readonly kind: "video";
 ```
 
-Defined in: activities/generateVideo/adapter.ts:42
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:42
 
 **`Experimental`**
 
@@ -168,7 +168,7 @@ Discriminator for adapter kind - used to determine API shape
 readonly model: TModel;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:46
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:46
 
 **`Experimental`**
 
@@ -182,7 +182,7 @@ The model this adapter is configured for
 readonly name: string;
 ```
 
-Defined in: activities/generateVideo/adapter.ts:44
+Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:44
 
 **`Experimental`**
 

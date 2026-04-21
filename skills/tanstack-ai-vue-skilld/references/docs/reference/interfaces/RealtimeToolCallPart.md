@@ -5,7 +5,7 @@ title: RealtimeToolCallPart
 
 # Interface: RealtimeToolCallPart
 
-Defined in: realtime/types.ts:115
+Defined in: packages/typescript/ai/src/realtime/types.ts:115
 
 Tool call part in a realtime message
 
@@ -17,7 +17,7 @@ Tool call part in a realtime message
 arguments: string;
 ```
 
-Defined in: realtime/types.ts:119
+Defined in: packages/typescript/ai/src/realtime/types.ts:119
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: realtime/types.ts:119
 id: string;
 ```
 
-Defined in: realtime/types.ts:117
+Defined in: packages/typescript/ai/src/realtime/types.ts:117
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: realtime/types.ts:117
 optional input: unknown;
 ```
 
-Defined in: realtime/types.ts:120
+Defined in: packages/typescript/ai/src/realtime/types.ts:120
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: realtime/types.ts:120
 name: string;
 ```
 
-Defined in: realtime/types.ts:118
+Defined in: packages/typescript/ai/src/realtime/types.ts:118
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: realtime/types.ts:118
 optional output: unknown;
 ```
 
-Defined in: realtime/types.ts:121
+Defined in: packages/typescript/ai/src/realtime/types.ts:121
 
 ***
 
@@ -67,4 +67,4 @@ Defined in: realtime/types.ts:121
 type: "tool-call";
 ```
 
-Defined in: realtime/types.ts:116
+Defined in: packages/typescript/ai/src/realtime/types.ts:116

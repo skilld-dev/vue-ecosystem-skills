@@ -14,6 +14,6 @@ type RealtimeMessagePart =
   | RealtimeImagePart;
 ```
 
-Defined in: realtime/types.ts:147
+Defined in: packages/typescript/ai/src/realtime/types.ts:147
 
 Union of all realtime message parts

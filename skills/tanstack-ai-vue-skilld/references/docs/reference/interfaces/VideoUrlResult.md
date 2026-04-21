@@ -5,7 +5,7 @@ title: VideoUrlResult
 
 # Interface: VideoUrlResult
 
-Defined in: types.ts:1125
+Defined in: packages/typescript/ai/src/types.ts:1292
 
 **`Experimental`**
 
@@ -21,7 +21,7 @@ Result containing the URL to a generated video.
 optional expiresAt: Date;
 ```
 
-Defined in: types.ts:1131
+Defined in: packages/typescript/ai/src/types.ts:1298
 
 **`Experimental`**
 
@@ -35,7 +35,7 @@ When the URL expires, if applicable
 jobId: string;
 ```
 
-Defined in: types.ts:1127
+Defined in: packages/typescript/ai/src/types.ts:1294
 
 **`Experimental`**
 
@@ -49,7 +49,7 @@ Job identifier
 url: string;
 ```
 
-Defined in: types.ts:1129
+Defined in: packages/typescript/ai/src/types.ts:1296
 
 **`Experimental`**
 

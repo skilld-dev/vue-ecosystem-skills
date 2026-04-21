@@ -5,7 +5,7 @@ title: ImageAdapter
 
 # Interface: ImageAdapter\<TModel, TProviderOptions, TModelProviderOptionsByName, TModelSizeByName\>
 
-Defined in: activities/generateImage/adapter.ts:33
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:33
 
 Image adapter interface with pre-resolved generics.
 
@@ -44,7 +44,7 @@ Generic parameters:
 ~types: object;
 ```
 
-Defined in: activities/generateImage/adapter.ts:49
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:49
 
 **`Internal`**
 
@@ -76,7 +76,7 @@ providerOptions: TProviderOptions;
 generateImages: (options) => Promise<ImageGenerationResult>;
 ```
 
-Defined in: activities/generateImage/adapter.ts:58
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:58
 
 Generate images from a prompt
 
@@ -98,7 +98,7 @@ Generate images from a prompt
 readonly kind: "image";
 ```
 
-Defined in: activities/generateImage/adapter.ts:40
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:40
 
 Discriminator for adapter kind - used by generate() to determine API shape
 
@@ -110,7 +110,7 @@ Discriminator for adapter kind - used by generate() to determine API shape
 readonly model: TModel;
 ```
 
-Defined in: activities/generateImage/adapter.ts:44
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:44
 
 The model this adapter is configured for
 
@@ -122,6 +122,6 @@ The model this adapter is configured for
 readonly name: string;
 ```
 
-Defined in: activities/generateImage/adapter.ts:42
+Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:42
 
 Adapter name identifier

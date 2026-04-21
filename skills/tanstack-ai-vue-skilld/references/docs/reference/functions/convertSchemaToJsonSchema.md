@@ -9,7 +9,7 @@ title: convertSchemaToJsonSchema
 function convertSchemaToJsonSchema(schema, options): JSONSchema | undefined;
 ```
 
-Defined in: activities/chat/tools/schema-converter.ts:199
+Defined in: packages/typescript/ai/src/activities/chat/tools/schema-converter.ts:199
 
 Converts a Standard JSON Schema compliant schema or plain JSONSchema to JSON Schema format
 compatible with LLM providers.

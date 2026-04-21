@@ -5,7 +5,7 @@ title: ChunkRecording
 
 # Interface: ChunkRecording
 
-Defined in: activities/chat/stream/types.ts:91
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:92
 
 Recording format for replay testing
 
@@ -17,7 +17,7 @@ Recording format for replay testing
 chunks: object[];
 ```
 
-Defined in: activities/chat/stream/types.ts:96
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:97
 
 #### chunk
 
@@ -45,7 +45,7 @@ timestamp: number;
 optional model: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:94
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:95
 
 ***
 
@@ -55,7 +55,7 @@ Defined in: activities/chat/stream/types.ts:94
 optional provider: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:95
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:96
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: activities/chat/stream/types.ts:95
 optional result: ProcessorResult;
 ```
 
-Defined in: activities/chat/stream/types.ts:101
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:102
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: activities/chat/stream/types.ts:101
 timestamp: number;
 ```
 
-Defined in: activities/chat/stream/types.ts:93
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:94
 
 ***
 
@@ -85,4 +85,4 @@ Defined in: activities/chat/stream/types.ts:93
 version: "1.0";
 ```
 
-Defined in: activities/chat/stream/types.ts:92
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:93

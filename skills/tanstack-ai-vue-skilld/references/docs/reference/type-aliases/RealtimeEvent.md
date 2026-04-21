@@ -17,6 +17,6 @@ type RealtimeEvent =
   | "error";
 ```
 
-Defined in: realtime/types.ts:238
+Defined in: packages/typescript/ai/src/realtime/types.ts:238
 
 Events emitted by the realtime connection

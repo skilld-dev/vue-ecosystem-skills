@@ -5,7 +5,7 @@ title: RealtimeAudioPart
 
 # Interface: RealtimeAudioPart
 
-Defined in: realtime/types.ts:102
+Defined in: packages/typescript/ai/src/realtime/types.ts:102
 
 Audio content part in a realtime message
 
@@ -17,7 +17,7 @@ Audio content part in a realtime message
 optional audioData: ArrayBuffer;
 ```
 
-Defined in: realtime/types.ts:107
+Defined in: packages/typescript/ai/src/realtime/types.ts:107
 
 Raw audio data (optional, if stored)
 
@@ -29,7 +29,7 @@ Raw audio data (optional, if stored)
 optional durationMs: number;
 ```
 
-Defined in: realtime/types.ts:109
+Defined in: packages/typescript/ai/src/realtime/types.ts:109
 
 Duration of the audio in milliseconds
 
@@ -41,7 +41,7 @@ Duration of the audio in milliseconds
 transcript: string;
 ```
 
-Defined in: realtime/types.ts:105
+Defined in: packages/typescript/ai/src/realtime/types.ts:105
 
 Transcription of the audio
 
@@ -53,4 +53,4 @@ Transcription of the audio
 type: "audio";
 ```
 
-Defined in: realtime/types.ts:103
+Defined in: packages/typescript/ai/src/realtime/types.ts:103

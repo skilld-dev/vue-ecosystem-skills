@@ -5,7 +5,7 @@ title: TextOptions
 
 # Interface: TextOptions\<TProviderOptionsSuperset, TProviderOptionsForModel\>
 
-Defined in: types.ts:630
+Defined in: packages/typescript/ai/src/types.ts:656
 
 Options passed into the SDK and further piped to the AI provider.
 
@@ -27,7 +27,7 @@ Options passed into the SDK and further piped to the AI provider.
 optional abortController: AbortController;
 ```
 
-Defined in: types.ts:714
+Defined in: packages/typescript/ai/src/types.ts:740
 
 AbortController for request cancellation.
 
@@ -54,7 +54,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/AbortController
 optional agentLoopStrategy: AgentLoopStrategy;
 ```
 
-Defined in: types.ts:638
+Defined in: packages/typescript/ai/src/types.ts:664
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: types.ts:638
 optional conversationId: string;
 ```
 
-Defined in: types.ts:700
+Defined in: packages/typescript/ai/src/types.ts:726
 
 Conversation ID for correlating client and server-side devtools events.
 When provided, server-side events will be linked to the client conversation in devtools.
@@ -77,7 +77,7 @@ When provided, server-side events will be linked to the client conversation in d
 optional maxTokens: number;
 ```
 
-Defined in: types.ts:673
+Defined in: packages/typescript/ai/src/types.ts:699
 
 The maximum number of tokens to generate in the response.
 
@@ -97,7 +97,7 @@ messages: ModelMessage<
   | null>[];
 ```
 
-Defined in: types.ts:635
+Defined in: packages/typescript/ai/src/types.ts:661
 
 ***
 
@@ -107,7 +107,7 @@ Defined in: types.ts:635
 optional metadata: Record<string, any>;
 ```
 
-Defined in: types.ts:684
+Defined in: packages/typescript/ai/src/types.ts:710
 
 Additional metadata to attach to the request.
 Can be used for tracking, debugging, or passing custom information.
@@ -126,7 +126,7 @@ Provider usage:
 model: string;
 ```
 
-Defined in: types.ts:634
+Defined in: packages/typescript/ai/src/types.ts:660
 
 ***
 
@@ -136,7 +136,7 @@ Defined in: types.ts:634
 optional modelOptions: TProviderOptionsForModel;
 ```
 
-Defined in: types.ts:685
+Defined in: packages/typescript/ai/src/types.ts:711
 
 ***
 
@@ -146,7 +146,7 @@ Defined in: types.ts:685
 optional outputSchema: SchemaInput;
 ```
 
-Defined in: types.ts:695
+Defined in: packages/typescript/ai/src/types.ts:721
 
 Schema for structured output.
 When provided, the adapter should use the provider's native structured output API
@@ -162,7 +162,21 @@ Supports any Standard JSON Schema compliant library (Zod, ArkType, Valibot, etc.
 optional request: Request | RequestInit;
 ```
 
-Defined in: types.ts:686
+Defined in: packages/typescript/ai/src/types.ts:712
+
+***
+
+### runId?
+
+```ts
+optional runId: string;
+```
+
+Defined in: packages/typescript/ai/src/types.ts:751
+
+Run ID for AG-UI protocol run correlation.
+When provided, this will be used in RunStartedEvent and RunFinishedEvent.
+If not provided, a unique ID will be generated.
 
 ***
 
@@ -172,7 +186,7 @@ Defined in: types.ts:686
 optional systemPrompts: string[];
 ```
 
-Defined in: types.ts:637
+Defined in: packages/typescript/ai/src/types.ts:663
 
 ***
 
@@ -182,7 +196,7 @@ Defined in: types.ts:637
 optional temperature: number;
 ```
 
-Defined in: types.ts:651
+Defined in: packages/typescript/ai/src/types.ts:677
 
 Controls the randomness of the output.
 Higher values (e.g., 0.8) make output more random, lower values (e.g., 0.2) make it more focused and deterministic.
@@ -197,13 +211,26 @@ Provider usage:
 
 ***
 
+### threadId?
+
+```ts
+optional threadId: string;
+```
+
+Defined in: packages/typescript/ai/src/types.ts:745
+
+Thread ID for AG-UI protocol run correlation.
+When provided, this will be used in RunStartedEvent and RunFinishedEvent.
+
+***
+
 ### tools?
 
 ```ts
 optional tools: Tool<any, any, any>[];
 ```
 
-Defined in: types.ts:636
+Defined in: packages/typescript/ai/src/types.ts:662
 
 ***
 
@@ -213,7 +240,7 @@ Defined in: types.ts:636
 optional topP: number;
 ```
 
-Defined in: types.ts:664
+Defined in: packages/typescript/ai/src/types.ts:690
 
 Nucleus sampling parameter. An alternative to temperature sampling.
 The model considers the results of tokens with topP probability mass.

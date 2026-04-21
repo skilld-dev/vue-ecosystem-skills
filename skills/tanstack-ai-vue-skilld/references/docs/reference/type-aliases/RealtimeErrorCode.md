@@ -14,6 +14,6 @@ type RealtimeErrorCode =
   | "UNKNOWN";
 ```
 
-Defined in: realtime/types.ts:280
+Defined in: packages/typescript/ai/src/realtime/types.ts:280
 
 Error codes for realtime errors

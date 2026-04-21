@@ -9,7 +9,7 @@ title: generateTranscription
 function generateTranscription<TAdapter, TStream>(options): TranscriptionActivityResult<TStream>;
 ```
 
-Defined in: activities/generateTranscription/index.ts:134
+Defined in: packages/typescript/ai/src/activities/generateTranscription/index.ts:134
 
 Transcription activity - converts audio to text.
 

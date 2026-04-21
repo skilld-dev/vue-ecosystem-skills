@@ -9,7 +9,7 @@ title: createToolRegistry
 function createToolRegistry(initialTools): ToolRegistry;
 ```
 
-Defined in: tool-registry.ts:78
+Defined in: packages/typescript/ai/src/tool-registry.ts:78
 
 Create a mutable tool registry for dynamic tool scenarios.
 

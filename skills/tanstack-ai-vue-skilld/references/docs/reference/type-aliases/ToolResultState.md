@@ -9,6 +9,6 @@ title: ToolResultState
 type ToolResultState = "streaming" | "complete" | "error";
 ```
 
-Defined in: types.ts:16
+Defined in: packages/typescript/ai/src/types.ts:42
 
 Tool result states - track the lifecycle of a tool result

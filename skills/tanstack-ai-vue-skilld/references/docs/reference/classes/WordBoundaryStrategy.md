@@ -5,7 +5,7 @@ title: WordBoundaryStrategy
 
 # Class: WordBoundaryStrategy
 
-Defined in: activities/chat/stream/strategies.ts:57
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:57
 
 Word Boundary Strategy - emit at word boundaries
 Prevents cutting words in half
@@ -34,7 +34,7 @@ new WordBoundaryStrategy(): WordBoundaryStrategy;
 shouldEmit(chunk, _accumulated): boolean;
 ```
 
-Defined in: activities/chat/stream/strategies.ts:58
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:58
 
 Called for each text chunk received
 

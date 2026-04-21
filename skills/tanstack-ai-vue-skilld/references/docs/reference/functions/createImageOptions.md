@@ -9,7 +9,7 @@ title: createImageOptions
 function createImageOptions<TAdapter, TStream>(options): ImageActivityOptions<TAdapter, TStream>;
 ```
 
-Defined in: activities/generateImage/index.ts:244
+Defined in: packages/typescript/ai/src/activities/generateImage/index.ts:244
 
 Create typed options for the generateImage() function without executing.
 

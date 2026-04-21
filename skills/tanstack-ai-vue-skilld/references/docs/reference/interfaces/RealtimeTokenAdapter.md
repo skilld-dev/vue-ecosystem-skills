@@ -5,7 +5,7 @@ title: RealtimeTokenAdapter
 
 # Interface: RealtimeTokenAdapter
 
-Defined in: realtime/types.ts:72
+Defined in: packages/typescript/ai/src/realtime/types.ts:72
 
 Adapter interface for generating provider-specific tokens
 
@@ -17,7 +17,7 @@ Adapter interface for generating provider-specific tokens
 generateToken: () => Promise<RealtimeToken>;
 ```
 
-Defined in: realtime/types.ts:76
+Defined in: packages/typescript/ai/src/realtime/types.ts:76
 
 Generate an ephemeral token for client use
 
@@ -33,6 +33,6 @@ Generate an ephemeral token for client use
 provider: string;
 ```
 
-Defined in: realtime/types.ts:74
+Defined in: packages/typescript/ai/src/realtime/types.ts:74
 
 Provider identifier

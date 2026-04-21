@@ -12,7 +12,7 @@ function convertMessagesToModelMessages(messages): ModelMessage<
   | null>[];
 ```
 
-Defined in: activities/chat/messages.ts:63
+Defined in: packages/typescript/ai/src/activities/chat/messages.ts:63
 
 Convert UIMessages or ModelMessages to ModelMessages
 

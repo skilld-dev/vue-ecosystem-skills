@@ -5,7 +5,7 @@ title: ToolCall
 
 # Interface: ToolCall
 
-Defined in: types.ts:87
+Defined in: packages/typescript/ai/src/types.ts:113
 
 ## Properties
 
@@ -15,7 +15,7 @@ Defined in: types.ts:87
 function: object;
 ```
 
-Defined in: types.ts:90
+Defined in: packages/typescript/ai/src/types.ts:116
 
 #### arguments
 
@@ -37,7 +37,7 @@ name: string;
 id: string;
 ```
 
-Defined in: types.ts:88
+Defined in: packages/typescript/ai/src/types.ts:114
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: types.ts:88
 optional providerMetadata: Record<string, unknown>;
 ```
 
-Defined in: types.ts:95
+Defined in: packages/typescript/ai/src/types.ts:121
 
 Provider-specific metadata to carry through the tool call lifecycle
 
@@ -59,4 +59,4 @@ Provider-specific metadata to carry through the tool call lifecycle
 type: "function";
 ```
 
-Defined in: types.ts:89
+Defined in: packages/typescript/ai/src/types.ts:115

@@ -5,7 +5,7 @@ title: ClientTool
 
 # Interface: ClientTool\<TInput, TOutput, TName\>
 
-Defined in: activities/chat/tools/tool-definition.ts:24
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:24
 
 Marker type for client-side tools
 
@@ -31,7 +31,7 @@ Marker type for client-side tools
 __toolSide: "client";
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:29
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:29
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: activities/chat/tools/tool-definition.ts:29
 description: string;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:31
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:31
 
 ***
 
@@ -53,7 +53,7 @@ optional execute: (args) =>
 | Promise<InferSchemaType<TOutput>>;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:37
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:37
 
 #### Parameters
 
@@ -74,7 +74,7 @@ Defined in: activities/chat/tools/tool-definition.ts:37
 optional inputSchema: TInput;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:32
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:32
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: activities/chat/tools/tool-definition.ts:32
 optional lazy: boolean;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:35
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:35
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: activities/chat/tools/tool-definition.ts:35
 optional metadata: Record<string, unknown>;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:36
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:36
 
 ***
 
@@ -104,7 +104,7 @@ Defined in: activities/chat/tools/tool-definition.ts:36
 name: TName;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:30
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:30
 
 ***
 
@@ -114,7 +114,7 @@ Defined in: activities/chat/tools/tool-definition.ts:30
 optional needsApproval: boolean;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:34
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:34
 
 ***
 
@@ -124,4 +124,4 @@ Defined in: activities/chat/tools/tool-definition.ts:34
 optional outputSchema: TOutput;
 ```
 
-Defined in: activities/chat/tools/tool-definition.ts:33
+Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:33

@@ -9,7 +9,7 @@ title: modelMessageToUIMessage
 function modelMessageToUIMessage(modelMessage, id?): UIMessage;
 ```
 
-Defined in: activities/chat/messages.ts:303
+Defined in: packages/typescript/ai/src/activities/chat/messages.ts:303
 
 Convert a ModelMessage to UIMessage
 

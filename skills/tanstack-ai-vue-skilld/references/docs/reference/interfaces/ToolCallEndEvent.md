@@ -5,13 +5,22 @@ title: ToolCallEndEvent
 
 # Interface: ToolCallEndEvent
 
-Defined in: types.ts:874
+Defined in: packages/typescript/ai/src/types.ts:918
 
 Emitted when a tool call completes.
 
+@ag-ui/core provides: `toolCallId`
+TanStack AI adds: `model?`, `toolCallName?`, `toolName?` (deprecated), `input?`, `result?`
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `ToolCallEndEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -21,9 +30,9 @@ Emitted when a tool call completes.
 optional input: unknown;
 ```
 
-Defined in: types.ts:881
+Defined in: packages/typescript/ai/src/types.ts:929
 
-Final parsed input arguments
+Final parsed input arguments (TanStack AI internal)
 
 ***
 
@@ -33,29 +42,9 @@ Final parsed input arguments
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:920
 
 Model identifier for multi-model support
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
-***
-
-### rawEvent?
-
-```ts
-optional rawEvent: unknown;
-```
-
-Defined in: types.ts:758
-
-Original provider event for debugging/advanced use cases
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
 
 ***
 
@@ -65,58 +54,33 @@ Original provider event for debugging/advanced use cases
 optional result: string;
 ```
 
-Defined in: types.ts:883
+Defined in: packages/typescript/ai/src/types.ts:931
 
-Tool execution result (if executed)
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
+Tool execution result (TanStack AI internal)
 
 ***
 
-### toolCallId
+### toolCallName?
 
 ```ts
-toolCallId: string;
+optional toolCallName: string;
 ```
 
-Defined in: types.ts:877
+Defined in: packages/typescript/ai/src/types.ts:922
 
-Tool call identifier
+Name of the tool that completed
 
 ***
 
-### toolName
+### ~~toolName?~~
 
 ```ts
-toolName: string;
+optional toolName: string;
 ```
 
-Defined in: types.ts:879
+Defined in: packages/typescript/ai/src/types.ts:927
 
-Name of the tool
+#### Deprecated
 
-***
-
-### type
-
-```ts
-type: "TOOL_CALL_END";
-```
-
-Defined in: types.ts:875
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)
+Use `toolCallName` instead.
+Kept for backward compatibility.

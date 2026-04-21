@@ -5,7 +5,7 @@ title: ToolResultPart
 
 # Interface: ToolResultPart
 
-Defined in: types.ts:300
+Defined in: packages/typescript/ai/src/types.ts:326
 
 ## Properties
 
@@ -15,7 +15,7 @@ Defined in: types.ts:300
 content: string;
 ```
 
-Defined in: types.ts:303
+Defined in: packages/typescript/ai/src/types.ts:329
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: types.ts:303
 optional error: string;
 ```
 
-Defined in: types.ts:305
+Defined in: packages/typescript/ai/src/types.ts:331
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: types.ts:305
 state: ToolResultState;
 ```
 
-Defined in: types.ts:304
+Defined in: packages/typescript/ai/src/types.ts:330
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: types.ts:304
 toolCallId: string;
 ```
 
-Defined in: types.ts:302
+Defined in: packages/typescript/ai/src/types.ts:328
 
 ***
 
@@ -55,4 +55,4 @@ Defined in: types.ts:302
 type: "tool-result";
 ```
 
-Defined in: types.ts:301
+Defined in: packages/typescript/ai/src/types.ts:327

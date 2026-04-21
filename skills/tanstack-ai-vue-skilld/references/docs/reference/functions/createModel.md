@@ -9,7 +9,7 @@ title: createModel
 function createModel<TName, TInput>(name, input): ExtendedModelDef<TName, TInput>;
 ```
 
-Defined in: extend-adapter.ts:61
+Defined in: packages/typescript/ai/src/extend-adapter.ts:61
 
 Creates a custom model definition for use with `extendAdapter`.
 

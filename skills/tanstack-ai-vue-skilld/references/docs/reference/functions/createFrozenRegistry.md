@@ -9,7 +9,7 @@ title: createFrozenRegistry
 function createFrozenRegistry(tools): ToolRegistry;
 ```
 
-Defined in: tool-registry.ts:119
+Defined in: packages/typescript/ai/src/tool-registry.ts:119
 
 Create a frozen (immutable) tool registry from a tools array.
 

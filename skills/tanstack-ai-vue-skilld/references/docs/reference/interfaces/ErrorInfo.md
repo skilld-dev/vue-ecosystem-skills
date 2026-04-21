@@ -5,7 +5,7 @@ title: ErrorInfo
 
 # Interface: ErrorInfo
 
-Defined in: activities/chat/middleware/types.ts:268
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:268
 
 Information passed to onError.
 
@@ -17,7 +17,7 @@ Information passed to onError.
 duration: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:272
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:272
 
 Duration until error in milliseconds
 
@@ -29,6 +29,6 @@ Duration until error in milliseconds
 error: unknown;
 ```
 
-Defined in: activities/chat/middleware/types.ts:270
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:270
 
 The error that caused the failure

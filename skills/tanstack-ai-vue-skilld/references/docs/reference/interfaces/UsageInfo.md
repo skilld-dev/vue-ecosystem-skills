@@ -5,7 +5,7 @@ title: UsageInfo
 
 # Interface: UsageInfo
 
-Defined in: activities/chat/middleware/types.ts:227
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:227
 
 Token usage statistics passed to the onUsage hook.
 Extracted from the RUN_FINISHED chunk when usage data is present.
@@ -18,7 +18,7 @@ Extracted from the RUN_FINISHED chunk when usage data is present.
 completionTokens: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:229
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:229
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: activities/chat/middleware/types.ts:229
 promptTokens: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:228
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:228
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: activities/chat/middleware/types.ts:228
 totalTokens: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:230
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:230

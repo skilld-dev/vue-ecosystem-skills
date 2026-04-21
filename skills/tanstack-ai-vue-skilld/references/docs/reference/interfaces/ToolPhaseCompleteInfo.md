@@ -5,7 +5,7 @@ title: ToolPhaseCompleteInfo
 
 # Interface: ToolPhaseCompleteInfo
 
-Defined in: activities/chat/middleware/types.ts:194
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:194
 
 Aggregate information passed to onToolPhaseComplete after all tool calls
 in an iteration have been processed.
@@ -18,7 +18,7 @@ in an iteration have been processed.
 needsApproval: object[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:205
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:205
 
 Tools that need user approval
 
@@ -54,7 +54,7 @@ toolName: string;
 needsClientExecution: object[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:212
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:212
 
 Tools that need client-side execution
 
@@ -84,7 +84,7 @@ toolName: string;
 results: object[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:198
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:198
 
 Completed tool results
 
@@ -120,6 +120,6 @@ toolName: string;
 toolCalls: ToolCall[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:196
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:196
 
 Tool calls that were assigned to the assistant message

@@ -5,7 +5,7 @@ title: ChatMiddlewareConfig
 
 # Interface: ChatMiddlewareConfig
 
-Defined in: activities/chat/middleware/types.ts:105
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:105
 
 Chat configuration that middleware can observe or transform.
 This is a subset of the chat engine's effective configuration
@@ -19,7 +19,7 @@ that middleware is allowed to modify.
 optional maxTokens: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:111
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:111
 
 ***
 
@@ -32,7 +32,7 @@ messages: ModelMessage<
   | null>[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:106
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:106
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: activities/chat/middleware/types.ts:106
 optional metadata: Record<string, unknown>;
 ```
 
-Defined in: activities/chat/middleware/types.ts:112
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:112
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: activities/chat/middleware/types.ts:112
 optional modelOptions: Record<string, unknown>;
 ```
 
-Defined in: activities/chat/middleware/types.ts:113
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:113
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: activities/chat/middleware/types.ts:113
 systemPrompts: string[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:107
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:107
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: activities/chat/middleware/types.ts:107
 optional temperature: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:109
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:109
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: activities/chat/middleware/types.ts:109
 tools: Tool<SchemaInput, SchemaInput, string>[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:108
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:108
 
 ***
 
@@ -92,4 +92,4 @@ Defined in: activities/chat/middleware/types.ts:108
 optional topP: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:110
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:110

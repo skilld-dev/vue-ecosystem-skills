@@ -5,7 +5,7 @@ title: AbortInfo
 
 # Interface: AbortInfo
 
-Defined in: activities/chat/middleware/types.ts:258
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:258
 
 Information passed to onAbort.
 
@@ -17,7 +17,7 @@ Information passed to onAbort.
 duration: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:262
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:262
 
 Duration until abort in milliseconds
 
@@ -29,6 +29,6 @@ Duration until abort in milliseconds
 optional reason: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:260
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:260
 
 The reason for the abort, if provided

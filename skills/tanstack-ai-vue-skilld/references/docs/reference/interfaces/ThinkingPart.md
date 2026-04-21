@@ -5,7 +5,7 @@ title: ThinkingPart
 
 # Interface: ThinkingPart
 
-Defined in: types.ts:308
+Defined in: packages/typescript/ai/src/types.ts:334
 
 ## Properties
 
@@ -15,7 +15,7 @@ Defined in: types.ts:308
 content: string;
 ```
 
-Defined in: types.ts:310
+Defined in: packages/typescript/ai/src/types.ts:336
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: types.ts:310
 type: "thinking";
 ```
 
-Defined in: types.ts:309
+Defined in: packages/typescript/ai/src/types.ts:335

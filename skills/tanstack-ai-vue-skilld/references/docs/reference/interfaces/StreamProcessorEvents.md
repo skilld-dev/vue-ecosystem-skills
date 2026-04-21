@@ -5,7 +5,7 @@ title: StreamProcessorEvents
 
 # Interface: StreamProcessorEvents
 
-Defined in: activities/chat/stream/processor.ts:56
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:56
 
 Events emitted by the StreamProcessor
 
@@ -17,7 +17,7 @@ Events emitted by the StreamProcessor
 optional onApprovalRequest: (args) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:71
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:71
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Defined in: activities/chat/stream/processor.ts:71
 optional onCustomEvent: (eventType, data, context) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:79
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:79
 
 #### Parameters
 
@@ -81,7 +81,7 @@ Defined in: activities/chat/stream/processor.ts:79
 optional onError: (error) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:63
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:63
 
 #### Parameters
 
@@ -101,7 +101,7 @@ Defined in: activities/chat/stream/processor.ts:63
 optional onMessagesChange: (messages) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:58
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:58
 
 #### Parameters
 
@@ -121,7 +121,7 @@ Defined in: activities/chat/stream/processor.ts:58
 optional onStreamEnd: (message) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:62
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:62
 
 #### Parameters
 
@@ -141,7 +141,7 @@ Defined in: activities/chat/stream/processor.ts:62
 optional onStreamStart: () => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:61
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:61
 
 #### Returns
 
@@ -155,7 +155,7 @@ Defined in: activities/chat/stream/processor.ts:61
 optional onTextUpdate: (messageId, content) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:86
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:86
 
 #### Parameters
 
@@ -179,7 +179,7 @@ Defined in: activities/chat/stream/processor.ts:86
 optional onThinkingUpdate: (messageId, content) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:93
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:93
 
 #### Parameters
 
@@ -203,7 +203,7 @@ Defined in: activities/chat/stream/processor.ts:93
 optional onToolCall: (args) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:66
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:66
 
 #### Parameters
 
@@ -233,7 +233,7 @@ Defined in: activities/chat/stream/processor.ts:66
 optional onToolCallStateChange: (messageId, toolCallId, state, args) => void;
 ```
 
-Defined in: activities/chat/stream/processor.ts:87
+Defined in: packages/typescript/ai/src/activities/chat/stream/processor.ts:87
 
 #### Parameters
 

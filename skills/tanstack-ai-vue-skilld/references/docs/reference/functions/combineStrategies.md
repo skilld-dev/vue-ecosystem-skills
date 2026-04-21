@@ -9,7 +9,7 @@ title: combineStrategies
 function combineStrategies(strategies): AgentLoopStrategy;
 ```
 
-Defined in: activities/chat/agent-loop-strategies.ts:79
+Defined in: packages/typescript/ai/src/activities/chat/agent-loop-strategies.ts:79
 
 Creates a strategy that combines multiple strategies with AND logic
 All strategies must return true to continue

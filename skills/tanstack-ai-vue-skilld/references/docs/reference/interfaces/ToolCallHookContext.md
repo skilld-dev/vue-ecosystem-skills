@@ -5,7 +5,7 @@ title: ToolCallHookContext
 
 # Interface: ToolCallHookContext
 
-Defined in: activities/chat/middleware/types.ts:123
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:123
 
 Context provided to tool call hooks (onBeforeToolCall / onAfterToolCall).
 
@@ -17,7 +17,7 @@ Context provided to tool call hooks (onBeforeToolCall / onAfterToolCall).
 args: unknown;
 ```
 
-Defined in: activities/chat/middleware/types.ts:129
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:129
 
 Parsed arguments for the tool call
 
@@ -31,7 +31,7 @@ tool:
   | undefined;
 ```
 
-Defined in: activities/chat/middleware/types.ts:127
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:127
 
 The resolved tool definition, if found
 
@@ -43,7 +43,7 @@ The resolved tool definition, if found
 toolCall: ToolCall;
 ```
 
-Defined in: activities/chat/middleware/types.ts:125
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:125
 
 The tool call being executed
 
@@ -55,7 +55,7 @@ The tool call being executed
 toolCallId: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:133
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:133
 
 ID of the tool call
 
@@ -67,6 +67,6 @@ ID of the tool call
 toolName: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:131
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:131
 
 Name of the tool

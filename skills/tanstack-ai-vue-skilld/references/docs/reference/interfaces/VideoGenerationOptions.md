@@ -5,7 +5,7 @@ title: VideoGenerationOptions
 
 # Interface: VideoGenerationOptions\<TProviderOptions, TSize\>
 
-Defined in: types.ts:1076
+Defined in: packages/typescript/ai/src/types.ts:1243
 
 **`Experimental`**
 
@@ -32,7 +32,7 @@ These are the common options supported across providers.
 optional duration: number;
 ```
 
-Defined in: types.ts:1087
+Defined in: packages/typescript/ai/src/types.ts:1254
 
 **`Experimental`**
 
@@ -46,7 +46,7 @@ Video duration in seconds
 model: string;
 ```
 
-Defined in: types.ts:1081
+Defined in: packages/typescript/ai/src/types.ts:1248
 
 **`Experimental`**
 
@@ -60,7 +60,7 @@ The model to use for video generation
 optional modelOptions: TProviderOptions;
 ```
 
-Defined in: types.ts:1089
+Defined in: packages/typescript/ai/src/types.ts:1256
 
 **`Experimental`**
 
@@ -74,7 +74,7 @@ Model-specific options for video generation
 prompt: string;
 ```
 
-Defined in: types.ts:1083
+Defined in: packages/typescript/ai/src/types.ts:1250
 
 **`Experimental`**
 
@@ -88,7 +88,7 @@ Text description of the desired video
 optional size: TSize;
 ```
 
-Defined in: types.ts:1085
+Defined in: packages/typescript/ai/src/types.ts:1252
 
 **`Experimental`**
 

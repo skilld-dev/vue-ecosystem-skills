@@ -5,13 +5,22 @@ title: StepStartedEvent
 
 # Interface: StepStartedEvent
 
-Defined in: types.ts:889
+Defined in: packages/typescript/ai/src/types.ts:951
 
 Emitted when a thinking/reasoning step starts.
 
+@ag-ui/core provides: `stepName`
+TanStack AI adds: `model?`, `stepId?` (deprecated alias), `stepType?`
+
 ## Extends
 
-- [`BaseAGUIEvent`](BaseAGUIEvent.md)
+- `StepStartedEvent`
+
+## Indexable
+
+```ts
+[k: string]: unknown
+```
 
 ## Properties
 
@@ -21,41 +30,24 @@ Emitted when a thinking/reasoning step starts.
 optional model: string;
 ```
 
-Defined in: types.ts:756
+Defined in: packages/typescript/ai/src/types.ts:953
 
 Model identifier for multi-model support
 
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`model`](BaseAGUIEvent.md#model)
-
 ***
 
-### rawEvent?
+### ~~stepId?~~
 
 ```ts
-optional rawEvent: unknown;
+optional stepId: string;
 ```
 
-Defined in: types.ts:758
+Defined in: packages/typescript/ai/src/types.ts:958
 
-Original provider event for debugging/advanced use cases
+#### Deprecated
 
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`rawEvent`](BaseAGUIEvent.md#rawevent)
-
-***
-
-### stepId
-
-```ts
-stepId: string;
-```
-
-Defined in: types.ts:892
-
-Unique identifier for this step
+Use `stepName` instead (from @ag-ui/core spec).
+Kept for backward compatibility.
 
 ***
 
@@ -65,34 +57,6 @@ Unique identifier for this step
 optional stepType: string;
 ```
 
-Defined in: types.ts:894
+Defined in: packages/typescript/ai/src/types.ts:960
 
 Type of step (e.g., 'thinking', 'planning')
-
-***
-
-### timestamp
-
-```ts
-timestamp: number;
-```
-
-Defined in: types.ts:754
-
-#### Inherited from
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`timestamp`](BaseAGUIEvent.md#timestamp)
-
-***
-
-### type
-
-```ts
-type: "STEP_STARTED";
-```
-
-Defined in: types.ts:890
-
-#### Overrides
-
-[`BaseAGUIEvent`](BaseAGUIEvent.md).[`type`](BaseAGUIEvent.md#type)

@@ -5,7 +5,7 @@ title: ChatMiddlewareContext
 
 # Interface: ChatMiddlewareContext
 
-Defined in: activities/chat/middleware/types.ts:26
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:26
 
 Stable context object passed to all middleware hooks.
 Created once per chat() invocation and shared across all hooks.
@@ -18,7 +18,7 @@ Created once per chat() invocation and shared across all hooks.
 abort: (reason?) => void;
 ```
 
-Defined in: activities/chat/middleware/types.ts:42
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:42
 
 Abort the chat run with a reason
 
@@ -40,7 +40,7 @@ Abort the chat run with a reason
 accumulatedContent: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:86
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:86
 
 Accumulated text content for the current iteration
 
@@ -52,7 +52,7 @@ Accumulated text content for the current iteration
 chunkIndex: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:38
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:38
 
 Running count of chunks yielded so far
 
@@ -64,7 +64,7 @@ Running count of chunks yielded so far
 context: unknown;
 ```
 
-Defined in: activities/chat/middleware/types.ts:44
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:44
 
 Opaque user-provided value from chat() options
 
@@ -76,7 +76,7 @@ Opaque user-provided value from chat() options
 optional conversationId: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:32
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:32
 
 Conversation identifier, if provided by the caller
 
@@ -88,7 +88,7 @@ Conversation identifier, if provided by the caller
 createId: (prefix) => string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:93
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:93
 
 Generate a unique ID with the given prefix
 
@@ -110,7 +110,7 @@ Generate a unique ID with the given prefix
 currentMessageId: string | null;
 ```
 
-Defined in: activities/chat/middleware/types.ts:84
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:84
 
 Current assistant message ID (changes per iteration)
 
@@ -122,7 +122,7 @@ Current assistant message ID (changes per iteration)
 defer: (promise) => void;
 ```
 
-Defined in: activities/chat/middleware/types.ts:50
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:50
 
 Defer a non-blocking side-effect promise.
 Deferred promises do not block streaming and are awaited
@@ -146,7 +146,7 @@ after the terminal hook (onFinish/onAbort/onError).
 hasTools: boolean;
 ```
 
-Defined in: activities/chat/middleware/types.ts:79
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:79
 
 Whether tools are configured
 
@@ -158,7 +158,7 @@ Whether tools are configured
 iteration: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:36
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:36
 
 Current agent loop iteration (0-indexed)
 
@@ -170,7 +170,7 @@ Current agent loop iteration (0-indexed)
 messageCount: number;
 ```
 
-Defined in: activities/chat/middleware/types.ts:77
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:77
 
 Number of messages at the start of the request
 
@@ -185,7 +185,7 @@ messages: readonly ModelMessage<
   | null>[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:91
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:91
 
 Current messages array (read-only view)
 
@@ -197,7 +197,7 @@ Current messages array (read-only view)
 model: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:57
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:57
 
 Model identifier (e.g., 'gpt-4o')
 
@@ -209,7 +209,7 @@ Model identifier (e.g., 'gpt-4o')
 optional modelOptions: Record<string, unknown>;
 ```
 
-Defined in: activities/chat/middleware/types.ts:72
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:72
 
 Provider-specific model options
 
@@ -221,7 +221,7 @@ Provider-specific model options
 optional options: Record<string, unknown>;
 ```
 
-Defined in: activities/chat/middleware/types.ts:70
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:70
 
 Flattened generation options (temperature, topP, maxTokens, metadata)
 
@@ -233,7 +233,7 @@ Flattened generation options (temperature, topP, maxTokens, metadata)
 phase: ChatMiddlewarePhase;
 ```
 
-Defined in: activities/chat/middleware/types.ts:34
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:34
 
 Current lifecycle phase
 
@@ -245,7 +245,7 @@ Current lifecycle phase
 provider: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:55
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:55
 
 Provider name (e.g., 'openai', 'anthropic')
 
@@ -257,7 +257,7 @@ Provider name (e.g., 'openai', 'anthropic')
 requestId: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:28
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:28
 
 Unique identifier for this chat request
 
@@ -269,7 +269,7 @@ Unique identifier for this chat request
 optional signal: AbortSignal;
 ```
 
-Defined in: activities/chat/middleware/types.ts:40
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:40
 
 Abort signal from the chat request
 
@@ -281,7 +281,7 @@ Abort signal from the chat request
 source: "client" | "server";
 ```
 
-Defined in: activities/chat/middleware/types.ts:59
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:59
 
 Source of the chat invocation — always 'server' for server-side chat
 
@@ -293,7 +293,7 @@ Source of the chat invocation — always 'server' for server-side chat
 streamId: string;
 ```
 
-Defined in: activities/chat/middleware/types.ts:30
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:30
 
 Unique identifier for this stream
 
@@ -305,7 +305,7 @@ Unique identifier for this stream
 streaming: boolean;
 ```
 
-Defined in: activities/chat/middleware/types.ts:61
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:61
 
 Whether the chat is streaming
 
@@ -317,7 +317,7 @@ Whether the chat is streaming
 systemPrompts: string[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:66
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:66
 
 System prompts configured for this chat
 
@@ -329,6 +329,6 @@ System prompts configured for this chat
 optional toolNames: string[];
 ```
 
-Defined in: activities/chat/middleware/types.ts:68
+Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:68
 
 Names of configured tools, if any

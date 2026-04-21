@@ -5,7 +5,7 @@ title: ProcessorResult
 
 # Interface: ProcessorResult
 
-Defined in: activities/chat/stream/types.ts:69
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:70
 
 Result from processing a stream
 
@@ -17,7 +17,7 @@ Result from processing a stream
 content: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:70
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:71
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: activities/chat/stream/types.ts:70
 optional finishReason: string | null;
 ```
 
-Defined in: activities/chat/stream/types.ts:73
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:74
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: activities/chat/stream/types.ts:73
 optional thinking: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:71
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:72
 
 ***
 
@@ -47,4 +47,4 @@ Defined in: activities/chat/stream/types.ts:71
 optional toolCalls: ToolCall[];
 ```
 
-Defined in: activities/chat/stream/types.ts:72
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:73

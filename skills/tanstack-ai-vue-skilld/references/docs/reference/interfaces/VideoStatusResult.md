@@ -5,7 +5,7 @@ title: VideoStatusResult
 
 # Interface: VideoStatusResult
 
-Defined in: types.ts:1109
+Defined in: packages/typescript/ai/src/types.ts:1276
 
 **`Experimental`**
 
@@ -21,7 +21,7 @@ Status of a video generation job.
 optional error: string;
 ```
 
-Defined in: types.ts:1117
+Defined in: packages/typescript/ai/src/types.ts:1284
 
 **`Experimental`**
 
@@ -35,7 +35,7 @@ Error message if status is 'failed'
 jobId: string;
 ```
 
-Defined in: types.ts:1111
+Defined in: packages/typescript/ai/src/types.ts:1278
 
 **`Experimental`**
 
@@ -49,7 +49,7 @@ Job identifier
 optional progress: number;
 ```
 
-Defined in: types.ts:1115
+Defined in: packages/typescript/ai/src/types.ts:1282
 
 **`Experimental`**
 
@@ -63,7 +63,7 @@ Progress percentage (0-100), if available
 status: "pending" | "processing" | "completed" | "failed";
 ```
 
-Defined in: types.ts:1113
+Defined in: packages/typescript/ai/src/types.ts:1280
 
 **`Experimental`**
 

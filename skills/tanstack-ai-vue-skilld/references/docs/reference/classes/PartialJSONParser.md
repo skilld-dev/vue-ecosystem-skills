@@ -5,7 +5,7 @@ title: PartialJSONParser
 
 # Class: PartialJSONParser
 
-Defined in: activities/chat/stream/json-parser.ts:25
+Defined in: packages/typescript/ai/src/activities/chat/stream/json-parser.ts:25
 
 Partial JSON Parser implementation using the partial-json library
 This parser can handle incomplete JSON strings during streaming
@@ -34,7 +34,7 @@ new PartialJSONParser(): PartialJSONParser;
 parse(jsonString): any;
 ```
 
-Defined in: activities/chat/stream/json-parser.ts:31
+Defined in: packages/typescript/ai/src/activities/chat/stream/json-parser.ts:31
 
 Parse a potentially incomplete JSON string
 

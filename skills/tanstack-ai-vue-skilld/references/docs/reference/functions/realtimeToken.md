@@ -9,7 +9,7 @@ title: realtimeToken
 function realtimeToken(options): Promise<RealtimeToken>;
 ```
 
-Defined in: realtime/index.ts:33
+Defined in: packages/typescript/ai/src/realtime/index.ts:33
 
 Generate a realtime token using the provided adapter.
 

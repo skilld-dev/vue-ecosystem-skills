@@ -5,7 +5,7 @@ title: ExtendedModelDef
 
 # Interface: ExtendedModelDef\<TName, TInput, TOptions\>
 
-Defined in: extend-adapter.ts:21
+Defined in: packages/typescript/ai/src/extend-adapter.ts:21
 
 Definition for a custom model to add to an adapter.
 
@@ -45,7 +45,7 @@ Provider options type for this model
 input: TInput;
 ```
 
-Defined in: extend-adapter.ts:29
+Defined in: packages/typescript/ai/src/extend-adapter.ts:29
 
 Supported input modalities for this model
 
@@ -57,7 +57,7 @@ Supported input modalities for this model
 modelOptions: TOptions;
 ```
 
-Defined in: extend-adapter.ts:31
+Defined in: packages/typescript/ai/src/extend-adapter.ts:31
 
 Type brand for provider options - use `{} as YourOptionsType`
 
@@ -69,6 +69,6 @@ Type brand for provider options - use `{} as YourOptionsType`
 name: TName;
 ```
 
-Defined in: extend-adapter.ts:27
+Defined in: packages/typescript/ai/src/extend-adapter.ts:27
 
 The model name identifier

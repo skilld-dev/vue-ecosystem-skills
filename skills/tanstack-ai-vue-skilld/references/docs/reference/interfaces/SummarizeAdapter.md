@@ -5,7 +5,7 @@ title: SummarizeAdapter
 
 # Interface: SummarizeAdapter\<TModel, TProviderOptions\>
 
-Defined in: activities/summarize/adapter.ts:28
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:28
 
 Summarize adapter interface with pre-resolved generics.
 
@@ -34,7 +34,7 @@ Generic parameters:
 ~types: object;
 ```
 
-Defined in: activities/summarize/adapter.ts:42
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:42
 
 **`Internal`**
 
@@ -54,7 +54,7 @@ providerOptions: TProviderOptions;
 readonly kind: "summarize";
 ```
 
-Defined in: activities/summarize/adapter.ts:33
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:33
 
 Discriminator for adapter kind - used by generate() to determine API shape
 
@@ -66,7 +66,7 @@ Discriminator for adapter kind - used by generate() to determine API shape
 readonly model: TModel;
 ```
 
-Defined in: activities/summarize/adapter.ts:37
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:37
 
 The model this adapter is configured for
 
@@ -78,7 +78,7 @@ The model this adapter is configured for
 readonly name: string;
 ```
 
-Defined in: activities/summarize/adapter.ts:35
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:35
 
 Adapter name identifier
 
@@ -90,7 +90,7 @@ Adapter name identifier
 summarize: (options) => Promise<SummarizationResult>;
 ```
 
-Defined in: activities/summarize/adapter.ts:49
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:49
 
 Summarize the given text
 
@@ -112,7 +112,7 @@ Summarize the given text
 optional summarizeStream: (options) => AsyncIterable<AGUIEvent>;
 ```
 
-Defined in: activities/summarize/adapter.ts:56
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:56
 
 Stream summarization of the given text.
 Optional - if not implemented, the activity layer will fall back to

@@ -5,7 +5,7 @@ title: RealtimeMessage
 
 # Interface: RealtimeMessage
 
-Defined in: realtime/types.ts:157
+Defined in: packages/typescript/ai/src/realtime/types.ts:157
 
 A message in a realtime conversation
 
@@ -17,7 +17,7 @@ A message in a realtime conversation
 optional audioId: string;
 ```
 
-Defined in: realtime/types.ts:169
+Defined in: packages/typescript/ai/src/realtime/types.ts:169
 
 Reference to audio buffer if stored
 
@@ -29,7 +29,7 @@ Reference to audio buffer if stored
 optional durationMs: number;
 ```
 
-Defined in: realtime/types.ts:171
+Defined in: packages/typescript/ai/src/realtime/types.ts:171
 
 Duration of the audio in milliseconds
 
@@ -41,7 +41,7 @@ Duration of the audio in milliseconds
 id: string;
 ```
 
-Defined in: realtime/types.ts:159
+Defined in: packages/typescript/ai/src/realtime/types.ts:159
 
 Unique message identifier
 
@@ -53,7 +53,7 @@ Unique message identifier
 optional interrupted: boolean;
 ```
 
-Defined in: realtime/types.ts:167
+Defined in: packages/typescript/ai/src/realtime/types.ts:167
 
 Whether this message was interrupted
 
@@ -65,7 +65,7 @@ Whether this message was interrupted
 parts: RealtimeMessagePart[];
 ```
 
-Defined in: realtime/types.ts:165
+Defined in: packages/typescript/ai/src/realtime/types.ts:165
 
 Content parts of the message
 
@@ -77,7 +77,7 @@ Content parts of the message
 role: "user" | "assistant";
 ```
 
-Defined in: realtime/types.ts:161
+Defined in: packages/typescript/ai/src/realtime/types.ts:161
 
 Message role
 
@@ -89,6 +89,6 @@ Message role
 timestamp: number;
 ```
 
-Defined in: realtime/types.ts:163
+Defined in: packages/typescript/ai/src/realtime/types.ts:163
 
 Timestamp when the message was created

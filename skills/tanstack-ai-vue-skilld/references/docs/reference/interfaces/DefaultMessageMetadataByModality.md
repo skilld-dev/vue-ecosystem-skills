@@ -5,7 +5,7 @@ title: DefaultMessageMetadataByModality
 
 # Interface: DefaultMessageMetadataByModality
 
-Defined in: types.ts:1254
+Defined in: packages/typescript/ai/src/types.ts:1421
 
 Default metadata type for adapters that don't define custom metadata.
 Uses unknown for all modalities.
@@ -18,7 +18,7 @@ Uses unknown for all modalities.
 audio: unknown;
 ```
 
-Defined in: types.ts:1257
+Defined in: packages/typescript/ai/src/types.ts:1424
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: types.ts:1257
 document: unknown;
 ```
 
-Defined in: types.ts:1259
+Defined in: packages/typescript/ai/src/types.ts:1426
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: types.ts:1259
 image: unknown;
 ```
 
-Defined in: types.ts:1256
+Defined in: packages/typescript/ai/src/types.ts:1423
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: types.ts:1256
 text: unknown;
 ```
 
-Defined in: types.ts:1255
+Defined in: packages/typescript/ai/src/types.ts:1422
 
 ***
 
@@ -58,4 +58,4 @@ Defined in: types.ts:1255
 video: unknown;
 ```
 
-Defined in: types.ts:1258
+Defined in: packages/typescript/ai/src/types.ts:1425

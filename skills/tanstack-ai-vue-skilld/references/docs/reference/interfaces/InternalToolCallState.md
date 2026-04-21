@@ -5,7 +5,7 @@ title: InternalToolCallState
 
 # Interface: InternalToolCallState
 
-Defined in: activities/chat/stream/types.ts:21
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:21
 
 Internal state for a tool call being tracked
 
@@ -17,7 +17,7 @@ Internal state for a tool call being tracked
 arguments: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:24
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:24
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: activities/chat/stream/types.ts:24
 id: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:22
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:22
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: activities/chat/stream/types.ts:22
 index: number;
 ```
 
-Defined in: activities/chat/stream/types.ts:27
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:27
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: activities/chat/stream/types.ts:27
 name: string;
 ```
 
-Defined in: activities/chat/stream/types.ts:23
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:23
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: activities/chat/stream/types.ts:23
 optional parsedArguments: any;
 ```
 
-Defined in: activities/chat/stream/types.ts:26
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:26
 
 ***
 
@@ -67,4 +67,4 @@ Defined in: activities/chat/stream/types.ts:26
 state: ToolCallState;
 ```
 
-Defined in: activities/chat/stream/types.ts:25
+Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:25

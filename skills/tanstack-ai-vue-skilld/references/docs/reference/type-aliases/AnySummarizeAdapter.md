@@ -9,7 +9,7 @@ title: AnySummarizeAdapter
 type AnySummarizeAdapter = SummarizeAdapter<any, any>;
 ```
 
-Defined in: activities/summarize/adapter.ts:65
+Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:65
 
 A SummarizeAdapter with any/unknown type parameters.
 Useful as a constraint in generic functions and interfaces.

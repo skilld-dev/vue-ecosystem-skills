@@ -5,7 +5,7 @@ title: PunctuationStrategy
 
 # Class: PunctuationStrategy
 
-Defined in: activities/chat/stream/strategies.ts:22
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:22
 
 Punctuation Strategy - emit when chunk contains punctuation
 Useful for natural text flow in UI
@@ -34,7 +34,7 @@ new PunctuationStrategy(): PunctuationStrategy;
 shouldEmit(chunk, _accumulated): boolean;
 ```
 
-Defined in: activities/chat/stream/strategies.ts:25
+Defined in: packages/typescript/ai/src/activities/chat/stream/strategies.ts:25
 
 Called for each text chunk received
 

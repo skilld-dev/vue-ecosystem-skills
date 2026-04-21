@@ -5,7 +5,7 @@ title: RealtimeTextPart
 
 # Interface: RealtimeTextPart
 
-Defined in: realtime/types.ts:94
+Defined in: packages/typescript/ai/src/realtime/types.ts:94
 
 Text content part in a realtime message
 
@@ -17,7 +17,7 @@ Text content part in a realtime message
 content: string;
 ```
 
-Defined in: realtime/types.ts:96
+Defined in: packages/typescript/ai/src/realtime/types.ts:96
 
 ***
 
@@ -27,4 +27,4 @@ Defined in: realtime/types.ts:96
 type: "text";
 ```
 
-Defined in: realtime/types.ts:95
+Defined in: packages/typescript/ai/src/realtime/types.ts:95
