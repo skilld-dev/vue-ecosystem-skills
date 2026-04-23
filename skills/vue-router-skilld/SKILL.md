@@ -2,12 +2,12 @@
 name: vue-router-skilld
 description: "ALWAYS use when writing code importing \"vue-router\". Consult for debugging, best practices, or modifying vue-router, vue router, router."
 metadata:
-  version: 5.0.4
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+  version: 5.0.6
+  generated_at: 2026-04-23
+  references_synced_at: 2026-04-23
 ---
 
-# vuejs/router `vue-router@5.0.4`
+# vuejs/router `vue-router@5.0.6`
 **Tags:** next: 4.0.13, legacy: 3.6.5, edge: 4.4.0-alpha.3
 
 **References:** [Docs](./references/docs/_INDEX.md)

@@ -1,5 +1,5 @@
 ---
-total: 251
+total: 253
 ---
 
 # Docs Index
@@ -16,8 +16,9 @@ total: 251
 - [OpenAI](./adapters/openai.md): The OpenAI adapter provides access to OpenAI's models, including GPT-4o, GPT-5, image generation (DALL-E), text-to-speech (TTS), and audio transcri...
 - [OpenRouter Adapter](./adapters/openrouter.md): OpenRouter is TanStack AI's first official AI partner and the recommended starting point for most projects. It provides access to 300+ models from ...
 
-## advanced (7)
+## advanced (8)
 
+- [Debug Logging](./advanced/debug-logging.md): You have a chat() that isn't behaving as expected — a missing chunk, a middleware that doesn't seem to fire, a tool call with wrong args. By the en...
 - [Extend Adapter](./advanced/extend-adapter.md): The extendAdapter utility allows you to extend existing adapter factories (like openaiText, anthropicText) with custom model names while maintainin...
 - [Middleware](./advanced/middleware.md): Middleware lets you hook into every stage of the chat() lifecycle — from configuration to streaming, tool execution, usage tracking, and completion...
 - [Multimodal Content](./advanced/multimodal-content.md): TanStack AI supports multimodal content in messages, allowing you to send images, audio, video, and documents alongside text to AI models that supp...
@@ -110,11 +111,11 @@ cre...
 
 ## reference/functions (37)
 
-- [chat](./reference/functions/chat.md): Defined in: packages/typescript/ai/src/activities/chat/index.ts:1438
+- [chat](./reference/functions/chat.md): Defined in: packages/typescript/ai/src/activities/chat/index.ts:1451
 - [combineStrategies](./reference/functions/combineStrategies.md): Defined in: packages/typescript/ai/src/activities/chat/agent-loop-strategies.ts:79
 - [convertMessagesToModelMessages](./reference/functions/convertMessagesToModelMessages.md): Defined in: packages/typescript/ai/src/activities/chat/messages.ts:63
-- [convertSchemaToJsonSchema](./reference/functions/convertSchemaToJsonSchema.md): Defined in: packages/typescript/ai/src/activities/chat/tools/schema-converter.ts:199
-- [createChatOptions](./reference/functions/createChatOptions.md): Defined in: packages/typescript/ai/src/activities/chat/index.ts:190
+- [convertSchemaToJsonSchema](./reference/functions/convertSchemaToJsonSchema.md): Defined in: packages/typescript/ai/src/activities/chat/tools/schema-converter.ts:205
+- [createChatOptions](./reference/functions/createChatOptions.md): Defined in: packages/typescript/ai/src/activities/chat/index.ts:203
 - [createFrozenRegistry](./reference/functions/createFrozenRegistry.md): Defined in: packages/typescript/ai/src/tool-registry.ts:119
 - [createImageOptions](./reference/functions/createImageOptions.md): Defined in: packages/typescript/ai/src/activities/generateImage/index.ts:244
 - [createModel](./reference/functions/createModel.md): Defined in: packages/typescript/ai/src/extend-adapter.ts:61
@@ -152,7 +153,7 @@ cre...
 
 - [@tanstack/ai](./reference/index.md)
 
-## reference/interfaces (106)
+## reference/interfaces (107)
 
 - [AbortInfo](./reference/interfaces/AbortInfo.md): Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:258
 - [AfterToolCallInfo](./reference/interfaces/AfterToolCallInfo.md): Defined in: packages/typescript/ai/src/activities/chat/middleware/types.ts:154
@@ -187,6 +188,7 @@ cre...
 - [ModelMessage](./reference/interfaces/ModelMessage.md): Defined in: packages/typescript/ai/src/types.ts:288
 - [ProcessorResult](./reference/interfaces/ProcessorResult.md): Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:70
 - [ProcessorState](./reference/interfaces/ProcessorState.md): Defined in: packages/typescript/ai/src/activities/chat/stream/types.ts:80
+- [ProviderTool](./reference/interfaces/ProviderTool.md): Defined in: packages/typescript/ai/src/tools/provider-tool.ts:19
 - [RealtimeAudioPart](./reference/interfaces/RealtimeAudioPart.md): Defined in: packages/typescript/ai/src/realtime/types.ts:102
 - [RealtimeError](./reference/interfaces/RealtimeError.md): Defined in: packages/typescript/ai/src/realtime/types.ts:290
 - [RealtimeEventPayloads](./reference/interfaces/RealtimeEventPayloads.md): Defined in: packages/typescript/ai/src/realtime/types.ts:251
@@ -219,7 +221,7 @@ cre...
 - [SummarizationOptions](./reference/interfaces/SummarizationOptions.md): Defined in: packages/typescript/ai/src/types.ts:1160
 - [SummarizationResult](./reference/interfaces/SummarizationResult.md): Defined in: packages/typescript/ai/src/types.ts:1168
 - [SummarizeAdapter](./reference/interfaces/SummarizeAdapter.md): Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:28
-- [TextAdapter](./reference/interfaces/TextAdapter.md): Defined in: packages/typescript/ai/src/activities/chat/adapter.ts:52
+- [TextAdapter](./reference/interfaces/TextAdapter.md): Defined in: packages/typescript/ai/src/activities/chat/adapter.ts:53
 - [TextCompletionChunk](./reference/interfaces/TextCompletionChunk.md): Defined in: packages/typescript/ai/src/types.ts:1147
 - [TextMessageContentEvent](./reference/interfaces/TextMessageContentEvent.md): Defined in: packages/typescript/ai/src/types.ts:861
 - [TextMessageEndEvent](./reference/interfaces/TextMessageEndEvent.md): Defined in: packages/typescript/ai/src/types.ts:874
@@ -270,7 +272,7 @@ cre...
 - [AnyClientTool](./reference/type-aliases/AnyClientTool.md): Defined in: packages/typescript/ai/src/activities/chat/tools/tool-definition.ts:56
 - [AnyImageAdapter](./reference/type-aliases/AnyImageAdapter.md): Defined in: packages/typescript/ai/src/activities/generateImage/adapter.ts:67
 - [AnySummarizeAdapter](./reference/type-aliases/AnySummarizeAdapter.md): Defined in: packages/typescript/ai/src/activities/summarize/adapter.ts:65
-- [AnyTextAdapter](./reference/type-aliases/AnyTextAdapter.md): Defined in: packages/typescript/ai/src/activities/chat/adapter.ts:98
+- [AnyTextAdapter](./reference/type-aliases/AnyTextAdapter.md): Defined in: packages/typescript/ai/src/activities/chat/adapter.ts:101
 - [AnyTranscriptionAdapter](./reference/type-aliases/AnyTranscriptionAdapter.md): Defined in: packages/typescript/ai/src/activities/generateTranscription/adapter.ts:54
 - [AnyTTSAdapter](./reference/type-aliases/AnyTTSAdapter.md): Defined in: packages/typescript/ai/src/activities/generateSpeech/adapter.ts:52
 - [AnyVideoAdapter](./reference/type-aliases/AnyVideoAdapter.md): Defined in: packages/typescript/ai/src/activities/generateVideo/adapter.ts:81
