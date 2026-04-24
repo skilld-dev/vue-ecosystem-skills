@@ -89,7 +89,6 @@ export default {
 <span>{{ publishedBooksMessage }}</span>
 ```
 
-Try it in the Playground
 
 Here we have declared a computed property `publishedBooksMessage`.
 
@@ -128,7 +127,6 @@ const publishedBooksMessage = computed(() => {
 </template>
 ```
 
-Try it in the Playground
 
 Here we have declared a computed property `publishedBooksMessage`. The `computed()` function expects to be passed a getter function, and the returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
 

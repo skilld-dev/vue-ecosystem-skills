@@ -119,12 +119,10 @@ function onEnter(el, done) {
 
 <div class="composition-api">
 
-Full Example in the Playground
 
 </div>
 <div class="options-api">
 
-Full Example in the Playground
 
 </div>
 

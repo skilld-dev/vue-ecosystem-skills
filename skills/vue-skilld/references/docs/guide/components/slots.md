@@ -38,12 +38,10 @@ And the final rendered DOM:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -74,12 +72,10 @@ Slot content is not just limited to text. It can be any valid template content. 
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -148,12 +144,10 @@ Then the provided content will be rendered instead:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -267,12 +261,10 @@ Now everything inside the `<template>` elements will be passed to the correspond
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -323,7 +315,6 @@ When content for the header / footer / default is present, we want to wrap it to
 </template>
 ```
 
-Try it in the Playground
 
 ## Dynamic Slot Names {#dynamic-slot-names}
 
@@ -373,12 +364,10 @@ Receiving the slot props is a bit different when using a single default slot vs.
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -504,12 +493,10 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -529,12 +516,10 @@ An example renderless component could be one that encapsulates the logic of trac
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

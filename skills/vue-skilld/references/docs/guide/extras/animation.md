@@ -201,11 +201,9 @@ Type a number: <input v-model.number="number" />
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>

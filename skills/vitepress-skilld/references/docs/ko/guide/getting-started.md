@@ -1,11 +1,6 @@
 
 # 시작하기 {#getting-started}
 
-## 온라인에서 사용해보기 {#try-it-online}
-
-StackBlitz에서 브라우저로 즉시 VitePress를 사용해 볼 수 있습니다.
-
-## 설치 {#installation}
 
 ### 사전 준비 사항 {#prerequisites}
 

@@ -165,7 +165,6 @@ const computedObj = computed((oldValue) => {
 })
 ```
 
-Try it in the playground
 
 Note that you should always perform the full computation before comparing and returning the old value, so that the same dependencies can be collected on every run.
 

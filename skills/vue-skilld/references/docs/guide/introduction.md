@@ -200,7 +200,6 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 ### Composition API {#composition-api}
 
@@ -231,7 +230,6 @@ onMounted(() => {
 </template>
 ```
 
-Try it in the Playground
 
 ### Which to Choose? {#which-to-choose}
 

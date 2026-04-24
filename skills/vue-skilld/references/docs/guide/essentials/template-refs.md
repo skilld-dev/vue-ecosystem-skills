@@ -270,7 +270,6 @@ onMounted(() => console.log(itemRefs.value))
 </template>
 ```
 
-Try it in the Playground
 
 <details>
 <summary>Usage before 3.5</summary>
@@ -331,7 +330,6 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 </div>
 

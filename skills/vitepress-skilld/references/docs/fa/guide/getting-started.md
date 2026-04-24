@@ -1,10 +1,5 @@
 # شروع کار {#getting-started}
 
-## تست آنلاین {#try-it-online}
-
-میتوانید ویتپرس را مستقیماً در مرورگر خود در StackBlitz امتحان کنید.
-
-## نصب {#installation}
 
 ### پیشنیازها {#prerequisites}
 

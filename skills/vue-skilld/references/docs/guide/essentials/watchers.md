@@ -50,7 +50,6 @@ export default {
 <p>{{ answer }}</p>
 ```
 
-Try it in the Playground
 
 The `watch` option also supports a dot-delimited path as the key:
 
@@ -105,7 +104,6 @@ watch(question, async (newQuestion, oldQuestion) => {
 </template>
 ```
 
-Try it in the Playground
 
 ### Watch Source Types {#watch-source-types}
 

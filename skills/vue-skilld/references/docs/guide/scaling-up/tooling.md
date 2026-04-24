@@ -2,19 +2,6 @@
 
 # Tooling {#tooling}
 
-## Try It Online {#try-it-online}
-
-You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
-
-- Vue SFC Playground
-  - Always deployed from latest commit
-  - Designed for inspecting component compilation results
-- Vue + Vite on StackBlitz
-  - IDE-like environment running actual Vite dev server in the browser
-  - Closest to local setup
-
-It is also recommended to use these online playgrounds to provide reproductions when reporting bugs.
-
 ## Project Scaffolding {#project-scaffolding}
 
 ### Vite {#vite}
@@ -52,7 +39,6 @@ This command will install and execute create-vue, the official Vue project scaff
 - To learn more about Vite, check out the Vite docs.
 - To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for @vitejs/plugin-vue.
 
-Both online playgrounds mentioned above also support downloading files as a Vite project.
 
 ### Vue CLI {#vue-cli}
 
@@ -176,12 +162,5 @@ Official plugin that provides Vue SFC support in Vite.
 
 The official loader that provides Vue SFC support in webpack. If you are using Vue CLI, also see docs on modifying `vue-loader` options in Vue CLI.
 
-## Other Online Playgrounds {#other-online-playgrounds}
-
-- VueUse Playground
-- Vue + Vite on Repl.it
-- Vue on CodeSandbox
-- Vue on Codepen
-- Vue on WebComponents.dev
 
 

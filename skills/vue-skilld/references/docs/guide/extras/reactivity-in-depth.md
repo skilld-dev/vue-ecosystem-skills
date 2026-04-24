@@ -366,7 +366,6 @@ export function useImmer(baseState) {
 }
 ```
 
-Try it in the Playground
 
 ### State Machines {#state-machines}
 
@@ -390,7 +389,6 @@ export function useMachine(options) {
 }
 ```
 
-Try it in the Playground
 
 ### RxJS {#rxjs}
 
@@ -440,7 +438,6 @@ export function createSignal(value, options) {
 }
 ```
 
-Try it in the Playground
 
 #### Angular Signals {#angular-signals}
 
@@ -472,7 +469,6 @@ export function signal(initialValue) {
 }
 ```
 
-Try it in the Playground
 
 Compared to Vue refs, Solid and Angular's getter-based API style provide some interesting trade-offs when used in Vue components:
 

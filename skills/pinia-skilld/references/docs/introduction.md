@@ -78,7 +78,6 @@ counter.increment()
 </template>
 ```
 
-Try it in the Playground
 
 You can even use a function (similar to a component `setup()`) to define a Store for more advanced use cases:
 
@@ -93,7 +92,6 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-Try it in the Playground
 
 If you are still not into `setup()` and Composition API, don't worry, Pinia also supports a similar set of _map helpers_ like Vuex. You define stores the same way but then use `mapStores()`, `mapState()`, or `mapActions()`:
 
@@ -130,7 +128,6 @@ export default defineComponent({
 })
 ```
 
-Try it in the Playground
 
 You will find more information about each _map helper_ in the core concepts.
 
@@ -189,7 +186,6 @@ export const useTodos = defineStore('todos', {
 })
 ```
 
-Try it in the Playground
 
 ## Comparison with Vuex
 

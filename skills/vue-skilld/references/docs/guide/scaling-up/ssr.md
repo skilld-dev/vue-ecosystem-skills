@@ -126,7 +126,6 @@ server.listen(3000, () => {
 
 Finally, run `node server.js` and visit `http://localhost:3000`. You should see the page working with the button.
 
-Try it on StackBlitz
 
 ### Client Hydration {#client-hydration}
 

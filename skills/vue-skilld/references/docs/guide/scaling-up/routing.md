@@ -58,7 +58,6 @@ const currentView = computed(() => {
 </template>
 ```
 
-Try it in the Playground
 
 </div>
 
@@ -102,6 +101,5 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 </div>

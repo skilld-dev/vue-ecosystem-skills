@@ -50,7 +50,6 @@ const model = defineModel()
 </template>
 ```
 
-Try it in the playground
 
 ### Under the Hood {#under-the-hood}
 
@@ -174,7 +173,6 @@ Now `v-model` should work perfectly with this component:
 <CustomInput v-model="searchText" />
 ```
 
-Try it in the Playground
 
 Another way of implementing `v-model` within this component is to use a writable `computed` property with both a getter and a setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
 
@@ -225,7 +223,6 @@ const title = defineModel('title')
 </template>
 ```
 
-Try it in the Playground
 
 If prop options are also needed, they should be passed after the model name:
 
@@ -255,7 +252,6 @@ defineEmits(['update:title'])
 </template>
 ```
 
-Try it in the Playground
 
 </details>
 </div>
@@ -280,7 +276,6 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 </div>
 
@@ -311,7 +306,6 @@ const lastName = defineModel('lastName')
 </template>
 ```
 
-Try it in the Playground
 
 <details>
 <summary>Pre 3.4 Usage</summary>
@@ -340,7 +334,6 @@ defineEmits(['update:firstName', 'update:lastName'])
 </template>
 ```
 
-Try it in the Playground
 
 </details>
 </div>
@@ -371,7 +364,6 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 </div>
 
@@ -420,7 +412,6 @@ const [model, modifiers] = defineModel({
 </template>
 ```
 
-Try it in the Playground
 
 <details>
 <summary>Pre 3.4 Usage</summary>
@@ -448,7 +439,6 @@ function emitValue(e) {
 </template>
 ```
 
-Try it in the Playground
 
 </details>
 </div>
@@ -513,7 +503,6 @@ export default {
 </template>
 ```
 
-Try it in the Playground
 
 </div>
 

@@ -33,7 +33,6 @@ export default {
 }
 ```
 
-Try it in the Playground
 
 These instance properties are only added when the instance is first created, so you need to ensure they are all present in the object returned by the `data` function. Where necessary, use `null`, `undefined` or some other placeholder value for properties where the desired value isn't yet available.
 
@@ -180,7 +179,6 @@ function increment() {
 </template>
 ```
 
-Try it in the Playground
 
 Top-level imports, variables and functions declared in `<script setup>` are automatically usable in the template of the same component. Think of the template as a JavaScript function declared in the same scope - it naturally has access to everything declared alongside it.
 
@@ -265,7 +263,6 @@ Just like all other properties of the component instance, the `methods` are acce
 <button @click="increment">{{ count }}</button>
 ```
 
-Try it in the Playground
 
 In the example above, the method `increment` will be called when the `<button>` is clicked.
 
