@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MODEL="${SKILLD_MODEL:-sonnet}"
+MODEL="${SKILLD_MODEL:-haiku}"
 EJECT_DIR="${SKILLD_OUT:-./skills}"
 SKILLD="${SKILLD_BIN:-npx -y skilld@latest}"
 BATCH_SIZE="${SKILLD_BATCH:-6}"
@@ -287,7 +287,7 @@ sync_refs_worker() {
     old_body=$(extract_body "$skill_md")
     cp "$skill_md" "$skill_md.bak"
 
-    if ! $SKILLD eject "$pkg" --out "$EJECT_DIR" --yes --debug --no-search 2>&1; then
+    if ! $SKILLD author eject "$pkg" --out "$EJECT_DIR" --yes --model "$MODEL" --debug --no-search 2>&1; then
       echo "[$idx/$total] ✗ $pkg (ref sync failed)"
       mv "$skill_md.bak" "$skill_md"
       echo "$pkg" >> "$EJECT_DIR/.failed"
@@ -329,7 +329,7 @@ generate_worker() {
     return 0
   fi
 
-  if $SKILLD eject "$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug --no-search 2>&1; then
+  if $SKILLD author eject "$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug --no-search 2>&1; then
     echo "[$idx/$total] ✓ $pkg"
   else
     echo "[$idx/$total] ✗ $pkg (failed)"
@@ -388,7 +388,7 @@ elif [ "$REFS_ONLY" = true ]; then
     echo "---"
     while IFS='|' read -r pkg old_ver new_ver; do
       echo "Regenerating $pkg ($old_ver → $new_ver) with model=$MODEL"
-      if $SKILLD eject "$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug --no-search; then
+      if $SKILLD author eject "$pkg" --out "$EJECT_DIR" --yes --force --model "$MODEL" --debug --no-search; then
         regenerated+=("$pkg ($old_ver → $new_ver)")
         echo "  ✓ $pkg (regenerated)"
       else

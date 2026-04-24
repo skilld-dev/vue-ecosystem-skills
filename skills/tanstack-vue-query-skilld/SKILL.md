@@ -1,132 +1,67 @@
 ---
 name: tanstack-vue-query-skilld
-description: "Hooks for managing, caching and syncing asynchronous and remote data in Vue. ALWAYS use when writing code importing \"@tanstack/vue-query\". Consult for debugging, best practices, or modifying @tanstack/vue-query, tanstack/vue-query, tanstack vue-query, tanstack vue query, query."
+description: "ALWAYS use when writing code importing \"@tanstack/vue-query\". Consult for debugging, best practices, or modifying @tanstack/vue-query, tanstack/vue-query, tanstack vue-query, tanstack vue query, query."
 metadata:
-  version: 5.99.2
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+  version: 5.100.1
+  generated_by: Anthropic · Haiku 4.5
+  generated_at: 2026-04-24
 ---
 
-# TanStack/query `@tanstack/vue-query@5.99.2`
+# TanStack/query `@tanstack/vue-query@5.100.1`
 **Tags:** alpha: 5.0.0-alpha.91, beta: 5.0.0-beta.35, rc: 5.0.0-rc.16
 
-**References:** [Docs](./references/docs/_INDEX.md)
+**References:** [Docs](./references/docs/_INDEX.md) • [Issues](./references/issues/_INDEX.md) • [Discussions](./references/discussions/_INDEX.md) • [Releases](./references/releases/_INDEX.md)
+
+<!-- skilld:api-changes -->
 ## API Changes
 
 This section documents version-specific API changes — prioritize recent major/minor releases.
 
-- BREAKING: `useQuery` signature — v5 requires a single object argument `{ queryKey, queryFn, ... }`. Old positional arguments are no longer supported and will result in errors [source](./references/docs/framework/vue/guides/queries.md)
+- BREAKING: `useQueries()` returns `Ref<T[]>` instead of `Reactive<T[]>` — Vue 2.7+ compatibility fix that aligns with other composables. Destructuring return value now requires unwrapping ref or using `toRefs()`. Update: `const { data } = useQueries(...)` becomes `const { data } = useQueries(...).value` or `const { data } = toRefs(useQueries(...))[0]` [source](./references/docs/framework/vue/guides/migrating-to-v5.md:L11:22)
 
-- BREAKING: `useQueries` signature — v5 now takes an object with a `queries` array property: `useQueries({ queries: [...] })`. This allows for additional top-level options like `combine`
+- NEW: Composables support `injectionContext` — `useQuery`, `useMutation`, and other composables can now run in functions with injection context (e.g., router navigation guards), not just component `setup()`. Must use within `effectScope` to prevent memory leaks [source](./references/docs/framework/vue/guides/migrating-to-v5.md:L32:39)
 
-- BREAKING: `useQueries` return type — now returns a `Ref` of the results array instead of a `reactive` array, ensuring better compatibility with Vue 2 and avoiding spread reactivity loss [source](./references/docs/framework/vue/guides/migrating-to-v5.md)
+- NEW: Options getter functions in `useQuery` — pass reactive getters to `queryKey` and `enabled` options to track changes without `computed()`. Example: `useQuery({ queryKey: () => ['posts', userId.value], enabled: () => isReady.value })` [source](./references/releases/@tanstack/vue-query@5.91.0.md)
 
-- BREAKING: Callback removal — `onSuccess`, `onError`, and `onSettled` are removed from `useQuery`, `useInfiniteQuery`, and `useQueries`. Use `select` for data transformation or global `QueryCache` callbacks instead [source](./references/docs/framework/vue/guides/migrating-to-v5.md)
+- NEW: Options getter functions extended to additional composables — `useInfiniteQuery`, `useMutation`, `usePrefetchQuery`, and `usePrefetchInfiniteQuery` now support reactive getters for all reactive options [source](./references/releases/@tanstack/vue-query@5.92.0.md)
 
-- BREAKING: `cacheTime` renamed — renamed to `gcTime` (Garbage Collection time) across all options and default options to better reflect its purpose [source](./references/docs/reference/QueryClient.md)
+- NEW: `enableDevtoolsV6Plugin` option for Traditional Devtools — integrate with Vue DevTools v6+ for custom inspector and timeline events. Enable: `app.use(VueQueryPlugin, { enableDevtoolsV6Plugin: true })`. Both v6 and v7 supported [source](./references/docs/framework/vue/devtools.md:L125:139)
 
-- BREAKING: `useInfiniteQuery` parameters — `getNextPageParam` and `getPreviousPageParam` now receive a single object containing `lastPage`, `allPages`, `lastPageParam`, and `allPageParams` [source](./references/docs/framework/vue/reference/useInfiniteQuery.md)
+- EXPERIMENTAL: `experimental_createQueryPersister` — persist individual queries to storage (AsyncStorage, LocalStorage, custom). Separate package `@tanstack/query-persist-client-core`. Includes `persistQueryByKey()`, `retrieveQuery()`, `restoreQueries()`, `persisterGc()` utilities. Respects `staleTime` on restore [source](./references/docs/framework/vue/plugins/createPersister.md:L32:44)
 
-- BREAKING: `keepPreviousData` removed — the option is replaced by the `placeholderData: keepPreviousData` helper function from `@tanstack/vue-query` [source](./references/docs/framework/vue/guides/paginated-queries.md)
+- EXPERIMENTAL: `broadcastQueryClient` plugin — sync query cache across browser tabs and windows via message broadcasting. Experimental API, separate package, subject to change [source](./references/docs/_INDEX.md:L72)
 
-- NEW: `queryOptions` / `infiniteQueryOptions` — helper functions for sharing query definitions with type safety across components and for prefetching [source](./references/docs/framework/vue/reference/queryOptions.md)
+**Also changed:** Vue 3.3+ now required (was 3.x) · `suspense()` method on useQuery return for explicit await · `VueQueryPlugin` initialization unchanged · Query options now support getters alongside refs and values
+<!-- /skilld:api-changes -->
 
-- NEW: `useMutationState` — new composable to access mutation state globally by filtering for specific mutations based on keys or filters
-
-- NEW: Options Getter support — `useQuery` and `useInfiniteQuery` now support passing a getter function (e.g., `() => options`) or a `Ref` for the entire options object, enabling easier reactivity
-
-- NEW: `combine` for `useQueries` — allows merging multiple query results into a single value (e.g., a single object or a derived state) via the `combine` option
-
-- NEW: Injection Context — `vue-query` composables can now be used in any function that supports `injectionContext` (e.g., router guards) if used within an `effectScope` [source](./references/docs/framework/vue/guides/migrating-to-v5.md)
-
-- DEPRECATED: `isLoading` — renamed to `isPending` in v5. The `isLoading` property now specifically means `isPending && isFetching` (fetching for the first time) [source](./references/docs/framework/vue/guides/queries.md)
-
-- BREAKING: Vue 3.3 requirement — minimum Vue version for `@tanstack/vue-query` v5 is now 3.3 to support newer reactivity features [source](./references/docs/framework/vue/guides/migrating-to-v5.md)
-
-**Also changed:** `isPlaceholderData` boolean result new v5 · `initialPageParam` required for `useInfiniteQuery` · `isPaused` property added to query results · `Suspense` (experimental) supported via `suspense()` method (experimental)
-
+<!-- skilld:best-practices -->
 ## Best Practices
 
-- Use `MaybeRefOrGetter` for composable parameters to support refs, plain values, and reactive getters seamlessly [source](./references/docs/framework/vue/reactivity.md)
+- Always use `queryOptions()` helper when defining query configurations, rather than passing objects directly to `useQuery` — this enables TypeScript inference, prevents queryKey/queryFn mismatches at runtime, and allows safe reuse with `queryClient` methods like `getQueryData()` and `invalidateQueries()` [source](./references/docs/eslint/prefer-query-options.md)
 
-```ts
-// Preferred: Accepts ref, getter, or value
-export function useUser(id: MaybeRefOrGetter<string>) {
-  return useQuery({
-    queryKey: ['user', id],
-    queryFn: () => fetchUser(toValue(id))
-  })
-}
-```
+- Pass reactive values (Ref or computed) directly into the `queryKey` array, not their `.value` — Vue Query automatically tracks reactive dependencies and refetches when they change [source](./references/docs/framework/vue/reactivity.md#keeping-queries-reactive)
 
-- Pass the entire options object as a getter function to reactively update multiple query parameters at once (v5.91.0+) [source](./references/releases/CHANGELOG.md)
+- Accept `MaybeRefOrGetter<T>` in composable parameters instead of string values — this allows callers to pass refs, plain values, or reactive getters (`() => props.userId`) without wrapper code, giving maximum flexibility [source](./references/docs/framework/vue/reactivity.md#using-derived-state-inside-queries)
 
-```ts
-// Preferred for complex reactivity
-useQuery(() => ({
-  queryKey: ['todo', id.value],
-  queryFn: () => fetchTodo(id.value),
-  enabled: !!id.value
-}))
-```
+- Use `computed(() => props.property)` for derived state from component props, not direct property access — property access on reactive objects loses reactivity, but computed captures it in the query's reactive tracking [source](./references/docs/framework/vue/reactivity.md#using-derived-state-inside-queries)
 
-- Prefer reactive getters over `computed` for simple property access to avoid unnecessary memoization overhead [source](./references/docs/framework/vue/reactivity.md)
+- Include all external variables used in `queryFn` in the `queryKey` — treat the query key like a dependency array; missing dependencies cause stale data and prevent proper cache invalidation [source](./references/docs/eslint/exhaustive-deps.md)
 
-```ts
-// Preferred: No computed needed
-const { data } = useUserProjects(() => props.userId)
+- Create a single `QueryClient` instance at app initialization, not inside components — the client holds the cache for the entire app lifecycle, and recreating it loses all cached data [source](./references/docs/eslint/stable-query-client.md)
 
-// Avoid: Unnecessary memoization
-const userId = computed(() => props.userId)
-const { data } = useUserProjects(userId)
-```
+- Destructure only the fields you actually use from query results; avoid object rest destructuring (`...rest`) — rest destructuring subscribes to all fields, triggering unnecessary re-renders on any cache change [source](./references/docs/eslint/no-rest-destructuring.md)
 
-- Use `onServerPrefetch` with the `suspense()` helper to ensure queries are awaited during SSR [source](./references/docs/framework/vue/guides/ssr.md)
+- Use `skipToken` in a `computed` `queryFn` for conditional queries instead of `enabled` — this is more elegant for complex conditions and makes the intent clearer that the query should not run at all [source](./references/docs/framework/vue/guides/disabling-queries.md#with-skiptoken)
 
-```ts
-const { data, suspense } = useQuery({ queryKey: ['test'], queryFn: fetcher })
-onServerPrefetch(suspense)
-```
+- Provide `placeholderData` as a function that queries other cache entries — this allows rendering stale detail data while fresh data loads, creating seamless UX transitions [source](./references/docs/framework/vue/guides/placeholder-query-data.md#using-previous-query-results)
 
-- Set `staleTime` to a value greater than 0 for SSR to prevent immediate background refetching on the client [source](./references/docs/framework/vue/guides/ssr.md)
+- Set `gcTime: Infinity` in server-side QueryClient defaults to prevent memory accumulation — the server creates isolated clients per request and should rely on automatic cleanup rather than manual garbage collection [source](./references/docs/framework/vue/guides/ssr.md#high-memory-consumption-on-server)
 
-```ts
-const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 1000 * 60 * 5 } }
-})
-```
+- Use `queryClient.setMutationDefaults()` to define default mutation functions keyed by `mutationKey` — this enables persisted mutations to resume after a page reload by replaying the same function [source](./references/docs/framework/vue/guides/mutations.md#paused-mutations)
 
-- Manually call `queryClient.clear()` after request handling if `gcTime` is set to a non-Infinity value on the server to prevent memory leaks [source](./references/docs/framework/vue/guides/ssr.md)
+- Call `toRefs()` on the result of `useQueries` with `combine` before destructuring — the combined result is wrapped in a Ref for Vue 2 compatibility, and destructuring directly loses reactivity [source](./references/repos/TanStack/query/discussions/discussion-9860.md)
 
-- Treat `useQuery` results as immutable and clone data before using it with two-way bindings like `v-model` [source](./references/docs/framework/vue/reactivity.md)
+- Prefetch infinite query pages with the `pages` option and provide `getNextPageParam` — this pre-fills multiple pages into the cache, reducing pagination load states and waterfalls [source](./references/docs/framework/vue/guides/prefetching.md#prefetching-infinite-queries)
 
-```ts
-const { data } = useQuery({ ... })
-const model = ref()
-watch(data, (newData) => {
-  model.value = JSON.parse(JSON.stringify(newData))
-}, { immediate: true })
-```
-
-- Use the `queryOptions` helper to define type-safe, reusable query configurations that can be shared across components
-
-```ts
-const userOptions = (id: string) => queryOptions({
-  queryKey: ['user', id],
-  queryFn: () => fetchUser(id)
-})
-
-useQuery(userOptions('123'))
-```
-
-- Include all reactive dependencies in the `queryKey` to ensure Vue Query tracks them and refetches automatically on change [source](./references/docs/framework/vue/reactivity.md)
-
-- Utilize a custom `queryClientKey` when running multiple Vue applications on the same page to prevent QueryClient instance clashing [source](./references/docs/framework/vue/guides/custom-client.md)
-
-```ts
-// Plugin configuration
-app.use(VueQueryPlugin, { queryClientKey: 'AppA' })
-
-// Usage
-useQuery({ queryKey: ['data'], queryFn: fetcher, queryClientKey: 'AppA' })
-```
+- Use a `computed()` expression for the `enabled` option when the condition depends on reactive state — this keeps the query automatically in sync with changing conditions without manual tracking [source](./references/docs/framework/vue/guides/disabling-queries.md#with-a-computed-enabled-value)
+<!-- /skilld:best-practices -->
