@@ -1,6 +1,6 @@
 <h1>vue-ecosystem-skills</h1>
 
-[![license](https://img.shields.io/github/license/harlan-zw/vue-ecosystem-skills?color=yellow)](https://github.com/harlan-zw/vue-ecosystem-skills/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/skilld-dev/vue-ecosystem-skills?color=yellow)](https://github.com/skilld-dev/vue-ecosystem-skills/blob/main/LICENSE)
 
 > AI agent skills for the bleeding edge Vue ecosystem. Built from real docs, issues, and releases.
 
@@ -34,13 +34,13 @@ This repo bridges the gap: pre-generated skills from real sources (docs, GitHub 
 ## Quick Start
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills
+npx skilld add skilld-dev/vue-ecosystem-skills
 ```
 
 Or if you prefer [skills.sh](https://skills.sh/):
 
 ```bash
-npx skills add harlan-zw/vue-ecosystem-skills
+npx skills add skilld-dev/vue-ecosystem-skills
 ```
 
 **Ensure skills are used** - Add this to your agent file (e.g. `CLAUDE.md`, `.cursorrules`):
@@ -54,13 +54,12 @@ For each skill, determine YES/NO relevance and invoke all YES skills before proc
 
 ```bash
 # Add marketplace
-/plugin marketplace add harlan-zw/vue-ecosystem-skills
+/plugin marketplace add skilld-dev/vue-ecosystem-skills
 
-# Install individual skills
+# Install a skill (run once per skill)
 /plugin install pinia@vue-ecosystem-skills
-
-# Install multiple skills
-/plugin install pinia@vue-ecosystem-skills vue-router@vue-ecosystem-skills reka-ui@vue-ecosystem-skills
+/plugin install vue-router@vue-ecosystem-skills
+/plugin install reka-ui@vue-ecosystem-skills
 ```
 
 ## Available Skills
@@ -68,69 +67,69 @@ For each skill, determine YES/NO relevance and invoke all YES skills before proc
 ### Core
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vue              # 3.6.0-beta.6
-npx skilld add harlan-zw/vue-ecosystem-skills --skill pinia            # 3.0.4
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vue-router       # 5.0.2
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vue-test-utils   # 2.4.6
-npx skilld add harlan-zw/vue-ecosystem-skills --skill unhead           # 2.1.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vue              # 3.6.0-beta.6
+npx skilld add skilld-dev/vue-ecosystem-skills --skill pinia            # 3.0.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vue-router       # 5.0.2
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vue-test-utils   # 2.4.6
+npx skilld add skilld-dev/vue-ecosystem-skills --skill unhead           # 2.1.4
 ```
 
 ### Data & State
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill pinia-colada          # 0.21.4
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-query    # 5.92.9
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-store    # 0.9.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-table    # 8.21.3
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-virtual  # 3.13.18
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-form     # 1.28.3
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-vue-router   # 1.160.0
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tanstack-ai-vue       # 0.5.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill pinia-colada          # 0.21.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-query    # 5.92.9
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-store    # 0.9.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-table    # 8.21.3
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-virtual  # 3.13.18
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-form     # 1.28.3
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-vue-router   # 1.160.0
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tanstack-ai-vue       # 0.5.4
 ```
 
 ### UI
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill reka-ui          # 2.8.0
-npx skilld add harlan-zw/vue-ecosystem-skills --skill shadcn-vue       # 2.4.3
-npx skilld add harlan-zw/vue-ecosystem-skills --skill primevue         # 4.5.4
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vuetify          # 4.0.0-beta.2
-npx skilld add harlan-zw/vue-ecosystem-skills --skill quasar           # 2.18.6
-npx skilld add harlan-zw/vue-ecosystem-skills --skill floating-ui-vue  # 1.1.10
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vue-data-ui      # 3.15.2
-npx skilld add harlan-zw/vue-ecosystem-skills --skill unovis-vue       # 1.6.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill reka-ui          # 2.8.0
+npx skilld add skilld-dev/vue-ecosystem-skills --skill shadcn-vue       # 2.4.3
+npx skilld add skilld-dev/vue-ecosystem-skills --skill primevue         # 4.5.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vuetify          # 4.0.0-beta.2
+npx skilld add skilld-dev/vue-ecosystem-skills --skill quasar           # 2.18.6
+npx skilld add skilld-dev/vue-ecosystem-skills --skill floating-ui-vue  # 1.1.10
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vue-data-ui      # 3.15.2
+npx skilld add skilld-dev/vue-ecosystem-skills --skill unovis-vue       # 1.6.4
 ```
 
 ### Forms
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill formkit          # 1.7.2
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vee-validate     # 4.15.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill formkit          # 1.7.2
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vee-validate     # 4.15.1
 ```
 
 ### Animation
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill motion-vue       # 2.0.0-beta.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill motion-vue       # 2.0.0-beta.4
 ```
 
 ### VueUse
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-core           # 14.2.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-shared         # 14.2.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-components     # 14.2.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-integrations   # 14.2.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-math           # 14.2.1
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vueuse-motion         # 3.0.3
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-core           # 14.2.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-shared         # 14.2.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-components     # 14.2.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-integrations   # 14.2.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-math           # 14.2.1
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vueuse-motion         # 3.0.3
 ```
 
 ### Tooling
 
 ```bash
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vue-i18n     # 11.2.8
-npx skilld add harlan-zw/vue-ecosystem-skills --skill vitepress    # 1.6.4
-npx skilld add harlan-zw/vue-ecosystem-skills --skill tresjs       # 5.5.0
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vue-i18n     # 11.2.8
+npx skilld add skilld-dev/vue-ecosystem-skills --skill vitepress    # 1.6.4
+npx skilld add skilld-dev/vue-ecosystem-skills --skill tresjs       # 5.5.0
 ```
 
 ## Related
@@ -144,4 +143,4 @@ npx skilld add harlan-zw/vue-ecosystem-skills --skill tresjs       # 5.5.0
 
 ## License
 
-Licensed under the [MIT license](https://github.com/harlan-zw/vue-ecosystem-skills/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/skilld-dev/vue-ecosystem-skills/blob/main/LICENSE).
