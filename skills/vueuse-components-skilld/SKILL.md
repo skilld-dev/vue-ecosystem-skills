@@ -2,12 +2,12 @@
 name: vueuse-components-skilld
 description: "Renderless components for VueUse. ALWAYS use when writing code importing \"@vueuse/components\". Consult for debugging, best practices, or modifying @vueuse/components, vueuse/components, vueuse components, vueuse."
 metadata:
-  version: 14.2.1
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+  version: 14.3.0
+  generated_at: 2026-05-01
+  references_synced_at: 2026-05-01
 ---
 
-# vueuse/vueuse `@vueuse/components@14.2.1`
+# vueuse/vueuse `@vueuse/components@14.3.0`
 **Tags:** next: 5.0.0, alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1
 
 **References:** [Docs](./references/docs/_INDEX.md)

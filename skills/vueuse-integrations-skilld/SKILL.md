@@ -2,12 +2,12 @@
 name: vueuse-integrations-skilld
 description: "Integration wrappers for utility libraries. ALWAYS use when writing code importing \"@vueuse/integrations\". Consult for debugging, best practices, or modifying @vueuse/integrations, vueuse/integrations, vueuse integrations, vueuse."
 metadata:
-  version: 14.2.1
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+  version: 14.3.0
+  generated_at: 2026-05-01
+  references_synced_at: 2026-05-01
 ---
 
-# vueuse/vueuse `@vueuse/integrations@14.2.1`
+# vueuse/vueuse `@vueuse/integrations@14.3.0`
 **Tags:** next: 5.0.0, alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1
 
 **References:** [Docs](./references/docs/_INDEX.md)

@@ -1,5 +1,5 @@
 ---
-total: 72
+total: 73
 ---
 
 # Docs Index
@@ -11,6 +11,10 @@ total: 72
 ## computedWithControl (1)
 
 - [computedWithControl](./computedWithControl/index.md): Explicitly define the dependencies of computed.
+
+## createDisposableDirective (1)
+
+- [createDisposableDirective](./createDisposableDirective/index.md): Utility for authoring disposable directives. Reactive effects created within mounted directive hook will be tracked and automatically disposed when...
 
 ## createEventHook (1)
 

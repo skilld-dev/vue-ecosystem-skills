@@ -139,7 +139,7 @@ they are fired, automatically refetch requests when the url ch...
 - [useFloor](./useFloor.md): Reactive Math.floor.
 - [useFocus](./useFocus.md): Reactive utility to track or set the focus state of a DOM element. State changes to reflect whether the target element is the focused element. Sett...
 - [useFocusTrap](./useFocusTrap.md): Reactive wrapper for focus-trap.
-- [useFocusWithin](./useFocusWithin.md): Reactive utility to track if an element or one of its decendants has focus. It is meant to match the behavior of the :focus-within CSS pseudo-class...
+- [useFocusWithin](./useFocusWithin.md): Reactive utility to track if an element or one of its descendants has focus. It is meant to match the behavior of the :focus-within CSS pseudo-clas...
 - [useFps](./useFps.md): Reactive FPS (frames per second).
 - [useFullscreen](./useFullscreen.md): Reactive Fullscreen API. It adds methods to present a specific Element (and its descendants) in full-screen mode, and to exit full-screen mode once...
 - [useFuse](./useFuse.md): Easily implement fuzzy search using a composable with Fuse.js.
@@ -149,7 +149,7 @@ they are fired, automatically refetch requests when the url ch...
 - [useIdle](./useIdle.md): Tracks whether the user is being inactive.
 - [useImage](./useImage.md): Reactive load an image in the browser, you can wait the result to display it or show a fallback.
 - [useInfiniteScroll](./useInfiniteScroll.md): Infinite scrolling of the element.
-- [useIntersectionObserver](./useIntersectionObserver.md): Detects that a target element's visibility.
+- [useIntersectionObserver](./useIntersectionObserver.md): Detects changes to a target element's visibility.
 - [useInterval](./useInterval.md): Reactive counter that increases on every interval.
 - [useIntervalFn](./useIntervalFn.md): Wrapper for setInterval with controls
 - [useIpcRenderer](./useIpcRenderer.md): Provides ipcRenderer and all of its APIs with Vue reactivity.
@@ -160,7 +160,7 @@ they are fired, automatically refetch requests when the url ch...
 - [useLastChanged](./useLastChanged.md): Records the timestamp of the last change
 - [useLocalStorage](./useLocalStorage.md): Reactive LocalStorage.
 - [useMagicKeys](./useMagicKeys.md): Reactive keys pressed state, with magical keys combination support.
-- [useManualRefHistory](./useManualRefHistory.md): Manually track the change history of a ref when the using calls commit(), also provides undo and redo functionality
+- [useManualRefHistory](./useManualRefHistory.md): Manually track the change history of a ref when the user calls commit(), also provides undo and redo functionality
 - [useMath](./useMath.md): Reactive Math methods.
 - [useMax](./useMax.md): Reactive Math.max.
 - [useMediaControls](./useMediaControls.md): Reactive media controls for both audio and video elements
@@ -221,7 +221,7 @@ they are fired, automatically refetch requests when the url ch...
 - [useSSRWidth](./useSSRWidth.md): Used to set a global viewport width which will be used when rendering SSR components that rely on the viewport width like useMediaQuery or useBreak...
 - [useStepper](./useStepper.md): Provides helpers for building a multi-step wizard interface.
 - [useStorage](./useStorage.md): Create a reactive ref that can be used to access & modify LocalStorage or SessionStorage.
-- [useStorageAsync](./useStorageAsync.md): Reactive Storage in with async support.
+- [useStorageAsync](./useStorageAsync.md): Reactive Storage with async support.
 - [useStyleTag](./useStyleTag.md): Inject reactive style element in head.
 - [useSubject](./useSubject.md): Bind an RxJS Subject to a ref and propagate value changes both ways.
 - [useSubscription](./useSubscription.md): Use an RxJS Subscription without worrying about unsubscribing from it or creating memory leaks.

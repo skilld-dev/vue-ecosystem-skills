@@ -2,12 +2,12 @@
 name: vue-test-utils-skilld
 description: "ALWAYS use when writing code importing \"@vue/test-utils\". Consult for debugging, best practices, or modifying @vue/test-utils, vue/test-utils, vue test-utils, vue test utils, test-utils, test utils."
 metadata:
-  version: 2.4.9
-  generated_at: 2026-04-28
-  references_synced_at: 2026-04-28
+  version: 2.4.10
+  generated_at: 2026-05-01
+  references_synced_at: 2026-05-01
 ---
 
-# vuejs/test-utils `@vue/test-utils@2.4.9`
+# vuejs/test-utils `@vue/test-utils@2.4.10`
 **Tags:** 2.0.0-alpha.0: 2.0.0-alpha.0, 2.0.0-alpha.1: 2.0.0-alpha.1, 2.0.0-alpha.2: 2.0.0-alpha.2
 
 **References:** [Docs](./references/docs/_INDEX.md)
