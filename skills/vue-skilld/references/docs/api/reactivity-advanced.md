@@ -129,14 +129,12 @@ Creates a customized ref with explicit control over its dependency tracking and 
   </template>
   ```
 
-  Try it in the Playground
 
   :::warning Use with caution
   When using customRef, we should be cautious about the return value of its getter, particularly when generating new object datatypes each time the getter is run. This affects the relationship between parent and child components, where such a customRef has been passed as a prop.
 
   The parent component's render function could be triggered by changes to a different reactive state. During rerender, the value of our customRef is reevaluated, returning a new object datatype as a prop to a child component. This prop is compared with its last value in the child component, and since they are different, the reactive dependencies of the customRef are triggered in the child component. Meanwhile, the reactive dependencies in the parent component do not run because the customRef's setter was not called, and its dependencies were not triggered as a result.
 
-  See it in the Playground
 
   :::
 

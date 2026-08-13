@@ -13,7 +13,7 @@ total: 248
 - [Deploy Your VitePress Site](./en/guide/deploy.md): The following guides are based on some shared assumptions:
 - [Extending the Default Theme](./en/guide/extending-default-theme.md): VitePress' default theme is optimized for documentation, and can be customized. Consult the Default Theme Config Overview for a comprehensive list ...
 - [Frontmatter](./en/guide/frontmatter.md): VitePress supports YAML frontmatter in all Markdown files, parsing them with gray-matter. The frontmatter must be at the top of the Markdown file (...
-- [Getting Started](./en/guide/getting-started.md): You can try VitePress directly in your browser on StackBlitz.
+- [Getting Started](./en/guide/getting-started.md)
 - [Internationalization](./en/guide/i18n.md): To use the built-in i18n features, one needs to create a directory structure as follows:
 - [Markdown Extensions](./en/guide/markdown.md): VitePress comes with built in Markdown Extensions.
 - [Migration from VitePress 0.x](./en/guide/migration-from-vitepress-0.md): If you're coming from VitePress 0.x version, there're several breaking changes due to new features and enhancement. Please follow this guide to see...
@@ -58,7 +58,7 @@ total: 248
 - [Despliegue su Sitio VitePress](./es/guide/deploy.md): Las siguientes orientaciones están basadas en algunos supuestos:
 - [Extendiendo el Tema por defecto](./es/guide/extending-default-theme.md): El tema por defecto de VitePress es optimizado para documentación y puede ser personalizado. Consulte la Visión General de Configuración del Tema p...
 - [Frontmatter](./es/guide/frontmatter.md): VitePress soporta frontmatter YAML en todos los archivos Markdown, procesandolos con gray-matter. El frontmatter debe estar en la parte superior de...
-- [Iniciando](./es/guide/getting-started.md): Puede experimentar VitePress directamente en su navegador en StackBlitz.
+- [Iniciando](./es/guide/getting-started.md)
 - [Internacionalización](./es/guide/i18n.md): Para usar recursos de i18n integrados, es necesario crear una estructura de directorios de la siguiente forma:
 - [Extensiones Markdown](./es/guide/markdown.md): VitePress viene con Extensiones embutidas.
 - [Modo MPA <Badge type="warning" text="experimental" />](./es/guide/mpa-mode.md): El modo MPA (Aplicación de multiples páginas) puede ser habilitado por la linea de comandos con vitepress build --mpa, o a través de la configuraci...
@@ -101,7 +101,7 @@ total: 248
 - [استقرار وبسایت ویتپرس شما](./fa/guide/deploy.md): راهنماهای زیر بر اساس برخی فرضیات مشترک است:
 - [گسترش تم پیشفرض](./fa/guide/extending-default-theme.md): تم پیشفرض ویتپرس برای مستندات بهینهسازی شده است و قابلیت سفارشیسازی دارد. برای دریافت لیست جامع گزینهها، به نمای کلی از تنظیمات تم پیشفرض مرا...
 - [Frontmatter](./fa/guide/frontmatter.md): ویتپرس پشتیبانی از frontmatter YAML در تمام فایلهای Markdown را دارد و آنها را با استفاده از gray-matter تجزیه میکند. Frontmatter باید در بالای...
-- [شروع کار](./fa/guide/getting-started.md): میتوانید ویتپرس را مستقیماً در مرورگر خود در StackBlitz امتحان کنید.
+- [شروع کار](./fa/guide/getting-started.md)
 - [بینالمللیسازی](./fa/guide/i18n.md): برای استفاده از ویژگیهای داخلی بینالمللیسازی، نیاز است که یک ساختار دایرکتوری به شکل زیر ایجاد کنید:
 - [افزونههای Markdown](./fa/guide/markdown.md): ویتپرس با افزونههای markdown داخلی ارائه شده است.
 - [مهاجرت از ویتپرس 0.x](./fa/guide/migration-from-vitepress-0.md): اگر از نسخه 0.x ویتپرس میآیید، تغییرات قابل توجهی به دلیل ویژگیها و بهبودهای جدید وجود دارد. لطفاً این راهنما را دنبال کنید تا ببینید چگونه برنا...
@@ -146,7 +146,7 @@ total: 248
 - [VitePress 사이트 배포하기](./ko/guide/deploy.md): 다음 가이드는 몇 가지 공통된 가정을 기반으로 합니다:
 - [기본 테마 확장하기](./ko/guide/extending-default-theme.md): VitePress의 기본 테마는 문서화에 최적화되어 있으며, 커스텀할 수 있습니다. 포괄적인 옵션 목록은 기본 테마 구성을 참고하세요.
 - [전문](./ko/guide/frontmatter.md): VitePress는 모든 마크다운 파일에서 YAML 전문(frontmatter)을 지원하며, gray-matter로 이를 파싱합니다. 전문은 마크다운 파일의 맨 위에 있어야 하며(모든 엘리먼트 포함  태그 이전), 세 개의 대시 라인 사이에 유효한 ...
-- [시작하기](./ko/guide/getting-started.md): StackBlitz에서 브라우저로 즉시 VitePress를 사용해 볼 수 있습니다.
+- [시작하기](./ko/guide/getting-started.md)
 - [i18n](./ko/guide/i18n.md): 내장된 i18n 기능을 사용하려면 다음과 같은 디렉토리 구조를 만들어야 합니다:
 - [마크다운 확장 기능](./ko/guide/markdown.md): VitePress는 내장된 마크다운 확장 기능을 제공합니다.
 - [Migration from VitePress 0.x](./ko/guide/migration-from-vitepress-0.md): If you're coming from VitePress 0.x version, there're several breaking changes due to new features and enhancement. Please follow this guide to see...
@@ -191,7 +191,7 @@ total: 248
 - [Implante seu Site VitePress](./pt/guide/deploy.md): Os guias a seguir são baseados em alguns pressupostos:
 - [Estendendo o Tema Padrão](./pt/guide/extending-default-theme.md): O tema padrão do VitePress é otimizado para documentação e pode ser personalizado. Consulte a Visão Geral de Configuração do Tema Padrão para uma l...
 - [Frontmatter](./pt/guide/frontmatter.md): VitePress suporta frontmatter YAML em todos os arquivos Markdown, processando-os com gray-matter. O frontmatter deve estar no topo do arquivo Markd...
-- [Iniciando](./pt/guide/getting-started.md): Você pode experimentar VitePress diretamente no seu navegador em StackBlitz.
+- [Iniciando](./pt/guide/getting-started.md)
 - [Internacionalização](./pt/guide/i18n.md): Para usar recursos de i18n integrados, é necessário criar uma estrutura de diretórios da seguinte forma:
 - [Extensões Markdown](./pt/guide/markdown.md): VitePress vem com Extensões Markdown embutidas.
 - [Modo MPA <Badge type="warning" text="experimental" />](./pt/guide/mpa-mode.md): O modo MPA (Aplicação Multipáginas) pode ser habilitado pela linha de comando com vitepress build --mpa, ou através da configuração pela opção mpa:...
@@ -234,7 +234,7 @@ total: 248
 - [Развёртывание вашего сайта VitePress](./ru/guide/deploy.md): Следующие инструкции основаны на некоторых общих предположениях:
 - [Расширение темы по умолчанию](./ru/guide/extending-default-theme.md): Тема VitePress по умолчанию оптимизирована для документации и может быть настроена по вашему усмотрению. Полный список опций можно найти в главе На...
 - [Метаданные](./ru/guide/frontmatter.md): VitePress поддерживает метаданные YAML во всех Markdown-файлах, разбирая их с помощью gray-matter. Метаданные должны находиться в верхней части Mar...
-- [Первые шаги](./ru/guide/getting-started.md): Вы можете попробовать VitePress прямо в браузере на StackBlitz.
+- [Первые шаги](./ru/guide/getting-started.md)
 - [Интернационализация](./ru/guide/i18n.md): Чтобы использовать встроенные функции i18n, необходимо создать следующую структуру каталогов:
 - [Расширения Markdown](./ru/guide/markdown.md): VitePress поставляется со встроенными расширениями Markdown.
 - [Переход с VitePress 0.x](./ru/guide/migration-from-vitepress-0.md): Если вы переходите с версии VitePress 0.x, то в ней есть несколько изменений, связанных с новыми функциями и улучшениями. Следуйте этому руководств...
@@ -279,7 +279,7 @@ total: 248
 - [部署 VitePress 站点](./zh/guide/deploy.md): 以下指南基于一些前提：
 - [扩展默认主题](./zh/guide/extending-default-theme.md): VitePress 默认的主题已经针对文档进行了优化，并且可以进行自定义。请参考默认主题配置概览获取完整的选项列表。
 - [frontmatter](./zh/guide/frontmatter.md): VitePress 支持在所有 Markdown 文件中使用 YAML frontmatter，并使用 gray-matter 解析。frontmatter 必须位于 Markdown 文件的顶部 (在任何元素之前，包括  标签)，并且需要在三条虚线之间采用有效的 YAML 格...
-- [快速开始](./zh/guide/getting-started.md): 可以直接在 StackBlitz 上进行在线尝试。
+- [快速开始](./zh/guide/getting-started.md)
 - [国际化](./zh/guide/i18n.md): 要使用内置的 i18n (国际化) 功能，需要创建类似于下面的目录结构：
 - [Markdown 扩展](./zh/guide/markdown.md): VitePress 带有内置的 Markdown 扩展。
 - [migration-from-vitepress-0](./zh/guide/migration-from-vitepress-0.md): n# 从 VitePress 0.x 迁移 {#migration-from-vitepress-0-x}

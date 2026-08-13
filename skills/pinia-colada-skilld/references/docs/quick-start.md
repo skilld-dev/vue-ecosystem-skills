@@ -2,7 +2,7 @@
 
 Pinia Colada is the perfect companion to Pinia to handle **async** state management in your Vue applications. It will remove the need to write boilerplate code for data fetching and transparently bring **caching**, **deduplication**, **invalidation**, **stale while revalidate (swr)** and much more. Allowing you to focus on building the best user experience for your users. **You don't even need to learn Pinia to use Pinia Colada** because it exposes its own composables.
 
-Get a quick overview of how to use Pinia Colada in your project or if you prefer to directly play with the code you can play with Pinia Colada in this Stackblitz project.
+Get a quick overview of how to use Pinia Colada in your project.
 
 ## Installation
 

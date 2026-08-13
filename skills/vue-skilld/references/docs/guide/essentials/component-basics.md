@@ -156,12 +156,10 @@ Components can be reused as many times as you want:
 
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 
@@ -291,12 +289,10 @@ Then want to render a component for each one, using `v-for`:
 
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 
@@ -385,12 +381,10 @@ Thanks to the `@enlarge-text="postFontSize += 0.1"` listener, the parent will re
 
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 
@@ -487,12 +481,10 @@ As you'll see above, we use the `<slot>` as a placeholder where we want the cont
 
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 

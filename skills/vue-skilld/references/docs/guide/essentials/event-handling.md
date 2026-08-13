@@ -48,12 +48,10 @@ data() {
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -105,12 +103,10 @@ methods: {
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -163,12 +159,10 @@ methods: {
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

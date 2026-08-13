@@ -76,12 +76,10 @@ data() {
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -186,12 +184,10 @@ And another for the index:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

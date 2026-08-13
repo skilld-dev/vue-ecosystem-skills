@@ -14,13 +14,6 @@ Quasar CLI is the pride of Quasar Framework. You can seamlessly build:
 
 ...within the same project folder, ensuring you are **following the best Quasar practices while everything will simply work out of the box**.
 
-## Trying Quasar CLI Online
-
-You can try Quasar CLI online directly in the browser, without installing anything!
-You will also be able to use the command line, so it will be almost identical to creating a project locally.
-
-<q-btn no-wrap href="https://stackblitz.quasar.dev" target="_blank" label="Open in Stackblitz" />
-
 ## TL;DR
 
 ::: tip Requirements:

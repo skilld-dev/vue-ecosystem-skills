@@ -37,12 +37,10 @@ You can use the `v-else` directive to indicate an "else block" for `v-if`:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

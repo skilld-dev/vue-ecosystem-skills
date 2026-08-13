@@ -45,12 +45,10 @@ This is an example of the most basic usage:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -150,12 +148,10 @@ Here is a more advanced example that transitions multiple properties, with diffe
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -197,12 +193,10 @@ For most CSS animations, we can simply declare them under the `*-enter-active` a
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -232,12 +226,10 @@ These will override the conventional class names. This is especially useful when
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -300,7 +292,6 @@ In such cases you can specify an explicit transition duration (in milliseconds) 
 
 <NestedTransitions />
 
-Try it in the Playground
 
 If necessary, you can also specify separate values for enter and leave durations using an object:
 
@@ -448,12 +439,10 @@ Here's a demo using the GSAP library to perform the animations. You can, of cour
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -517,7 +506,6 @@ In addition to toggling an element with `v-if` / `v-show`, we can also transitio
 
 <BetweenElements />
 
-Try it in the Playground
 
 ## Transition Modes {#transition-modes}
 
@@ -551,12 +539,10 @@ Here's the previous demo with `mode="out-in"`:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -633,12 +619,10 @@ If we had excluded the `key` attribute, only the text node would be updated and 
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

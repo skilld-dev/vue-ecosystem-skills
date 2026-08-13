@@ -1,10 +1,5 @@
 # Iniciando {#getting-started}
 
-## Experimente Online {#try-it-online}
-
-Puede experimentar VitePress directamente en su navegador en StackBlitz.
-
-## Instalación {#installation}
 
 ### Prerrequisitos {#prerequisites}
 

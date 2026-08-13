@@ -35,12 +35,10 @@ Now, the state will be persisted across component switches:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 

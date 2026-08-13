@@ -1,10 +1,5 @@
 # Первые шаги {#getting-started}
 
-## Попробуйте онлайн {#try-it-online}
-
-Вы можете попробовать VitePress прямо в браузере на StackBlitz.
-
-## Установка {#installation}
 
 ### Требования {#prerequisites}
 

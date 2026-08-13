@@ -28,7 +28,6 @@ We can then use the `name` instead of the `path` when passing the `to` prop to `
 
 The example above would create a link to `/user/erina`.
 
-- See it in the Playground.
 
 Using a `name` has various advantages:
 

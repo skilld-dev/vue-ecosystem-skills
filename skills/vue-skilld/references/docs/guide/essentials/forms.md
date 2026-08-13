@@ -54,12 +54,10 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -84,12 +82,10 @@ For languages that require an IME (Chinese, Japanese, Korean, etc.), you'll noti
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -119,12 +115,10 @@ Single checkbox, boolean value:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -181,12 +175,10 @@ In this case, the `checkedNames` array will always contain the values from the c
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -214,12 +206,10 @@ Try it in the Playground
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -250,12 +240,10 @@ Single select:
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -287,12 +275,10 @@ Multiple select (bound to array):
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
@@ -351,12 +337,10 @@ export default {
 
 <div class="composition-api">
 
-Try it in the Playground
 
 </div>
 <div class="options-api">
 
-Try it in the Playground
 
 </div>
 
