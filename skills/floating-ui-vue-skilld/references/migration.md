@@ -20,10 +20,10 @@ Dropped the abandoned `vue-demi` package, ending support for Vue 2 and Vue <3.3.
 
 ## Earlier changes still relevant when jumping from pre-1.0
 
-- 1.0.0: `x` and `y` default to `0` instead of `null`. Check readiness with `isPositioned`, not coordinate null checks (`dist/floating-ui.vue.mjs:83-84`).
-- 1.0.0: `floatingStyles` introduced; bind it to the floating element's `:style`.
-- 1.1.0: `useFloating` options accept refs and getters (`MaybeReadonlyRefOrGetter`), e.g. `placement: () => props.placement` (`dist/floating-ui.vue.d.ts:138`).
-- 1.1.5: `isPositioned` is not set to `true` while `open` is `false` (`dist/floating-ui.vue.mjs:137`).
+- 1.0.0: `x` and `y` default to `0` instead of `null`. Check readiness with `isPositioned`, not coordinate null checks (`dist/floating-ui.vue.mjs:83-84`; https://github.com/floating-ui/floating-ui/releases/tag/@floating-ui/vue@1.0.0).
+- 1.0.0: `floatingStyles` introduced; bind it to the floating element's `:style` (https://github.com/floating-ui/floating-ui/releases/tag/@floating-ui/vue@1.0.0).
+- 1.1.0: `useFloating` options accept refs and getters (`MaybeReadonlyRefOrGetter`), e.g. `placement: () => props.placement` (`dist/floating-ui.vue.d.ts:138`; https://github.com/floating-ui/floating-ui/releases/tag/@floating-ui/vue@1.1.0).
+- 1.1.5: `isPositioned` is not set to `true` while `open` is `false` (`dist/floating-ui.vue.mjs:137`; https://github.com/floating-ui/floating-ui/releases/tag/@floating-ui/vue@1.1.5).
 
 ## Upgrade checklist
 

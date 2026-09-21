@@ -77,7 +77,7 @@ useFloating(reference, floating, {
 | `element` | `MaybeReadonlyRefOrGetter<MaybeElement<Element>>` | required | Template ref, ref, getter, or element. |
 | `padding` | `Padding` | `0` | Inset from floating element edges, useful with rounded corners. |
 
-- Wraps `@floating-ui/dom`'s `arrow`; unwraps refs and component instances, and returns `{}` (no-op) while the element is `null`, so it tolerates not-yet-mounted arrows (`dist/floating-ui.vue.mjs:27-30`).
+- Wraps `@floating-ui/dom`'s `Arrow`; unwraps refs and component instances, and returns `{}` (no-op) while the element is `null`, so it tolerates not-yet-mounted arrows (`dist/floating-ui.vue.mjs:27-30`).
 - Read `middlewareData.value.arrow?.x` and `?.y` in the template; both are `null` until positioned. Full example: https://floating-ui.com/docs/vue and https://floating-ui.com/docs/arrow.
 
 ## Virtual elements

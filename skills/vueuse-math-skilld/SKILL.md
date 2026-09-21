@@ -1,72 +1,93 @@
 ---
 name: vueuse-math-skilld
-description: "Math functions for VueUse. ALWAYS use when writing code importing \"@vueuse/math\". Consult for debugging, best practices, or modifying @vueuse/math, vueuse/math, vueuse math, vueuse."
+description: Math composables for Vue 3 from @vueuse/math. Use when writing or debugging code that imports "@vueuse/math", or when clamping, projecting, rounding, averaging, summing, or combining reactive numbers in Vue.
 ---
 
-# vueuse/vueuse `@vueuse/math@15.0.0`
-**Tags:** latest: 15.0.0
+# @vueuse/math 15.0.0
 
-**References:** [Docs](./references/docs/_INDEX.md) · [Releases](./references/releases/_INDEX.md)
+Reactive math for Vue 3. Every composable resolves inputs with `toValue` inside a `computed`, so arguments accept plain numbers, refs, or getters (`MaybeRefOrGetter<number>`), and the result is a `ComputedRef<number>` that tracks every input (`dist/index.js:70-71`). The one exception: `useClamp` with a mutable ref returns a writable computed (`dist/index.d.ts:83`).
 
 ## Environment
 
-- Install with `npm i @vueuse/math @vueuse/core` (source `README.md`)
-- Requires Vue `^3.5.0` as peer dependency (source `package.json` `peerDependencies`)
-- Requires Node.js `>=22`; v15 dropped Node.js 20 (source `package.json` `engines`; [release](./references/releases/v15.0.0.md))
-- ESM-only (`"type": "module"`), no CommonJS since v13; `"sideEffects": false` for tree shaking (source `package.json`)
-- Depends on `@vueuse/shared@15.0.0`; every export returns a `ComputedRef` (or writable computed for `useClamp`) built on `computed` + `toValue`
+- Install: `npm i @vueuse/math @vueuse/core` (`README.md:10`). `@vueuse/core` is needed only when combining with core functions such as `whenever`.
+- Vue `^3.5.0` peer dependency (`package.json:42`), minimum since v14.
+- Node.js `>= 22` (`package.json:39`); v15 dropped Node.js 20 ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0)).
+- ESM-only since v13: `"type": "module"`, no CommonJS build (`package.json:3`; [release](https://github.com/vueuse/vueuse/releases/tag/v13.0.0)). Use dynamic `import()` if a CJS context must load it.
+- `"sideEffects": false` (`package.json:24`): unused composables tree shake away.
+- Runtime dependency: `@vueuse/shared@15.0.0` (`package.json:45`), which supplies `clamp` and `reactify`.
+- Entry `dist/index.js`, types `dist/index.d.ts` (`package.json:30,34`).
 
-## API Changes
+## Exports
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+From `dist/index.d.ts:167`:
 
-- NO MATH API CHANGES: v15.0.0 — the export set is identical to v14 (verified against `dist/index.d.ts` of the prepared 15.0.0 package); only the Node.js `>=22` engines requirement and the pinned `@vueuse/shared@15.0.0` dependency changed [source](./references/releases/v15.0.0.md)
+- Functions: `createGenericProjection`, `createProjection`, `logicAnd`, `logicNot`, `logicOr`, `useAbs`, `useAverage`, `useCeil`, `useClamp`, `useFloor`, `useMath`, `useMax`, `useMin`, `usePrecision`, `useProjection`, `useRound`, `useSum`, `useTrunc`
+- Types: `ProjectorFunction`, `UseProjection`, `UseMathKeys`, `UseMathReturn`, `UsePrecisionOptions`
+- Deprecated aliases: `and`, `or`, `not` (`dist/index.d.ts:20-21,32-33,44-45`)
 
-- BREAKING: Requires Node.js 22+ — v15 dropped support for Node.js 20 [source](./references/releases/v15.0.0.md)
+Signatures, behavior notes, and per-function examples: [references/api.md](./references/api.md). Version-specific changes: [references/migrations.md](./references/migrations.md).
 
-- DEPRECATED: `and`, `or`, `not` — v14 deprecated the aliases in favor of original names `logicAnd`, `logicOr`, `logicNot`; all three aliases are still exported in 15.0.0 and marked `@deprecated` (source `dist/index.d.ts:20-21,32-33,44-45`) [source](./references/releases/v14.0.0.md)
+## Common tasks
 
-- BREAKING: Requires Vue 3.5+ — v14 moved to Vue 3.5 as minimum version, enabling native `MaybeRefOrGetter` [source](./references/releases/v14.0.0.md)
-
-- BREAKING: ESM-only — v13 dropped CommonJS (CJS) support entirely [source](./references/releases/v13.0.0.md)
-
-**Exports (15.0.0, source `dist/index.d.ts`):** `createGenericProjection`, `createProjection`, `logicAnd`, `logicNot`, `logicOr`, `useAbs`, `useAverage`, `useCeil`, `useClamp`, `useFloor`, `useMath`, `useMax`, `useMin`, `usePrecision`, `useProjection`, `useRound`, `useSum`, `useTrunc`, plus deprecated aliases `and`, `or`, `not` and types `ProjectorFunction`, `UseProjection`, `UseMathKeys`, `UseMathReturn`, `UsePrecisionOptions`
-
-**Also changed:** `tsdown` build system v14 · `WatchSource<T>` types v14 · `MaybeRefOrGetter` native v12.8
-
-## Best Practices
-
-- Use `useClamp` with a mutable `ref` to create a self-validating state. When a mutable ref is passed, it returns a writable computed that automatically clamps any value assigned to it [source](./references/docs/useClamp/index.md)
+Writable clamped state; pass a mutable ref so assignments are clamped automatically:
 
 ```ts
-// Preferred: prevents invalid state assignment
-const value = useClamp(shallowRef(0), 0, 10)
-value.value = 15 // state remains 10
+import { useClamp } from '@vueuse/math'
+
+const level = ref(0)
+const clamped = useClamp(level, 0, 10)
+clamped.value = 15 // clamped.value and level.value are 10
 ```
 
-- Pass a getter or readonly ref to `useClamp` for a read-only computed; pass a plain number or mutable ref for the writable form (source `dist/index.d.ts:82-83`)
-
-- Pass reactive arrays for domains in `useProjection` to handle dynamic scaling. This is preferred for UI elements like zoomable charts or responsive sliders where the input/output boundaries change over time [source](./references/docs/useProjection/index.md)
-
-- Define reusable mappers with `createProjection` outside component logic. This ensures consistent scaling across different parts of the application and reduces the overhead of redefining domains [source](./references/docs/createProjection/index.md)
-
-- Leverage rest arguments in aggregation composables for ad-hoc calculations. `useSum`, `useAverage`, `useMax`, and `useMin` accept multiple refs directly, avoiding intermediate array refs (source `dist/index.d.ts:58-59,108-113,154-155`)
+Read-only clamp; pass a getter or readonly ref (`dist/index.js:113`):
 
 ```ts
-// Preferred: cleaner syntax for fixed sets of refs
+const ratio = useClamp(() => raw.value / total.value, 0, 1)
+```
+
+Aggregate fixed refs with rest arguments instead of building an array (`dist/index.d.ts:154-155`):
+
+```ts
 const total = useSum(refA, refB, refC)
+const peak = useMax(refA, refB, refC)
 ```
 
-- Guard against empty input in `useAverage`. It divides by `array.length` without an empty check, so an empty array or argument list yields `NaN` (source `dist/index.js:91-96`)
+Map a value between domains, for sliders, charts, or progress UIs:
 
-- Prefer `usePrecision` over `toFixed` for numeric operations. `usePrecision` returns a `number`, which prevents type-coercion bugs and allows further mathematical operations without re-parsing strings [source](./references/docs/usePrecision/index.md)
+```ts
+const progress = useProjection(scrollY, [0, pageHeight], [0, 100])
+```
 
-- Use explicit rounding modes in `usePrecision` for specific UI requirements. Pass the `math` option ('floor' | 'ceil' | 'round', default 'round') to control how fractional values are handled in paginators or progress bars [source](./references/docs/usePrecision/index.md)
+Reuse one projection across components; domains may be reactive:
 
-- Combine `logicAnd` or `logicOr` with `@vueuse/core`'s `whenever` for cleaner side effects. This pattern is more readable than complex manual `computed` properties when triggering actions based on multiple reactive flags [source](./references/docs/logicAnd/index.md)
+```ts
+const toPercent = createProjection(domain, [0, 100])
+const a = toPercent(inputA)
+```
 
-- Employ `createGenericProjection` for non-linear domain mapping. Provide a custom projector function to handle logarithmic scales or custom eased transitions between arbitrary domains [source](./references/docs/createGenericProjection/index.md)
+Round to decimal places and keep a `number`, not the string `toFixed` returns:
 
-- Use `useMath` to reactively derive values from standard `Math` methods. It wraps any `Math` key with reactive arguments, so the result updates whenever any input dependency changes [source](./references/docs/useMath/index.md)
+```ts
+const price = usePrecision(ref(3.1415), 2) // 3.14
+const up = usePrecision(ref(3.1415), 2, { math: 'ceil' }) // 3.15
+```
 
-- Use `logicNot` for reactive boolean inversion in templates. It expresses intent more clearly than `!ref.value` or manual `computed` wrappers when defining visibility or disabled states [source](./references/docs/logicNot/index.md)
+Combine boolean flags reactively, then feed side effects to `whenever` from `@vueuse/core`:
+
+```ts
+import { whenever } from '@vueuse/core'
+import { logicAnd } from '@vueuse/math'
+
+whenever(logicAnd(ready, hasData), run)
+```
+
+## Rules and pitfalls
+
+- Never use the aliases `and`, `or`, `not`; deprecated since v14 in favor of `logicAnd`, `logicOr`, `logicNot` (`dist/index.d.ts:20,32,44`; [release](https://github.com/vueuse/vueuse/releases/tag/v14.0.0)).
+- `useAverage` divides by `array.length` with no empty check: empty input yields `NaN` (`dist/index.js:91-96`). Guard the empty case yourself.
+- `useMax()` with no inputs resolves to `-Infinity` and `useMin()` to `Infinity`, because both spread into `Math.max` / `Math.min` (`dist/index.js:157-176`).
+- Aggregations (`useSum`, `useAverage`, `useMin`, `useMax`) accept refs, getters, numbers, arrays of those, and flatten nested arrays one level via `toValueArgsFlat` (`dist/index.js:75-81`).
+- `usePrecision` avoids float drift by scaling through the decimal string of the value (`accurateMultiply`, `dist/index.js:187-193`); `options.math` defaults to `'round'` (`dist/index.d.ts:122`).
+- `useMath` accepts only `Math` keys that are functions, such as `'pow'` or `'sqrt'`, never constants like `PI` (`dist/index.d.ts:96`).
+- Projection is linear by default: `(input - from[0]) / (from[1] - from[0]) * (to[1] - to[0]) + to[0]` (`dist/index.js:12-14`). For non-linear mapping (log scales, easing), pass a custom `projector`, or use `createGenericProjection` for non-number domains (`dist/index.d.ts:4-6`).
+- Prefer these composables over `computed(() => Math.x(...))` in templates and watchers; they centralize the `Math` call, stay reactive to every argument, and carry `@__NO_SIDE_EFFECTS__` annotations for tree shaking (`dist/index.js:4,15,111`).
