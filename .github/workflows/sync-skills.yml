@@ -1,0 +1,57 @@
+name: Sync Skills
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      packages:
+        description: Packages to rebuild, space separated. Empty rebuilds whatever moved.
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Rebuild stale Skills
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: pnpm sync ${{ inputs.packages }}
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then
+            echo "Every Skill matches its package."
+            exit 0
+          fi
+          branch="chore/sync-skills-$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A skills/ skills-lock.json
+          git commit -m "chore: rebuild Skills for new package versions"
+          git push -u origin "$branch"
+          gh pr create \
+            --title "chore: rebuild Skills for new package versions" \
+            --body "Rebuilt by the Sync Skills workflow. Read the diff before merging: a model wrote it." \
+            --base main

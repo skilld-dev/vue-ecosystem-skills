@@ -10,7 +10,7 @@ Getting agents to follow the latest conventions in the Vue ecosystem is difficul
 
 Hand-crafted rules are great, but maintaining them is a burden - especially when working across several packages that are all actively releasing. Author-shipped skills ([skills-npm](https://github.com/antfu/skills-npm)) are the ideal solution, but most Vue libraries don't ship them yet.
 
-This repo bridges the gap: pre-generated skills from real sources (docs, GitHub issues, discussions, changelogs) using [skilld](https://github.com/harlan-zw/skilld). Install once, get version-aware context for the entire Vue ecosystem - no manual curation, no author opt-in, and no LLM tokens spent on generation.
+This repo bridges the gap: pre-built Skills from real sources (docs, GitHub issues, discussions, changelogs), kept current by [skilld](https://github.com/skilld-dev/skilld). Install once, get version-aware context for the entire Vue ecosystem, with no manual curation and no author opt-in. Every Skill is rebuilt from the published package when that package ships a new version.
 
 <p align="center">
 <table>
@@ -134,7 +134,7 @@ npx skilld add skilld-dev/vue-ecosystem-skills --skill tresjs       # 5.5.0
 
 ## Related
 
-- [skilld](https://github.com/harlan-zw/skilld) - Generate AI agent skills from your NPM dependencies
+- [skilld](https://github.com/skilld-dev/skilld) - Search, run, and install curated Agent Skills
 - [vuejs-ai/skills](https://github.com/vuejs-ai/skills) - Hand-crafted Vue 3 best practices skills
 - [antfu/skills](https://github.com/antfu/skills) - Anthony Fu's curated skills for Vue/Vite/Nuxt
 - [vueuse/vueuse-skills](https://github.com/vueuse/vueuse-skills) - Agent skills for VueUse

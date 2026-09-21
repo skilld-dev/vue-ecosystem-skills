@@ -10,13 +10,16 @@
     "url": "git+https://github.com/harlan-zw/ai-skills-vue-ecosystem.git"
   },
   "scripts": {
-    "generate": "bash generate.sh",
-    "generate:regen": "bash generate.sh --refs-and-regen",
-    "generate:regen:gemini": "SKILLD_MODEL=gemini-3-flash-preview bash generate.sh --refs-and-regen",
-    "generate:check": "bash generate.sh --check",
-    "generate:refs": "bash generate.sh --refs-only",
+    "sync": "node scripts/sync.mjs",
+    "sync:check": "node scripts/sync.mjs --check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@ai-sdk/harness-opencode": "catalog:",
+    "skilld-harness": "catalog:",
+    "ws": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev-lint",

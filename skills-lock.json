@@ -1,0 +1,134 @@
+{
+  "@floating-ui/vue": {
+    "version": "2.0.1",
+    "generatedAt": "2026-09-21"
+  },
+  "@formkit/core": {
+    "version": "2.0.0",
+    "generatedAt": "2026-05-03"
+  },
+  "@pinia/colada": {
+    "version": "1.2.1",
+    "generatedAt": "2026-04-29"
+  },
+  "@tanstack/ai-vue": {
+    "version": "0.7.0",
+    "generatedAt": "2026-04-25"
+  },
+  "@tanstack/vue-form": {
+    "version": "1.29.1",
+    "generatedAt": "2026-04-22"
+  },
+  "@tanstack/vue-query": {
+    "version": "5.100.9",
+    "generatedAt": "2026-05-04"
+  },
+  "@tanstack/vue-router": {
+    "version": "1.166.7",
+    "generatedAt": "2026-03-11"
+  },
+  "@tanstack/vue-store": {
+    "version": "0.11.1",
+    "generatedAt": "2026-09-21"
+  },
+  "@tanstack/vue-table": {
+    "version": "8.21.3",
+    "generatedAt": "2026-04-20"
+  },
+  "@tanstack/vue-virtual": {
+    "version": "3.13.24",
+    "generatedAt": "2026-04-18"
+  },
+  "@tresjs/core": {
+    "version": "5.8.0",
+    "generatedAt": "2026-04-30"
+  },
+  "@unhead/vue": {
+    "version": "3.1.0",
+    "generatedAt": "2026-04-27"
+  },
+  "@unovis/vue": {
+    "version": "1.6.5",
+    "generatedAt": "2026-04-23"
+  },
+  "@vue/test-utils": {
+    "version": "2.4.10",
+    "generatedAt": "2026-05-01"
+  },
+  "@vueuse/components": {
+    "version": "14.3.0",
+    "generatedAt": "2026-05-01"
+  },
+  "@vueuse/core": {
+    "version": "14.3.0",
+    "generatedAt": "2026-05-01"
+  },
+  "@vueuse/integrations": {
+    "version": "14.3.0",
+    "generatedAt": "2026-05-01"
+  },
+  "@vueuse/math": {
+    "version": "15.0.0",
+    "generatedAt": "2026-09-21"
+  },
+  "@vueuse/motion": {
+    "version": "3.0.3",
+    "generatedAt": "2026-04-20"
+  },
+  "@vueuse/shared": {
+    "version": "14.3.0",
+    "generatedAt": "2026-05-01"
+  },
+  "motion-v": {
+    "version": "2.2.1",
+    "generatedAt": "2026-04-12"
+  },
+  "pinia": {
+    "version": "3.0.4",
+    "generatedAt": "2026-04-20"
+  },
+  "primevue": {
+    "version": "4.5.5",
+    "generatedAt": "2026-04-09"
+  },
+  "quasar": {
+    "version": "2.19.3",
+    "generatedAt": "2026-04-07"
+  },
+  "reka-ui": {
+    "version": "2.9.7",
+    "generatedAt": "2026-05-05"
+  },
+  "shadcn-vue": {
+    "version": "2.6.2",
+    "generatedAt": "2026-04-13"
+  },
+  "vee-validate": {
+    "version": "4.15.1",
+    "generatedAt": "2026-04-20"
+  },
+  "vitepress": {
+    "version": "1.6.4",
+    "generatedAt": "2026-04-20"
+  },
+  "vue-data-ui": {
+    "version": "3.19.2",
+    "generatedAt": "2026-05-05"
+  },
+  "vue-i18n": {
+    "version": "11.4.0",
+    "generatedAt": "2026-04-24"
+  },
+  "vue-router": {
+    "version": "5.0.6",
+    "generatedAt": "2026-04-23"
+  },
+  "vue@beta": {
+    "version": "3.6.0-beta.10",
+    "generatedAt": "2026-04-20"
+  },
+  "vuetify@next": {
+    "version": "4.0.1",
+    "generatedAt": "2026-04-20"
+  }
+}
