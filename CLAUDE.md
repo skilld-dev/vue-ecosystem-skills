@@ -45,3 +45,7 @@ Choose the model with `--model=` or `SKILLD_MODEL`.
 Choose how many run at once with `--concurrency=` or `SKILLD_CONCURRENCY`.
 
 One Skill takes about four to seven minutes to rebuild.
+
+The Sync Skills workflow runs the same thing on GitHub, and only when you start
+it by hand. It needs an `OPENCODE_API_KEY` repository secret, and it opens a
+pull request rather than pushing to `main`.
