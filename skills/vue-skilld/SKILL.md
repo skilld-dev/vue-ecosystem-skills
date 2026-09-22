@@ -1,79 +1,97 @@
 ---
 name: vue-skilld
-description: "The progressive JavaScript framework for building modern web UI. ALWAYS use when editing or working with *.vue files or code importing \"vue\". Consult for debugging, best practices, or modifying vue, core."
-metadata:
-  version: 3.6.0-beta.10
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: Build, debug, and modernize UI with Vue 3.6. Use when editing *.vue files, writing components or composables, or working with code that imports "vue". Covers script setup, reactivity, Vapor Mode, SSR, and version-specific API changes from 3.4 through 3.6.0-beta.17.
 ---
 
-# vuejs/core `vue@3.6.0-beta.10`
-**Tags:** csp: 1.0.28-csp, v2-latest: 2.7.16, legacy: 2.7.16
+# vue 3.6.0-beta.17 (vuejs/core)
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Pre-release beta of the 3.6 line. Two headline changes vs 3.5:
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+- **Vapor Mode**, an opt-in compilation strategy for SFCs that skips the Virtual DOM; see [Vapor Mode](./references/vapor-mode.md).
+- **alien-signals reactivity refactor**: `@vue/reactivity` was rebuilt on [alien-signals](https://github.com/stackblitz/alien-signals) for lower memory use and faster updates. No public API changes.
 
-- NEW: `createVaporApp()` (experimental) — new in v3.6, creates a Vapor-mode app instance without pulling in the Virtual DOM runtime; use `createApp()` for standard VDOM apps [source](./references/releases/v3.6.0-alpha.1.md#about-vapor-mode)
+Package facts (from the prepared source):
 
-- NEW: `vaporInteropPlugin` (experimental) — new in v3.6, install into a VDOM `createApp()` instance to allow Vapor components inside VDOM trees; without it, Vapor SFCs cannot be used in VDOM apps [source](./references/releases/v3.6.0-beta.1.md#about-vapor-mode)
+- Version: `package.json:3`.
+- The main entry re-exports `@vue/runtime-dom` AND `@vue/runtime-vapor`, so all Vapor APIs (`createVaporApp`, `vaporInteropPlugin`, `defineVaporComponent`) import from plain `vue`: `dist/vue.d.ts:4-5`.
+- Named exports added by the `vue` package itself: `compile`, `defineVaporAsyncComponent`, `withAsyncContext`: `dist/vue.runtime.esm-bundler.js:12`.
+- Subpath exports: `vue/server-renderer`, `vue/compiler-sfc`, `vue/jsx-runtime`, `vue/jsx`: `package.json:36-68`.
+- TypeScript is an optional peer dependency (`*`): `package.json:107-113`.
 
-- NEW: `<script setup vapor>` attribute (experimental) — new in v3.6, opts an SFC into Vapor Mode compilation; only works with `<script setup>`; does not support Options API, `app.config.globalProperties`, or `getCurrentInstance()` [source](./references/releases/v3.6.0-beta.1.md#opting-in-to-vapor-mode)
+## Common tasks
 
-- NEW: `useTemplateRef(key)` — new in v3.5, preferred replacement for plain `ref` variable names matching `ref="key"` attributes; supports dynamic string IDs at runtime unlike the old static-only pattern [source](./references/releases/blog-3.5.md#usetemplateref)
+Component with `<script setup>`, reactive props destructure, and `defineModel`:
 
-- NEW: `useId()` — new in v3.5, generates stable unique IDs per component instance guaranteed to match between SSR and client hydration; replaces manual ID management for form/accessibility attributes [source](./references/releases/blog-3.5.md#useid)
+```vue
+<script setup lang="ts">
+const { count = 0 } = defineProps<{ count?: number }>()
+const model = defineModel<string>({ default: '' })
+</script>
 
-- NEW: `onWatcherCleanup(fn)` — new in v3.5, registers a cleanup callback inside a `watch` or `watchEffect` callback; replaces the `onCleanup` parameter pattern and can be called from nested functions [source](./references/releases/blog-3.5.md#onwatchercleanup)
+<template>
+  <input v-model="model" />
+  <p>{{ count }}</p>
+</template>
+```
 
-- NEW: `hydrateOnVisible()`, `hydrateOnIdle()`, `hydrateOnInteraction()`, `hydrateOnMediaQuery()` — new in v3.5, lazy hydration strategies passed to `defineAsyncComponent({ hydrate: hydrateOnVisible() })`; without the `hydrate` option, async components hydrate immediately [source](./references/releases/blog-3.5.md#lazy-hydration)
-
-- NEW: `defineModel()` stable — promoted from experimental in v3.3 to stable in v3.4; automatically declares a prop and returns a mutable ref; replaces the manual `defineProps` + `defineEmits('update:modelValue')` pattern [source](./references/releases/blog-3.4.md#definemodel-is-now-stable)
-
-- NEW: `defineProps` destructure with defaults — stabilized in v3.5 (was experimental in v3.3); `const { count = 0 } = defineProps<{ count?: number }>()` replaces `withDefaults(defineProps<...>(), { count: 0 })`; destructured vars must be wrapped in getters to pass to `watch()` or composables [source](./references/releases/blog-3.5.md#reactive-props-destructure)
-
-- BREAKING: `@vnodeXXX` event listeners — removed in v3.4, are now a compiler error; use `@vue:XXX` listeners instead (e.g. `@vue:mounted`) [source](./references/releases/blog-3.4.md#other-removed-features)
-
-- BREAKING: Reactivity Transform (`$ref`, `$computed`, etc.) — removed in v3.4 after being deprecated in v3.3; was experimental and distinct from the now-stable props destructure feature; use Vue Macros plugin to continue using it [source](./references/releases/blog-3.4.md#other-removed-features)
-
-- BREAKING: Global `JSX` namespace — no longer registered by default since v3.4; set `jsxImportSource: "vue"` in `tsconfig.json` or import `vue/jsx` to restore it; affects TSX users only [source](./references/releases/blog-3.4.md#global-jsx-namespace)
-
-- BREAKING: `app.config.unwrapInjectedRef` — removed in v3.4; ref unwrapping in `inject()` is now always enabled and cannot be disabled [source](./references/releases/blog-3.4.md#other-removed-features)
-
-- NEW: `<Teleport defer>` prop — new in v3.5, mounts the teleport after the current render cycle so the target element can be rendered by Vue in the same component tree; requires explicit `defer` attribute for backwards compatibility [source](./references/releases/blog-3.5.md#deferred-teleport)
-
-**Also changed:** `defineSlots<{}>()` macro NEW v3.3 for typed slot declarations · `defineOptions({})` macro NEW v3.3 to set component options without a separate `<script>` block · `toRef(() => getter)` enhanced in v3.3 to accept plain values and getters · `toValue()` NEW v3.3 normalizes values/getters/refs to values (inverse of `toRef`) · `v-bind` same-name shorthand NEW v3.4 (`:id` shorthand for `:id="id"`) · `data-allow-mismatch` attribute NEW v3.5 to suppress hydration mismatch warnings · `useHost()` / `useShadowRoot()` NEW v3.5 for custom element host access · `v-is` directive REMOVED v3.4 (use `is="vue:ComponentName"` instead) · reactivity system alien-signals refactor in v3.6 improves memory usage with no API changes
-
-## Best Practices
-
-- Use reactive props destructure (3.5+) with native default value syntax instead of `withDefaults()` — destructured variables are reactive and the compiler rewrites accesses to `props.x` automatically. When passing to composables or `watch`, wrap in a getter: `watch(() => count, ...)` [source](./references/docs/api/sfc-script-setup.md#reactive-props-destructure)
-
-- Use `toValue()` in composables to normalize `MaybeRefOrGetter<T>` arguments — handles plain values, refs, and getter functions uniformly so callers can pass any form without the composable caring [source](./references/docs/api/reactivity-utilities.md#tovalue)
-
-- Use `onWatcherCleanup()` (3.5+) instead of the `onCleanup` callback parameter in `watch` and `watchEffect` — it can be called from any helper function in the sync execution stack, not just the top-level callback, making cleanup logic easier to extract [source](./references/docs/api/reactivity-core.md#onwatchercleanup)
-
-- Use `useTemplateRef()` (3.5+) instead of a plain `ref` with a matching variable name for template refs — supports dynamic ref IDs and provides better IDE auto-completion and type checking via `@vue/language-tools` 2.1 [source](./references/docs/api/composition-api-helpers.md#usetemplateref)
-
-- Use `useId()` (3.5+) for form element and accessibility IDs in SSR apps — generated IDs are stable across server and client renders, preventing hydration mismatches. Avoid calling inside `computed()` as it can cause instance conflicts [source](./references/docs/api/composition-api-helpers.md#useid)
-
-- Use `shallowRef()` / `shallowReactive()` for large immutable data structures — deep reactivity tracks every property access via proxy traps; shallow variants avoid this overhead while still reacting to root `.value` replacement [source](./references/docs/guide/best-practices/performance.md#reduce-reactivity-overhead-for-large-immutable-structures)
-
-- Pass computed values directly as `active` props rather than IDs for comparison — child components re-render when any received prop changes, so passing a stable boolean avoids re-rendering every list item when only one item's active state changes [source](./references/docs/guide/best-practices/performance.md#props-stability)
-
-- When a computed returns a new object on every evaluation, accept `oldValue` and return it unchanged when data is equivalent — avoids unnecessary downstream effect triggers since Vue 3.4+ only triggers effects when the computed value reference changes [source](./references/docs/guide/best-practices/performance.md#computed-stability)
-
-- Use `defineAsyncComponent` with a lazy hydration strategy (3.5+) for SSR — `hydrateOnVisible()`, `hydrateOnIdle()`, `hydrateOnInteraction()`, and `hydrateOnMediaQuery()` are tree-shakable and defer hydration until the component is actually needed
+Template refs (3.5+ pattern):
 
 ```ts
-import { defineAsyncComponent, hydrateOnVisible } from 'vue'
+import { useTemplateRef } from 'vue'
+const input = useTemplateRef('my-input') // matches ref="my-input" in template
+```
 
-const AsyncComp = defineAsyncComponent({
-  loader: () => import('./Comp.vue'),
-  hydrate: hydrateOnVisible()
+Watch with cleanup (3.5+):
+
+```ts
+import { watch, onWatcherCleanup } from 'vue'
+watch(id, () => {
+  const controller = new AbortController()
+  load(id.value, controller)
+  onWatcherCleanup(() => controller.abort())
 })
 ```
 
-[source](./references/docs/guide/components/async.md#lazy-hydration)
+Composable that accepts a value, ref, or getter:
 
-- (experimental) Opt in to Vapor Mode per-component with `<script setup vapor>` when targeting performance-sensitive UI — Vapor avoids Virtual DOM diffing entirely and achieves Solid/Svelte 5 benchmark parity, but does not support Options API, `app.config.globalProperties`, or `getCurrentInstance()`. Use `vaporInteropPlugin` to mix Vapor and VDOM components in an existing app [source](./references/releases/v3.6.0-beta.1.md#about-vapor-mode)
+```ts
+import { toValue, type MaybeRefOrGetter } from 'vue'
+function useDouble(source: MaybeRefOrGetter<number>) {
+  return computed(() => toValue(source) * 2)
+}
+```
+
+Lazy hydration for SSR (3.5+):
+
+```ts
+import { defineAsyncComponent, hydrateOnVisible } from 'vue'
+const Heavy = defineAsyncComponent({
+  loader: () => import('./Heavy.vue'),
+  hydrate: hydrateOnVisible(),
+})
+```
+
+## Version rules that change what you write
+
+Full list with citations in [API changes](./references/api-changes.md). The ones that break old code:
+
+- Reactivity Transform (`$ref`, `$computed`) was removed in 3.4. Use plain `ref`/`computed`, or the Vue Macros plugin.
+- `@vnodeXXX` listeners are a compiler error since 3.4. Use `@vue:mounted` style listeners.
+- Global `JSX` namespace is no longer registered since 3.4. Set `jsxImportSource: "vue"` in tsconfig, or import `vue/jsx`.
+- In Vapor components (3.6), Options API, `app.config.globalProperties`, `getCurrentInstance()`, `v-memo`, and `@vue:xxx` element lifecycle events do not work.
+- Vapor event delegation is on by default in beta.17: `stopPropagation()` in an ancestor can cancel delegated handlers. Disable per build with `compilerOptions.eventDelegation` (added in beta.15, [#14924](https://github.com/vuejs/core/pull/14924)). Note: rc.2 replaced this with an opt-in `.delegate` modifier ([release notes](https://github.com/vuejs/core/releases/tag/v3.6.0-rc.2)).
+
+## Bundler and dist notes
+
+- Bundlers resolve the runtime-only build; templates in `.vue` files are pre-compiled. For runtime template compilation (in-DOM templates or template strings), alias `vue` to `vue/dist/vue.esm-bundler.js`.
+- Replace `__VUE_OPTIONS_API__`, `__VUE_PROD_DEVTOOLS__`, `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` at build time for correct tree-shaking ([compile-time flags](https://vuejs.org/api/compile-time-flags.html)).
+- In Node CJS, importing `vue/compiler-sfc` auto-registers TypeScript via `registerTS(() => require('typescript'))` when resolvable: `compiler-sfc/register-ts.js:1-3`.
+
+Details, dist-file selection, and the export catalog: [API surface](./references/api-surface.md).
+
+## References
+
+- [API surface](./references/api-surface.md): entry points, dist builds, feature flags, export catalog.
+- [Vapor Mode](./references/vapor-mode.md): opt-in, interop, constraints, directives, event delegation.
+- [API changes 3.4 to 3.6](./references/api-changes.md): new, stable, and removed APIs per version, with citations.
+- [Best practices](./references/best-practices.md): composable and performance patterns proven against the official docs.

@@ -1,71 +1,98 @@
 ---
 name: reka-ui-skilld
-description: "Vue port for Radix UI Primitives. ALWAYS use when writing code importing \"reka-ui\". Consult for debugging, best practices, or modifying reka-ui, reka ui."
-metadata:
-  version: 2.9.7
-  generated_at: 2026-05-05
-  references_synced_at: 2026-05-05
+description: Vue port of Radix UI Primitives (headless, accessible, unstyled). ALWAYS use when writing code that imports "reka-ui" or "reka-ui/namespaced", building components with Reka UI primitives, or debugging and reviewing Reka UI usage. Provides version-specific API rules, composition patterns, and styling guidance.
 ---
 
-# unovue/reka-ui `reka-ui@2.9.7`
-**Tags:** latest: 2.9.7
+# Reka UI `reka-ui@2.10.5`
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Unstyled, accessible component primitives for Vue 3. Requires `vue >= 3.4.0`
+(prepared source `package.json:87-89`). Docs: https://reka-ui.com
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## References
 
-- BREAKING: `radix-vue` renamed to `reka-ui` — CSS variables now use `--reka-` prefix and data attributes use `data-reka-` [source](./references/docs/content/docs/guides/migration.md)
+- [API surface](./references/api-surface.md): entry points, every component part, utilities.
+- [Composition](./references/composition.md): `asChild`, prop forwarding, context injection, controlled state.
+- [Styling and animation](./references/styling-animation.md): `data-state`, `--reka-` CSS variables, `force-mount` with `<Transition>`.
+- [New and changed components](./references/components-new.md): Drawer, Autocomplete, Color primitives, Month/Year pickers, and version-specific prop changes.
+- [Integrations](./references/integrations.md): namespaced entry, Nuxt module, component resolver, dates with `@internationalized/date`, virtualization.
 
-- BREAKING: `Combobox` refactor — `filter-function` prop removed; `searchTerm` and `displayValue` props moved from Root to `ComboboxInput` [source](./references/docs/content/docs/guides/migration.md)
+## Setup
 
-- BREAKING: `Checkbox`, `Toggle`, `MenuCheckboxItem` — bindings changed from `v-model:checked` or `v-model:pressed` to standard `v-model` [source](./references/docs/content/docs/guides/migration.md)
-
-- BREAKING: `DatePicker/Calendar` — `weekStartsOn` is now locale-independent as of v2.8.0 [source](./references/releases/v2.8.0.md)
-
-- BREAKING: `Presence` — `forceMount` now renders components regardless of active state; manual visibility handling (e.g. `:hidden`) is required [source](./references/docs/content/docs/guides/migration.md)
-
-- BREAKING: `Pagination` — `itemsPerPage` prop is now required rather than having a default value [source](./references/docs/content/docs/guides/migration.md)
-
-- NEW: `Rating` component — added for star/rating input interactions in v2.8.0 [source](./references/releases/v2.8.0.md)
-
-- NEW: `TimeField` component — new primitive for localized time inputs introduced in v2.0.0 [source](./references/releases/v2.0.0.md)
-
-- NEW: `useFilter()` — locale-aware string filtering utility (startsWith, endsWith, contains) added in v2.0.0 [source](./references/releases/v2.0.0.md)
-
-- NEW: `useLocale()` / `useDirection()` — utility hooks for accessing the current configuration context [source](./references/releases/v2.6.0.md)
-
-- NEW: `ScrollArea` glimpse mode — added `ScrollAreaScrollbarGlimpse` for transient scrollbar visibility [source](./references/releases/v2.8.0.md)
-
-- NEW: `Select` `disableOutsidePointerEvents` — prop added to `SelectContent` to control interaction with outside elements [source](./references/releases/v2.7.0.md)
-
-- NEW: `ConfigProvider` — global configuration component for locale, direction, and `useId` settings [source](./references/releases/v2.0.0.md)
-
-- NEW: `NumberField` enhancements — added `focusOnChange`, `readonly`, and `stepSnapping` props [source](./references/releases/v2.8.0.md)
-
-**Also changed:** `Popover/Dialog` programmatic close · `Combobox` `openOnFocus` props · `Slider` `thumbAlignment` prop · `Toast` `disableSwipe` prop · `ContextMenu` `pressOpenDelay` prop · `Presence` component exposed · `calendar` `getWeekNumber` utility · `injectContext` exposed · `Collapsible/Accordion` `unmountOnHide` prop
-
-## Best Practices
-
-- Use the `asChild` prop to compose Reka's functionality onto your own Vue components or alternative DOM elements while maintaining accessibility [source](./references/docs/content/docs/guides/composition.md)
+```bash
+pnpm add reka-ui   # or npm / yarn / bun
+```
 
 ```vue
+<script setup lang="ts">
+import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle } from 'reka-ui'
+</script>
 
+<template>
+  <DialogRoot>
+    <DialogTrigger>Edit profile</DialogTrigger>
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogContent>
+        <DialogTitle>Edit profile</DialogTitle>
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
+</template>
+```
+
+## API changes (2.10.x and 2.9.x)
+
+Prioritized recent releases. Baseline skill covered up to 2.9.7.
+
+- NEW `Drawer` primitive (2.10.0): swipe dismiss, snap points, nested drawers. Parts: `DrawerRoot/Trigger/Portal/Overlay/Content/Close/Title/Description/Handle/SwipeArea/Viewport/Indent/IndentBackground` (prepared source `src/Drawer/`). Release: https://github.com/unovue/reka-ui/releases/tag/v2.10.0
+- NEW `ConfigProvider` `teleportTo` prop: global default teleport target (prepared source `src/ConfigProvider/ConfigProvider.vue:45`)
+- NEW `DialogRoot` `unmountOnHide` prop, default `true`; set `false` to keep content mounted when hidden (prepared source `src/Dialog/DialogRoot.vue:20`)
+- NEW `SelectRoot` `nullableValue` prop for a hidden-input value representing the empty selection (prepared source `src/Select/SelectRoot.vue:18`)
+- NEW `HoverCardRoot` `enableTouch` prop, default `false` (prepared source `src/HoverCard/HoverCardRoot.vue:15`)
+- NEW `DateFieldRoot` `stepSnapping` prop, default `false` (prepared source `src/DateField/DateFieldRoot.vue:57`)
+- NEW `TreeItem` `disabled` prop (2.10.0): https://github.com/unovue/reka-ui/releases/tag/v2.10.0
+- NEW `TabsIndicator` exposes `--reka-tabs-indicator-size`, `--reka-tabs-indicator-thickness`, `--reka-tabs-indicator-position` CSS variables (prepared source `src/Tabs/TabsIndicator.vue:73-75`)
+- Better type inference for `useEmitAsProps` and `useForwardPropsEmits` (2.10.0)
+- NEW `Autocomplete` component (2.9.0), a Combobox-style input with its own `Autocomplete*` part family. Docs: https://reka-ui.com/docs/components/autocomplete
+- NEW Color primitives (2.9.0): `ColorArea*`, `ColorField*`, `ColorSlider*`, `ColorSwatch`, `ColorSwatchPicker*`, plus color parse/convert utilities exported from the root
+- NEW `TimeRangeField` (2.9.0): `TimeRangeFieldRoot`, `TimeRangeFieldInput`
+- NEW Month and Year pickers (2.9.0): `MonthPicker*`, `YearPicker*` and `MonthRangePicker*`, `YearRangePicker*` families
+- NEW `CheckboxRoot`/`SwitchRoot` custom boolean values: `trueValue` and `falseValue` props replace the fixed `true`/`false` (prepared source `src/Checkbox/CheckboxRoot.vue:27-31`)
+- NEW `DropdownMenuFilter` part for searchable dropdown menus (2.9.0)
+- NEW `Splitter` pixel sizing and constraints (2.9.0)
+- NEW global tooltip content configuration via `TooltipProvider` (2.9.0)
+- Menu internals exported from `reka-ui/internal`; unstable, may change without semver (prepared source `src/internal.ts:1-7`)
+
+Earlier breaking changes still relevant when touching older code:
+
+- `radix-vue` renamed to `reka-ui`; CSS variables use `--reka-` prefix and data attributes use `data-reka-`. Migration: https://reka-ui.com/docs/guides/migration
+- Combobox refactor: `filterFunction` prop removed; `searchTerm` and `displayValue` moved from Root to `ComboboxInput` (migration guide above)
+- `Checkbox`, `Toggle`, `MenuCheckboxItem` use standard `v-model` instead of `v-model:checked` / `v-model:pressed` (migration guide above)
+- `PaginationRoot` `itemsPerPage` is required (migration guide above)
+- `weekStartsOn` on Calendar/DatePicker is locale-independent since 2.8.0: https://github.com/unovue/reka-ui/releases/tag/v2.8.0
+
+Release index: https://github.com/unovue/reka-ui/releases
+
+## Best practices
+
+- Compose with `asChild`: render a Reka primitive as your own element or component while keeping behavior and accessibility (https://reka-ui.com/docs/guides/composition)
+
+```vue
 <TooltipTrigger asChild>
   <MyButton>Hover me</MyButton>
 </TooltipTrigger>
 ```
 
-- Utilize `useForwardPropsEmits` when building wrapper components to automatically forward all props and emits to the underlying Reka primitive [source](./references/docs/content/docs/utilities/use-forward-props-emits.md)
+- Build wrappers with `useForwardPropsEmits` so all props and emits pass through to the primitive (https://reka-ui.com/docs/utilities/use-forward-props-emits)
 
 ```ts
 const props = defineProps<AccordionRootProps>()
 const emits = defineEmits<AccordionRootEmits>()
 const forwarded = useForwardPropsEmits(props, emits)
-// Usage: <AccordionRoot v-bind="forwarded">
+// <AccordionRoot v-bind="forwarded">
 ```
 
-- Wrap your application with `ConfigProvider` to manage global reading direction (RTL) and prevent layout shifts during scroll locking [source](./references/docs/content/docs/utilities/config-provider.md)
+- Wrap the app in `ConfigProvider` to set `dir` (RTL), `locale`, `scrollBody`, and a `teleportTo` default (https://reka-ui.com/docs/utilities/config-provider)
 
 ```vue
 <ConfigProvider dir="rtl" :scroll-body="false">
@@ -73,14 +100,28 @@ const forwarded = useForwardPropsEmits(props, emits)
 </ConfigProvider>
 ```
 
-- Apply `useForwardExpose` in components with multiple root nodes (fragments) to ensure that template refs correctly return the target DOM element [source](./references/docs/content/docs/utilities/use-forward-expose.md)
+- Use `useForwardExpose` in fragment (multi-root) components so template refs return the target DOM element (https://reka-ui.com/docs/utilities/use-forward-expose)
 
 ```ts
 const { forwardRef } = useForwardExpose()
-// Usage: <div :ref="forwardRef">...</div>
+// <div :ref="forwardRef">...</div>
 ```
 
-- Implement `ComboboxVirtualizer` or `ListboxVirtualizer` for large datasets to improve performance, ensuring the parent container has a fixed height [source](./references/docs/content/docs/guides/virtualization.md)
+- Style states via `data-state` attributes instead of toggling classes; use `:deep()` for teleported content in scoped styles (https://reka-ui.com/docs/guides/styling)
+
+```css
+.AccordionItem[data-state="open"] { border-bottom-width: 2px; }
+```
+
+- Animate with `<Transition>` by adding `force-mount` to content parts and controlling unmount yourself (https://reka-ui.com/docs/guides/animation)
+
+```vue
+<Transition name="fade">
+  <DialogContent force-mount>...</DialogContent>
+</Transition>
+```
+
+- Virtualize long lists with `ComboboxVirtualizer`, `ListboxVirtualizer`, `AutocompleteVirtualizer`, or `TreeVirtualizer`; give the scroll container a fixed height (https://reka-ui.com/docs/guides/virtualization)
 
 ```vue
 <ComboboxViewport class="max-h-80 overflow-y-auto">
@@ -90,25 +131,15 @@ const { forwardRef } = useForwardExpose()
 </ComboboxViewport>
 ```
 
-- Use `injectXContext` functions (e.g., `injectAccordionRootContext`) to access internal primitive state for advanced custom child components [source](./references/docs/content/docs/guides/inject-context.md)
+- Access internal primitive state from custom children with `injectXContext` functions such as `injectAccordionRootContext` (https://reka-ui.com/docs/guides/inject-context)
 
-- Style component states by targeting `data-state` attributes (e.g., `open`, `closed`, `active`) instead of manually toggling classes [source](./references/docs/content/docs/guides/styling.md)
+- `useId` from Reka UI resolves in order: a passed deterministic id, the `ConfigProvider` `useId` source, Vue's native `useId` (Vue 3.5+), then a counter fallback (prepared source `src/shared/useId.ts:26-34`). On Nuxt with Vue below 3.5, pass Nuxt's `useId` through `ConfigProvider` to avoid hydration id mismatches (https://reka-ui.com/docs/guides/server-side-rendering)
 
-```css
-/* Preferred way to style open state */
-.AccordionItem[data-state="open"] {
-  border-bottom-width: 2px;
-}
-```
+- Date and time components take `DateValue` and `TimeValue` objects from `@internationalized/date` (a direct dependency), never raw strings (https://reka-ui.com/docs/guides/dates)
 
-- Use the `:deep()` selector when styling teleported components (Dialog, Popover, Tooltip) within scoped Vue styles to reach the body-appended elements [source](./references/docs/content/docs/guides/styling.md)
+## Common gotchas
 
-- Enable `force-mount` on content parts when using JavaScript animation libraries or Vue `<Transition>` to delegate unmounting control to the library [source](./references/docs/content/docs/guides/animation.md)
-
-```vue
-<Transition name="fade">
-  <DialogContent force-mount>...</DialogContent>
-</Transition>
-```
-
-- Prefer Vue 3.5 native `useId()` over the Reka UI utility for stable SSR identifiers, as the library utility is deprecated for newer Vue versions [source](./references/docs/content/docs/utilities/use-id.md)
+- Every part must sit under its Root; most components also need `*Content` inside a `*Portal` or `Teleport` for correct stacking.
+- `Presence` `forceMount` renders content regardless of open state; handle visibility yourself, for example with `:hidden` (https://reka-ui.com/docs/utilities/presence).
+- Hidden form fields use the part's `name` and `value` props; `SelectRoot` also accepts `nullableValue` for the empty state.
+- Import from `reka-ui` for tree-shaking, or `reka-ui/namespaced` for grouped parts like `Dialog.Root`; see [Integrations](./references/integrations.md).

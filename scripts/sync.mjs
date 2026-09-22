@@ -22,6 +22,8 @@ const DEFAULT_CONCURRENCY = 3
 // The Harness defaults suit a first draft. A Skill here carries a reference
 // tree of scraped docs and release notes, so it needs a wider allowance.
 const OUTPUT_POLICY = {
+  // A component library ships more files than the Harness expects by default.
+  maxSourceFiles: 20_000,
   maxOutputFiles: 512,
   maxOutputBytes: 32 * 1024 * 1024,
 }

@@ -1,104 +1,168 @@
 ---
 name: vitepress-skilld
-description: "Vite & Vue powered static site generator. ALWAYS use when writing code importing \"vitepress\". Consult for debugging, best practices, or modifying vitepress."
-metadata:
-  version: 1.6.4
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: Use when writing, configuring, or debugging code that imports "vitepress", when running vitepress CLI commands, editing .vitepress/config or theme files, tuning markdown or default theme options, or migrating a VitePress site. Provides the vitepress@1.6.4 API surface, config reference, theme reference, CLI usage, and v1 migration notes.
 ---
 
-# vuejs/vitepress `vitepress@1.6.4`
-**Tags:** latest: 1.6.4, next: 2.0.0-alpha.17
+# vitepress@1.6.4
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Vite & Vue powered static site generator (vuejs/vitepress). Source of truth in
+this Skill is the prepared package source; line citations are relative to the
+package root (for example `dist/node/index.d.ts:2382`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Version facts
 
-- BREAKING: `pathname://` — protocol dropped in v1.0.0-rc.9, use `target="_self"` or `target="_blank"` instead [source](./references/releases/CHANGELOG.md)
+- Version 1.6.4, MIT (`package.json:3`).
+- Bundles Vue `^3.5.13`, Vite `^5.4.14`, shiki `^2.1.0`, minisearch `^7` (`package.json:59-78`).
+- Requires Node.js 18+ (https://vitepress.dev/guide/getting-started).
+- VitePress v1 is not compatible with `rolldown-vite`; the dev server prints an
+  error and directs to VitePress v2 (`dist/node/cli.js:438-444`).
+- Optional peers: `markdown-it-mathjax3` (for `markdown.math`), `postcss` (`package.json:155-166`).
 
-- BREAKING: `shikiSetup` — renamed from `shikijiSetup` in v1.0.0-rc.41 following the migration from `shikiji` back to `shiki` [source](./references/releases/CHANGELOG.md)
+## Entry points
 
-- BREAKING: `sidebar` items — `children` key was renamed to `items` in v1.0.0, and top-level items no longer support `link` [source](./references/docs/en/guide/migration-from-vitepress-0.md)
+Defined by the export map in `package.json:18-37`:
 
-- BREAKING: `collapsed` — replaced `collapsible` sidebar option in v1.0.0-alpha.44; `collapsed: true` implies collapsible [source](./references/releases/CHANGELOG.md)
+| Import                       | Types entry              | Use for                                        |
+| ---------------------------- | ------------------------ | ---------------------------------------------- |
+| `vitepress`                  | `types/index.d.ts`       | Node + client + shared API, config helpers     |
+| `vitepress/client`           | `client.d.ts`            | Client composables (`useData`, `useRouter`, …) |
+| `vitepress/theme`            | `theme.d.ts`             | Default theme, `useSidebar`, `useLocalNav`     |
+| `vitepress/theme-without-fonts` | `theme-without-fonts.d.ts` | Default theme without bundled font files    |
 
-- BREAKING: `markdown.headers` — disabled by default since v1.0.0-alpha.57; `PageData` no longer includes headers unless explicitly enabled [source](./references/releases/CHANGELOG.md)
+CLI binary: `vitepress` → `bin/vitepress.js`.
 
-- NEW: `onAfterPageLoad` — router hook added in v1.4.0, triggered after the page is loaded and before it is rendered [source](./references/releases/CHANGELOG.md)
+## Setup and commands
 
-- NEW: `onBeforePageLoad` — router hook added in v1.0.0-beta.4, allows executing logic before a page load starts [source](./references/releases/CHANGELOG.md)
+```sh
+npm add -D vitepress
+npx vitepress init
+npx vitepress dev
+npx vitepress build
+npx vitepress preview
+```
 
-- NEW: `useData().hash` — new property in v1.1.0 that provides a reactive reference to the current URL hash [source](./references/releases/CHANGELOG.md)
+`dev` may be omitted when using the current directory (`vitepress` alone).
+`serve` is an alias of `preview`. Full flags and dev shortcuts:
+[cli.md](./references/cli.md)
 
-- NEW: `useSidebar()` — exposed in v1.0.0-beta.4, provides access to sidebar state and logic in custom themes [source](./references/releases/CHANGELOG.md)
+## Common tasks
 
-- NEW: `defineClientComponent()` — helper added in v1.0.0-alpha.59 for creating components that only render on the client [source](./references/releases/CHANGELOG.md)
-
-- NEW: `onContentUpdated` — hook now triggers on frontmatter-only changes as of v1.4.0 [source](./references/releases/CHANGELOG.md)
-
-- NEW: `createContentLoader()` — helper added in v1.0.0-alpha.53 to load content from markdown files with glob support [source](./references/releases/CHANGELOG.md)
-
-- NEW: `mergeConfig()` — utility exported in v1.0.0-rc.25 to assist in merging VitePress configurations [source](./references/releases/CHANGELOG.md)
-
-- NEW: `appearance: 'force-auto'` — new option added in v1.3.0 to force color scheme based on user system preference [source](./references/releases/CHANGELOG.md)
-
-**Also changed:** `PageData.filePath` new alpha.75 · `Theme.extends` new alpha.50 · `Theme.setup` deprecated alpha.50 · `Theme.NotFound` deprecated alpha.50 · `on-demand social icons` experimental v1.5.0 · `externalLinkIcon` option new beta.4 · `cleanUrls` stable alpha.41 · `metaChunk` experimental beta.6 · `rewrites` experimental alpha.41 · `sitemap` experimental beta.7
-
-## Best Practices
-
-- Use `createContentLoader` for archives and indexes over manual data loading — automatically handles caching and minimizes client-side JSON weight [source](./references/docs/en/guide/data-loading.md)
+### Site config (`.vitepress/config.ts`)
 
 ```ts
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  title: 'My App',
+  description: 'A VitePress site',
+  themeConfig: {
+    nav: [{ text: 'Guide', link: '/guide/' }],
+    sidebar: [{ text: 'Guide', items: [{ text: 'Intro', link: '/guide/intro' }] }]
+  }
+})
+```
+
+`defineConfig` is typed for the default theme; use
+`defineConfigWithTheme<CustomThemeConfig>` for a custom theme
+(`dist/node/index.d.ts:2382-2386`). Every option:
+[site-config.md](./references/site-config.md)
+
+### Client runtime API
+
+```vue
+<script setup>
+import { useData, useRouter, withBase } from 'vitepress'
+const { page, frontmatter, isDark, hash } = useData()
+const router = useRouter()
+</script>
+```
+
+Full export list and signatures: [api.md](./references/api.md)
+
+### Build-time data loading
+
+```ts
+// posts.data.js
 import { createContentLoader } from 'vitepress'
 export default createContentLoader('posts/*.md', { excerpt: true })
 ```
 
-- Wrap browser-only components with `defineClientComponent` — prevents SSR/SSG build failures when libraries access `window` or `document` on import [source](./references/docs/en/guide/ssr-compat.md)
+Import as `import { data } from './posts.data.js'`. Runs in Node only; the
+result ships as JSON in the client bundle.
+
+### Browser-only components
 
 ```vue
 <script setup>
 import { defineClientComponent } from 'vitepress'
-const ClientOnlyComp = defineClientComponent(() => import('./BrowserComponent.vue'))
+const Chart = defineClientComponent(() => import('./Chart.vue'))
 </script>
 ```
 
-- Prefer relative URLs for images and assets in Markdown — enables Vite's hashing pipeline and automatic base64 inlining for small files [source](./references/docs/en/guide/asset-handling.md)
+Prevents SSG build failures when a library touches `window`/`document` on
+import (https://vitepress.dev/guide/ssr-compat).
 
-- Use the `withBase()` helper for dynamic paths in theme components — ensures assets resolve correctly regardless of the site's deployment `base` URL [source](./references/docs/en/guide/asset-handling.md)
+## Best practices
 
-- Enable `cleanUrls: true` only when server-side support is confirmed — prevents broken direct links on platforms that do not automatically map `/foo` to `/foo.html` [source](./references/docs/en/guide/routing.md)
+- Use `createContentLoader` for archive and index pages instead of hand-rolled
+  loaders; it caches by file mtime and keeps the client JSON small
+  (`dist/node/index.d.ts:2466-2473`, https://vitepress.dev/guide/data-loading).
+- Wrap browser-only components with `defineClientComponent`
+  (https://vitepress.dev/guide/ssr-compat).
+- Keep image and asset URLs relative in Markdown so Vite hashes and inlines
+  them; use `withBase()` for dynamic paths in theme components
+  (https://vitepress.dev/guide/asset-handling).
+- Enable `cleanUrls: true` only when the host can map `/foo` to `/foo.html`
+  (https://vitepress.dev/guide/routing#clean-urls).
+- With `rewrites`, relative links must target the rewritten URL structure, not
+  the source file structure
+  (https://vitepress.dev/guide/routing#route-rewrites).
+- In dynamic route `paths.js` loaders, pass large payloads via `content`, not
+  `params`, to keep client JS small
+  (https://vitepress.dev/guide/routing#dynamic-routes).
+- In MPA mode (`mpa: true`), use `<script client>` for interactivity; plain
+  `<script setup>` is server-side templating only
+  (https://vitepress.dev/guide/mpa-mode).
+- Exclude pages from local search with the `_render` hook
+  (`types/default-theme.d.ts:451-455`).
 
-- Target rewritten paths for relative links when using `rewrites` — links must resolve against the final URL structure, not the source directory structure [source](./references/docs/en/guide/routing.md)
+## Deeper references
 
-- Pass large Markdown or HTML blocks via the `content` property in dynamic route loaders — prevents bloating the client-side JavaScript payload with serialized params [source](./references/docs/en/guide/routing.md)
+- [api.md](./references/api.md): every export from `vitepress`,
+  `vitepress/client`, `vitepress/theme`, data loader types, theme interface.
+- [site-config.md](./references/site-config.md): `UserConfig` fields, build
+  hooks, `SiteConfig`, `mergeConfig`.
+- [default-theme.md](./references/default-theme.md): `DefaultTheme.Config`,
+  nav, sidebar, search (local and algolia), theme extension.
+- [markdown.md](./references/markdown.md): `markdown` options, shiki setup,
+  containers, math, `createMarkdownRenderer`.
+- [cli.md](./references/cli.md): commands, flags, dev shortcuts, scaffolding.
+- [migration.md](./references/migration.md): v0 → v1 breaking changes and
+  deprecations still visible in 1.6.4.
 
-```js
-// [pkg].paths.js
-export default {
-  async paths() {
-    return [{ params: { id: '1' }, content: '## Large Content' }]
-  }
-}
-```
+## Version-specific changes
 
-- Use `<script client>` for minimal interactivity in MPA mode — standard `<script setup>` in MPA mode is used for server-side templating only and lacks reactivity [source](./references/docs/en/guide/mpa-mode.md)
+Prioritize these when touching old configs; details and citations in
+[migration.md](./references/migration.md):
 
-- Programmatically exclude pages from search via the `_render` hook — allows complex filtering logic based on file path or frontmatter during the indexing phase [source](./references/docs/en/reference/default-theme-search.md)
-
-```ts
-// .vitepress/config.ts
-themeConfig: {
-  search: {
-    provider: 'local',
-    options: {
-      _render(src, env, md) {
-        if (env.frontmatter?.search === false) return ''
-        return md.render(src, env)
-      }
-    }
-  }
-}
-```
-
-- Employ `defineConfigWithTheme<DefaultTheme.Config>` for site configuration — provides full TypeScript inference and validation for both core and default theme settings [source](./references/releases/CHANGELOG.md)
+- BREAKING (v1.0.0-rc.9): `pathname://` protocol removed; use
+  `target="_self"` or `target="_blank"`
+  (https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md).
+- BREAKING (v1.0.0): sidebar `children` renamed to `items`; top-level items no
+  longer accept `link`
+  (https://vitepress.dev/guide/migration-from-vitepress-0).
+- BREAKING (v1.0.0-alpha.44): `collapsible` replaced by `collapsed: boolean`
+  (CHANGELOG).
+- BREAKING (v1.0.0-alpha.57): `markdown.headers` disabled by default;
+  `PageData.headers` is empty unless enabled (CHANGELOG).
+- When `markdown.headers` is enabled, extraction levels default to `[2, 3]`
+  (`dist/node/index.d.ts:1769-1786`).
+- NEW (v1.1.0): `useData().hash` reactive URL hash
+  (`dist/client/index.d.ts:79-83`).
+- NEW (v1.4.0): `onAfterPageLoad` router hook
+  (`dist/client/index.d.ts:36-38`).
+- NEW (v1.3.0): `appearance: 'force-auto'`
+  (`types/shared.d.ts:119-124`).
+- Deprecated in 1.6.4: `Theme.setup`, `Theme.NotFound`
+  (`dist/client/index.d.ts:96-103`), `outlineTitle`, `lastUpdatedText`,
+  `algolia` theme options (`types/default-theme.d.ts:36-77,139-141`).

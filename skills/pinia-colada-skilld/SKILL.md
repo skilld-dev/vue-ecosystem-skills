@@ -1,66 +1,128 @@
 ---
 name: pinia-colada-skilld
-description: "The smart data fetching layer for Vue.js. ALWAYS use when writing code importing \"@pinia/colada\". Consult for debugging, best practices, or modifying @pinia/colada, pinia/colada, pinia colada, pinia-colada."
-metadata:
-  version: 1.2.1
-  generated_at: 2026-04-29
-  references_synced_at: 2026-04-29
+description: Data fetching layer for Vue built on Pinia. Use when writing, debugging, or reviewing code that imports @pinia/colada (pinia colada), including useQuery, useMutation, useInfiniteQuery, defineQuery, query cache invalidation, optimistic updates, plugins, SSR, or migrating from older versions. Provides current 1.4.x APIs, patterns, and migration rules.
 ---
 
-# posva/pinia-colada `@pinia/colada@1.2.1`
-**Tags:** latest: 1.2.1
+# @pinia/colada 1.4.5
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+The smart data fetching layer for Vue.js, built on Pinia. Queries read and cache
+data (`useQuery`), mutations write data (`useMutation`), everything lives in
+Pinia stores (`useQueryCache`, `useMutationCache`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+- Docs: https://pinia-colada.esm.dev
+- API types: `dist/index.d.mts` in the prepared package source
+- Runtime exports: `dist/index.mjs:1487`
+- Peers: `vue ^3.5.41`, `pinia ^2.2.6 || ^3.0.0 || ^4.0.2` (pinia 4 allowed since 1.4.1, `package.json:91-94`)
+- Bundled codemods: `codemods/rules/*.yaml` in the package
 
-- BREAKING: `useInfiniteQuery()` — v0.20.0 refactored: removed `merge`, changed `data` to `{ pages, pageParams }`, `initialPage` → `initialPageParam`, `loadMore` → `loadNextPage`, and `getNextPageParam` is now required (experimental) [source](./references/releases/CHANGELOG.md)
+## Setup
 
-- BREAKING: `PiniaColada` installation — v0.14.0 moved global options to `queryOptions: { ... }` and requires an options object for typing: `app.use(PiniaColada, {})` [source](./references/releases/CHANGELOG.md)
+```sh
+npm install pinia @pinia/colada
+```
 
-- BREAKING: `useQuery()` aliases — `isFetching` was renamed to `isLoading` in v0.8.0 to better reflect its connection to `asyncStatus` [source](./references/releases/CHANGELOG.md)
+```ts
+import { createPinia } from 'pinia'
+import { PiniaColada } from '@pinia/colada'
 
-- BREAKING: Status split — v0.8.0 split `status` into `status` (data: `'pending'|'success'|'error'`) and `asyncStatus` (operation: `'idle'|'loading'`) [source](./references/releases/CHANGELOG.md)
+const app = createApp(App)
+app.use(createPinia())
+// install after pinia; the options object is required for correct typing
+app.use(PiniaColada, {
+  queryOptions: { staleTime: 60_000 },
+  plugins: [],
+})
+```
 
-- BREAKING: Mutation IDs — v0.19.0 simplified mutation IDs to incremented numbers (starting at 1). `mutationCache.get()` now takes the ID, and `$n` suffix is removed from keys [source](./references/releases/CHANGELOG.md)
+Global options go under `queryOptions` / `mutationOptions` (`dist/index.d.mts:1601-1618`).
 
-- BREAKING: Cache Key structure — v0.16.0 refactored internal cache to support deeply nested objects for keys. `toCacheKey` now returns a plain string. Stricter types disallow `undefined` in keys [source](./references/releases/CHANGELOG.md)
+## Mental model
 
-- BREAKING: `queryCache` method renames — `cancelQuery()` was renamed to `cancel()` in v0.11.0, and `cancelQueries()` was added for multiple cancellations [source](./references/releases/CHANGELOG.md)
+- A query is identified by its `key`: a JSON-serializable array
+  (`EntryKey`, `dist/index.d.mts:119`). Keys are hierarchical: `{ key: ['todos'] }`
+  also matches `['todos', { filter: 'done' }]` when filtering.
+- `status` is the data status: `'pending' | 'success' | 'error'`.
+  `asyncStatus` is the operation status: `'idle' | 'loading'`. They are separate
+  on purpose (https://pinia-colada.esm.dev/guide/queries.md).
+- Defaults: `staleTime: 5000`, `gcTime: 300_000`, `refetchOnMount`,
+  `refetchOnWindowFocus`, `refetchOnReconnect`, `enabled: true`
+  (`dist/index.mjs:92-97`). Mutation `gcTime` default is `60_000`
+  (`dist/index.d.mts:1379`).
 
-- BREAKING: `setQueryState` → `setEntryState` — v0.9.0 renamed this `queryCache` action to better match its purpose [source](./references/releases/CHANGELOG.md)
+## Core patterns
 
-- BREAKING: External `AbortError` — v0.18.0 now surfaces external abort signals as actual errors instead of silently ignoring them [source](./references/releases/CHANGELOG.md)
-
-- BREAKING: `placeholderData` types — v0.13.0 changed `placeholderData` to only allow returning `undefined` (not `null`) to improve type inference [source](./references/releases/CHANGELOG.md)
-
-- BREAKING: Devtools dependency — v0.21.0 removed built-in `@vue/devtools-api` dependency; use `@pinia/colada-devtools` instead [source](./references/releases/CHANGELOG.md)
-
-- NEW: `useInfiniteQuery()` — v0.13.5 introduced infinite scrolling support (experimental) [source](./references/releases/CHANGELOG.md)
-
-- NEW: `useQueryState()` — v0.17.0 added this for easier state management without the full `useQuery` return object [source](./references/releases/CHANGELOG.md)
-
-- NEW: Global Query Hooks — v0.8.0 introduced `PiniaColadaQueryHooksPlugin` to manage `onSuccess`, `onError`, and `onSettled` [source](./references/releases/CHANGELOG.md)
-
-**Also changed:** `serializeTreeMap` replaces `serialize` v0.14.0 · `transformError` removed v0.12.0 · `EntryKey` replaces `EntryNodeKey` v0.17.0 · `TResult` renamed `TData` v0.16.0 · `QueryPlugin` → `PiniaColada` v0.8.0 · `delayLoadingRef` removed v0.12.0 · `invalidateKeys` moved to plugin v0.10.0
-
-## Best Practices
-
-- Use the grouped `state` object for type-safe narrowing in templates — TypeScript cannot narrow destructured `data` or `error` refs based on the `status` ref due to Vue's `Ref` wrapper limitations [source](./references/docs/guide/queries.md)
+### Basic query
 
 ```vue
 <script setup lang="ts">
-const { state } = useQuery({ key: ['user'], query: fetchUser })
+import { useQuery } from '@pinia/colada'
+
+const { state, asyncStatus } = useQuery({
+  key: ['todos'],
+  query: () => fetch('/api/todos').then(res => res.json()),
+})
 </script>
 
 <template>
-  <div v-if="state.status === 'success'">{{ state.data.name }}</div>
+  <div v-if="state.status === 'pending'">Loading...</div>
   <div v-else-if="state.status === 'error'">{{ state.error.message }}</div>
+  <ul v-else>
+    <li v-for="todo in state.data" :key="todo.id">{{ todo.text }}</li>
+  </ul>
 </template>
 ```
 
-- Wrap shared reactive state in `defineQuery()` to prevent desynchronization — regular composables recreate refs for each component instance, causing only the first component to successfully trigger key-based reactivity [source](./references/docs/advanced/reusable-queries.md)
+Use the grouped `state` object for type narrowing in templates. TypeScript
+cannot narrow separate `data` / `error` refs from `status`
+(https://pinia-colada.esm.dev/guide/queries.md).
+
+### Reactive keys: pass a getter
+
+Everything the `query` function reads (route params, refs) must be in the `key`.
+Pass `key` as a getter so the query refetches when dependencies change:
+
+```ts
+const { data } = useQuery({
+  key: () => ['contacts', route.params.id as string],
+  query: () => fetch(`/api/contacts/${route.params.id}`).then(r => r.json()),
+})
+```
+
+### Guard queries with `enabled`
+
+Prevent invalid fetches when a required param is absent (common in stores and
+global queries):
+
+```ts
+useQuery({
+  key: () => ['decks', route.params.deckId],
+  query: () => fetchDeck(route.params.deckId as string),
+  enabled: () => 'deckId' in route.params,
+})
+```
+
+### Type-safe shared options: `defineQueryOptions`
+
+```ts
+export const todoOptions = defineQueryOptions((id: string) => ({
+  key: ['todos', id],
+  query: () => fetchTodo(id),
+}))
+
+// single-function form; the returned key is tagged so queryCache infers TData
+const { data } = useQuery(() => todoOptions(route.params.id as string))
+const todo = queryCache.getQueryData(todoOptions('1').key) // typed
+```
+
+`useQuery` accepts options or a getter returning options
+(`dist/index.d.mts:733`). Since 1.0 the two-parameter form
+`useQuery(options, paramsGetter)` is removed; see
+[references/migration.md](./references/migration.md).
+
+### Shared query state: `defineQuery`
+
+Wrap queries used by multiple components so refs are created once, like a tiny
+Pinia store. The setup function must be synchronous:
 
 ```ts
 export const useFilteredTodos = defineQuery(() => {
@@ -73,42 +135,65 @@ export const useFilteredTodos = defineQuery(() => {
 })
 ```
 
-- Combine hierarchical key factories with `defineQueryOptions()` for strict type safety — this enables automatic type inference in `queryCache` methods without manual type casting or string-based key typos [source](./references/docs/guide/query-keys.md)
+Details: [references/queries.md](./references/queries.md).
+
+### Mutation + invalidation
 
 ```ts
-export const todoOptions = defineQueryOptions((id: string) => ({
-  key: ['todos', id],
-  query: () => fetchTodo(id),
-}))
-// Inferred TData: queryCache.getQueryData(todoOptions('1').key)
-```
+const queryCache = useQueryCache()
 
-- Handle side effects via `watch` or global plugins instead of query options — `useQuery` intentionally lacks `onSuccess`/`onError` to prevent side-effect duplication across multiple component instances [source](./references/docs/cookbook/query-hooks.md)
-
-- Prefer `refresh()` over `refetch()` for standard UI updates — `refresh()` respects `staleTime` and deduplicates in-flight requests, whereas `refetch()` forces a network call regardless of cache status [source](./references/docs/guide/queries.md)
-
-- Use the `meta` property for declarative cross-cutting concerns — attach metadata to queries to drive global UI behavior (like toast messages) within the `PiniaColadaQueryHooksPlugin` [source](./references/docs/cookbook/query-hooks.md)
-
-- Verify cache state before performing optimistic rollbacks — always check if the current cache value matches the optimistic value in `onError` to avoid overwriting concurrent successful updates from other mutations [source](./references/docs/guide/optimistic-updates.md)
-
-```ts
-onError(err, vars, { newTodo, oldTodo }) {
-  if (newTodo === queryCache.getQueryData(['todos'])) {
-    queryCache.setQueryData(['todos'], oldTodo)
-  }
-}
-```
-
-- Use `queryCache.setEntryState()` for manual status synchronization — this is the preferred way to manually update an entry as setting data to `undefined` via `setQueryData()` is no longer supported for state resets [source](./references/releases/CHANGELOG.md)
-
-- Explicitly import `useRoute` from `vue-router` in Nuxt `defineQuery` definitions — the Nuxt auto-imported version can cause unnecessary query triggers or `undefined` values due to Suspense integration [source](./references/docs/advanced/reusable-queries.md)
-
-- Use the `enabled` getter to guard "immortal" queries in global stores — prevents queries inside Pinia stores from making invalid network requests when required reactive parameters (like route params) are absent [source](./references/docs/guide/queries.md)
-
-```ts
-const result = useQuery({
-  key: () => ['deck', route.params.id],
-  query: () => fetchDeck(route.params.id),
-  enabled: () => !!route.params.id,
+const { mutate, isLoading } = useMutation({
+  mutation: (text: string) => createTodo(text),
+  async onSettled() {
+    await queryCache.invalidateQueries({ key: ['todos'] })
+  },
 })
 ```
+
+- `mutate(vars)` never rejects; use it in templates and event handlers.
+- `mutateAsync(vars)` returns a promise and rejects on failure.
+- Put `onMutate` before `mutation` in the options object so its returned
+  context is inferred in later hooks (`dist/index.d.mts:1410-1433`).
+- Optimistic updates: write to the cache in `onMutate`, roll back in `onError`
+  only if the cache still holds your optimistic value. Full pattern in
+  [references/mutations.md](./references/mutations.md).
+
+### Queries have no `onSuccess`/`onError`
+
+This is intentional: a query can have many watchers. Use `watch(data, ...)`,
+or global hooks via `PiniaColadaQueryHooksPlugin`
+(https://pinia-colada.esm.dev/plugins/official/query-hooks.md).
+
+## Version-critical rules (1.x)
+
+- `useQuery(setup, paramsGetter)` and `useQueryState(setup, paramsGetter)` were
+  removed in 1.0.0. Migrate with the shipped codemod:
+  `ast-grep scan -r node_modules/@pinia/colada/codemods/rules/migration-0-21-to-1-0.yaml -i src`
+  (https://github.com/posva/pinia-colada/blob/main/CHANGELOG.md).
+- `useQueryState(key)` reads query state without fetching; the key is the only
+  argument (`dist/index.d.mts:920-926`).
+- `initialData` changes query state to `success`; `placeholderData` does not
+  change the cache (`dist/index.d.mts:558-600`).
+- To reset an entry's state manually use `queryCache.setEntryState(entry, state)`;
+  setting data to `undefined` via `setQueryData()` no longer resets state.
+- Infinite query data is `{ pages, pageParams }`; use `setInfiniteQueryData()`
+  (added 1.2.0), not `setQueryData()`, to prime infinite entries.
+- Devtools are a separate package: `@pinia/colada-devtools`.
+- Nuxt: install the `@pinia/colada-nuxt` module; it handles SSR serialization
+  automatically.
+
+## References
+
+- [queries.md](./references/queries.md): `useQuery` API, options, return values,
+  `useQueryState`, `defineQuery`, `defineQueryOptions`, key factories
+- [mutations.md](./references/mutations.md): `useMutation` API, hooks and
+  context, optimistic updates, `defineMutation`, `defineMutationOptions`
+- [infinite-queries.md](./references/infinite-queries.md): `useInfiniteQuery`,
+  `defineInfiniteQueryOptions`, `setInfiniteQueryData`, `maxPages`
+- [query-cache.md](./references/query-cache.md): cache stores, invalidation,
+  filters, manual cache writes, error codes
+- [plugins.md](./references/plugins.md): plugin API, `PiniaColadaQueryHooksPlugin`,
+  `TypesConfig` augmentation, official plugin packages
+- [ssr.md](./references/ssr.md): serialization and hydration, lazy queries,
+  `PiniaColadaSSRNoGc`
+- [migration.md](./references/migration.md): 0.x to 1.x changes and codemods

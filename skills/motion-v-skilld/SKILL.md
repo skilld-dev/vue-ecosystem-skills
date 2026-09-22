@@ -1,78 +1,123 @@
 ---
 name: motion-v-skilld
-description: "ALWAYS use when writing code importing \"motion-v\". Consult for debugging, best practices, or modifying motion-v, motion v, motion-vue, motion vue."
-metadata:
-  version: 2.2.1
-  generated_at: 2026-04-12
-  references_synced_at: 2026-04-12
+description: ALWAYS load when writing or debugging code that imports "motion-v" (Motion for Vue, motion-vue). Covers the motion component, AnimatePresence, variants, gestures, layout, scroll, motion values, the v-motion directive, and the Nuxt module for version 2.4.4. Provides API facts, recipes, best practices, and migration notes.
 ---
 
-# motiondivision/motion-vue `motion-v@2.2.1`
-**Tags:** latest: 2.2.1
+# motion-v (Motion for Vue) 2.4.4
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Motion for Vue is the Vue port of Motion (formerly Framer Motion).
+It animates DOM and SVG through props, motion values, and a hybrid engine.
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+Facts, all verified from the prepared source:
 
-- BREAKING: `focus`, `hover`, `press`, `inView` shorthand props — removed in v2.0.0-beta.1. Use `whileFocus`, `whileHover`, `whilePress`, and `whileInView` for animations, and full event handlers (e.g. `@hoverStart`, `@pressStart`) for logic [source](./references/releases/v2.0.0-beta.1.md)
+- Package: `motion-v` 2.4.4, MIT, ESM only (package.json:4, package.json:20-33).
+- Peer deps: `vue >= 3.0.0`, `@vueuse/core >= 10.0.0` (package.json:53-56).
+- Engine deps: `framer-motion`, `motion-dom`, `motion-utils`, all `^13.3.0` (package.json:57-62).
+- Entry points: `motion-v`, `motion-v/nuxt`, `motion-v/resolver` (package.json:20-33).
+- The root entry re-exports all of `framer-motion/dom` (dist/es/index.d.ts:1). So `animate`, `stagger`, `arc`, easing functions, and more come from the Motion engine.
+- Repo and docs: https://github.com/motiondivision/motion-vue, https://motion.dev/docs/vue
 
-- NEW: `v-motion` directive — new in v2.0.0-beta.1, enables declarative animations on any element without requiring a `<motion>` component wrapper [source](./references/releases/v2.0.0-beta.1.md)
+## Quick start
 
-- BREAKING: ESM-only — v2.0.0-beta.1 dropped CommonJS support. The package now only ships ESM (`.mjs`) exports [source](./references/releases/v2.0.0-beta.1.md)
-
-- NEW: `MotionPlugin` — new in v2.0.0-beta.1, a Vue plugin for global `v-motion` and custom preset directive registration
-
-- NEW: `createPresetDirective()` — new in v2.0.0-beta.1, allows creating reusable animation directives with baked-in motion options
-
-- BREAKING: `AnimatePresence` lazy discovery — v2.0.0-beta.1 refactored to use `data-ap` attribute for lazy discovery instead of eager registration [source](./references/releases/v2.0.0-beta.1.md)
-
-- DEPRECATED: `staggerChildren` and `staggerDirection` — deprecated in v1.4.0 in favor of using the `stagger()` utility within the `transition` prop [source](./references/releases/v1.4.0.md)
-
-- NEW: `stagger()` utility — correctly handles staggering for newly-entering siblings alongside existing ones since v1.7.0 [source](./references/releases/v1.7.0.md)
-
-- NEW: `useTransform` output maps — supports providing multiple output value maps for complex coordinate transformations since v1.9.0 [source](./references/releases/v1.9.0.md)
-
-- NEW: `Reorder` auto-scrolling — supports automatic parent container scrolling when a `Reorder.Item` is dragged to the edges since v1.8.0 [source](./references/releases/v1.8.0.md)
-
-- NEW: `useScroll` VueInstance support — `container` and `target` options now accept `VueInstance` (ref to component) since v1.6.0 [source](./references/releases/v1.6.0.md)
-
-- NEW: `useInView` `root` option — now accepts `MaybeRef` for dynamic root element assignment since v1.6.0 [source](./references/releases/v1.6.0.md)
-
-- NEW: `AnimatePresence` direct children — supports multiple direct `motion` components as children since v1.10.0 [source](./references/releases/v1.10.0.md)
-
-- NEW: `delayInMs` — exported as a standalone utility function for time-based animation delays since v1.6.0 [source](./references/releases/v1.6.0.md)
-
-**Also changed:** `useTransform` reactive update fix (v1.2.1) · `sequence` at relative start (v1.3.0) · `AnimatePresence` custom prop fix (v1.3.0) · `motionGlobalConfig` exported (v2.0.0-beta.1) · `FeatureBundle` tree-shaking architecture (v2.0.0-beta.1)
-
-## Best Practices
-
-- Use `LazyMotion` + `m` component instead of `motion` to reduce the initial bundle from ~34kb to ~6kb — load `domAnimation` (+18kb) for variants/exit/gestures or `domMax` (+28kb) when you also need drag and layout animations. Add `:strict="true"` to catch accidental `motion` imports inside `LazyMotion` at dev time [source](./references/docs/docs/vue-lazymotion.md#usage)
-
-- Render live motion value output with `<RowValue :value="motionValue" />` rather than syncing to Vue state — `RowValue` writes to `innerHTML` directly and bypasses Vue's reactivity cycle, keeping fast-changing values off the render path [source](./references/docs/docs/vue-animation.md#animate-content)
-
-- Set `reducedMotion="user"` on `MotionConfig` at the app root — the default is `"never"`, meaning transform and layout animations run regardless of the OS accessibility setting unless you explicitly opt in [source](./references/docs/docs/vue-motion-config.md#reducedmotion)
-
-- For layout animations, apply changing CSS to `:style` (not `:animate`) and let the `layout` prop handle the transition — if the value is placed in `:animate`, Motion's FLIP measurement will conflict with it [source](./references/docs/docs/vue-layout-animations.md#usage)
-
-- Set `borderRadius` and `boxShadow` via `:style` (not CSS classes) on `layout`-animated elements — Motion auto-corrects scale distortion on these properties only when they are set as inline style motion values [source](./references/docs/docs/vue-layout-animations.md#scale-correction)
-
-- Add `layoutScroll` to scrollable container ancestors and `layoutRoot` to fixed-position ancestors of layout-animated elements — without these props, Motion measures child positions incorrectly when scroll offset or viewport offset is non-zero [source](./references/docs/docs/vue-layout-animations.md#animating-within-scrollable-element)
-
-- Never place `v-if` on `AnimatePresence` itself — if it unmounts, it cannot intercept the exit of its children. The conditional must be on the direct child:
-
-```vue
-
-<AnimatePresence v-if="isVisible"><Component /></AnimatePresence>
-
-
-<AnimatePresence><Component v-if="isVisible" /></AnimatePresence>
+```
+npm install motion-v
 ```
 
-[source](./references/docs/docs/vue-animate-presence.md#exit-animations-aren-t-working)
+```vue
+<script setup>
+import { motion } from 'motion-v'
+</script>
 
-- Use dynamic variants with the `custom` prop for per-element stagger rather than computing delay in reactive Vue state — pass `:custom="index"` to each `motion` component and resolve the delay inside the variant function, keeping stagger logic declarative and allocation-free [source](./references/docs/docs/vue-animation.md#dynamic-variants)
+<template>
+  <motion.div :initial="{ opacity: 0 }" :animate="{ opacity: 1, x: 100 }" />
+</template>
+```
 
-- Prefer `useMotionValue` over CSS variable animation for values used across many children — animating a CSS variable always triggers paint on every frame, while a `MotionValue` passed to `:style` runs through Motion's optimised DOM renderer without touching the Vue render cycle [source](./references/docs/docs/vue-animation.md#animating-css-variables)
+`motion` is a namespace of typed components for every HTML and SVG tag
+(dist/es/components/motion/index.d.ts:3-182). `motion.div`, `motion.svg`, `motion.path` and so on.
 
-- Use the `v-motion` directive (new in v2.0.0-beta.1) to add animation to any native HTML or SVG element without a wrapper `<motion>` component — register globally via `app.use(MotionPlugin)` or per-component via `createMotionDirective`. Register reusable animation presets via the `presets` option to create project-wide shorthand directives like `v-fade-in` [source](./references/docs/docs/vue-directive.md#presets)
+## Core model
+
+- Set `initial`, `animate`, `exit`, `whileHover`, `whilePress`, `whileInView`, `whileFocus`, `whileDrag` to values or variant labels.
+- When `animate` values change, the element animates to them.
+- `transition` configures timing, spring, delay, stagger.
+- `variants` plus `custom` support dynamic, per element targets.
+- Animatable values include independent transforms (`x`, `y`, `scale`, `rotate`, `skewX`), colors, and CSS variables (dist/es/types/state.d.ts:45-47).
+- In templates, bind motion props with `:` prefix. They are props, not attributes.
+
+Full prop and hook listing: [references/api-surface.md](./references/api-surface.md)
+
+## Hard rules
+
+These rules prevent the most common bugs. Each cites its source.
+
+1. Use `m` plus `LazyMotion` instead of `motion` when bundle size matters.
+   `motion` ships all features, about 34 kb. `m` starts near 6 kb.
+   Load `domAnimation` for variants, gestures, exit. Load `domMax` for drag and layout.
+   Set `strict` to catch stray `motion` usage in dev.
+   https://motion.dev/docs/vue-lazymotion, dist/es/components/lazy-motion/index.d.ts:4-13
+
+2. Never put `v-if` on `AnimatePresence` itself. If it unmounts, it cannot intercept child exits.
+   Put the condition on the direct child instead:
+
+   ```vue
+   <AnimatePresence>
+     <motion.div v-if="isVisible" :exit="{ opacity: 0 }" />
+   </AnimatePresence>
+   ```
+
+   https://motion.dev/docs/vue-animate-presence
+
+3. For layout animations, apply changing CSS to `:style`, never to `:animate`.
+   The `layout` prop animates the measured change. Values in `:animate` fight the FLIP measurement.
+   https://motion.dev/docs/vue-layout-animations
+
+4. Set `borderRadius` and `boxShadow` as inline styles on `layout` elements.
+   Motion corrects scale distortion for these two only when they are motion values in `:style`.
+   https://motion.dev/docs/vue-layout-animations#scale-correction
+
+5. Add `layoutScroll` on scrollable ancestors and `layoutRoot` on fixed position ancestors.
+   Without them, layout measurement is wrong when scroll or viewport offset is non zero.
+   dist/es/components/motion/props.d.ts:71-78
+
+6. Set `reducedMotion="user"` on a root `MotionConfig`.
+   The default is `"never"`, so animations ignore the OS accessibility setting unless you opt in.
+   dist/es/components/motion-config/types.d.ts:5-20
+
+7. Use dynamic variants with `custom` for stagger, not computed delays in reactive state.
+   Pass `:custom="index"` and resolve `delay` inside the variant function.
+   https://motion.dev/docs/vue-animation
+
+8. Render live motion values with `<RowValue :value="mv" />` in demos and readouts.
+   It writes `innerHTML` directly and keeps fast values off the Vue render path.
+   dist/es/components/RowValue.d.ts:1-15
+
+9. Use `v-motion` for plain elements when a wrapper component does not fit.
+   Register it globally with `app.use(MotionPlugin)`, or create presets with `createPresetDirective`.
+   The directive supports SSR through `getSSRProps` and defaults to `domMax` features.
+   dist/es/directive/index.mjs:153-172
+
+10. Gesture shorthand props `focus`, `hover`, `press`, `inView` were removed in v2.0.0.
+    Use `whileFocus`, `whileHover`, `whilePress`, `whileInView` for animation, and event props like `onHoverStart` for logic.
+    See [references/migration.md](./references/migration.md)
+
+## Common tasks
+
+Enter and exit, stagger, drag, scroll linked, imperative `useAnimate`, shared layout, Reorder lists, directive usage, LazyMotion, and Nuxt setup, each with a runnable snippet: [references/recipes.md](./references/recipes.md)
+
+## Changes since the 2.2.1 baseline
+
+- 2.3.0: `arc()` motion along an arc, usable as `transition: { path: arc(...) }`. `useAnimate` now respects `MotionConfig skipAnimations`.
+- 2.4.0: multidimensional Reorder, `axis="xy"` on `Reorder.Group`.
+- 2.4.2: exit and enter animations restored for `KeepAlive` cached components.
+- 2.4.4: Nuxt module no longer transpires `motion-v` in builds.
+
+Details and links: [references/migration.md](./references/migration.md)
+
+## Version specific notes
+
+- SVG positions use `attrX`, `attrY`, `attrScale` instead of `x`, `y`, `scale` (dist/es/types/state.d.ts:15-20).
+- `useSpring` accepts a value or a `MotionValue` source and returns the matching type (dist/es/value/use-spring.d.ts:6-7).
+- `useTransform` maps ranges and also returns a named map of outputs in one call (dist/es/value/use-transform.d.ts:54-97).
+- `AnimatePresence` supports `mode` `sync`, `wait`, `popLayout`, plus `anchorX` for popLayout exit direction (dist/es/components/animate-presence/types.d.ts:1-8).
+- Directive and components share one resolver, so `v-motion` inherits variant, presence, and config context (dist/es/utils/resolve-motion-props.d.ts:11-15).

@@ -1,68 +1,203 @@
 ---
 name: formkit-core-skilld
-description: "The framework agnostic core of FormKit. ALWAYS use when writing code importing \"@formkit/core\". Consult for debugging, best practices, or modifying @formkit/core, formkit/core, formkit core, formkit."
-metadata:
-  version: 2.0.0
-  generated_at: 2026-05-03
-  references_synced_at: 2026-05-03
+description: Use whenever writing, debugging, or reviewing code that imports @formkit/core — FormKit's framework-agnostic core (node trees, values, events, hooks, message stores, ledgers, config, schema types, expression compiler). Provides correct 2.1.x API signatures, common-task examples, behavioral rules, and version limits.
 ---
 
-# formkit/formkit `@formkit/core@2.0.0`
-**Tags:** perf: 1.0.0-beta.13-c578106, latest: 2.0.0, dev: 2.0.0-dev.c6ae298
+# @formkit/core 2.1.2
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Framework-agnostic core of FormKit. Every input, group, list, and form is a
+`FormKitNode` in a tree. Vue and React adapters (`@formkit/vue`,
+`@formkit/react`) render these nodes; input types, validation, and i18n live in
+sibling packages, not here. Scope this Skill to `@formkit/core` imports only.
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+- Package: `@formkit/core@2.1.2`, ESM (`"type": "module"`) with CJS fallback,
+  plus a `development` condition build (`package.json:8-21`).
+- Sole dependency: `@formkit/utils@^2.1.2` (`package.json:38-40`).
+- Docs: https://formkit.com/essentials/architecture
+- API reference: https://formkit.com/api-reference/core
 
-- NEW: `useFormKitContext()` — v1.6.0, access parent context with optional effect callback [source](./references/releases/v1.6.0.md:L11)
+## When to use another package
 
-- NEW: `useFormKitContextById()` — v1.6.0, access any context by its explicit id [source](./references/releases/v1.6.0.md:L12)
+| Need | Package |
+| --- | --- |
+| `<FormKit>` components, `defaultConfig`, `createInput` | `@formkit/vue` / `@formkit/react` |
+| Input type definitions (`text`, `select`…) | `@formkit/inputs` |
+| Validation rules | `@formkit/validation` |
+| Locale messages | `@formkit/i18n` |
+| Schema *rendering* | `@formkit/vue` (types + compiler are here) |
 
-- NEW: `useFormKitNodeById()` — v1.6.0, access any node by its explicit id [source](./references/releases/v1.6.0.md:L13)
+## Public API
 
-- NEW: `stopWatch()` — v1.6.0, de-registers receipts from the `watchRegistry` function [source](./references/releases/v1.6.0.md:L15)
+Runtime exports (`dist/index.mjs:1919`): `bfs`, `clearErrors`, `compile`,
+`createClasses`, `createConfig`, `createMessage`, `createNode`,
+`createPlaceholder`, `createValue`, `deregister`, `error`, `errorHandler`,
+`generateClassList`, `getNode`, `isComponent`, `isConditional`, `isDOM`,
+`isList`, `isNode`, `isPlaceholder`, `isSugar`, `names`, `register`, `reset`,
+`resetCount`, `resetRegistry`, `setErrors`, `stopWatch`, `submitForm`,
+`sugar`, `use`, `useIndex`, `valueInserted`, `valueMoved`, `valueRemoved`,
+`warn`, `warningHandler`, `watchRegistry`, `FORMKIT_VERSION` — plus ~70 public
+types (`dist/index.d.mts:2329`).
 
-- NEW: `library` prop — v1.6.0, adds additional components to the input schema for sections-schema [source](./references/releases/v1.6.0.md:L19)
+## Common tasks
 
-- NEW: `createInput` — v1.5.0, third argument `sectionsSchema` allows extending default sections [source](./references/releases/v1.5.0.md:L16)
+### Create a node tree
 
-- NEW: `didMount` / `mounted` — v1.5.0, context property and node event to detect DOM mounting [source](./references/releases/v1.5.0.md:L17)
+```ts
+import { createNode } from '@formkit/core'
 
-- NEW: `changeLocale()` — v1.5.0, globally change locale for all forms across multiple APIs [source](./references/releases/v1.5.0.md:L20)
+const email = createNode({ name: 'email' })
+const form = createNode({
+  type: 'group',            // 'input' (default) | 'group' | 'list'
+  children: [email, createNode({ name: 'password' })],
+})
+form.at('email')            // → the email node
+```
 
-- NEW: `date_after_node` — v1.7.0, compare date against another field; also `date_before_node` [source](./references/releases/v1.7.1.md:L11)
+Group values are objects keyed by child `name`; list values are arrays keyed
+by child index (`dist/index.mjs:714-723`). Full option table:
+[node API](./references/node-api.md).
 
-- NEW: `passing` state — v1.6.3, `context.state.passing` indicates if input satisfies validation rules [source](./references/releases/v1.6.3.md:L11)
+### Set a value and await settlement
 
-- NEW: `minAutoHeight` — v1.7.0, prop for auto-height textarea addon to respect CSS min-height [source](./references/releases/v1.7.1.md:L13)
+```ts
+await email.input('sam@example.com')  // debounced, async commit
+email.value                            // committed value
+```
 
-- BREAKING: `@formkit/vue` — v1.6.0, Vue is now a peer dependency to avoid multiple instance issues [source](./references/releases/v1.6.0.md:L32)
+Never assign `node.value = x` directly. `input()` debounces (default 20 ms on
+input nodes, `dist/index.mjs:1255-1267`), then commits through the `commit`
+hook (`dist/index.mjs:759-765`). `await node.settled` resolves when the whole
+subtree finished committing (`dist/index.d.mts:1856-1860`).
 
-- DEPRECATED: Genesis CSS theme — v1.5.0, marked as legacy; use Tailwind themes instead [source](./references/docs/essentials/styling.md:L18)
+### Listen to events (and clean up)
 
-- NEW: `mergeStrategy` (experimental) — v1.6.1, syncs two nodes of same name in same parent (experimental) [source](./references/releases/v1.6.1.md:L11)
+```ts
+const receipt = form.on('commit.deep', ({ payload }) => { ... })
+// later:
+form.off(receipt)
+```
 
-**Also changed:** `getNode<T>()` generic v1.6.0 · Boolean props shorthand v1.5.0 · `summaryHeader` i18n v1.7.0 · `node.children` reactivity v1.5.0 · `FormKitTypeDefinition` inference v1.6.0 · `themes` peer deps removed v1.7.1
+`.deep` catches events bubbling from descendants (`dist/index.mjs:47-53`).
+`on()` returns a receipt; always pass it to `off()`. Core event table:
+[events and hooks](./references/events-hooks.md).
 
-## Best Practices
+### Register hook middleware
 
-- Read resolved configuration and prop data from `node.props` rather than `node.config` — explicit props and parent configurations are automatically merged into the props object [source](./references/docs/essentials/architecture.md#config--props)
+```ts
+node.hook.commit((value, next) => next(transform(value)))
+```
 
-- Synchronize multiple inputs with the same name at the same level using the `mergeStrategy` config option — prevents value conflicts when identical names are required by template structure [source](./references/docs/essentials/architecture.md#syncing-multiple-nodes-with-the-same-name)
+Middleware signature is `(payload, next) => next(payload)`; hooks:
+`classes`, `commit`, `error`, `setErrors`, `init`, `input`, `message`,
+`prop`, `text`, `schema` (`dist/index.d.mts:579-600`). Register inside plugins
+for reuse.
 
-- Use `node.input(value)` instead of direct assignment to `node.value` — ensures the tree's state is tracked and triggers the asynchronous settlement process [source](./references/docs/essentials/architecture.md#setting-values)
+### Write a plugin
 
-- Await `node.settled` before programmatically reading form values or submitting — guarantees all asynchronous input commits and side effects are complete [source](./references/docs/essentials/architecture.md#value-settlement)
+```ts
+import { createNode } from '@formkit/core'
+import type { FormKitPlugin } from '@formkit/core'
 
-- Append `.deep` to event names in `node.on()` to capture events bubbling from descendants — allows parent nodes or plugins to respond to subtree lifecycle changes [source](./references/docs/essentials/architecture.md#add-listener)
+const colorize: FormKitPlugin = (node) => {
+  node.props.color = node.type === 'group' ? 'yellow' : 'teal'
+  // return false to stop inheritance by children
+}
+createNode({ type: 'group', plugins: [colorize], children: [createNode()] })
+```
 
-- Leverage `node.ledger` to create reactive, tree-wide counters for messages — efficiently sums message states (like errors or visibility) across complex form structures [source](./references/docs/essentials/architecture.md#ledger)
+Plugins are inherited by descendants and run once per node. Attach
+`plugin.library` to define custom input types via `node.define()`.
 
-- Traverse the node tree using `node.at()` with special tokens like `$root`, `$parent`, and `$self` — provides a robust way to access relative nodes without hardcoding absolute paths [source](./references/docs/essentials/architecture.md#traversal)
+### Store a message; count with the ledger
 
-- Opt out of `defaultConfig` in production to enable tree-shaking for unused rules, inputs, and locales — significantly reduces bundle size by manually registering only required features [source](./references/docs/guides/optimizing-for-production.md#a-custom-configuration)
+```ts
+import { createMessage, createNode } from '@formkit/core'
 
-- Register middleware via `node.hook` within plugins to intercept core operations — enables reusable logic for transforming props, values, or error messages across multiple forms [source](./references/docs/essentials/architecture.md#hooks)
+const node = createNode()
+node.store.set(createMessage({ key: 'limit', value: 'Too many!' }))
+node.store.limit.value                       // 'Too many!'
+node.ledger.count('visible', (m) => m.visible)
+node.on('count:visible', ({ payload }) => console.log(payload))
+```
 
-- Always remove event listeners using the "receipt" returned by `node.on()` via `node.off(receipt)` — prevents memory leaks and redundant execution in long-lived or dynamic form contexts [source](./references/docs/essentials/architecture.md#remove-listener)
+Details: [store and ledger](./references/store-ledger.md).
+
+### Reach a node by id
+
+```ts
+import { createNode, getNode, watchRegistry, stopWatch } from '@formkit/core'
+
+const node = createNode({ props: { id: 'manufacturer' } }) // root nodes register
+getNode('manufacturer')                    // FormKitNode | undefined
+const receipt = watchRegistry('manufacturer', (e) => { ... })
+stopWatch(receipt)
+```
+
+Root nodes (or nodes with `props.alias`) register automatically
+(`dist/index.d.mts:2220-2228`). Details:
+[registry and helpers](./references/registry-helpers.md).
+
+### Set errors, reset, submit
+
+```ts
+import { setErrors, clearErrors, reset, submitForm } from '@formkit/core'
+
+setErrors('myForm', 'Server rejected', { email: ['Already taken'] })
+reset('myForm', { email: '' })   // resetTo becomes the new initial value
+clearErrors('myForm', true)      // true clears children too
+submitForm('myForm')             // dispatches a submit DOM event
+```
+
+### Compile a schema expression
+
+```ts
+import { compile } from '@formkit/core'
+
+const condition = compile("$name == 'bob'").provide((tokens) => {
+  return { name: () => nameRef.value }   // each token must return a function
+})
+condition()  // false
+```
+
+Operators: `&& || == != === !== > < >= <= + - * / %` (`dist/index.mjs:1574-1598`).
+Schema node types and guards: [schema and compiler](./references/schema-compiler.md).
+
+## Behavioral rules that prevent bugs
+
+- Read config through `node.props`, not `node.config`; explicit props and
+  parent config are merged into props (`dist/index.d.mts:729-792`).
+- Setting a root config property emits `config:{prop}` on the origin and
+  `prop` / `prop:{prop}` on every inheriting node that does not override it
+  (`dist/index.mjs:1283-1289`).
+- `group` nodes require object values, `list` nodes require arrays; violations
+  throw error 107 / 108 (`dist/index.mjs:745-757`).
+- Messages are immutable (`Readonly<FormKitMessageProps>`,
+  `dist/index.d.mts:70-75`); replace via `store.set()`, never mutate.
+- `node.walk()` traverses the subtree without the node itself and is expensive;
+  reserve it for rare lifecycle moments (`dist/index.d.mts:1885-1890`).
+- Avoid two same-`name` siblings under one parent; if unavoidable, sync them
+  with `config.mergeStrategy = { fieldName: 'synced' }`
+  (`dist/index.d.mts:721-725`).
+- `node.root` traverses on every read; do not call it in hot paths
+  (`dist/index.d.mts:1840-1843`).
+- Replace core error handling by registering middleware on the exported
+  `errorHandler` / `warningHandler` dispatchers (`dist/index.d.mts:2151-2157`).
+
+## Version limits
+
+- Written against `@formkit/core@2.1.2` (published 2026-07-24).
+- 2.x changes since 2.0.0 are bug fixes in reset, registry cleanup, and the
+  compiler; no core API breaks. See
+  [API changes](./references/api-changes.md).
+- `FORMKIT_VERSION` is a build-time placeholder (`"__FKV__"`) in the prepared
+  source; do not branch on it (`dist/index.d.mts:2321-2327`).
+
+## References
+
+- [Node API](./references/node-api.md) — creation, types, traps, value flow, settlement, traversal
+- [Events and hooks](./references/events-hooks.md) — emitter, receipts, `.deep`, event table, hook middleware
+- [Store and ledger](./references/store-ledger.md) — messages, `createMessage`, counters
+- [Config, props, plugins](./references/config-props-plugins.md) — inheritance, `createConfig`, `mergeStrategy`, libraries
+- [Schema and compiler](./references/schema-compiler.md) — schema node types, guards, `sugar()`, `compile()`
+- [Registry and helpers](./references/registry-helpers.md) — `getNode`, `setErrors`, `reset`, `submitForm`, error codes
+- [API changes](./references/api-changes.md) — 2.0.0 → 2.1.2

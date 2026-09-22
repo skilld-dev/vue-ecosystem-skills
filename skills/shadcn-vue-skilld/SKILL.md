@@ -1,76 +1,84 @@
 ---
 name: shadcn-vue-skilld
-description: "Add components to your apps. ALWAYS use when writing code importing \"shadcn-vue\". Consult for debugging, best practices, or modifying shadcn-vue, shadcn vue."
-metadata:
-  version: 2.6.2
-  generated_at: 2026-04-13
-  references_synced_at: 2026-04-13
+description: Use when adding, configuring, or debugging shadcn-vue in a Vue or Nuxt project. Covers shadcn-vue CLI commands (init, add, apply, view, search, docs, info, diff, migrate, build, mcp), components.json, styles, presets, fonts, icon libraries, registries, the MCP server, and the programmatic API. Gives exact flags and config keys for shadcn-vue 2.8.2.
 ---
 
-# unovue/shadcn-vue `shadcn-vue@2.6.2`
-**Tags:** radix: 0.11.4, latest: 2.6.2
+# shadcn-vue
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Version: `shadcn-vue@2.8.2` (prepared source `package.json:4`; npm `latest` dist-tag, checked 2026-09-22).
+Stack: Vue 3.5+, `reka-ui` ^2.10.1, Tailwind CSS ^4.3.2 (`package.json:68,88,91`). One base: `reka`.
+Run the CLI with `pnpm dlx shadcn-vue@latest <command>` (or `npx`, `npm exec`, `bunx`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## What it does
 
-- BREAKING: `Separator` label props removed — labels in `Separator` are no longer supported in Tailwind v3 configurations since v2.2.0 [source](./references/releases/v2.2.0.md)
+The CLI copies component source files into your project and installs their npm dependencies.
+You own the copied code. Edit `components/ui/**` freely; re-running `add` with `-o, --overwrite` replaces your edits.
 
-- BREAKING: `vue-sonner` v2 update — requires manual update of `Toaster` component for compatibility with the latest version [source](./references/releases/v2.2.0.md)
+## Core workflow
 
-- BREAKING: HSL colors converted to OKLCH — default color space changed to OKLCH in v2.0.0, affecting custom CSS variable logic [source](./references/docs/.tailwind-v4.md)
+```bash
+# New or existing project: write components.json, install deps, set up CSS
+pnpm dlx shadcn-vue@latest init
 
-- BREAKING: `NavigationMenuLink` state change — now uses `data-active` instead of previous state indicators to match `reka-ui` [source](./references/releases/v2.4.0.md)
+# Add components (also: URL, local file, @namespace/item, owner/repo/item)
+pnpm dlx shadcn-vue@latest add button card dialog
 
-- BREAKING: `Chart` `showGradient` prop — corrected typo in prop name from `showGradiant` to `showGradient` in v2.3.0 [source](./references/releases/v2.3.0.md)
+# Preview without writing, then install
+pnpm dlx shadcn-vue@latest add sidebar --dry-run
+pnpm dlx shadcn-vue@latest add sidebar
 
-- DEPRECATED: `toast` component — officially deprecated in favor of `sonner`; current `toast` implementations should be migrated [source](./references/docs/.tailwind-v4.md)
-
-- DEPRECATED: `default` style — phased out in v2.0.0; new projects are initialized with `new-york` by default [source](./references/docs/.tailwind-v4.md)
-
-- NEW: Tailwind v4 support — introduces full integration with the Tailwind v4 engine and `@theme` directive [source](./references/releases/v2.0.0.md)
-
-- NEW: `NativeSelect` `modelValue` — provides native `v-model` support for the `NativeSelect` component [source](./references/releases/v2.4.0.md)
-
-- NEW: `Kbd` component — keyboard key display component for shortcuts and UI documentation [source](./references/releases/v2.3.0.md)
-
-- NEW: `Button-group` component — new layout component specifically for grouping related button actions [source](./references/releases/v2.3.0.md)
-
-- NEW: `Spinner` component — added dedicated loading spinner component to the registry [source](./references/releases/v2.3.0.md)
-
-- NEW: `PinInput` generic types — enhanced type safety for `PinInput` allowing custom value types [source](./references/releases/v2.3.0.md)
-
-- NEW: `data-slot` attributes — added to all primitives to simplify granular styling in complex components [source](./references/docs/.tailwind-v4.md)
-
-**Also changed:** `Stepper` slot props binding fix · `Sidebar` cookie state · `size-*` utility support · `phosphor` and `tabler` icon support
-
-## Best Practices
-
-- Prefer CSS variables over utility classes for theming to enable dynamic runtime adjustments and easier maintenance of complex color schemes [source](./references/docs/04.theming.md)
-
-- Omit the `background` suffix when using variables for background colors in utility classes; for example, `bg-primary` automatically maps to the `--primary` variable [source](./references/docs/04.theming.md)
-
-- Build sidebars by composing sub-components (`SidebarProvider`, `SidebarContent`, `SidebarGroup`, etc.) rather than a single monolithic component to maintain flexibility and customization [source](./references/docs/components/sidebar.md)
-
-- Avoid the legacy `Form` component; use `VeeValidate` or `TanStack Form` integrations for more robust, actively maintained form handling and validation patterns [source](./references/docs/_INDEX.md)
-
-- Utilize the `valueUpdater` helper when managing TanStack Table state in Vue to correctly handle both direct value assignments and functional state transformations [source](./references/docs/components/data-table.md)
-
-```ts
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value = typeof updaterOrValue === 'function'
-    ? updaterOrValue(ref.value)
-    : updaterOrValue
-}
+# Usage docs and examples for a component
+pnpm dlx shadcn-vue@latest docs button
 ```
 
-- Enable automatic sidebar state persistence across page reloads by providing a `storageKey` prop to the `SidebarProvider` component [source](./references/docs/components/sidebar.md)
+## Rules that prevent bugs
 
-- Leverage the default `cmd+b` or `ctrl+b` keyboard shortcuts provided by `SidebarProvider` to toggle sidebar visibility without manual event listeners [source](./references/docs/components/sidebar.md)
+- Item names resolve in this order: URL, local file, `@namespace/item`, `owner/repo/item[#ref]`, then plain name in the default registry (`dist/registry-hxzbzXMt.js:1870-1891`, https://www.shadcn-vue.com/docs/cli#add).
+- Preset names have no prefix in 2.8.x: `vega`, `nova`, `maia`, `lyra`, `mira`, `luma`, `sera` (`dist/registry-hxzbzXMt.js:3141-3244`). Older docs and the 2.6.x baseline used `reka-vega` style names; those fail now. See [changes](./references/changes-2.7-2.8.md).
+- `toast` and `toaster` are deprecated; use `sonner` (`dist/transform-menu-CLNZ5vUh.js:446-454`).
+- `lucide-vue-next` is the legacy icon package; current lucide package is `@lucide/vue` (`dist/transform-menu-CLNZ5vUh.js:457`, `dist/icons/index.d.ts:3-10`). Run `migrate icons` to switch libraries.
+- Registry style ids stay prefixed: the `vega` style fetches from `reka-vega` (`dist/registry-hxzbzXMt.js:492-496`). Fallback style id is `new-york-v4`.
+- `apply <preset>` rewrites UI components, fonts, and CSS variables. Commit first; the CLI warns the same (`dist/index.js:2252-2254`).
+- Registry env: `SHADCN_VUE_URL` and `REGISTRY_URL` override the default `https://shadcn-vue.com/r` (`dist/transform-menu-CLNZ5vUh.js:2-3`). Use for local registry testing.
+- Builtin namespace is `@shadcn` (`dist/transform-menu-CLNZ5vUh.js:445`). Third-party namespaces must be configured in `components.json` under `registries`.
 
-- Treat the code in `Sidebar*.vue` (and other added UI components) as your own project code; you are explicitly encouraged to modify the source to suit specific design needs [source](./references/docs/components/sidebar.md)
+## Command map
 
-- Build custom data tables from headless primitives and the basic `<Table />` component instead of looking for a pre-built, configuration-heavy "DataTable" component [source](./references/docs/components/data-table.md)
+| Command | Purpose | Key options |
+| --- | --- | --- |
+| `init` (alias `create`) | Set up project, write `components.json` | `-p <preset>`, `-t <template>`, `--style`, `--icon-library`, `--font`, `-b <base-color>`, `-d`, `--silent` |
+| `add` | Install items | `-o`, `-a`, `-p <path>`, `--dry-run`, `--diff`, `--view` |
+| `apply` | Apply a preset to an existing project | `-y` |
+| `view` | Inspect items before install | `-c <cwd>` |
+| `search` (alias `list`) | Fuzzy search registries (`@name` args) | `-q`, `-l`, `-o` |
+| `docs` | Component docs and examples | `--json`, `-b <base>` |
+| `info` | Project setup report | `--json` |
+| `diff` | Compare installed item against registry | `-y` |
+| `migrate` | `icons` or `rtl` migration | `-l`, `[path]` |
+| `build` | Build `registry.json` into registry JSON | `-o <path>` |
+| `mcp init` | Write MCP client config | `--client claude\|cursor\|vscode` |
 
-- (experimental) Use the `build` command and `registry.json` schema to create and share your own custom component registries for internal or community use [source](./references/docs/registry/index.md)
+Full flags: [cli reference](./references/cli.md).
+
+## Configuration
+
+`components.json` at project root drives everything. Key fields: `style`, `typescript`, `tailwind.css`, `tailwind.baseColor`, `aliases`, `iconLibrary`, `rtl`, `pointer`, `menuColor`, `menuAccent`, `registries`.
+Full schema and examples: [components-json reference](./references/components-json.md).
+
+## Styles and presets
+
+Seven named presets (`vega` to `sera`), eight valid styles in encoded preset codes (adds `rhea`), five icon libraries, 24 fonts. Details and tables: [styles reference](./references/styles-and-presets.md).
+
+## Programmatic API
+
+Import from `shadcn-vue`, `shadcn-vue/registry`, `shadcn-vue/schema`, `shadcn-vue/utils`, `shadcn-vue/icons`, `shadcn-vue/preset`, `shadcn-vue/mcp`, `shadcn-vue/tailwind.css` (`package.json:27-59`).
+Exports and error classes: [registries reference](./references/registries.md#programmatic-api).
+
+## References
+
+- [CLI reference](./references/cli.md)
+- [components.json](./references/components-json.md)
+- [Styles and presets](./references/styles-and-presets.md)
+- [Registries and programmatic API](./references/registries.md)
+- [MCP server](./references/mcp.md)
+- [Changes in 2.7 and 2.8](./references/changes-2.7-2.8.md)

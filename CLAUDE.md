@@ -2,7 +2,8 @@
 
 ## Skill Scopes
 
-See [README.md](README.md) for the full list of 33 available skills with versions.
+`packages.json` lists every package with a Skill.
+`skills-lock.json` records the version each Skill was built from.
 
 ## Skill Structure
 
@@ -12,18 +13,16 @@ Each skill follows a consistent structure:
 skills/<name>/
 ├── SKILL.md                    # Overview with API changes + best practices
 └── references/
-    ├── docs/_INDEX.md           # Official docs reference index
-    ├── issues/_INDEX.md         # GitHub issues reference index
-    ├── discussions/_INDEX.md    # GitHub discussions reference index
-    └── releases/_INDEX.md       # Release notes reference index
+    └── <topic>.md              # One topic each, linked from SKILL.md
 ```
 
 ## Guidelines
 
 - SKILL.md must stay under 500 lines — use references for deep-dive content
+- At most eight reference files per Skill, one topic each, every one linked from SKILL.md
+- Cite release notes, issues, and discussions by URL. Never copy them into the repository
 - API Changes section: only version-specific additions and breaking changes with `[source]` links
 - Best Practices section: patterns derived from official docs, not general JS knowledge
-- Reference files must link back to their original source (docs URL, issue number, etc.)
 - All code examples must be TypeScript + Composition API unless the skill specifically targets Options API
 
 ## Keeping Skills current

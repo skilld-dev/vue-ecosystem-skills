@@ -1,84 +1,101 @@
 ---
 name: vueuse-shared-skilld
-description: "ALWAYS use when writing code importing \"@vueuse/shared\". Consult for debugging, best practices, or modifying @vueuse/shared, vueuse/shared, vueuse shared, vueuse."
-metadata:
-  version: 14.3.0
-  generated_at: 2026-05-01
-  references_synced_at: 2026-05-01
+description: Use when writing, reviewing, or debugging code that imports from "@vueuse/shared" (or its utilities re-exported by "@vueuse/core"). Provides the v15.0.0 API surface, debounce and throttle defaults, watch variants, state-sharing patterns, and v14 to v15 migration rules.
 ---
 
-# vueuse/vueuse `@vueuse/shared@14.3.0`
-**Tags:** next: 5.0.0, alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1
+# @vueuse/shared 15.0.0
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Framework-agnostic reactive utilities for Vue. Peer dependency `vue ^3.5.0`
+(`package.json:40`). ESM-only: `"type": "module"` and no CJS build in `dist`
+(`package.json:2`). Requires Node.js >= 22 (`package.json:37`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+Source citations like `dist/index.js:904` refer to the prepared package source.
+Function docs: `https://vueuse.org/<functionName>`.
 
-- BREAKING: Requires Vue 3.5 — v14 now requires Vue 3.5+ for native performance optimizations [source](./references/releases/v14.0.0.md)
+## Critical v15 rules
 
-- BREAKING: `useThrottleFn` alignment — v14 aligned with traditional throttle behavior (leading: true, trailing: false by default) [source](./references/releases/v14.0.0.md)
+- `useThrottleFn` default `trailing` changed from `false` to `true` in v15.0.0.
+  Defaults are now `ms = 200, trailing = true, leading = true, rejectOnCancel = false`
+  (dist/index.js:904). Release: https://github.com/vueuse/vueuse/releases/tag/v15.0.0
+  To get v14 leading-edge-only behavior, pass `trailing = false` explicitly.
+- `computedEager` / `eagerComputed` are deprecated and slated for removal.
+  Use Vue 3.4+ `computed` instead (dist/index.d.ts:5-18).
+- `watchPausable` / `pausableWatch` are deprecated on every overload.
+  Use Vue's built-in `watch`, whose handle already has `pause()` and `resume()`
+  (dist/index.js:1021, dist/index.d.ts:1459-1466).
+- Prefer primary names over deprecated aliases; see the table in
+  [migration-v15](./references/migration-v15.md).
+- Timer composables are no-ops on the server: `useIntervalFn` and `useTimeoutFn`
+  only start timers when `isClient` (dist/index.js:1654, dist/index.js:1726-1729).
 
-- BREAKING: ESM-only — v13 dropped CJS build support, package is now ESM-only [source](./references/releases/v13.0.0.md)
-
-- BREAKING: `createSharedComposable` return — v14 now returns only the sharedComposable instance on the client side [source](./references/releases/v14.0.0.md)
-
-- NEW: `refManualReset` — new function in v14 for creating refs with an explicit `reset()` method [source](./references/releases/v14.0.0.md)
-
-- NEW: `watchAtMost` controls — v14 added `pause`, `resume`, and `count` to the return value [source](./references/releases/v14.0.0.md)
-
-- NEW: `tryOnScopeDispose` — v14 added optional `failSilently` parameter to suppress errors outside of scope [source](./references/releases/v14.0.0.md)
-
-- NEW: `useArrayReduce` type — v14.1.0 now exports the `UseArrayReduceReturn` type [source](./references/releases/v14.1.0.md)
-
-- NEW: `computedWithControl` sources — v14.1.0 allows different types in watch sources array [source](./references/releases/v14.1.0.md)
-
-- DEPRECATED: `computedEager` — v14 deprecated in favor of Vue 3.5's native `computed` optimizations [source](./references/releases/v14.0.0.md)
-
-- DEPRECATED: `watchPausable` — v14 deprecated in favor of Vue's built-in `watch` or `pausableFilter` [source](./references/releases/v14.0.0.md)
-
-- DEPRECATED: Alias exports — v14 deprecated secondary names like `ignorableWatch` in favor of primary `watchIgnorable` [source](./references/releases/v14.0.0.md)
-
-- DEPRECATED: `eagerComputed` — v14 deprecated alias in favor of `computedEager` [source](./references/releases/v14.0.0.md)
-
-- DEPRECATED: `controlledComputed` — v14 deprecated alias in favor of `computedWithControl` [source](./references/releases/v14.0.0.md)
-
-**Also changed:** `createReactiveFn` DEPRECATED · `autoResetRef` DEPRECATED · `debouncedRef` DEPRECATED · `useDebounce` DEPRECATED · `throttledRef` DEPRECATED · `useThrottle` DEPRECATED · `controlledRef` DEPRECATED · `debouncedWatch` DEPRECATED · `ignorableWatch` DEPRECATED · `pausableWatch` DEPRECATED · `throttledWatch` DEPRECATED
-
-## Best Practices
-
-- Prefer Vue 3.4+ built-in `computed()` over `computedEager()` — standard computed properties now only trigger dependencies if the return value actually changes, making eager evaluation unnecessary [source](./references/docs/computedEager/index.md)
-
-- Use `createSharedComposable()` for SSR-safe state sharing — it automatically falls back to non-shared instances during SSR to prevent cross-request state pollution, while maintaining a singleton on the client [source](./references/docs/createSharedComposable/index.md)
-
-- Share state within the same component using `provideLocal()` and `injectLocal()` — allows accessing provided values without going through the parent/child boundary, now with full Vapor mode support [source](./references/docs/provideLocal/index.md)
-
-- Replace manual watchers with `until()` for one-time async conditions — provides a promise-based API for flow control that resolves once a ref meets a specific requirement, reducing callback nesting [source](./references/docs/until/index.md)
+## Common tasks
 
 ```ts
-// Preferred for one-time triggers
-await until(isReady).toBe(true)
-doSomething()
+import { useDebounceFn, useThrottleFn } from '@vueuse/shared'
+
+// Debounced fn: returns a promise; cancel/flush/isPending attached
+const search = useDebounceFn(query => fetchApi(query), 300, { maxWait: 1000 })
+
+// Rate-limit scroll/resize; v15 fires on BOTH edges by default
+const onScroll = useThrottleFn(handler, 200)          // leading + trailing
+const onScrollV14 = useThrottleFn(handler, 200, false) // trailing=false, v14 style
 ```
 
-- Implement `refManualReset()` for easy state restoration — provides a built-in `.reset()` method to return the ref to its initial value, ideal for clearing forms or reset-to-default filters [source](./references/docs/refManualReset/index.md)
+```ts
+import { until, whenever } from '@vueuse/shared'
 
-- Use `reactify()` to transform plain utility functions into reactive ones — automatically accepts refs as arguments and returns a `ComputedRef`, enabling rapid development of reactive logic [source](./references/docs/reactify/index.md)
+// One-shot async flow control instead of manual watchers
+await until(isReady).toBe(true, { timeout: 5000, throwOnTimeout: true })
 
-- Optimize hot paths with `refWithControl()` using `peek()` and `lay()` — allows reading or writing a ref's value without triggering the reactivity system or tracking dependencies, minimizing unnecessary updates [source](./references/docs/refWithControl/index.md)
-
-- Return dual object/array APIs via `makeDestructurable()` — makes your custom composables more flexible by allowing users to choose between positional (array) or named (object) destructuring [source](./references/docs/makeDestructurable/index.md)
-
-- Convert state during synchronization with `syncRef()` custom transforms — use the `transform` option with `ltr` and `rtl` functions to map values between refs of different types [source](./references/docs/syncRef/index.md)
+// Runs only while truthy; { once: true } auto-stops after the first run
+whenever(isReady, data => render(data), { once: true })
+```
 
 ```ts
-// Sync a number ref with a string ref
-syncRef(count, stringCount, {
-  transform: {
-    ltr: left => String(left),
-    rtl: right => Number(right)
-  }
+import { createInjectionState } from '@vueuse/shared'
+
+// Typed provide/inject pair without manual InjectionKey
+const [useProvideStore, useStore] = createInjectionState(() => {
+  const count = ref(0)
+  return { count, inc: () => count.value++ }
+}, { defaultValue: { count: ref(0), inc: () => {} } })
+```
+
+```ts
+import { refManualReset, syncRef } from '@vueuse/shared'
+
+const message = refManualReset('idle')   // message.reset() restores 'idle'
+const num = ref(10), str = ref('10')
+syncRef(num, str, {                       // transform is required when
+  transform: {                            // types differ (type-level check)
+    ltr: v => String(v),
+    rtl: v => Number(v),
+  },
 })
 ```
 
-- Choose `createGlobalState()` for persistent application-wide singletons — unlike shared composables which dispose state when subscribers reach zero, global state remains alive for the entire app lifecycle [source](./references/docs/createGlobalState/index.md)
+More worked patterns: [reactivity-utilities](./references/reactivity-utilities.md),
+[watch-utilities](./references/watch-utilities.md).
+
+## Choosing state-sharing tools
+
+| Tool | Lifetime | Use when |
+| --- | --- | --- |
+| `createGlobalState` | App lifetime, never disposed (dist/index.js:169-180) | App-wide singleton state |
+| `createSharedComposable` | Disposed when last subscriber leaves (dist/index.js:583-605) | One shared instance of a composable, e.g. one `useMouse` |
+| `createInjectionState` | Tied to component tree | Typed provider/consumer stores |
+| `provideLocal` / `injectLocal` | Same component or scope | Provide and inject within one component |
+
+SSR: `createSharedComposable` falls back to the plain composable on the server,
+so every request gets fresh state (dist/index.js:584). Details:
+[state-sharing](./references/state-sharing.md).
+
+## References
+
+- [api-surface](./references/api-surface.md): complete export inventory with signatures and defaults
+- [migration-v15](./references/migration-v15.md): v14 to v15 changes and deprecated alias map
+- [debounce-throttle](./references/debounce-throttle.md): filters, `useDebounceFn`, `useThrottleFn` semantics
+- [watch-utilities](./references/watch-utilities.md): watch variants, `until`, `whenever`
+- [reactivity-utilities](./references/reactivity-utilities.md): ref/computed/sync helpers
+- [state-sharing](./references/state-sharing.md): global, shared, and injected state
+- [timers-and-utils](./references/timers-and-utils.md): timers, counters, formatting, plain utils

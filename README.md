@@ -29,7 +29,7 @@ This repo bridges the gap: pre-built Skills from real sources (docs, GitHub issu
 - 🔬 **Deep References**: Real GitHub issues, discussions, and changelogs
 - 🎯 **Version-Aware**: API changes and best practices tied to specific package versions
 - 🍋 **Always up-to-date**: Hooked into ecosystem releases so you're always working with the latest best practices
-- 🤝 **Ecosystem**: Compatible with [`npx skills`](https://skills.sh/) and [skilld](https://github.com/harlan-zw/skilld)
+- 🤝 **Ecosystem**: Compatible with [`npx skills`](https://skills.sh/) and [skilld](https://github.com/skilld-dev/skilld)
 
 ## Quick Start
 

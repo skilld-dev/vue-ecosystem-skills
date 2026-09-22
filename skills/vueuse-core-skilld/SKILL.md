@@ -1,76 +1,110 @@
 ---
 name: vueuse-core-skilld
-description: "Collection of essential Vue Composition Utilities. ALWAYS use when writing code importing \"@vueuse/core\". Consult for debugging, best practices, or modifying @vueuse/core, vueuse/core, vueuse core, vueuse."
-metadata:
-  version: 14.3.0
-  generated_at: 2026-05-01
-  references_synced_at: 2026-05-01
+description: Collection of essential Vue Composition Utilities. ALWAYS use when writing code that imports "@vueuse/core" or "@vueuse/shared" (VueUse). Provides the v15.0.0 API surface, v14 to v15 migration rules, new composables (useWebMCP, useTemporalNow, useLiveAnnouncer, useElementOverflow), deprecations, and configuration best practices.
 ---
 
-# vueuse/vueuse `@vueuse/core@14.3.0`
-**Tags:** vue2: 2.0.35, vue3: 3.0.35, demi: 4.0.0-alpha.0
+# @vueuse/core 15.0.0
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Prepared source: `@vueuse/core@15.0.0` (`package.json:4`). File citations below use
+paths relative to that package root. Docs citations are absolute URLs.
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Environment limits
 
-- BREAKING: `computedAsync` — default `flush` changed from `pre` to `sync` in v14.0.0; code relying on deferred evaluation now runs synchronously by default [source](./references/releases/v14.0.0.md#breaking-changes)
+- ESM-only since v13 (`"type": "module"`, `package.json:3`). `require()` fails.
+- Requires Vue `^3.5.0` (`package.json:42`).
+- Requires Node.js `>= 22` (`package.json:39`); Node 20 support dropped in v15.0.0
+  ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0)).
+- Exports: `.` and `./metadata` (`package.json:24-28`). Everything ships from `dist/`.
+- `@vueuse/shared@15.0.0` is a dependency and fully re-exported
+  (`dist/index.d.ts:3`), so `import { useToggle } from '@vueuse/core'` works; see
+  [shared API](./references/shared-api.md).
 
-- BREAKING: `useThrottleFn` — aligned with traditional throttle behavior in v14.0.0 (trailing call behavior changed); previously called on both leading and trailing by default, verify options match expected behavior [source](./references/releases/v14.0.0.md#breaking-changes)
+## v15 rules that change generated code
 
-- BREAKING: `createSharedComposable` — on client side, now returns only the shared composable (single value) instead of a tuple/object in v14.0.0 [source](./references/releases/v14.0.0.md#breaking-changes)
+1. **No `templateRef`.** Removed in v15.0.0
+   ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0)). Use Vue's
+   built-in `useTemplateRef()` instead.
+2. **Timer options are gone; pass `scheduler`.** The deprecated per-composable
+   `interval` / `immediate` options were removed from `ConfigurableScheduler`
+   composables in v15.0.0 ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0)).
+   Affected options interfaces extend or intersect `ConfigurableScheduler`
+   (`dist/index.d.ts:212-217`): `useCountdown`, `useNow`, `useTimestamp`,
+   `useTimeAgo`, `useTimeAgoIntl`, `useTemporalNow`, `useElementByPoint`,
+   `useMemory`, `useVibrate`, and `useWebSocket`'s `heartbeat` option.
+   `scheduler` is `(cb: Fn) => Pausable`, so `useRafFn` plugs in directly.
+3. **`useThrottleFn` now fires trailing calls by default** (`trailing` default
+   changed false to true, v15.0.0
+   ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0))). Pass
+   `trailing = false` (3rd argument) to keep v14 behavior.
+4. **`useEventSource` handles SSE `message` events** and triggers both
+   `onmessage` and `addEventListener` handlers (v15.0.0
+   ([release](https://github.com/vueuse/vueuse/releases/tag/v15.0.0))). Do not
+   add manual duplicate listeners for unnamed events.
+5. **`deepRefs` default flips next major.** It defaults to `true` today with an
+   explicit warning that the next major changes it to `false`
+   (`dist/index.d.ts:204-211`). Pass `deepRefs` explicitly where the value
+   matters.
 
-- BREAKING: `useAsyncState` — in v13.7.0, `globalThis.reportError` is now the default `onError` handler; previously errors were silently swallowed if no handler was provided [source](./references/releases/v13.7.0.md#breaking-changes)
+## Do not use (deprecated or replaced)
 
-- BREAKING: CJS build dropped in v13.0.0 — `@vueuse/core` is now ESM-only; `require('@vueuse/core')` no longer works [source](./references/releases/v13.0.0.md#breaking-changes)
+| Export | Replacement | Evidence |
+| --- | --- | --- |
+| `computedEager` | `computed()` (Vue 3.4+ no longer re-triggers on unchanged values) | [docs](https://vueuse.org/shared/computedEager/) "will be removed in future version" |
+| `watchPausable` | Vue 3.5 native `watch()` returns `{ stop, pause, resume }` | [docs](https://vueuse.org/shared/watchPausable/) |
+| `executeTransition` | `transition(source, from, to, options)` | deprecated at `dist/index.d.ts:5114-5121` |
+| `UseTransitionOptions.transition` | `easing` option | same deprecation block |
+| `breakpointsVuetify` | `breakpointsVuetifyV2` or `breakpointsVuetifyV3` | deprecated at `dist/index.d.ts:758-762` |
+| `asyncComputed` | `computedAsync` (alias remains, `dist/index.d.ts:46`) | alias of `computedAsync` |
 
-- BREAKING: Vue 3.5 is now required as a minimum peer dependency since v14.0.0 [source](./references/releases/v14.0.0.md#breaking-changes)
+## Common tasks
 
-- DEPRECATED: `watchPausable` — will be removed in a future version; Vue 3.5 native `watch()` now returns `{ stop, pause, resume }` directly; use `const { pause, resume } = watch(src, cb)` instead [source](./references/docs/shared/watchPausable/index.md)
+```ts
+import { useLocalStorage, useDark, useTitle, useThrottleFn } from '@vueuse/core'
 
-- DEPRECATED: `computedEager` — will be removed in a future version; Vue 3.4+ `computed()` no longer triggers dependents when the value does not change, making this unnecessary [source](./references/docs/shared/computedEager/index.md)
+// Reactive getter args enable derived values without computed()
+const isDark = useDark()
+const title = useTitle(() => isDark.value ? 'Night' : 'Day')
 
-- DEPRECATED: `templateRef(key)` — deprecated in v13.6.0; use Vue's built-in `useTemplateRef()` instead [source](./references/releases/v13.6.0.md#features)
+// Storage with schema evolution: mergeDefaults fills new keys
+const settings = useLocalStorage('settings', { theme: 'light', density: 'comfortable' }, { mergeDefaults: true })
 
-- DEPRECATED: `executeTransition()` — use the new `transition()` function instead; `UseTransitionOptions.transition` option also deprecated, use `easing` [source](./references/releases/v14.0.0.md#features)
+// v15 throttle fires a trailing call by default; 3rd arg is `trailing`
+const onResize = useThrottleFn(handler, 200, false, true) // trailing=false, leading=true
+```
 
-- DEPRECATED: `breakpointsVuetify` — was an alias for `breakpointsVuetifyV2`; now deprecated, explicitly use `breakpointsVuetifyV2` or `breakpointsVuetifyV3` [source](./references/docs/core/useBreakpoints/index.md)
+```ts
+import { useWebMCP } from '@vueuse/core'
 
-- DEPRECATED: `asyncComputed` — alias for `computedAsync`, removed from v14 alias exports; import as `computedAsync` [source](./references/docs/core/computedAsync/index.md)
+// Register a WebMCP tool for browser agents (new in v15)
+const { isSupported, isRegistered, error } = useWebMCP({
+  name: 'get-current-user',
+  description: 'Returns the signed-in user id',
+  inputSchema: { type: 'object' },
+  execute: () => ({ userId: user.value?.id ?? null }),
+})
+```
 
-- NEW: `refManualReset(defaultValue)` — added in v14.0.0; creates a ref with a `.reset()` method that restores the initial value [source](./references/releases/v14.0.0.md#features)
+More patterns: [best practices](./references/best-practice.md).
 
-- NEW: `useCssSupports(property, value)` / `useCssSupports(conditionText)` — added in v14.2.0; reactive wrapper for `CSS.supports()` [source](./references/releases/v14.2.0.md#features)
+## References
 
-- NEW: `useTimeAgoIntl(time, options)` — added in v13.7.0; Intl-based time-ago formatting using `Intl.RelativeTimeFormat`, supports custom units [source](./references/releases/v13.7.0.md#features)
+- [API surface](./references/api-surface.md): complete v15 export inventory, grouped.
+- [Shared API](./references/shared-api.md): the `@vueuse/shared` functions re-exported by core.
+- [Migration v14 to v15](./references/migration-v15.md): every breaking change, feature, and notable fix since v14.3.0, cited.
+- [New functions in v15](./references/new-functions-v15.md): `useWebMCP`, `useTemporalNow`, `useLiveAnnouncer`, `useElementOverflow` usage.
+- [Best practices](./references/best-practice.md): getters, event filters, storage serializers, schedulers, SSR, scoping.
 
-- NEW: `transition(source, from, to, options)` — added in v14.0.0 as the non-deprecated replacement for `executeTransition`; also adds `interpolation` option for custom interpolator functions [source](./references/releases/v14.0.0.md#features)
+## Debugging notes (v15 fixes that may explain behavior changes)
 
-- NEW: `ConfigurableScheduler` interface + `scheduler` option — added in v14.2.0 to timed composables (`useCountdown`, `useNow`, `useTimestamp`, `useTimeAgo`, `useTimeAgoIntl`, `useElementByPoint`, `useMemory`, `useVibrate`); replaces deprecated per-composable `interval`/`immediate` options [source](./references/releases/v14.2.0.md#features)
-
-- NEW: `useIdle` — now implements `Stoppable` interface (v14.0.0), returns `{ pause, resume, stop }` in addition to previous return values [source](./references/releases/v14.0.0.md#features)
-
-**Also changed:** `useIntersectionObserver` rootMargin is now reactive (v14.2.0) · `useElementVisibility` gains `initialValue` option (v14.1.0) and inherits reactive `rootMargin` (v14.2.0) · `useDropZone` gains `checkValidity` function (v14.1.0) · `useRefHistory` gains `shouldCommit` option (v13.4.0) · `useUrlSearchParams` gains `stringify` option (v13.4.0) · `watchAtMost` now returns `{ pause, resume }` (v14.0.0) · `useStorageAsync` gains `onReady` option and Promise return (v13.6.0) · `useAsyncState` initial value can now be a ref (v14.0.0) · `useSortable` gains `watchElement` option (v14.2.0) · `useWebSocket` `autoConnect.delay` accepts a function (v14.1.0) · `useClipboardItems` exposes `read()` method (v13.7.0) · `useDraggable` gains auto-scroll with container-restricted dragging (v14.2.0) · `useEventSource` gains `serializer` option (v13.8.0) · `onLongPress` `delay` can now be a function (v14.0.0) · `onClickOutside` target can now be a getter function (v14.0.0)
-
-## Best Practices
-
-- Pass reactive getters (`() => value`) as arguments instead of plain refs where possible — VueUse 9+ supports getter arguments, enabling derived reactive values without an intermediate `computed` (e.g. `useTitle(() => isDark.value ? 'Night' : 'Day')`) [source](./references/docs/guide/best-practice.md#reactive-getter-argument)
-
-- Wrap `useFetch` calls in `createFetch` for app-wide config — sets base URL, auth headers, and CORS mode once; individual call sites inherit it without re-specifying options [source](./references/docs/core/useFetch/index.md#creating-a-custom-instance)
-
-- Use `eventFilter` option with `throttleFilter` / `debounceFilter` instead of manually wrapping callbacks — applies rate-limiting at the composable level for `useLocalStorage`, `useMouse`, and other event-driven composables [source](./references/docs/guide/config.md#event-filters)
-
-- Enable `mergeDefaults: true` (or pass a custom merge function) on `useStorage` when evolving stored object schemas — without it, new default keys are `undefined` if absent from existing storage data [source](./references/docs/core/useStorage/index.md#merge-defaults)
-
-- Use `StorageSerializers` from `@vueuse/core` when the `useStorage` default value is `null` — without a serializer hint, the type cannot be inferred and serialization falls back to raw string [source](./references/docs/core/useStorage/index.md#custom-serialization)
-
-- Use `createSharedComposable` to share a single composable instance across components — avoids duplicate event listeners and state. Note: in SSR it automatically falls back to a non-shared instance per call to prevent cross-request pollution [source](./references/docs/shared/createSharedComposable/index.md#usage)
-
-- Use `computedWithControl` when a computed value should only update on specific sources, not all its reactive dependencies — `computed` cannot opt out of automatic dependency tracking, but `computedWithControl` decouples the watch source from the getter [source](./references/docs/shared/computedWithControl/index.md#usage)
-
-- Wrap VueUse calls outside component scope with `effectScope()` and call `scope.stop()` for cleanup — not all composables return a stop handle; `effectScope` is the universal escape hatch when composables are used in stores or non-component contexts [source](./references/docs/guide/best-practice.md#side-effect-clean-up)
-
-- Pass `window` option to browser composables like `useMouse` or `useScroll` to target iframes or mock globals in tests — all browser API composables accept configurable global dependencies via options [source](./references/docs/guide/config.md#global-dependencies)
-
-- Pass a custom `scheduler` to time-based composables (`useNow`, `useCountdown`, etc.) to align them with `useRafFn` or throttle their update rate — introduced in v14.1.0 / v14.2.0; without it, timed composables run on their own internal interval independent of animation frames [source](./references/docs/guide/config.md#custom-scheduler)
+- `useFetch` ignores a stale success response after a newer request starts, and
+  ignores stale abort errors after a refetch succeeds
+  ([v15](https://github.com/vueuse/vueuse/releases/tag/v15.0.0),
+  [v14.4](https://github.com/vueuse/vueuse/releases/tag/v14.4.0)).
+- `useWebSocket` ignores messages from a superseded socket and syncs status to
+  `CLOSED` after explicit `close()` (same releases).
+- `useResizeObserver` guards `observe()` with `instanceof Element`, so Vue
+  comment nodes no longer crash it ([v15](https://github.com/vueuse/vueuse/releases/tag/v15.0.0)).
+- Pointer handling: `useDraggable` and `usePointerSwipe` end on `pointercancel`,
+  `usePointer` resets `isInside`, `onLongPress` clears pending presses
+  ([v15](https://github.com/vueuse/vueuse/releases/tag/v15.0.0),
+  [v14.4](https://github.com/vueuse/vueuse/releases/tag/v14.4.0)).

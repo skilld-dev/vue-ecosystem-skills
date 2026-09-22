@@ -1,77 +1,103 @@
 ---
 name: vue-data-ui-skilld
-description: "A user-empowering data visualization Vue 3 components library for eloquent data storytelling. ALWAYS use when writing code importing \"vue-data-ui\". Consult for debugging, best practices, or modifying vue-data-ui, vue data ui."
-metadata:
-  version: 3.19.2
-  generated_at: 2026-05-05
-  references_synced_at: 2026-05-05
+description: "A user-empowering data visualization Vue 3 components library (69 components) for eloquent data storytelling. ALWAYS use when writing code importing \"vue-data-ui\". Consult for component choice, config, theming, slots, tooltips, exports, SSR, debugging, or modifying vue-data-ui, vue data ui."
 ---
 
-# graphieros/vue-data-ui `vue-data-ui@3.19.2`
-**Tags:** beta: 2.15.6-beta.3, next: 3.1.19-next.1, latest: 3.19.2
+# graphieros/vue-data-ui `vue-data-ui@3.25.9`
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+- Docs: https://vue-data-ui.graphieros.com/ (per-component pages: `https://vue-data-ui.graphieros.com/docs#vue-ui-<name>`)
+- Repo: https://github.com/graphieros/vue-data-ui
+- Requires `vue >= 3.3.0`; `jspdf >= 3.0.1` is an optional peer dep, install it only for the PDF export feature (package.json:112-119).
+- Types ship with the package; main entry types resolve to `dist/types/vue-data-ui.d.ts` (package.json:66-90).
 
-This section documents version-specific API changes for `vue-data-ui` v3.15.2 — prioritize recent v3.x releases.
+## References
 
-- NEW: `useCursorPointer` (opt-in) — default changed to `false` in v3.15.0; must be set to `true` in `userOptions` to enable pointer cursor on clickable elements [source](./references/releases/v3.15.0.md#cursor-pointer-is-now-opt-in-303)
+- [API surface](./references/api-surface.md): entry points, import styles, utils, composables, SSR.
+- [Components](./references/components.md): catalog, common props/emits/exposed methods/slots.
+- [Customization](./references/customization.md): config patterns, themes, user options, slots, a11y, responsive, big data.
+- [Migration v3.19.2 to v3.25.9](./references/migration-v3.19-v3.25.md): API deltas incl. the v3.25.0 breaking change.
 
-- NEW: `altCopy` action button — added to context menu in v3.15.0; exposes `dataset` and `config` in a callback to generate custom alt text [source](./references/releases/v3.15.0.md#alt-text-copy-new-action-button)
+## Setup
 
-- NEW: `minimap` styling — `handleType` ('grab', 'chevron', etc.), `handleWidth`, and `additionalHeight` added in v3.15.0 to customize zoom minimap handles [source](./references/releases/v3.15.0.md#chart-zoom-minimap)
-
-- NEW: `dashIndices` in `VueUiXy` — new dataset property in v3.15.0 allows displaying specific datapoints as dashed segments to indicate estimated data [source](./references/releases/v3.15.0.md#vueuixy)
-
-- BREAKING: `locales` files removed — as of v3.14.3, individual locale files are removed in favor of `Intl` for computing time labels [source](./references/releases/v3.14.3.md#reduce-package-size)
-
-- NEW: `isPrintingImg` and `isPrintingSvg` — booleans now exposed in the `#svg` slot since v3.14.10 to control content during print/export [source](./references/releases/v3.14.10.md#all-charts-with-png-andor-svg-exports)
-
-- NEW: `zoomStart`, `zoomEnd`, and `zoomReset` — new emits added to `VueUiXy` in v3.14.9 to track zoom component interactions [source](./references/releases/v3.14.9.md#vueuixy)
-
-- NEW: `selectAllToggle` in Legend — opt-in feature added in v3.13.0; displays a checkbox to select/unselect all series when more than 2 series exist [source](./references/releases/v3.13.0.md#legend-toggle-new-feature-297)
-
-- NEW: `skeletonConfig` customization — `VueUiSparkline` now allows passing custom `skeletonConfig` and `skeletonDataset` in v3.13.7 [source](./references/releases/v3.13.7.md#vueuisparkline)
-
-- NEW: `oklch` color support — added in v3.13.6, allowing the use of OKLCH color space across all components [source](./references/releases/v3.13.6.md)
-
-- NEW: `side` in `zoom.customFormat` — the handle side ('left' | 'right') is now exposed in the zoom formatting callback since v3.13.5 [source](./references/releases/v3.13.5.md#zoom-handle-sides)
-
-- NEW: `zoom.maxWidth` — added to multiple charts in v3.13.4 to control the maximum width of the zoom component [source](./references/releases/v3.13.4.md)
-
-- NEW: `pulse` in `VueUiSparkline` — optional animated pulse effect with trail added to line mode in v3.13.3 [source](./references/releases/v3.13.3.md#vueuisparkline)
-
-- NEW: `Annotator` modes — straight line and arrow modes added to the built-in annotator in v3.12.0 [source](./references/releases/v3.12.0.md#built-in-annotator)
-
-**Also changed:** `scaleMin`/`scaleMax` on minimap v3.11.1 · `pulse` trail refinement v3.15.2 · `zoom.startIndex`/`endIndex` support v2.4.42 · `useCanvas` option (experimental) · `Annotator` pixel labels v3.14.5 · `dashIndices` in minimap v3.14.8
-
-## Best Practices
-
-- Use `VueUiXyCanvas` for large datasets (1000+ points) with frequent updates (e.g., 100ms) to avoid browser performance bottlenecks from managing thousands of SVG DOM nodes [source](./references/discussions/discussion-125.md#accepted-answer)
-
-- Enable `responsive: true` specifically for `VueUiXy` and `VueUiDonut` when placing them in flexible containers, ensuring they correctly fill parent height (set `height: 100%` on parent) [source](./references/discussions/discussion-270.md#accepted-answer)
-
-- Programmatically control series visibility using the exposed `showSeries(name)` and `hideSeries(name)` methods instead of manipulating the dataset or triggering legend events [source](./references/issues/issue-261.md#feature-request-add-methods-to-programmatically-show-and-hide-series)
-
-- Opt-in to the cursor pointer for clickable chart elements via `userOptions.useCursorPointer: true`, as it is disabled by default for better accessibility compliance [source](./references/releases/v3.15.0.md#cursor-pointer-is-now-opt-in-303)
-
-- Implement custom alt text for charts by enabling `userOptions.buttons.altCopy: true` and providing a tailored string through the `userOptions.callbacks.altCopy` callback [source](./references/releases/v3.15.0.md#alt-text-copy-new-action-button)
-
-- Configure PDF export orientation and scaling directly in `userOptions.print` to handle different chart aspect ratios without requiring manual JsPDF wiring [source](./references/releases/v3.15.0.md#chart-zoom-minimap)
-
-- Signal estimated or projected data in `VueUiXy` by passing `dashIndices` in the dataset to render specific line segments as dashed [source](./references/releases/v3.15.0.md#vueuixy)
-
-- Prevent label overlapping in dense charts by setting `hideLabelsUnderValue` (in Donut) or `hideUnderProportion` (in Treemap) to suppress labels for small segments [source](./references/discussions/discussion-187.md#optimization-request-for-vueuidonutevolution-component---label-overlapping-and-zero-value-handling)
-
-- Reverse the y-axis (e.g., for ranking) by providing negative values in the dataset and using absolute value `formatters` for grid labels and tooltips [source](./references/discussions/discussion-194.md#accepted-answer)
-
-```ts
-// Reversed y-axis via negative values and absolute formatting
-const config = {
-  chart: {
-    grid: { labels: { yAxis: { formatter: ({ value }) => Math.abs(value) } } }
-  }
-}
+```bash
+npm i vue-data-ui
 ```
 
-- Fine-tune the responsive behavior of table-based charts (like `VueUiCarouselTable`) by adjusting `responsiveBreakpoint` to control exactly when the layout switches for mobile [source](./references/discussions/discussion-75.md#accepted-answer)
+```vue
+<script setup>
+import { ref } from "vue";
+import { VueUiDonut } from "vue-data-ui";
+import "vue-data-ui/style.css"; // required css
+
+const dataset = ref([
+  { name: "A", value: 12 },
+  { name: "B", value: 88 },
+]);
+const config = ref({ theme: "zen" });
+</script>
+
+<template>
+  <VueUiDonut :dataset="dataset" :config="config" />
+</template>
+```
+
+Every component takes a `dataset` prop and a `config` object prop. Pass a partial `config`; the component merges it over defaults. Prefer `computed` configs so mutations stay reactive.
+
+## Common tasks
+
+Build a typed config from defaults and override safely:
+
+```ts
+import { getVueDataUiConfig, mergeConfigs, type VueUiXyConfig } from "vue-data-ui";
+
+const config = computed<VueUiXyConfig>(() => mergeConfigs({
+  defaultConfig: getVueDataUiConfig("vue_ui_xy"), // snake_case component key
+  userConfig: { chart: { title: { text: "Sales" } } },
+}));
+```
+
+Call exposed methods through a template ref (available per component, see components reference):
+
+```ts
+const chart = useTemplateRef("chart");
+const data = await chart.value.getData();
+const img = await chart.value.getImage({ scale: 2 }); // { imgUri, base64, title, width, height, aspectRatio }
+chart.value.showSeries("Series 1"); // or hideSeries("Series 1")
+```
+
+Customize tooltips with `tooltip.customFormat: ({ seriesIndex, datapoint, series, config }) => string`, or richer content via `#tooltip-before` / `#tooltip-after` slots. Customize data labels with `formatter: ({ value, config }) => string`.
+
+Drag tooltips out of the pointer's way with the `useTooltipPosition` composable (since v3.22.0):
+
+```ts
+import { useTooltipPosition } from "vue-data-ui/composables";
+const chartRef = useTemplateRef("chartRef");
+const tooltipPosition = useTooltipPosition(chartRef); // ComputedRef<"left" | "right" | "center">
+const config = computed(() => ({ chart: { tooltip: { position: tooltipPosition.value } } }));
+```
+
+Render static SVG server-side (no browser needed):
+
+```ts
+import { createStaticVueUiXy } from "vue-data-ui/ssr"; // or 'vue-data-ui/ssr/vue-ui-xy' (treeshaken)
+const svg = await createStaticVueUiXy({ dataset, config });
+```
+
+## Best practices
+
+- Use `VueUiXyCanvas` instead of `VueUiXy` for very large datasets; tune `config.downsample.threshold` (LTTB downsampling). Defaults: Xy 1095, XyCanvas 10000, Quadrant/Scatter/Sparkline/SparkTrend 1095 (README.md:979-1002).
+- With `config.responsive: true`, place charts in a container with fixed dimensions; a 100% height container makes the chart grow infinitely (README.md:968-977).
+- Opt in to pointer cursors with `config.useCursorPointer: true`; disabled by default for a11y (README.md:1521-1529).
+- Enable the a11y alt-text button with `userOptions.buttons.altCopy: true` plus a `userOptions.callbacks.altCopy` callback (README.md:1488-1519).
+- Reverse an axis with the dedicated `reverse` config flags (since v3.20.7), do not hack negative values. X axis: `chart.grid.labels.xAxis.reverse`; y axis: `chart.grid.labels.yAxis.reverse` (VueUiXy).
+- Gate `config.debug` and `config.devHints.enable` behind a dev environment variable; some critical warnings still print (v3.23.0, v3.23.2 release notes).
+- Use `legend.selectAllToggle.show: true` to offer a select-all checkbox (more than 2 series); `@selectLegend` also fires when it is toggled (since v3.19.9).
+- Import from `vue-data-ui/utils` for utilities the main entry does not re-export, e.g. `adaptColorToBackground` (dist/utils.js export list).
+- Do not pass `bar` type series mixed with continuous `{ x, y }` series in `VueUiXy`; bars are hidden and a warning is logged (v3.20.7 release notes).
+- `#tooltip` slots replace default content; `#tooltip-before`/`#tooltip-after` prepend/append instead.
+
+## Version limits and breaking changes
+
+- v3.25.0 (breaking): `showOnlyAtModulo` now applies a real modulo and the `modulo` default changed from 12 to 2; use the new `showFirstAndLast: true` to force edge labels. Affects VueUiXy (+SSR), VueUiStackbar, VueUiStackline, VueUiCandlestick. See [migration](./references/migration-v3.19-v3.25.md).
+- v3 is not breaking vs v2, but some padding configs changed (README.md:185-200).
+- Since v3.14.3 locale files are removed; time labels rely on `Intl` (v3.14.3 release notes).
