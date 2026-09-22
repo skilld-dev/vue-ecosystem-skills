@@ -1,9 +1,9 @@
 name: Sync Skills
 
+# Start this by hand. To run it weekly instead, add:
+#   schedule:
+#     - cron: '0 6 * * 1'
 on:
-  schedule:
-    # Every Monday at 06:00 UTC.
-    - cron: '0 6 * * 1'
   workflow_dispatch:
     inputs:
       packages:
