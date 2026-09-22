@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          # The validator has no dependencies, so this job never installs.
+          package-manager-cache: false
 
       - name: Check every Skill
         run: node scripts/validate.mjs
