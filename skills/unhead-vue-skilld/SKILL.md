@@ -1,68 +1,157 @@
 ---
 name: unhead-vue-skilld
-description: "Full-stack head manager built for Vue. ALWAYS use when writing code importing \"@unhead/vue\". Consult for debugging, best practices, or modifying @unhead/vue, unhead/vue, unhead vue, unhead."
-metadata:
-  version: 3.1.0
-  generated_at: 2026-04-27
-  references_synced_at: 2026-04-27
+description: Full-stack <head> manager for Vue (@unhead/vue 3.x). Use when writing, reviewing, or debugging code that imports @unhead/vue, calls useHead, useSeoMeta, useHeadSafe, useScript, injectHead, createHead, or sets up Unhead SSR / streaming SSR / build plugins in a Vue app.
 ---
 
-# unjs/unhead `@unhead/vue@3.1.0`
-**Tags:** next: 3.0.0-beta.9, beta: 3.0.0-beta.12, rc: 3.0.0-rc.4
+# @unhead/vue 3.4.1
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Full-stack `<head>` management for Vue 3. ESM only (`"type": "module"`), no CJS.
+Peer deps: `vue >= 3.5.18`; optional `vite >= 6.4.2`, `webpack >= 5.0.0` (source: `package.json:138-150`).
+Vue 2: not supported; use `@unhead/vue@^1`.
+Nuxt: Unhead is integrated already; do not install or set it up manually.
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Setup (mandatory)
 
-- BREAKING: `createHead()` and `createServerHead()` removed from `@unhead/vue` root in v2 — use subpath imports: `createHead()` from `@unhead/vue/client` (SPA) or `@unhead/vue/server` (SSR); `createServerHead()` no longer exists [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#client--server-subpath-exports)
+Install `@unhead/vue`, create the head instance, and register it as a Vue plugin. `createHead` comes from a subpath export, not the package root.
 
-- BREAKING: Implicit context removed in v2 — `setHeadInjectionHandler()` deleted; `useHead()` called after an `await` in lifecycle hooks (e.g. `onMounted`) throws because Vue context is lost; wrap async data fetching before calling `useHead()` [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#removed-implicit-context)
+```ts
+// entry-client.ts (SPA or hydration)
+import { createHead } from '@unhead/vue/client'
+import { createApp } from './main'
 
-- BREAKING: `vmid` and `hid` tag properties removed in v2 — use `key` for deduplication: `script: [{ key: 'my-key' }]` [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#removed-vmid-hid-children-body)
+const { app } = createApp()
+const head = createHead()
+app.use(head)
+app.mount('#app')
+```
 
-- BREAKING: `children` tag property removed in v2 — use `innerHTML` instead [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#removed-vmid-hid-children-body)
+```ts
+// entry-server.ts (SSR)
+import { createHead } from '@unhead/vue/server'
+import { renderToString } from 'vue/server-renderer'
+import { createApp } from './main'
 
-- BREAKING: `body: true` tag property removed in v2 — use `tagPosition: 'bodyClose'` instead [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#removed-vmid-hid-children-body)
+export async function render(url: string) {
+  const { app } = createApp()
+  const head = createHead()
+  app.use(head)
+  const html = await renderToString(app)
+  return { html, head } // render tags later with transformHtmlTemplate(head, template)
+}
+```
 
-- BREAKING: `useScript()` no longer returns a Promise in v2 — `.then()` calls silently fail; use `.onLoaded(() => ...)` instead [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#updated-usescript)
+Full SSR template wiring, streaming SSR, Options API, and auto-imports: [references/setup.md](references/setup.md).
 
-- BREAKING: `useScript()` API no longer accessible directly on the instance in v2 — must use `.proxy` explicitly: `script.proxy.myFn()` not `script.myFn()`; code compiles but calls are lost at runtime [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#updated-usescript)
+## Composables
 
-- BREAKING: `stub()` option and `script:instance-fn` hook removed from `useScript()` in v2 — replace with custom `use()` logic [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#updated-usescript)
+All imported from `@unhead/vue` root and used inside `setup()`:
 
-- BREAKING: Promise inputs in `useHead()` no longer auto-resolved in v2 — await the promise before passing, or opt in to `PromisePlugin` from `@unhead/vue/plugins` [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#promise-input-support)
+```vue
+<script setup lang="ts">
+import { useHead, useSeoMeta } from '@unhead/vue'
 
-- BREAKING: `TemplateParamsPlugin` and `AliasSortingPlugin` no longer built-in in v2 — must opt in: `createHead({ plugins: [TemplateParamsPlugin, AliasSortingPlugin] })` imported from `@unhead/vue/plugins` [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#opt-in-template-params--tag-alias-sorting)
+useHead({
+  title: () => `${user.value.name} - Profile`, // getters, refs, computed all reactive
+  titleTemplate: '%s | My Site',
+  meta: [{ name: 'description', content: () => description.value }],
+})
 
-- BREAKING: Capo.js tag sorting is now the default in v2 — breaks snapshot tests; opt out with `createHead({ disableCapoSorting: true })` [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#tag-sorting-updated)
+useSeoMeta({ // flat, type-safe keys; og/twitter handled automatically
+  ogTitle: 'My Page',
+  ogImage: 'https://example.com/image.jpg',
+})
+</script>
+```
 
-- DEPRECATED: `useServerHead()`, `useServerHeadSafe()`, `useServerSeoMeta()` — use `useHead()`, `useHeadSafe()`, `useSeoMeta()` with `import.meta.server` conditionals or `{ mode: 'server' }` option for tree-shaking
+```ts
+// Third-party scripts
+import { useScript } from '@unhead/vue'
 
-- NEW: `<Head>`, `<Title>`, `<Meta>`, `<Link>`, `<Script>` template components — import from `@unhead/vue/components` [source](./references/docs/0.vue/head/guides/1.core-concepts/1.components.md:L8)
+const { proxy, onLoaded, status } = useScript(
+  { src: 'https://example.com/analytics.js' },
+  { use: () => window.analytics, trigger: 'client' },
+)
+proxy.track('pageview') // queued until the script loads
+```
 
-- NEW: `DeprecationsPlugin` from `@unhead/vue/plugins` — re-enables removed `vmid`, `hid`, `children`, `body` properties for gradual migration to v2 [source](./references/docs/0.vue/head/guides/0.get-started/1.migration.md#removed-vmid-hid-children-body)
+Details, options tables, and recipes: [references/composables.md](references/composables.md).
 
-**Also changed:** `@unhead/schema` deprecated — use `@unhead/vue/types` instead · `createHeadCore` deprecated — use `createUnhead` · Default SSR tags auto-inserted in v2 (`charset`, `viewport`, `html lang="en"`); disable with `createHead({ disableDefaults: true })` · CJS exports removed, ESM only · Vue 2 support removed · `useHead()` context lost after `async` in Vue lifecycle hooks — fetch data first, then call `useHead()`
+## Critical rules
 
-## Best Practices
+1. **Async context**: calling `useHead()` after an `await` inside `onMounted()`/watchers throws `useHead() was called without provide context`. Fix, in order of preference: top-level `await` in `<script setup>`; declare `useHead()` once with refs/computed and update the ref later; capture `const head = injectHead()` at setup time and pass `useHead(input, { head })`. Source: https://unhead.unjs.io/docs/vue/head/guides/core-concepts/reactivity-and-context
+2. **Never call `useHead()` inside a watcher callback**: each call pushes a new entry and duplicates tags. Pass the reactive value into one `useHead()` call instead.
+3. **Deduplication key is `key`**, not `hid`/`vmid`: `meta: [{ key: 'description', name: 'description', content: '...' }]`.
+4. **Inline content**: `innerHTML` (was `children` in v1); body scripts use `tagPosition: 'bodyClose'` (was `body: true`).
+5. **Untrusted input**: use `useHeadSafe()`; it whitelists attributes and strips scripts/handlers.
+6. **Head instance access in Vue**: use `injectHead()` from `@unhead/vue`, not `getActiveHead()` from `unhead`; only the former binds to component context (e.g. `onServerPrefetch`).
 
-- Always use `injectHead()` from `@unhead/vue` instead of `getActiveHead()` from `unhead` in Vue components — `injectHead()` binds to the Vue component context (visible in `onServerPrefetch`), while `getActiveHead()` returns a shared cross-request instance that breaks in SSR. The maintainer confirmed this is the correct approach for Vue. [source](./references/discussions/discussion-362.md)
+## Deprecated in 3.4.1 (present but slated for removal)
 
-- Avoid calling `useHead()` inside watchers — each call creates a new entry rather than updating the existing one, leading to duplicate entries. Instead, pass reactive refs or computed getters directly to a single `useHead()` call at setup time so updates flow automatically. [source](./references/docs/0.vue/head/guides/1.core-concepts/0.reactivity-and-context.md#can-i-use-usehead-inside-a-watcher)
+| Export | Status | Replacement |
+|---|---|---|
+| `useServerHead`, `useServerHeadSafe`, `useServerSeoMeta` | deprecated (`dist/index.d.ts:26-30`) | `useHead` / `useHeadSafe` / `useSeoMeta` |
+| `@unhead/vue/legacy` (`createHead`, `createServerHead`, `legacyPlugins`) | deprecated, removed in v4 (`dist/legacy.d.ts:14-30`) | `@unhead/vue/client` / `@unhead/vue/server` |
+| `resolveUnrefHeadInput` | deprecated (`dist/utils.d.ts:9`) | `resolveTags(head)` from `unhead/utils` |
+| `unheadVuePlugin` from `@unhead/vue/stream/vite` | deprecated (`dist/stream/vite.d.ts:8`) | `Unhead({ streaming: true }).vite()` from `@unhead/vue/bundler` |
+| `MergeHead` type | deprecated (`dist/types.d.ts:66`) | generics on `VueHeadClient` |
 
-- When `useHead()` must be called after async operations (e.g. inside `onMounted`), capture the head instance at setup time with `injectHead()` and pass it as `{ head }` in the second argument — Vue's inject context is lost after `await`. For most cases, prefer the reactive state pattern: define `useHead()` once at setup with computed getters, and update a `ref` asynchronously. [source](./references/docs/0.vue/head/guides/1.core-concepts/0.reactivity-and-context.md#solution-3-using-injecthead)
+Removed in v3 (will not compile): `DeprecationsPlugin`, `setHeadInjectionHandler`, `createHeadCore`, `{ mode: 'server' | 'client' }` entry option, `init`/`dom:renderTag`/`dom:rendered` hooks, `headEntries()` (use `[...head.entries.values()]`).
+Migration details: [references/migration.md](references/migration.md).
 
-- Use `useHeadSafe()` instead of `useHead()` whenever head input comes from user-provided or third-party sources — it enforces an attribute whitelist and strips script tags and event handlers, preventing XSS without requiring manual sanitization. [source](./references/docs/head/7.api/composables/1.use-head-safe.md#how-it-works)
+## Export map
 
-- Add the `UnheadVite()` plugin from `@unhead/addons/vite` to your Vite config for Vue apps — it tree-shakes server-only composables from the client build and transforms `useSeoMeta()` calls into raw `useHead()` calls, saving ~3kb. Nuxt configures this automatically; standalone Vue apps must opt in. [source](./references/docs/head/1.guides/2.advanced/9.vite-plugin.md#how-do-i-configure-the-plugin)
+| Subpath | Purpose |
+|---|---|
+| `@unhead/vue` | composables: `useHead`, `useSeoMeta`, `useHeadSafe`, `useScript`, `injectHead`, `VueHeadMixin`, `unheadVueComposablesImports`, `createUnhead`, `defineLink`, `defineScript` |
+| `@unhead/vue/client` | `createHead()` (SPA/hydration), `renderDOMHead`, `VueHeadMixin` |
+| `@unhead/vue/server` | `createHead()` (SSR), `renderSSRHead`, `transformHtmlTemplate`, `propsToString` |
+| `@unhead/vue/components` | `<Head>` component |
+| `@unhead/vue/plugins` | re-exports `unhead/plugins` (`TemplateParamsPlugin`, `AliasSortingPlugin`, `PromisePlugin`, `InferSeoMetaPlugin`, `ValidatePlugin`, ...) |
+| `@unhead/vue/bundler` | unified build plugin `Unhead()` for vite/webpack/rspack/rollup |
+| `@unhead/vue/vite` | Vite-only `Unhead()`; prefer `/bundler` |
+| `@unhead/vue/stream/server`, `/stream/client` | `createStreamableHead()` for streaming SSR |
+| `@unhead/vue/types`, `/utils`, `/scripts`, `/legacy` | types, utilities, script types, legacy shims |
 
-- Pass `{ mode: 'server' }` to `useHead()` for static SEO metadata (Open Graph images, robots, schema.org) that doesn't need client-side reactivity — this strips the tags from the client bundle entirely. Similarly use `{ mode: 'client' }` for analytics scripts to keep them out of SSR output. Caveat: `titleTemplate` must be included in both environments to avoid title flashing. [source](./references/docs/head/1.guides/2.advanced/7.client-only-tags.md#how-do-i-add-server-only-tags)
+Signatures and full type surface: [references/api-surface.md](references/api-surface.md).
 
-- Use `tagPosition: 'bodyClose'` for non-critical scripts (analytics, chat widgets) instead of `head` — this prevents render-blocking and improves page load performance. Use `tagPriority: 'critical' | 'high' | 'low'` aliases rather than raw numbers to preserve Capo.js-derived ordering weights that Unhead applies automatically. [source](./references/docs/head/1.guides/1.core-concepts/2.positions.md#how-do-i-set-tag-priority)
+## Optional plugins at creation
 
-- Use `textContent` instead of `innerHTML` for inline scripts and styles — `textContent` escapes HTML characters, preventing injection. Only use `innerHTML` when HTML entities are required, and sanitize the content yourself (e.g. with DOMPurify). For user-generated inline content, prefer `useHeadSafe()` which restricts scripts to `type="application/json"` only. [source](./references/docs/head/1.guides/1.core-concepts/4.inner-content.md#when-should-i-use-innerhtml-vs-textcontent)
+Template params (`%s`, `%separator`), alias sorting (`before:`/`after:`), and Promise inputs are opt-in since v2:
 
-- Register `TemplateParamsPlugin` and define global `templateParams` (e.g. `siteName`, `separator`) once in your head instance setup rather than repeating them per page. These params work across all head tags — including `og:title` and `meta` descriptions — not just `titleTemplate`. Set `%separator` to a smart separator like `·` or `—`; it auto-removes when adjacent to empty content. [source](./references/docs/head/1.guides/plugins/6.template-params.md#how-do-i-maintain-brand-consistency)
+```ts
+import { createHead } from '@unhead/vue/client'
+import { AliasSortingPlugin, TemplateParamsPlugin } from '@unhead/vue/plugins'
 
-- Use `InferSeoMetaPlugin` to automatically derive `og:title` and `og:description` from existing `title` and `description` tags, eliminating manual duplication. Configure `ogTitle` with a transform function to strip the site name suffix from Open Graph titles (e.g. removing `"| My Site"` that `titleTemplate` appends). [source](./references/docs/head/1.guides/plugins/infer-seo-meta-tags.md#how-do-i-customize-the-og-title)
+const head = createHead({ plugins: [TemplateParamsPlugin, AliasSortingPlugin] })
+```
+
+Without `TemplateParamsPlugin`, `%siteName` placeholders render literally.
+
+## Build plugin (recommended for standalone Vue apps)
+
+```ts
+// vite.config.ts
+import { Unhead } from '@unhead/vue/bundler'
+
+export default defineConfig({
+  plugins: [vue(), Unhead()], // add { streaming: true } for streaming SSR
+})
+```
+
+Tree-shakes server-only composables from the client bundle, converts `useSeoMeta()` to `useHead()` (~3kb), injects `ValidatePlugin` in dev. Options table and webpack notes: [references/build-plugins.md](references/build-plugins.md).
+
+## Common mistakes
+
+- Importing `createHead` from `@unhead/vue` root (removed in v2): use `/client` or `/server`.
+- Awaiting `renderSSRHead` / `renderDOMHead`: both are synchronous in v3.
+- `useScript()` return is not a Promise: use `onLoaded(() => ...)`; call APIs through `.proxy`.
+- Meta tags require `content`: `{ name: 'description', content: null }` removes the tag.
+- Font preloads require `crossorigin`: `{ rel: 'preload', as: 'font', href: '/f.woff2', crossorigin: 'anonymous' }`.
+
+## References
+
+- [references/setup.md](references/setup.md) — SPA, SSR, streaming SSR, Options API, `<Head>` component, auto-imports, defaults
+- [references/composables.md](references/composables.md) — `useHead`, `useSeoMeta`, `useHeadSafe`, `useScript` usage and options
+- [references/api-surface.md](references/api-surface.md) — export map, types, instance API
+- [references/build-plugins.md](references/build-plugins.md) — `Unhead()` bundler plugin and streaming
+- [references/migration.md](references/migration.md) — v2 and v3 breaking changes

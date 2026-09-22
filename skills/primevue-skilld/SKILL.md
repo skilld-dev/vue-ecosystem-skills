@@ -1,112 +1,152 @@
 ---
 name: primevue-skilld
-description: "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and profe.... ALWAYS use when writing code importing \"primevue\". Consult for debugging, best practices, or modifying primevue."
-metadata:
-  version: 4.5.5
-  generated_at: 2026-04-09
-  references_synced_at: 2026-04-09
+description: Use when writing, debugging, or updating code that imports primevue (PrimeVue v5, UI component library for Vue 3). Provides setup with the required PrimeUI license key, deprecated API replacements, compound component usage, and design token theming.
 ---
 
-# primefaces/primevue `primevue@4.5.5`
-**Tags:** v2-stable: 2.10.4, v3-stable: 3.53.1, latest: 4.5.5
+# PrimeVue (`primevue@5.0.1`)
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Version 5.0.1, prepared source `input/source/package.json`. UI component library for Vue 3.
+Docs: https://primevue.dev (component pages live at `https://primevue.dev/<name>`, e.g. `https://primevue.dev/inputtags/`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Critical v5 facts
 
-- BREAKING: `Calendar` renamed to `DatePicker` — v3 component renamed to `DatePicker` in v4 [source](./references/releases/CHANGELOG.md)
+1. **License key required.** v5 ships under the PrimeUI dual license (free Community or paid Commercial). Pass the key as a `license` string option when installing the plugin. Verification is offline; a missing, invalid, or expired key may display a license notice (`input/source/LICENSE.md`).
+2. **No breaking public API changes from v4**, per the official migration guide (https://primevue.dev/migration/v5/). Deprecated v4 APIs still work in v5 and are removed in v6. Write new code against the replacements in [v5 changes](references/v5-changes.md).
+3. **16px root font base.** v5 assumes a 16px document root; v4 assumed 14px. Every preset ships a `-compat` variant for 14px layouts, maintained until June 2027 (https://primevue.dev/theming/styled/).
+4. **Config plugin.** Install once with `app.use`. The default export of `primevue/config` is also re-exported as `Config` from the package root (`input/source/index.mjs:139`).
 
-- BREAKING: `Dropdown` renamed to `Select` — v3 component renamed to `Select` in v4 [source](./references/releases/CHANGELOG.md)
+## Setup
 
-- BREAKING: `Sidebar` renamed to `Drawer` — v3 component renamed to `Drawer` in v4 [source](./references/releases/CHANGELOG.md)
+```js
+// main.js
+import { createApp } from 'vue';
+import PrimeVue from 'primevue/config'; // or: import { Config } from 'primevue'
+import Aura from '@primeuix/themes/aura';
+import App from './App.vue';
 
-- BREAKING: `OverlayPanel` renamed to `Popover` — v3 component renamed to `Popover` in v4 [source](./references/releases/CHANGELOG.md)
+const app = createApp(App);
+app.use(PrimeVue, {
+    license: '<your PrimeUI license key>',
+    ripple: true, // optional, disabled by default
+    theme: {
+        preset: Aura,
+        options: {
+            darkModeSelector: '.app-dark' // default is 'system'
+        }
+    }
+});
+```
 
-- BREAKING: `InputSwitch` renamed to `ToggleSwitch` — v3 component renamed to `ToggleSwitch` in v4 [source](./references/releases/CHANGELOG.md)
+Details: theme options, locale, unstyled mode, Nuxt module, auto import in [setup](references/setup.md).
 
-- BREAKING: `TabView` replaced by `Tabs` — new component structure using `TabList`, `Tab`, `TabPanels`, and `TabPanel` [source](./references/docs/tabs.md)
-
-- BREAKING: `Steps` replaced by `Stepper` — new component structure using `StepList`, `Step`, `StepPanels`, and `StepPanel` [source](./references/docs/stepper.md)
-
-- BREAKING: `Accordion` reimplementation — now uses `AccordionPanel`, `AccordionHeader`, and `AccordionContent` components [source](./references/docs/accordion.md)
-
-- BREAKING: `v-model:value` — v4 uses `v-model:value` for active state in `Tabs`, `Accordion`, and `Stepper` instead of `v-model` [source](./references/docs/tabs.md)
-
-- DEPRECATED: `inputStyle` — property replaced by `inputVariant` (values: 'filled' | 'outlined') [source](./references/releases/CHANGELOG.md)
-
-- NEW: `@primevue/forms` — new dedicated package for advanced form management and validation [source](./references/releases/CHANGELOG.md)
-
-- NEW: `Fluid` component — layout component that makes descendants span full width [source](./references/docs/fluid.md)
-
-- NEW: `IconField` & `InputIcon` — new components to wrap inputs and icons for decorative purposes [source](./references/docs/iconfield.md)
-
-- NEW: `useId` & `useAttrSelector` — new core composables for unique ID generation and attribute selectors [source](./references/releases/CHANGELOG.md)
-
-**Also changed:** `DataTable` `showClearButton` default is `false` (v4.3.0) · `IftaLabel` new component for in-field labels · `Checkbox` added `indeterminate` state · `OverlayBadge` new component replaces `Badge` directive · `InlineMessage` component deprecated · `iconPosition` removed from `IconField` · `warning` property renamed to `warn` · `Drawer` added `before-hide` emit (v4.3.0)
-
-## Best Practices
-
-- Use the `Fluid` component as a wrapper for bulk application of full-width styles to inputs instead of adding the `fluid` prop to every individual field for cleaner and more maintainable templates [source](./references/docs/fluid.md)
+## Import patterns
 
 ```vue
-<Fluid>
-    <div class="grid grid-cols-2 gap-4">
-        <InputText placeholder="Full Width" />
-        <DatePicker placeholder="Full Width" />
-        <Select placeholder="Full Width" />
-    </div>
-</Fluid>
+<script setup>
+// Tree-shakeable subpath imports (package.json exports map "./*")
+import Button from 'primevue/button';
+import Select from 'primevue/select';
+// Style classes for a component (design token CSS)
+import SelectStyle from 'primevue/select/style';
+</script>
 ```
 
-- In Stepper vertical layouts, always wrap `Step` and `StepPanel` inside a `StepItem` component to ensure correct structure and connection between headers and content [source](./references/docs/stepper.md)
+- Root import `from 'primevue'` also works and exports every component, style, service, and composable (`input/source/index.mjs`).
+- Icons: SVG icon components come from `@primeicons/vue` (dependency `^8.0.0` in `input/source/package.json`). The `@primevue/icons` package is deprecated in v5.
 
-- Use `asChild` and `v-slot` on components like `Step` or `Tab` to implement headless mode for full UI control while retaining PrimeVue's built-in accessibility logic [source](./references/docs/stepper.md)
+## Golden rules
+
+- **Never use a deprecated component in new code.** Deprecated in v5 (removal in v6): `MultiSelect`, `Galleria`, `Image`, `ColorPicker`, `ImageCompare`, `ScrollPanel`, `Password`, `InputMask` (component), `PanelMenu`, `Chart`, `Editor`, `AutoComplete` with `multiple`, `Carousel` driven by `value`, `Tabs` `scrollable`. Use the replacement table in [v5 changes](references/v5-changes.md).
+- **Buttons compose content in the default slot.** `label`, `icon`, `iconPos`, `iconClass`, `badge`, `badgeClass`, `badgeSeverity`, `loading`, `loadingIcon` props are all deprecated since v5.0.0 (`input/source/button/index.d.ts`).
+- **Compound components over prop-driven templates**: `Tabs`/`TabList`/`Tab`/`TabPanels`/`TabPanel`, `Accordion`/`AccordionPanel`/`AccordionHeader`/`AccordionContent`, `Stepper` family, `Sidebar` family, `Gallery` family, `Carousel` family. Active state binds with `v-model:value` (Accordion's `activeIndex` prop and events were removed in v5).
+- **Overlays are Teleport-based**: set `appendTo="body"` (default) or `"self"`; most overlay components accept `overlayStyle`/`overlayClass` (panel* props were removed in v5).
+- **Prefer design tokens over CSS overrides**: use `dt` prop for scoped tokens and preset customization via `definePreset` instead of `:deep()` or style classes (https://primevue.dev/theming/styled/).
+
+## Common tasks
+
+### Button (slot composition)
 
 ```vue
-<Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
-    <button @click="activateCallback" v-bind="a11yAttrs.header">
-        Step {{ value }}
-    </button>
-</Step>
+<Button severity="contrast" size="small">
+    <i class="pi pi-check" />
+    <span>Confirm</span>
+    <Badge value="2" />
+</Button>
 ```
 
-- For performant row expansion in `DataTable` with large datasets, use an object for `expandedRows` combined with `dataKey` instead of an array of row objects [source](./references/docs/datatable.md)
+Icon order in the slot replaces `iconPos`; use `disabled` plus your own spinner instead of `loading`.
 
-```ts
-// Preferred (O(1) lookup)
-const expandedRows = ref({ '1004': true, '1005': true });
-
-// In template
-<DataTable v-model:expandedRows="expandedRows" dataKey="id">
-```
-
-- Enable automatic user preference persistence (sorting, filtering, paging) in `DataTable` using `stateStorage` and `stateKey` to improve UX across page visits [source](./references/docs/datatable.md)
-
-- Add a `delay` to `VirtualScroller` to throttle rendering during rapid scrolling, significantly improving UI responsiveness for extremely large lists [source](./references/docs/virtualscroller.md)
+### Multiple selection (replaces MultiSelect)
 
 ```vue
-<VirtualScroller :items="items" :itemSize="50" :delay="250">
-    <template v-slot:item="{ item }">{{ item }}</template>
-</VirtualScroller>
+<Select v-model="selectedCities" multiple :options="cities" optionLabel="name" fluid />
 ```
 
-- Implement semantic navigation menus by using `Tabs` without `TabPanels` and combining it with `router-link` for accessible, state-aware top or side bars [source](./references/docs/tabs.md)
+`multiple` on `Select` ("When specified, allows selecting multiple values", `input/source/select/index.d.ts`).
 
-- Always wrap inputs and icons with `IconField` and `InputIcon` to ensure correct positioning and styling, supporting both leading and trailing icon placements [source](./references/docs/iconfield.md)
+### Tags input (replaces AutoComplete multiple)
 
 ```vue
-<IconField>
-    <InputIcon class="pi pi-search" />
-    <InputText placeholder="Search" />
-</IconField>
+<InputTags v-model="tags" typeahead :suggestions="suggestions" @complete="search" delimiter="," />
 ```
 
-- Use `IftaLabel` for modern, top-aligned in-field labels that visually integrate with the input and handle validation states automatically [source](./references/docs/iftalabel.md)
+Key props: `max`, `allowDuplicate`, `addOnBlur`, `addOnPaste`, `addOnTab`, `delimiter` (string or RegExp). Emits `add`, `remove`, `option-select`, `complete` (`input/source/inputtags/index.d.ts`).
 
-- Leverage the built-in `DataTable` context menu integration to provide row-specific actions without manual event listener management or custom positioning logic [source](./references/docs/datatable.md)
+### Toast service
+
+```js
+// main.js: app.use(ToastService)
+import { useToast } from 'primevue/usetoast';
+const toast = useToast();
+toast.add({ severity: 'info', summary: 'Saved', life: 3000 });
+```
+
+Service methods: `add`, `remove`, `removeGroup`, `removeAllGroups` (`input/source/toastservice/index.d.ts`). Same pattern for `ConfirmationService` + `useConfirm` and `DialogService` + `useDialog` (dynamic dialogs).
+
+### Mask directive (replaces InputMask component)
 
 ```vue
-<ContextMenu ref="cm" :model="menuModel" />
-<DataTable :value="products" contextMenu @row-contextmenu="onRowContextMenu">
+<InputText v-mask="{ mask: '99-9999', unmask: true }" v-model="value" />
 ```
+
+Options: `mask`, `slotChar` (default `_`), `autoClear` (default true), `unmask`, `onChange` receiving `{ value, rawValue }` (`input/source/mask/index.d.ts`).
+
+### App sidebar (compound)
+
+```vue
+<SidebarLayout>
+    <SidebarAside>
+        <SidebarHeader>…</SidebarHeader>
+        <SidebarContent>
+            <SidebarGroup>
+                <SidebarGroupLabel>Admin</SidebarGroupLabel>
+                <SidebarGroupContent>
+                    <SidebarMenu>
+                        <SidebarMenuItem><SidebarMenuButton>Users</SidebarMenuButton></SidebarMenuItem>
+                    </SidebarMenu>
+                </SidebarGroupContent>
+            </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>…</SidebarFooter>
+    </SidebarAside>
+    <SidebarMain><RouterView /></SidebarMain>
+</SidebarLayout>
+```
+
+`Sidebar` inside a `SidebarLayout` requires a unique `id`; supports `side`, `variant` (`sidebar|floating|inset`), `collapsible` (`offcanvas|icon|none`), `v-model:open`, `openOnHover`, `overlay`, `width` (`input/source/sidebar/index.d.ts`). Full part list in [components](references/components.md).
+
+### Form fields
+
+- `FloatLabel`, `IftaLabel` (in-field label), or plain `Label`.
+- Wrap a region in `<Fluid>` for full-width inputs instead of `fluid` on each field.
+- `invalid` prop on any input drives the error style; validation state via `@primevue/forms` (separate package, https://primevue.dev/forms/).
+
+### DataTable performance
+
+With `dataKey` set, bind `expandedRows` to an object (`{ '1004': true }`) rather than an array of row objects for O(1) lookup on large data (official DataTable docs). Persist user preferences with `stateStorage` + `stateKey`.
+
+## References
+
+- [Setup and configuration](references/setup.md): install, license, theme presets, dark mode, locale, unstyled mode, Nuxt.
+- [v5 changes and migration](references/v5-changes.md): deprecation and removal tables with replacements.
+- [Components and replacements](references/components.md): compound families, new v5 components, services, utilities.

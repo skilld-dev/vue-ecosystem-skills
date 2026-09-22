@@ -1,53 +1,46 @@
 ---
 name: vueuse-integrations-skilld
-description: "Integration wrappers for utility libraries. ALWAYS use when writing code importing \"@vueuse/integrations\". Consult for debugging, best practices, or modifying @vueuse/integrations, vueuse/integrations, vueuse integrations, vueuse."
-metadata:
-  version: 14.3.0
-  generated_at: 2026-05-01
-  references_synced_at: 2026-05-01
+description: Integration wrappers for utility libraries in @vueuse/integrations v15. ALWAYS use when writing code importing "@vueuse/integrations" or any of its composables (useAxios, useSortable, useFocusTrap, useCookies, useIDBKeyval, useFuse, useChangeCase, useDrauu, useJwt, useNProgress, useQRCode, useAsyncValidator). Consult for debugging, best practices, or modifying @vueuse/integrations, vueuse integrations, vueuse.
 ---
 
-# vueuse/vueuse `@vueuse/integrations@14.3.0`
-**Tags:** next: 5.0.0, alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1
+# @vueuse/integrations 15.0.0
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Add-on to VueUse: reactive wrappers for 12 utility libraries. Requires Vue (`^3.5.0`) and ships `@vueuse/core` + `@vueuse/shared` 15.0.0 as dependencies (package.json:55-70,108-111). ESM-only since v13. Node >= 22 since v15 (package.json:52-54).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## References
 
-- BREAKING: Requires Vue 3.5+ — v14.x now requires Vue 3.5.0 as a peer dependency for native features like `useTemplateRef`
+- [Full API surface](./references/api.md) — every export, signature, option, and default, verified against `dist/`.
+- [Usage patterns](./references/usage-patterns.md) — per-function recipes and gotchas.
+- [Migration v14 to v15](./references/migration-v14-to-v15.md) — breaking changes and update steps.
 
-- BREAKING: ESM-only — dropped CommonJS (CJS) build in v13.0.0, now an ESM-only package [source](./references/releases/v13.0.0.md)
+## Install
 
-- BREAKING: `focus-trap` dependency — `useFocusTrap` updated peer dependency range to `^7 || ^8` in v14.2.0 [source](./references/releases/v14.2.0.md)
+```bash
+npm i @vueuse/integrations
+```
 
-- BREAKING: `universal-cookie` dependency — `useCookies` now supports and prefers `universal-cookie` `^7 || ^8`
+Each wrapper needs its own optional peer dependency installed, otherwise the import fails at runtime:
 
-- BREAKING: `change-case` v5 — `useChangeCase` is now compatible with `change-case` v5, including internal naming changes
+| Composable | Peer dependency |
+|---|---|
+| `useAsyncValidator` | `async-validator@^4` |
+| `useAxios` | `axios@^1` |
+| `useChangeCase` | `change-case@^5` |
+| `useCookies` | `universal-cookie@^7 || ^8` |
+| `useDrauu` | `drauu@^1 || ^0.4` |
+| `useFocusTrap` | `focus-trap@^7 || ^8` |
+| `useFuse` | `fuse.js@^7` |
+| `useIDBKeyval` | `idb-keyval@^6` |
+| `useJwt` | `jwt-decode@^4` |
+| `useNProgress` | `nprogress@^0.2` |
+| `useQRCode` | `qrcode@^1.5` |
+| `useSortable` | `sortablejs@^1` |
 
-- DEPRECATED: Alias exports — v14.0.0 deprecated alias exports in favor of original function names for consistency [source](./references/releases/v14.0.0.md)
+Source: package.json:55-69.
 
-- NEW: `watchElement` option — `useSortable` added `watchElement` in v14.2.0 to auto-reinitialize when target element changes [source](./references/releases/v14.2.0.md)
+## Import rule: use submodules
 
-- NEW: `updateContainerElements` — `useFocusTrap` exposed `updateContainerElements` in v13.6.0 for dynamic container updates [source](./references/releases/v13.6.0.md)
-
-- NEW: `serializer` option — `useIDBKeyval` added `options.serializer` in v13.6.0 for custom data serialization [source](./references/releases/v13.6.0.md)
-
-- NEW: Component Ref support — `useSortable` can now accept a Vue component instance/ref as the target element since v13.1.0 [source](./references/releases/v13.1.0.md)
-
-- NEW: Thenable `useAxios` — `useAxios` returns are now thenable, allowing `await useAxios(...)` in async contexts [source](./references/docs/useAxios/index.md)
-
-- NEW: Flexible `execute` — `useAxios` `execute()` can now take `url` or `config` separately for manual triggers [source](./references/docs/useAxios/index.md)
-
-- NEW: `initialData` option — `useAxios` added `initialData` to provide a default value before the request finishes [source](./references/docs/useAxios/index.md)
-
-- NEW: Helper functions — `moveArrayElement`, `insertNodeAt`, and `removeNode` are now exported from `useSortable` [source](./references/docs/useSortable/index.md)
-
-**Also changed:** `useAsyncValidator` internal types · `useJwt` options refinement · `useNProgress` reactive state consistency · `useSortable` type misalignment fix [source](./references/releases/v13.3.0.md)
-
-## Best Practices
-
-- Import functions from submodules to maximize tree-shaking efficiency and reduce the final bundle size [source](./references/docs/README.md)
+Import from per-function submodules for tree-shaking (README.md:33-42):
 
 ```ts
 // Preferred
@@ -57,68 +50,125 @@ import { useAxios } from '@vueuse/integrations/useAxios'
 import { useAxios } from '@vueuse/integrations'
 ```
 
-- Await `useAxios()` directly for one-off requests as the return value is thenable, simplifying promise handling [source](./references/docs/useAxios/index.md)
+Components import from `/component` subpaths:
 
 ```ts
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
+import { UseSortable } from '@vueuse/integrations/useSortable/component'
+import { UseAsyncValidator } from '@vueuse/integrations/useAsyncValidator/component'
+```
+
+Alias exports were deprecated in v14.0.0; use the original names (https://github.com/vueuse/vueuse/issues/5009).
+
+## v15 breaking changes (from v14)
+
+1. `useIDBKeyval` returns an object `{ data, isFinished, isSupported, set }`, not a ref (dist/useIDBKeyval.d.ts:46-51). `const count = useIDBKeyval('k', 0)` no longer compiles; destructure `data` instead.
+2. `useIDBKeyval` syncs across tabs via `BroadcastChannel` by default; disable with `listenToStorageChanges: false` (dist/useIDBKeyval.js:60-76, https://github.com/vueuse/vueuse/pull/5338).
+3. Node.js 20 dropped; requires Node >= 22 (https://github.com/vueuse/vueuse/releases/tag/v15.0.0).
+4. `drauu` peer range widened to `^1 || ^0.4` (https://github.com/vueuse/vueuse/pull/5595).
+
+Details and migration code: [migration reference](./references/migration-v14-to-v15.md).
+
+## Quick examples
+
+### useAxios
+
+```ts
+import { useAxios } from '@vueuse/integrations/useAxios'
+
+// Awaits the whole result; rejects on error
 const { data, error } = await useAxios('/api/posts')
+
+// Manual trigger without firing immediately
+const { execute } = useAxios('/api/posts', { method: 'GET' }, { immediate: false })
+
+// Typed data via initialData (data becomes Ref<T> instead of Ref<T | undefined>)
+const { data } = useAxios<User[]>('/api/users', undefined, { initialData: [] })
 ```
 
-- Enable `resetOnExecute: true` in `useAxios` options to clear stale data automatically when a new request is triggered [source](./references/docs/useAxios/index.md)
+`execute()` accepts `url`, `config`, or both. Default options: `immediate` (true only when a url string is passed), `shallow: true`, `abortPrevious: true`, `resetOnExecute: false` (dist/useAxios.js:13-17,35).
+
+### useIDBKeyval
 
 ```ts
-const { execute } = useAxios('/api/data', { method: 'GET' }, { resetOnExecute: true })
+import { useIDBKeyval } from '@vueuse/integrations/useIDBKeyval'
+
+const { data: count, set } = useIDBKeyval('my-count', 0)
+count.value++          // watched, persisted automatically
+await set(10)          // explicit write, resolves after the IDB transaction
+count.value = null     // deletes the key
 ```
 
-- Explicitly import `useCookies` in Nuxt 3 environments to avoid name collisions with Nuxt's built-in `useCookie` composable [source](./references/docs/useCookies/index.md)
+### useSortable
 
 ```ts
-import { useCookies } from '@vueuse/integrations/useCookies'
-```
+import { useSortable } from '@vueuse/integrations/useSortable'
 
-- Use `autoUpdateDependencies: true` with `useCookies` to automatically track and update dependencies for any cookie names accessed via `.get()` [source](./references/docs/useCookies/index.md)
-
-```ts
-const { get } = useCookies(['initial'], { autoUpdateDependencies: true })
-```
-
-- Enable the `watchElement: true` option in `useSortable` to automatically reinitialize the instance when the target element changes (e.g., with `v-if`) [source](./references/docs/useSortable/index.md)
-
-```ts
-useSortable(el, list, { watchElement: true })
-```
-
-- Wrap post-update logic in `nextTick()` after calling `moveArrayElement` in `useSortable` to ensure the DOM update has fully finished [source](./references/docs/useSortable/index.md)
-
-```ts
-useSortable(el, list, {
-  onUpdate: (e) => {
-    moveArrayElement(list, e.oldIndex, e.newIndex)
-    nextTick(() => { /* perform post-move logic */ })
-  }
+const list = ref(['a', 'b', 'c'])
+const { start, stop, option } = useSortable(el, list, {
+  watchElement: true, // reinitialize when el appears/disappears (v-if)
 })
 ```
 
-- Use `nextTick()` before calling `activate()` in `useFocusTrap` when dealing with conditionally rendered (`v-if`) elements to ensure they exist in the DOM [source](./references/docs/useFocusTrap/index.md)
+The default `onUpdate` handler moves the array element for you (dist/useSortable.js:14-16). Pass your own `onUpdate` to override; use `moveArrayElement(list, from, to, e)` for manual moves.
+
+### useFocusTrap
 
 ```ts
-async function openModal() {
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+
+const target = useTemplateRef<HTMLElement>('modal')
+const { activate, deactivate, hasFocus } = useFocusTrap(target, { immediate: true })
+
+async function open() {
   show.value = true
-  await nextTick()
+  await nextTick() // wait for v-if to render the element
   activate()
 }
 ```
 
-- Prefer the `UseFocusTrap` component over the manual composable for automatic activation on mount and cleanup on unmount [source](./references/docs/useFocusTrap/index.md)
+Container element changes are tracked automatically; the returned object is `{ hasFocus, isPaused, activate, deactivate, pause, unpause }` with no `updateContainerElements` (dist/useFocusTrap.js:37-66).
 
-```vue
-<UseFocusTrap v-if="show" :options="{ immediate: true }">
-  <div class="modal">...</div>
-</UseFocusTrap>
-```
-
-- Await the `.set()` method returned by `useIDBKeyval` to ensure that the IndexedDB transaction is fully committed before proceeding [source](./references/docs/useIDBKeyval/index.md)
+### useCookies
 
 ```ts
-const count = useIDBKeyval('my-count', 0)
-await count.set(10)
+import { useCookies } from '@vueuse/integrations/useCookies'
+
+const { get, set, remove } = useCookies(['token'], { autoUpdateDependencies: true })
 ```
+
+For SSR, build the composable from the request with `createCookies(req)` (dist/useCookies.d.ts:4-9). In Nuxt, import explicitly to avoid clashing with Nuxt's `useCookie`.
+
+### useFuse
+
+```ts
+import { useFuse } from '@vueuse/integrations/useFuse'
+
+const search = ref('')
+const { results } = useFuse(search, data, {
+  fuseOptions: { keys: ['title'] },
+  resultLimit: 10,
+  matchAllWhenSearchEmpty: true,
+})
+```
+
+### Remaining wrappers
+
+```ts
+useChangeCase('hello world', 'camelCase')   // writable computed; type must match a change-case *Case export
+useDrauu(svgEl, { brush: { color: 'red' } }) // target must be an <svg> element
+useJwt(token)                                // { header, payload } with fallbackValue on decode error
+useNProgress()                               // { isLoading, progress, start, done, remove }
+useQRCode('https://vueuse.org')              // ShallowRef<string> of a data URL
+useAsyncValidator(form, rules, { manual: true }) // thenable; { pass, errors, execute }
+```
+
+See [usage patterns](./references/usage-patterns.md) before writing non-trivial code with `useDrauu`, `useNProgress`, `useQRCode`, or `useAsyncValidator`.
+
+## Environment limits
+
+- Vue `^3.5.0` peer (package.json:68).
+- ESM-only; no CommonJS build since v13.0.0 (https://github.com/vueuse/vueuse/releases/tag/v13.0.0).
+- Node >= 22 (package.json:53).
+- `useQRCode` renders only in the browser (`isClient` guard, dist/useQRCode.js:16).
+- `useIDBKeyval` tab sync needs `BroadcastChannel`; `isSupported` reports it (dist/useIDBKeyval.js:18).

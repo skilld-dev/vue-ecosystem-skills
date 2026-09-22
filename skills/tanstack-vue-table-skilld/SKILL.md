@@ -1,84 +1,131 @@
 ---
 name: tanstack-vue-table-skilld
-description: "Headless UI for building powerful tables & datagrids for Vue. ALWAYS use when writing code importing \"@tanstack/vue-table\". Consult for debugging, best practices, or modifying @tanstack/vue-table, tanstack/vue-table, tanstack vue-table, tanstack vue table, table."
-metadata:
-  version: 8.21.3
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: Use when writing, migrating, or debugging code that imports @tanstack/vue-table (TanStack Table v9 for Vue). Covers useTable with explicit tableFeatures, reactive ref/computed data, FlexRender rendering, atoms-based state, createTableHook conventions, and the v8-to-v9 breaking changes.
 ---
 
-# TanStack/table `@tanstack/vue-table@8.21.3`
-**Tags:** beta: 8.0.0-beta.9, latest: 8.21.3, alpha: 9.0.0-alpha.33
+# @tanstack/vue-table 9.2.4
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Headless table adapter for Vue 3. Re-exports all of `@tanstack/table-core` 9.2.4 plus Vue bindings: `useTable`, `FlexRender`, `flexRender`, `createTableHook` (`dist/index.d.ts:4-5`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+Environment limits: `vue >=3.2` peer dependency, Node >=20, runtime dep `@tanstack/store ^0.11.1` (`package.json:34-53`).
 
-- BREAKING: `useVueTable` — v8 changed from `useTable`, must be explicitly imported from `@tanstack/vue-table` [source](./references/docs/framework/vue/vue-table.md)
+This Skill targets v9 only. Code using `useVueTable`, `getCoreRowModel()`, or `onStateChange` is v8; migrate it first with [Migration v8 to v9](./references/migration-v8-to-v9.md).
 
-- BREAKING: `FlexRender` component — v8 replaced `.render()` methods with PascalCase `FlexRender` component in Vue templates [source](./references/docs/framework/vue/vue-table.md)
+## Quick start
 
-- BREAKING: `accessorKey` and `accessorFn` — v8 renamed `accessor` to `accessorKey` (string) or `accessorFn` (function) [source](./references/docs/guide/migrating.md)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { FlexRender, tableFeatures, useTable } from '@tanstack/vue-table'
 
-- BREAKING: `header`, `cell`, `footer` — v8 renamed `Header`, `Cell`, `Footer` column properties to lowercase [source](./references/docs/guide/migrating.md)
-
-- BREAKING: `enable*` options — v8 renamed all `disable*` options to `enable*` (e.g., `enableSorting`, `enableFiltering`) [source](./references/docs/guide/migrating.md)
-
-- BREAKING: `getValue()` — v8 changed `value` prop to `getValue()` function in cell/header render contexts for performance [source](./references/docs/guide/migrating.md)
-
-- DEPRECATED: `getHeaderProps`, `getCellProps`, `getRowProps` — v8 removed automatic prop getters; keys and handlers must be manual [source](./references/docs/guide/migrating.md)
-
-- NEW: Reactive `data` support — v8.20.0 added support for passing Vue `ref` or `computed` directly to `data` option [source](./references/docs/framework/vue/guide/table-state.md)
-
-- NEW: `sortUndefined: 'first' | 'last'` — v8.16.0 added explicit `'first'` and `'last'` string options to `sortUndefined` [source](./references/docs/api/features/sorting.md)
-
-- NEW: `_features` option — v8.14.0 introduced `_features` for extending table instances with custom logic [source](./references/docs/guide/custom-features.md)
-
-- NEW: `firstPage()`, `lastPage()` — v8.13.0 added explicit pagination navigation APIs [source](./references/docs/guide/pagination.md)
-
-- NEW: `rowCount` option — v8.13.0 added `rowCount` to automatically calculate `pageCount` for manual pagination [source](./references/docs/guide/pagination.md)
-
-- NEW: `rowPinning` — v8.12.0 added row pinning state and `getTopRows()`, `getBottomRows()`, `getCenterRows()` APIs [source](./references/docs/guide/row-pinning.md)
-
-- BREAKING: `sortingFn` signature — v8 changed to return `number` (-1, 0, 1) and only takes 2 rows plus column ID [source](./references/docs/api/features/sorting.md)
-
-**Also changed:** `columnVisibility` state new v8 · `columnPinning` new v8 · `resetPageIndex()` new v8.13.0 · `resetPageSize()` new v8.13.0 · `shallowRef` internally for Vue v8.20.0
-
-## Best Practices
-
-- Use `useVueTable` with reactive data directly — pass a `ref` or `computed` to the `data` option to enable automatic table updates without manual triggers [source](./references/docs/framework/vue/guide/table-state.md)
-
-- Update data by replacing the array `.value` — since `shallowRef` is used internally for performance, the table only reacts to top-level array mutations (e.g., `data.value = [...]`) rather than `push` or `splice` [source](./references/docs/framework/vue/guide/table-state.md)
-
-- Use `createColumnHelper` for type-safe definitions — provides the highest level of TypeScript inference for accessor, display, and grouping columns [source](./references/docs/guide/column-defs.md)
-
-```ts
-const columnHelper = createColumnHelper<Person>()
+type Person = { name: string; age: number }
+const features = tableFeatures({})
 const columns = [
-  columnHelper.accessor('firstName', { cell: info => info.getValue() })
+  { accessorKey: 'name', header: 'Name' },
+  { accessorKey: 'age', header: 'Age' },
 ]
+const data = ref<Person[]>([{ name: 'Ada', age: 36 }])
+const table = useTable({ features, columns, data })
+</script>
+
+<template>
+  <table>
+    <thead>
+      <tr v-for="group in table.getHeaderGroups()" :key="group.id">
+        <th v-for="header in group.headers" :key="header.id">
+          <FlexRender v-if="!header.isPlaceholder" :header="header" />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="row in table.getRowModel().rows" :key="row.id">
+        <td v-for="cell in row.getAllCells()" :key="cell.id">
+          <FlexRender :cell="cell" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
 ```
 
-- Prefer `initialState` over `state` for simple defaults — use this when you don't need to control state externally to avoid the overhead of manual synchronization [source](./references/docs/framework/vue/guide/table-state.md)
+Source: `skills/getting-started/SKILL.md` (shipped in the package).
 
-- Use getters in `state` for controlled reactivity — when hoisting state into your own refs, wrap them in getters to ensure `useVueTable` correctly tracks reactive changes [source](./references/docs/framework/vue/guide/table-state.md)
+## Add features explicitly
+
+Every feature beyond core must be registered, and each row-model slot follows its prerequisite feature in the same `tableFeatures` call. The core row model is automatic; there is no `getCoreRowModel()` option.
 
 ```ts
-const sorting = ref<SortingState>([])
-const table = useVueTable({
-  state: {
-    get sorting() { return sorting.value }
-  }
+import {
+  createSortedRowModel,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  tableFeatures,
+} from '@tanstack/vue-table'
+
+const features = tableFeatures({
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric },
 })
 ```
 
-- Use `FlexRender` for all dynamic templates — essential for correctly rendering cell, header, and footer templates (strings, components, or JSX) within the Vue lifecycle [source](./references/docs/framework/vue/vue-table.md)
+APIs are feature-gated: a missing `table.atoms.pagination` means `rowPaginationFeature` was not registered. Full feature and slot list: [API surface](./references/api.md).
 
-- Import only required row models to optimize bundle size — only provide the specific models needed for your features (e.g., `getSortedRowModel`) to avoid including unnecessary logic [source](./references/docs/guide/row-models.md)
+## State in one place per slice
 
-- Set `manual*` options to `true` for server-side operations — prevents redundant client-side processing when sorting, pagination, or filtering is handled by the backend [source](./references/docs/guide/sorting.md)
+State is atom-based. Read it inside a tracked boundary (template, `computed`, `watch`, or `table.Subscribe`); a bare read is only a snapshot.
 
-- Use `'first'` or `'last'` for undefined sorting priority — explicitly control where nullable or undefined values appear during sorting using the `sortUndefined` option [source](./references/docs/guide/sorting.md)
+```ts
+const pageIndex = computed(() => table.atoms.pagination.get().pageIndex)
+```
 
-- Always provide a unique `id` for `accessorFn` columns — required for stable column identification and feature state (sorting/filtering) when not using a simple `accessorKey` [source](./references/docs/guide/column-defs.md)
+Controlled slices need a reactive `state` plus the matching `on[State]Change` callback that resolves value-or-function updaters:
+
+```ts
+const pagination = ref<PaginationState>({ pageIndex: 0, pageSize: 20 })
+const state = computed(() => ({ pagination: pagination.value }))
+const onPaginationChange = (next: PaginationState | ((old: PaginationState) => PaginationState)) => {
+  pagination.value = typeof next === 'function' ? next(pagination.value) : next
+}
+// pass state and onPaginationChange to useTable
+```
+
+Own each slice exactly once: internal default, `initialState`, external `atoms`, or `state` + callback. Never both `atoms.pagination` and `state.pagination`. `onStateChange` no longer exists; observe `table.store` instead. Details: [API surface](./references/api.md).
+
+## Rules that prevent most bugs
+
+1. Pass `data` as a `ref`/`computed`, never `data.value` (`dist/useTable.d.ts:13-19`). Update it by replacing the array (`.value = [...]`); in-place `push`/`splice` is not tracked because writable atoms use `shallowRef` (`dist/reactivity.js:50-52`).
+2. Keep `features` and `columns` stable; do not rebuild arrays per render.
+3. Render through `FlexRender` shorthand: `:cell`, `:header`, `:footer`. The legacy `:render`/`:props` form still compiles but is the migration target, not the default (`dist/FlexRender.d.ts:28-41`).
+4. Never destructure or spread row/cell/column/header methods; they are prototype methods using `this`. Use `row.getValue('name')`, not `const read = row.getValue`.
+5. In JSX, pass `table.Subscribe` its render function as the explicit `children` prop; Vue JSX children become slots (`dist/useTable.d.ts:9-11`).
+6. For server-driven tables set the `manual*` option (`manualPagination: true`) and pass `rowCount`.
+7. Optional `stockFeatures` bundles everything; use it only as a temporary audit bridge, not production.
+
+## Common mistakes
+
+- HIGH: renaming `useVueTable` to `useTable` while keeping `getSortedRowModel` options. Move row models and registries into `tableFeatures` (`skills/migrate-v8-to-v9/SKILL.md:156-159`).
+- HIGH: `useTable({ data: data.value })` freezes one snapshot; pass `data` (`skills/getting-started/SKILL.md:85-99`).
+- HIGH: reading `table.atoms.sorting.get()` outside a tracked boundary; wrap in `computed` (`skills/table-state/SKILL.md:104-116`).
+- HIGH: assigning the updater function itself (`pagination.value = next`) instead of resolving it first (`skills/table-state/SKILL.md:146-161`).
+- HIGH: `columnPinning.left`/`right` no longer exist; v9 uses `start`/`end` logical pinning (`skills/migrate-v8-to-v9/SKILL.md:99-120`).
+- HIGH: `createColumnHelper<Person>()` now needs features first: `createColumnHelper<typeof features, Person>()` (`skills/migrate-v8-to-v9/SKILL.md:147-148`).
+
+## Reusable app conventions
+
+For app-wide table defaults, use `createTableHook({ features, tableComponents, cellComponents, headerComponents })` to get `useAppTable`, `createAppColumnHelper`, and typed context hooks (`dist/createTableHook.d.ts:136-153`). Export the context hook with an explicit type to avoid circular inference when registered components import the hook module (`skills/create-table-hook/SKILL.md:62-84`).
+
+## Integrations
+
+- TanStack Query: manual pagination with reactive keys, `rowCount`, computed data passthrough. [Integrations](./references/integrations.md)
+- TanStack Virtual: virtualize `table.getRowModel().rows`, never the source array. [Integrations](./references/integrations.md)
+
+## References
+
+- [API surface](./references/api.md): exports, subpaths, `useTable`/`Subscribe` types, features and slots, atoms model.
+- [Migration v8 to v9](./references/migration-v8-to-v9.md): full breaking-change map, pinning renames, TypeScript changes, checklist.
+- [Integrations](./references/integrations.md): TanStack Query and TanStack Virtual composition patterns.
+
+## Also in the package
+
+The package ships its own agent skills under `skills/` (getting-started, table-state, migrate-v8-to-v9, create-table-hook, with-tanstack-query, with-tanstack-virtual) and mentions `npx @tanstack/intent@latest install` to wire them into coding agents (`README.md:70-78`). Verify exact APIs in the installed `node_modules/@tanstack/vue-table/dist/index.d.ts`; do not reconstruct v9 from v8 memory.

@@ -1,68 +1,148 @@
 ---
 name: tanstack-ai-vue-skilld
-description: "Vue hooks for TanStack AI. ALWAYS use when writing code importing \"@tanstack/ai-vue\". Consult for debugging, best practices, or modifying @tanstack/ai-vue, tanstack/ai-vue, tanstack ai-vue, tanstack ai vue, ai."
-metadata:
-  version: 0.7.0
-  generated_at: 2026-04-25
-  references_synced_at: 2026-04-25
+description: Use when writing or debugging Vue code that imports @tanstack/ai-vue. Covers useChat, createChatHook, the generation composables (image, audio, speech, video, transcription, summarize), useAudioRecorder, useByok, useWebMCPTools, and the @tanstack/ai-vue/ui and /byok subpaths. Provides current API shapes, reactive-state rules, and version limits for @tanstack/ai-vue 0.24.x.
 ---
 
-# TanStack/ai `@tanstack/ai-vue@0.7.0`
-**Tags:** latest: 0.7.0
+# @tanstack/ai-vue
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Vue 3 composables for TanStack AI streaming chat, structured outputs, and media generation. Wraps the headless `@tanstack/ai-client` classes (`ChatClient`, `GenerationClient`, `VideoGenerationClient`) in reactive state.
 
-This section documents version-specific API changes for @tanstack/ai-vue v0.6.1 (current v0.x series). This library is pre-1.0 — all v0.x releases are in scope.
+- Version documented: `0.24.3` (source: `package.json:3`)
+- Peer deps: `vue >=3.5.0`, `@tanstack/ai ^0.58.0`; runtime deps: `@tanstack/ai-client ^0.33.2`, `@tanstack/markdown ^0.0.13` (source: `package.json:55-62`)
+- Entry points: `.` (main), `./ui` (headless chat UI factory), `./byok` (bring-your-own-key) (source: `package.json:23-36`)
+- Official docs: https://tanstack.com/ai/latest/docs/api/ai-vue and https://tanstack.com/ai/latest/docs/getting-started/quick-start-vue
+- Install: `pnpm add @tanstack/ai @tanstack/ai-vue @tanstack/ai-openai` (plus a provider adapter; server-side chat comes from `@tanstack/ai`)
 
-- BREAKING: Monolithic adapter factories removed — `openai()`, `anthropic()`, etc. replaced by activity-specific functions: `openaiText('gpt-5.2')`, `openaiSummarize('gpt-5-mini')`, `openaiImage('dall-e-3')`, etc. Model name is now passed to the adapter factory, not to `chat()`. [source](./references/docs/guides/migration.md:L21)
+## Core rules
 
-- BREAKING: `model` parameter removed from `chat()` — model is now embedded in the adapter argument (e.g., `adapter: openaiText('gpt-5.2')` instead of `adapter: openai(), model: 'gpt-4'`). Passing `model` at the call site is silently ignored. [source](./references/docs/guides/migration.md:L50)
+1. Every composable must run inside a component setup or effect scope. Cleanup is automatic via `onScopeDispose`; the scope owns the connection (source: `src/use-chat.ts:259-269`).
+2. All reactive state is `DeepReadonly<ShallowRef<T>>`. Read with `.value` in script AND template. Never reassign; use the returned methods (`setMessages`, `clear`, `reset`) (source: `src/use-chat.ts:425-457`).
+3. Pass a `connection` adapter (for example `fetchServerSentEvents('/api/chat')`, re-exported from this package) or a `fetcher`. Generation hooks throw `useGeneration requires either a connection or fetcher option` without one (source: `src/use-generation.ts:272-274`).
+4. `useChat` builds one `ChatClient` per call. Changing `connection` (or other transport identity) requires a remount or a changed `key` prop; `body`, `forwardedProps`, `context`, and `queue` are watched and synced live (source: `src/types.ts:77-79`, `src/use-chat.ts:212-230`).
+5. Callback options (`onChunk`, `onFinish`, `onError`, ...) are read through the options object at call time, so reactive or mutated options propagate without recreating the client (source: `src/use-chat.ts:85-91`).
+6. Prefer `forwardedProps` over `body`; `body` is deprecated but still merged into the same wire payload (source: `src/use-chat.ts:207-209`).
 
-- BREAKING: Nested `options` object flattened — `chat({ options: { temperature, maxTokens, topP } })` must be changed to `chat({ temperature, maxTokens, topP })`. Nested options are silently discarded. [source](./references/docs/guides/migration.md:L151)
+## Quick start: streaming chat
 
-- BREAKING: `providerOptions` renamed to `modelOptions` — `chat({ providerOptions: { ... } })` must be updated to `chat({ modelOptions: { ... } })`. Silently ignored if not updated. [source](./references/docs/guides/migration.md:L191)
+Server (Express or any backend returning TanStack AI SSE):
 
-- BREAKING: `toResponseStream` renamed to `toServerSentEventsStream` and now returns `ReadableStream` instead of `Response` — must manually create `new Response(stream, { headers })`. `AbortController` is now a separate parameter: `toServerSentEventsStream(stream, abortController)`. [source](./references/docs/guides/migration.md:L244)
+```ts
+import { chat, toServerSentEventsResponse } from '@tanstack/ai'
+import { openaiText } from '@tanstack/ai-openai'
 
-- BREAKING: `embedding()` function removed — embeddings support eliminated entirely. Use provider SDKs directly or vector DB native embedding APIs. [source](./references/docs/guides/migration.md:L318)
+app.post('/api/chat', async (req, res) => {
+  const stream = chat({ adapter: openaiText('gpt-4o'), messages: req.body.messages })
+  const response = toServerSentEventsResponse(stream)
+  // pipe response.body to res
+})
+```
 
-- BREAKING: `chat({ as: 'promise' })` replaced by separate `chatCompletion()` function — `as` option removed from `chat()`. `chat({ as: 'stream' })` is now just `chat()`. `chat({ as: 'response' })` is now `chat()` + `toServerSentEventsStream()`. [source](./references/releases/CHANGELOG.md:L310)
+Client component:
 
-- NEW: `useChat` returns `status` reactive ref — tracks lifecycle as `'ready' | 'submitted' | 'streaming' | 'error'`. Previously there was no generation lifecycle state. [source](./references/releases/@tanstack/ai-vue@0.4.0.md:L11)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useChat, fetchServerSentEvents } from '@tanstack/ai-vue'
 
-- NEW: `sendMessage()` accepts `MultimodalContent` object — `sendMessage({ content: [{ type: 'text', content: '...' }, { type: 'image', source: { type: 'url', value: '...' } }] })` enables image/audio/video/document content alongside text. Added in v0.5.0. [source](./references/releases/@tanstack/ai-vue@0.5.0.md:L10)
+const input = ref('')
+const { messages, sendMessage, isLoading } = useChat({
+  connection: fetchServerSentEvents('/api/chat'),
+})
 
-- NEW: `agentLoopStrategy` parameter replaces bare `maxIterations: number` — use `agentLoopStrategy: maxIterations(5)`, `untilFinishReason(['stop'])`, or `combineStrategies([...])`. Old `maxIterations` number is converted automatically but deprecated. [source](./references/releases/CHANGELOG.md:L263)
+function handleSubmit() {
+  if (input.value.trim() && !isLoading.value) {
+    sendMessage(input.value)
+    input.value = ''
+  }
+}
+</script>
 
-- NEW: `toolDefinition({ name, description, inputSchema, outputSchema?, needsApproval? })` — creates isomorphic tool definitions. Call `.server(fn)` for server-side execution or `.client(fn)` for client-side execution. Replaces ad-hoc tool objects. [source](./references/docs/api/ai.md:L74)
+<template>
+  <div v-for="message in messages.value" :key="message.id">
+    <div v-for="(part, idx) in message.parts" :key="idx">
+      <p v-if="part.type === 'text'">{{ part.content }}</p>
+    </div>
+  </div>
+  <form @submit.prevent="handleSubmit">
+    <input v-model="input" :disabled="isLoading.value" />
+    <button type="submit">Send</button>
+  </form>
+</template>
+```
 
-- NEW: `@tanstack/ai-client` package — `ChatClient` class provides framework-agnostic headless chat state management with `sendMessage()`, `reload()`, `stop()`, `clear()`, `addToolResult()`, `addToolApprovalResponse()` methods. [source](./references/releases/CHANGELOG.md:L26)
+Source: official quick start, https://tanstack.com/ai/latest/docs/getting-started/quick-start-vue
 
-- NEW: Connection adapter factories — `fetchServerSentEvents(url, options?)`, `fetchHttpStream(url, options?)`, `stream(fn)` from `@tanstack/ai-client`. Pass to `useChat({ connection: fetchServerSentEvents('/api/chat') })` instead of `url: '/api/chat'`. [source](./references/releases/CHANGELOG.md:L203)
+## Typed tools
 
-- NEW: `extendAdapter(factory, customModels)` + `createModel(name, modalities)` — adds custom/fine-tuned model names to existing adapter factories with full type inference. Avoids `as const` casts. [source](./references/docs/reference/functions/extendAdapter.md:L1)
+Define tools once with `toolDefinition()` from `@tanstack/ai`, implement `.client(fn)` in components, and wrap them in `clientTools()` (re-exported here from `@tanstack/ai-client`) so `part.name`, `part.input`, and `part.output` narrow without `as const`. Client tools execute automatically; there is no `onToolCall` option. Derive message types with `createChatClientOptions` + `InferChatMessages` (both re-exported). Source: https://tanstack.com/ai/latest/docs/api/ai-vue
 
-**Also changed:** `clientTools(...tools)` NEW (typed tool array, discriminated union narrowing) · `createChatClientOptions(options)` NEW · `InferChatMessages<T>` NEW · `toServerSentEventsResponse(stream, init?)` NEW (returns `Response`) · `toHttpStream(stream)` NEW · `toHttpResponse(stream)` NEW · `assertMessages({ adapter }, messages)` NEW (type-level assertion) · `ThinkingStreamChunk` NEW (chunk type for model reasoning)
+```vue
+<script setup lang="ts">
+import { useChat, fetchServerSentEvents, clientTools } from '@tanstack/ai-vue'
+import { updateUIDef } from './tool-definitions'
 
-## Best Practices
+const updateUI = updateUIDef.client((input) => {
+  notification.value = input.message
+  return { success: true }
+})
 
-- `useChat` returns `DeepReadonly<ShallowRef<T>>` refs — never reassign `messages` directly; use `setMessages()` for manual updates. Changing `connection` or `body` options recreates the underlying `ChatClient`, requiring a component remount or a `key` prop change to take effect
+const { messages, sendMessage } = useChat({
+  connection: fetchServerSentEvents('/api/chat'),
+  tools: clientTools(updateUI),
+})
+</script>
+```
 
-- Use `status` (added v0.4.0) instead of `isLoading` for granular lifecycle control — `status.value` tracks `'ready' | 'submitted' | 'streaming' | 'error'`, enabling distinct UI states for submission vs. active streaming [source](./references/releases/@tanstack/ai-vue@0.4.0.md:L11)
+## Shared chat hook
 
-- Pass client tool arrays through `clientTools()` instead of `as const` — eliminates the need for const assertion while enabling full discriminated union narrowing on `part.name`, `part.input`, and `part.output` in message iteration [source](./references/docs/api/ai-client.md#clienttoolstools)
+`createChatHook(options)` (root entry) binds options at module scope and returns a `useChat` composable. Override only `threadId`, `live`, `forwardedProps`, `body`, and `initialMessages` per instance; `tools`, `interrupts`, and `outputSchema` stay on the factory options. Rename at the call site if it clashes with the imported `useChat` (source: `src/create-chat-hook.ts:28-45`).
 
-- Wrap `useChat` options with `createChatClientOptions()` and derive message types using `InferChatMessages<typeof chatOptions>` — this propagates tool types through the entire message type, making `part.name` a literal union and `part.input`/`part.output` typed from Zod schemas [source](./references/docs/api/ai-client.md#createchatclientoptionsoptions)
+```ts
+const { useChat: useAppChat } = createChatHook(chatOptions)
+const chat = useAppChat({ threadId: 'support-1' })
+```
 
-- Define tools with `toolDefinition()` in a shared file, then call `.server()` in route handlers and `.client()` in Vue components — passing the bare definition to `chat()` signals the client will execute it, while passing `.server()` output executes it server-side automatically [source](./references/docs/guides/tools.md#isomorphic-tool-architecture)
+## Generation composables
 
-- Use Zod schemas (v4.2+) over raw JSON Schema for `inputSchema`/`outputSchema` in `toolDefinition()` and `chat({ outputSchema })` — JSON Schema infers `any` for tool inputs/outputs and `unknown` for structured output return types, losing all downstream type safety [source](./references/docs/guides/tools.md#schema-options)
+All follow one pattern: pass `connection` or `fetcher`, call `generate(input)`, read reactive state.
 
-- Set `agentLoopStrategy: maxIterations(n)` explicitly when tools are present — the default is 5 iterations, which is too low for multi-step agentic workflows; use `untilFinishReason('stop')` to exit as soon as the model finishes without hitting the limit [source](./references/docs/api/ai.md#maxiterationscount)
+| Composable | Input type | Result type | Extras |
+| --- | --- | --- | --- |
+| `useGeneration` | custom `TInput` | custom `TResult` | base composable for custom types |
+| `useGenerateImage` | `ImageGenerateInput` | `ImageGenerationResult` | |
+| `useGenerateAudio` | `AudioGenerateInput` | `AudioGenerationResult` | |
+| `useGenerateSpeech` | `SpeechGenerateInput` | `TTSResult` | |
+| `useTranscription` | `TranscriptionGenerateInput` | `TranscriptionResult` | |
+| `useSummarize` | `SummarizeGenerateInput` | `SummarizationResult` | |
+| `useGenerateVideo` | `VideoGenerateInput` | `VideoGenerateResult` | `jobId`, `videoStatus`, `onJobCreated`, `onStatusUpdate` |
 
-- Subscribe to `aiEventClient` with `{ withEventTarget: true }` in production code — without this third argument the client only emits to the devtools event bus (absent in production builds); the flag also dispatches to the current `EventTarget` for application-level observability [source](./references/docs/guides/observability.md#client-events)
+Common return: `generate`, `result`, `isLoading`, `error`, `status`, `stop`, `reset`, `runId`. Details, transforms, and persistence: [references/generation-composables.md](./references/generation-composables.md)
 
-- Prefer `fetchServerSentEvents` over `fetchHttpStream` for client connections — SSE provides automatic reconnection; pass URL and options as functions (not static values) when headers like `Authorization` must be re-evaluated on every request [source](./references/docs/guides/connection-adapters.md#dynamic-values)
+`stop()` only aborts the local stream. It does not stop work already running on the provider; use `runId` against your own endpoint to cancel or poll (source: `src/use-generation.ts:124-131`).
 
-- Use `extendAdapter(baseFactory, [createModel('model-name', ['text', 'image'])])` to add TypeScript types for fine-tuned models or OpenAI-compatible proxies — this adds the model to the adapter's allowed type union with zero runtime overhead while preserving all original factory config parameters [source](./references/docs/guides/extend-adapter.md#basic-usage)
+## Chat UI (`@tanstack/ai-vue/ui`)
+
+Build chat interfaces with `createChatHook` from the `/ui` subpath (not the deprecated prebuilt components `Chat`, `ChatInput`, `ChatMessage`, `ChatMessages`, `ToolApproval`, deprecated since 0.3.0, removal planned for 1.0.0). The subpath also exports renderless `UIChat`, `UIProvider`, `UIMessages`, `UIMessage`, `UIPart`, `UIInterrupts`, `UIQueue`, and `createChatUI` / `createChatHookContexts`. This subpath ships as raw `.ts`/`.vue` source, so it is type-checked against your tsconfig (source: `package.json:28-31`, `src/ui.ts:2-33`, `src/chat-ui/types.ts:5`).
+
+Guide: [references/chat-ui.md](./references/chat-ui.md)
+
+## BYOK and WebMCP
+
+- `useByok(client)` turns a `ByokClient` into a reactive `ByokSnapshot`; build the client with `defineByok`, `ByokClient`, `passkeyStorage`, and friends from the `/byok` subpath. Keys travel in `x-byok-*` headers, never the request body (source: `src/use-byok.ts:5-14`, `src/use-generation.ts:35-38`).
+- `useWebMCPTools([searchProducts])` registers executable client tools with WebMCP for the current scope; disposal unregisters them (source: `src/use-web-mcp-tools.ts:27-55`).
+
+Guide: [references/byok-and-webmcp.md](./references/byok-and-webmcp.md)
+
+## Troubleshooting
+
+- State not updating in templates: these are `ShallowRef`s. Use `isLoading.value` inside templates too.
+- `useChat` ignored an option change: transport identity (`connection`, `threadId` persistence shape) is fixed per instance. Remount or change the component `key` (source: `src/types.ts:77-79`).
+- Approval response rejected: `addToolApprovalResponse` takes the approval id (`part.approval.id`), not the tool call id (source: `src/types.ts:193-199`).
+- Hydrated nothing on reload: persistence requires a stable `threadId`; without one the client mints an id after mount and the chat stays ephemeral (source: `src/use-chat.ts:101-103`).
+
+## References
+
+- [useChat API](./references/use-chat.md): options, full return shape, structured outputs, interrupts, queue, live mode, resume.
+- [Generation composables](./references/generation-composables.md): `useGeneration` and the six specialized hooks, `onResult` transforms, persistence, `useAudioRecorder`.
+- [Chat UI](./references/chat-ui.md): the `/ui` subpath, factory config, renderless components, migration off deprecated components.
+- [BYOK and WebMCP](./references/byok-and-webmcp.md): the `/byok` subpath, `useByok`, `useWebMCPTools`.

@@ -1,116 +1,123 @@
 ---
 name: vuetify-skilld
-description: "Vue Material Component Framework. ALWAYS use when writing code importing \"vuetify\". Consult for debugging, best practices, or modifying vuetify."
-metadata:
-  version: 4.0.1
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: Vue Material Component Framework. Use when writing, debugging, or configuring code that imports vuetify v4.x. Covers createVuetify setup, components and labs, composables, theming, icons, dates and locale, styles and SASS variables, treeshaking, and v3 to v4 migration.
 ---
 
-# vuetifyjs/vuetify `vuetify@4.0.1`
-**Tags:** v1-stable: 1.5.24, v2-stable: 2.7.2, dev: 4.0.1
+# vuetify@4.0.1
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Material Design component framework for Vue 3. Source citations like `lib/framework.js:15` refer to the prepared `vuetify@4.0.1` package (`package.json:4`).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Environment limits
 
-- BREAKING: `VRow` / `VCol` Grid — complete overhaul using CSS `gap` instead of negative margins. `dense` prop removed (use `density="compact"`), `align`/`justify` on `VRow` and `order`/`align-self` on `VCol` removed in favor of utility classes [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
+- Vue `^3.5.0` peer dependency (`package.json:208`). No Vue 2 support; Vuetify 2 is EOL (`README.md:274`).
+- ESM only: `"type": "module"` (`package.json:32`).
+- Optional peers: `vite-plugin-vuetify >=2.1.0`, `webpack-plugin-vuetify >=3.1.0`, `typescript >=4.7` (`package.json:205`).
+- Modern browsers, Safari 13+ with polyfills, minimum design width 320px (`README.md:159`).
+- Default font is Roboto; you must add it yourself, e.g. `@fontsource/roboto` (https://vuetifyjs.com/getting-started/installation/).
 
-- BREAKING: MD3 Typography — variant names renamed for Material Design 3 compliance: `h1`-`h3` -> `display-*`, `h4`-`h6` -> `headline-*`, `subtitle-1`/`body-1` -> `body-large`, `button`/`subtitle-2` -> `label-large` [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
+## Setup
 
-- BREAKING: MD3 Elevation — elevation levels reduced from 25 (0-24) to 6 (0-5) to align with MD3 density-independent pixel levels [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
+Vite with automatic treeshaking (preferred). The vuetify plugin must come after the vue plugin:
 
-- BREAKING: `VBtn` Defaults — `text-transform: uppercase` removed by default. `$button-stacked-icon-margin` Sass variable replaced by `$button-stacked-gap` [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
-
-- BREAKING: `VSelect` / `VAutocomplete` / `VCombobox` — `item` slot prop renamed to `internalItem`. The `item` prop is now an alias for `internalItem.raw` [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
-
-- BREAKING: `VForm` Slot — `isValid`, `errors`, and `isDisabled` slot variables are now unwrapped values instead of `Ref` objects [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
-
-- NEW: `VSnackbarQueue` — rewritten in v4 to support showing multiple snackbars simultaneously; `default` slot renamed to `item` [source](./references/releases/v4.0.0-beta.2.md)
-
-- NEW: `VRow` `gap` prop — provides fine-grained control over grid spacing, accepting numbers, strings, or `[x, y]` arrays [source](./references/docs/src/pages/en/getting-started/upgrade-guide.md)
-
-- NEW: `VAvatarGroup` (experimental) — new labs component for grouping multiple avatars with overlapping support [source](./references/releases/v4.0.0-beta.2.md)
-
-- NEW: `VCommandPalette` (experimental) — new labs component providing a search and action interface for application commands [source](./references/releases/v4.0.0-beta.0.md)
-
-**Also changed:** `VCalendar` promoted from labs · `VHotkey` promoted from labs · `VToolbar` `location` prop new · `VAvatar` `badge` prop new · `VProgressCircular` `reveal` prop new · `VTreeview` `indent-lines` props new · `vuetify/styles/core` new entry point · `system` default theme · `VSnackbar` `multi-line` removed · `VContainer` `fill-height` behavior changed
-
-## Best Practices
-
-- Use the `cmd` modifier in the `useHotkey` composable for cross-platform compatibility — automatically resolves to Command on Mac and Control on PC [source](./references/docs/src/pages/en/features/hotkey.md)
-
-```ts
-// Preferred: works on both Mac and PC
-useHotkey('cmd+s', (e) => saveDocument(e))
-
-// Avoid: hardcoding 'ctrl' may cause conflicts or feel non-idiomatic on Mac
-useHotkey('ctrl+s', (e) => saveDocument(e))
+```js
+// vite.config.js
+import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
+export default defineConfig({ plugins: [vue(), vuetify()] })
 ```
 
-- Apply `class` and `style` to specific component keys in the `defaults` configuration — these are not supported in the `global` defaults key [source](./references/docs/src/pages/en/features/global-configuration.md)
-
-```ts
-// Preferred
-createVuetify({
-  defaults: {
-    VBtn: {
-      class: 'text-none',
-      style: { textTransform: 'none' }
-    }
-  }
-})
-
-// Avoid: class and style are ignored in global
-createVuetify({
-  defaults: {
-    global: { class: 'text-none' }
-  }
+```js
+// src/plugins/vuetify.js
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+export default createVuetify({
+  // components, directives not needed with the loader plugin
 })
 ```
 
-- Resolve style conflicts between Vuetify and TailwindCSS by redefining CSS layer order — place Vuetify's styles in a dedicated layer with lower precedence than Tailwind's base layer [source](./references/discussions/discussion-21241.md)
+Without a loader plugin, register manually; wildcard imports include everything and slow development builds:
 
-```css
-/* main.css */
-@layer theme, base, vuetify, components, utilities;
-@import 'vuetify/styles' layer(vuetify);
-@import 'tailwindcss';
+```js
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+createVuetify({ components, directives })
 ```
 
-- Use `v-text-field` with `decimal.js` for high-precision decimal arithmetic — `VNumberInput` uses `toFixed()` internally and may suffer from standard JavaScript floating-point inaccuracies [source](./references/docs/src/pages/en/components/number-inputs.md)
+`createVuetify` accepts `aliases`, `blueprint`, `components`, `date`, `defaults`, `directives`, `display`, `goTo`, `icons`, `locale`, `ssr`, `theme` and returns `{ install, unmount, defaults, display, theme, icons, locale, date, goTo }` (`lib/framework.js:15`). Install with `app.use(vuetify)`; wrap the app in a single `<v-app>` root.
 
-- Centralize snackbar messages using global state (e.g., Pinia) with `v-snackbar-queue` — allows triggering notifications from any part of the application by pushing to a shared array [source](./references/docs/src/pages/en/components/snackbar-queue.md)
+For SSR frameworks (Nuxt, vite-ssr) set `ssr: true` so display values render correctly (https://vuetifyjs.com/getting-started/installation/).
+
+Scaffolding: `pnpm create vuetify` / `npm create vuetify@latest` (`README.md:44`).
+
+CDN bundle with everything included: `vuetify/dist/vuetify.js` (`package.json:35`).
+
+## Components
+
+- Prefer imports from `vuetify/components/<Group>` over `vuetify/components` (loads only needed styles in dev).
+- Labs components are NOT production ready; import from `vuetify/labs/<Name>` or `vuetify/labs/components`. In 4.0.1 labs holds: VAvatarGroup, VColorInput, VCommandPalette, VDateInput, VFileUpload, VIconBtn, VMaskInput, VPicker, VPie, VStepperVertical, VPullToRefresh, VVideo (`lib/labs/components.js:1`).
+- Dynamic `<component :is>` is invisible to the loader plugin; import those components manually (https://vuetifyjs.com/features/treeshaking/).
+- Full inventory and export paths: [references/exports.md](./references/exports.md)
+
+## Configuration
+
+- Theme: the v4 default is `system` (follows `prefers-color-scheme`), not `light` (`lib/composables/theme.js:10`). Pin it with `theme: { defaultTheme: 'light' }` if system switching is unwanted.
+- Defaults: set prop defaults per component with `createVuetify({ defaults: { VBtn: { ... } } })`. `class` and `style` work only on component keys, never in the `global` key (https://vuetifyjs.com/features/global-configuration/).
+- Display: v4 breakpoints changed; defaults are `sm 600, md 840, lg 1145, xl 1545, xxl 2138` (`lib/composables/display.js:10`).
+- Icons: default set is `mdi` and expects the `@mdi/font` stylesheet, or use `mdi-svg` for bundled SVG icons (https://vuetifyjs.com/features/icon-fonts/).
+- Dates: default adapter wraps native `Date`; swap with any date-io adapter (https://vuetifyjs.com/features/dates/).
+- Blueprints: `createVuetify({ blueprint: md3 })` applies a design-system preset; explicit options override the blueprint (`lib/framework.js:15`, `lib/blueprints/index.js:1`).
+- Details and examples: [references/configuration.md](./references/configuration.md)
+
+## Composables
+
+All exported from the `vuetify` entry point (`lib/composables/index.js:1`): `useDate`, `useDefaults`, `useDisplay`, `useGoTo`, `useLayout`, `useLocale`, `useRtl`, `useTheme`, `useHotkey`, `useMask`.
 
 ```vue
-
-<template>
-  <v-app>
-    <v-snackbar-queue v-model="messages.queue" />
-  </v-app>
-</template>
+<script setup>
+import { useTheme } from 'vuetify'
+const theme = useTheme()
+theme.toggle() // light <-> dark
+</script>
 ```
 
-- Use the `order` prop to explicitly control layout component priority — overrides the default behavior where priority is determined solely by markup order [source](./references/docs/src/pages/en/features/application-layout.md)
+For hotkeys prefer the `cmd` modifier (`useHotkey('cmd+s', save)`); it resolves to Command on Mac and Control elsewhere (`lib/composables/hotkey/key-aliases.js:10`).
 
-```vue
+Full API per composable: [references/composables.md](./references/composables.md)
 
-<v-navigation-drawer />
-<v-app-bar :order="-1" />
-```
+## Styles
 
-- Utilize `useDate()`'s `parseISO` and `toISO` methods for standardizing date strings — `VDateInput` and other date components internally expect and return native JS `Date` objects [source](./references/docs/src/pages/en/components/date-inputs.md)
+- `import 'vuetify/styles'` is the all-in-one precompiled CSS; modular entries are `vuetify/styles/core` (must be first), `vuetify/styles/colors`, `vuetify/styles/utilities` (`package.json:61`).
+- SASS variable overrides require the sass preprocessor and `vuetify({ styles: { configFile: 'src/styles/settings.scss' } })` in the loader plugin; use `@use 'vuetify/settings' with (...)`.
+- v4 styles ship in cascade layers (`vuetify-core`, `vuetify-components`, `vuetify-overrides`, `vuetify-utilities`, `vuetify-final`); unlayered user CSS now always wins over Vuetify.
+- Entry points, variables, layers, Tailwind interop, legacy grid restore: [references/styling.md](./references/styling.md)
 
-- Use `v-command-palette` (experimental) for keyboard-driven power-user workflows — provides a pre-configured, accessible, and searchable dialog interface that implements ARIA best practices automatically [source](./references/docs/src/pages/en/components/command-palettes.md)
+## Migrating from v3
 
-- Restore previous negative-margin/padding grid behavior during Vuetify 4 migration using the `@layer vuetify-overrides` block — necessary when existing layouts rely on the legacy system instead of the new CSS `gap` property [source](./references/docs/src/pages/en/getting-started/grid-legacy-mode.md)
+v4 is a breaking MD3 release. Highest-impact changes:
 
-```scss
-@layer vuetify-overrides {
-  .v-row {
-    gap: unset;
-    margin: calc(var(--v-col-gap-y) * -.5) calc(var(--v-col-gap-x) * -.5);
-  }
-}
-```
+- Grid uses CSS `gap`; `dense` is now `density="compact"`, `align`/`justify`/`order`/`align-self` props replaced by utility classes. VRow gains a `gap` prop (`lib/components/VGrid/VRow.js:154`).
+- Typography variants renamed: `h1`-`h3` -> `display-*`, `h4`-`h6` -> `headline-*`, `subtitle-1`/`body-1` -> `body-large`, `caption` -> `body-small`, `button`/`subtitle-2` -> `label-large`.
+- Elevation reduced from levels 0-24 to 0-5 (`lib/styles/settings/_elevations.scss:6`).
+- `VSelect`/`VCombobox`/`VAutocomplete` slot `item` renamed to `internalItem`; `item` is now an alias for `internalItem.raw`.
+- `VForm` slot values (`isValid`, `errors`, ...) are unwrapped, no longer refs.
+- Defaults merging skips `undefined`; use `null` to override a global default.
+
+Full change list with compat snippets: [references/migration-v4.md](./references/migration-v4.md)
+
+## Common pitfalls
+
+- Missing icon font: components render blank icons until `@mdi/font` CSS (or an SVG set) is installed.
+- Missing Roboto font: text renders with fallback font (`README.md:159`).
+- Styles broken after adding custom CSS: check layer order; place overrides inside `@layer vuetify-overrides` or declare your layer order explicitly.
+- `VNumberInput` uses `toFixed()` internally; for arbitrary-precision decimals use `v-text-field` with decimal.js (`lib/components/VNumberInput/VNumberInput.js:81`, https://vuetifyjs.com/components/number-inputs/).
+- Do not use `vuetify/styles` inside SASS files; it resolves to precompiled CSS. Use `vuetify` or `vuetify/settings` (https://vuetifyjs.com/features/sass-variables/).
+
+## References
+
+- [references/exports.md](./references/exports.md) — entry points, component inventory, directives, iconsets, locale
+- [references/configuration.md](./references/configuration.md) — every `createVuetify` option with examples
+- [references/composables.md](./references/composables.md) — public composables API
+- [references/styling.md](./references/styling.md) — CSS and SASS entry points, variables, layers
+- [references/migration-v4.md](./references/migration-v4.md) — v3 to v4 breaking changes and compat snippets
+
+Official documentation: https://vuetifyjs.com. Release notes by URL: https://vuetifyjs.com/getting-started/release-notes/.

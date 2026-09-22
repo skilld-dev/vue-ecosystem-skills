@@ -1,74 +1,110 @@
 ---
 name: vueuse-components-skilld
-description: "Renderless components for VueUse. ALWAYS use when writing code importing \"@vueuse/components\". Consult for debugging, best practices, or modifying @vueuse/components, vueuse/components, vueuse components, vueuse."
-metadata:
-  version: 14.3.0
-  generated_at: 2026-05-01
-  references_synced_at: 2026-05-01
+description: Renderless components and directives from @vueuse/components 15.x (VueUse). Use when writing, converting, or debugging code that imports @vueuse/components, using Use*/On* components or v* directives in Vue 3 templates, or mapping VueUse composables to component or directive usage. Provides props, slot data shapes, emits, directive binding syntax, and version limits.
 ---
 
-# vueuse/vueuse `@vueuse/components@14.3.0`
-**Tags:** next: 5.0.0, alpha: 14.0.0-alpha.3, beta: 14.0.0-beta.1
+# @vueuse/components 15.0.0
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Renderless component and directive wrappers around `@vueuse/core` composables. 46 components, 14 directives, 2 deprecated directive aliases (dist/index.js:1237).
 
-This section documents version-specific API changes for `@vueuse/components` — prioritize recent major/minor releases.
+Facts (all citations are paths inside the prepared `@vueuse/components` package):
 
-- BREAKING: `@vueuse/components` v14+ requires Vue 3.5+, following core library requirements [source](./references/releases/v14.0.0.md)
+- Version 15.0.0 (package.json:4); depends on `@vueuse/core` 15.0.0 and `@vueuse/shared` 15.0.0 (package.json:43-44)
+- Peer dependency: `vue` `^3.5.0` (package.json:40)
+- Node.js `>=22` (package.json:37); Node 20 support was dropped in v15
+- ESM-only (`"type": "module"`, package.json:3); no CJS build
+- `sideEffects: false`, tree-shakeable (package.json:22); IIFE bundle exposed for CDN via `unpkg`/`jsdelivr` (package.json:30-31)
+- Install: `npm i @vueuse/components @vueuse/core` (README.md:10, https://vueuse.org/guide/components)
 
-- BREAKING: Renderless components refactored for consistency in v14.0.0. Components like `OnClickOutside` and `OnLongPress` now use an `options` prop for configuration and `@trigger` emit for actions [source](./references/releases/v14.0.0.md)
+## How the components work
 
-- BREAKING: ESM-only package — CJS build has been dropped since v13.0.0 [source](./references/releases/v13.0.0.md)
+Two families, decided by what they render (verified in dist/index.js):
 
-- DEPRECATED: `VOnClickOutside` is deprecated in favor of the lowercase `vOnClickOutside` directive [source](./references/releases/v14.0.0.md)
+1. **Pure renderless**: no DOM of their own, render only the default slot, scoped slot receives the reactive composable return. Example `UseMouse` (dist/index.js:805-809).
+2. **Element wrapper**: render one element (`props.as || "div"`) whose ref feeds the composable, slot content becomes children. The element is the composable's target. Example `UseElementBounding` (dist/index.js:340-345).
 
-- DEPRECATED: `VOnLongPress` is deprecated in favor of the lowercase `vOnLongPress` directive [source](./references/releases/v14.0.0.md)
+Element-wrapper components: `OnClickOutside`, `OnLongPress`, `UseDraggable`, `UseElementBounding`, `UseElementOverflow`, `UseElementSize`, `UseElementVisibility`, `UseFullscreen`, `UseImage` (renders `img` when no default slot), `UseMouseInElement`, `UseMousePressed`, `UsePointerLock`, `UseScreenSafeArea`, `UseVirtualList` (own container/wrapper divs).
 
-- NEW: `UseDraggable` supports `autoScroll` and `restrictInView` options for constrained dragging in v14.2.0 [source](./references/releases/v14.2.0.md)
+All others are pure renderless. Full catalog with props, slot data, and emits: [references/components.md](./references/components.md).
 
-- NEW: `UseDraggable` supports `storageKey` and `storageType` props for persistent element position [source](./references/docs/useDraggable.md)
+## Common tasks
 
-- NEW: `vOnKeyStroke` directive added for listening to keyboard events directly on elements
-
-- NEW: `UseIdle` default slot data now includes `pause` and `resume` methods via `Stoppable` implementation [source](./references/releases/v14.0.0.md)
-
-- NEW: `vInfiniteScroll` supports reactive `canLoadMore` option in v14.1.0 [source](./references/releases/v14.1.0.md)
-
-- NEW: `UseElementVisibility` added `initialValue` option in v14.1.0 [source](./references/releases/v14.1.0.md)
-
-- NEW: `UseMouseInElement` supports tracking inline-level elements in v14.1.0 [source](./references/releases/v14.1.0.md)
-
-- NEW: `vIntersectionObserver` now supports reactive `rootMargin` option in v14.2.0 [source](./references/releases/v14.2.0.md)
-
-- NEW: `UseOffsetPagination` emits `page-change`, `page-size-change`, and `page-count-change` events
-
-**Also changed:** `useTransition` custom interpolators · `refManualReset` new function · `tryOnScopeDispose` failSilently · `useAsyncState` execute result · `useTimeAgoIntl` custom units
-
-## Best Practices
-
-- Use the `storage-key` and `storage-type` props on the `<UseDraggable>` component to automatically persist element position in `localStorage` or `sessionStorage` across sessions [source](./references/docs/useDraggable.md)
-
-- Utilize the `ignore` option in `OnClickOutside` (component or directive) to pass an array of refs or CSS selectors for elements that should not trigger the handler, essential for complex UIs like nested modals [source](./references/docs/onClickOutside.md)
-
-- Always provide `#loading` and `#error` slots in `<UseImage>` to prevent layout shifts and handle broken images gracefully, rather than managing loading states manually in the script [source](./references/docs/useImage.md)
-
-- Prefer `createReusableTemplate` over extracting small, repeated UI fragments into separate files to maintain access to local scope variables and avoid tedious prop/emit definitions [source](./references/docs/createReusableTemplate.md)
-
-- Provide a generic type to `createReusableTemplate<T>()` to enable full TypeScript support and IDE autocompletion for data passed between `DefineTemplate` and `ReuseTemplate` [source](./references/docs/createReusableTemplate.md)
-
-- Use `createTemplatePromise` to call complex UI elements like modals or dialogs as promises, keeping the UI definition in the template while maintaining programmatic control and clean async/await flows [source](./references/docs/createTemplatePromise.md)
-
-- Configure `@vueuse/components` directives like `v-on-click-outside` or `v-on-long-press` using the `[handler, options]` array syntax for clean, inline logic without needing a separate setup variable for options [source](./references/docs/onClickOutside.md)
+Mouse position (official guide pattern, https://vueuse.org/guide/components):
 
 ```vue
-<div v-if="modal" v-on-click-outside="[closeModal, { ignore: [ignoreElRef] }]">
-  Hello World
-</div>
+<template>
+  <UseMouse v-slot="{ x, y }">
+    x: {{ x }} y: {{ y }}
+  </UseMouse>
+</template>
 ```
 
-- Use the `<UseOffsetPagination>` component to handle complex pagination state; it emits clean events (`page-change`, `page-size-change`) that are more idiomatic and easier to wire up in templates than manually watching refs [source](./references/docs/useOffsetPagination.md)
+Dark mode toggle; note `UseDark` slot data is `{ isDark, toggleDark }` (dist/index.js:173-178):
 
-- Set `detectIframe: true` in `onClickOutside` options when building global navigation or modals to ensure they close when the user clicks inside an iframe, an edge case often missed in manual implementations [source](./references/docs/onClickOutside.md)
+```vue
+<template>
+  <UseDark v-slot="{ isDark, toggleDark }">
+    <button @click="toggleDark()">Is Dark: {{ isDark }}</button>
+  </UseDark>
+</template>
+```
 
-- Utilize the `as` prop on renderable components like `<UseElementBounding>` or `<UseFullscreen>` to render them as semantically correct HTML elements (e.g., `section`, `nav`) instead of the default `div` [source](./references/docs/useImage.md)
+Outside click, component style. `OnClickOutside` takes an `options` prop and emits `trigger`; the rendered `div` is the target (dist/index.js:5-17):
+
+```vue
+<OnClickOutside :options="{ ignore: [ignoreElRef] }" @trigger="close">
+  <div>Click outside of me</div>
+</OnClickOutside>
+```
+
+Directive style, with the `[handler, options]` tuple binding (dist/index.js:26-29):
+
+```vue
+<script setup>
+import { vOnClickOutside } from '@vueuse/components'
+</script>
+
+<template>
+  <div v-if="modal" v-on-click-outside="[closeModal, { ignore: [ignoreElRef] }]">
+    Hello World
+  </div>
+</template>
+```
+
+Image with loading and error slots (dist/index.js:763-770):
+
+```vue
+<UseImage src="https://place.dog/300/200">
+  <template #loading>Loading..</template>
+  <template #error>Failed</template>
+</UseImage>
+```
+
+Draggable with persisted position; `storage-key` enables `useStorage` persistence, `storage-type` picks `local` (default) or `session` (dist/index.d.ts:157-168, dist/index.js:286-300):
+
+```vue
+<UseDraggable storage-key="panel-pos" :initial-value="{ x: 10, y: 10 }" v-slot="{ x, y, style }">
+  <div :style="style">Drag me at {{ x }}, {{ y }}</div>
+</UseDraggable>
+```
+
+## Rules to apply
+
+- Import components and directives as named exports from `@vueuse/components`. There is no `app.use()` plugin; register globally yourself if needed (`app.component('UseMouse', UseMouse)`).
+- In `On*` components, pass configuration through the `options` prop and react through the `@trigger` emit, not through handler props (dist/index.js:15-16, 66-68).
+- On element-wrapper components, set `as` to change the rendered element, e.g. `as="section"` (dist/index.js:11). Exception: `UseScreenSafeArea` types declare `as` but its runtime props array omits it, so it always renders a `div` (dist/index.js:1096-1101 vs dist/index.d.ts:548-553).
+- `UseIdle` requires the `timeout` prop (dist/index.d.ts:297-299).
+- `UseVirtualList` requires `list` and `options` props; `height` defaults to `300px`; it exposes `scrollTo(index)` via template ref (dist/index.d.ts:590-610, dist/index.js:1190-1206).
+- `UseObjectUrl` renders its slot only after the object URL exists; slot prop is the URL string (dist/index.js:906-915).
+- `UseOffsetPagination` emits `page-change`, `page-size-change`, `page-count-change` with the full pagination state (dist/index.js:918-951).
+- `UsePointer` accepts `target="window"` (default) or `target="self"` (dist/index.d.ts:463-465, dist/index.js:976-984).
+- Do not use the deprecated exports `VOnClickOutside` and `VOnLongPress`; they alias `vOnClickOutside` / `vOnLongPress` (dist/index.d.ts:17-18, 43-44).
+- Directive binding values: a handler function, or a `[handler, options]` tuple; `vElementSize` takes `[handler, initialSize, options]` and `vScrollLock` takes a boolean. Details and modifiers: [references/directives.md](./references/directives.md).
+
+## References
+
+- [references/components.md](./references/components.md) — catalog of all 46 components: props, slot data shapes, emits, rendered element
+- [references/directives.md](./references/directives.md) — all 14 directives: binding value forms, modifiers, handler payloads
+- [references/migration.md](./references/migration.md) — version-specific changes v13 to v15 with official release URLs
+
+Official documentation: https://vueuse.org/guide/components

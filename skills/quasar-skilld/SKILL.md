@@ -1,68 +1,138 @@
 ---
 name: quasar-skilld
-description: "Build high-performance VueJS user interfaces (SPA, PWA, SSR, Mobile and Desktop) in record time. ALWAYS use when writing code importing \"quasar\". Consult for debugging, best practices, or modifying quasar."
-metadata:
-  version: 2.19.3
-  generated_at: 2026-04-07
-  references_synced_at: 2026-04-07
+description: Build, configure, and debug apps with the Quasar framework (`quasar` npm package, v2.33.1). Use when writing, reviewing, or debugging code that imports "quasar" or "quasar/wrappers", configuring Quasar with Vite, Vitest, Storybook, UMD, or Quasar CLI, styling with Quasar Sass variables, or upgrading between Quasar v2 releases.
 ---
 
-# quasarframework/quasar `quasar@2.19.3`
-**Tags:** legacy: 1.22.10, latest: 2.19.3
+# Quasar `quasar@2.33.1`
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Vue 3 UI framework for SPA, PWA, SSR, SSG, mobile (Cordova/Capacitor) and desktop
+(Electron) apps from one codebase. Vue 3 only. ESM package, Node >= 22
+(`package.json:102-104`). Baseline for this Skill: quasar 2.33.1 (2026-09-22).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## First: read the docs shipped in the installed package
 
-- BREAKING: `v-model` -> uses `model-value` + `@update:model-value` instead of `value` + `@input` in Vue 3 [source](./references/docs/start/upgrade-guide/upgrade-guide.md#vue-3-and-v-model)
+Quasar 2.33+ bundles its documentation offline. Before guessing an API, look inside
+the project's `node_modules/quasar`:
 
-- BREAKING: `QDrawer`/`QDialog`/`QMenu`/`QTooltip` -> use `class` and `style` attributes instead of `content-class`/`content-style` props [source](./references/docs/start/upgrade-guide/upgrade-guide.md#qdrawerqdialogqmenuqtooltip)
+- `dist/api/<Name>.json` — props, slots, events, methods of every component,
+  plugin and directive, with `addedIn` version markers. This is the ground truth.
+- `dist/mcp/**/*.md` — the quasar.dev pages (components, plugins, directives,
+  composables, utils, styling, layout) as Markdown; `dist/mcp/api/<Name>.md`
+  holds the same API in compact readable form. `dist/mcp/meta.json` (160 pages,
+  `version: 2.33.1`) indexes them all.
+- `@quasar/mcp` MCP server serves the same docs to MCP-capable agents.
 
-- BREAKING: `QImg` -> completely redesigned, removed `transition` and `basic` props; renamed `no-default-spinner` to `no-spinner` [source](./references/docs/start/upgrade-guide/upgrade-guide.md#qimg)
+Details and search commands: [references/offline-docs.md](./references/offline-docs.md)
 
-- BREAKING: `QScrollArea` -> methods `getScrollPosition` returns `{ top, left }`; `setScrollPosition` and `setScrollPercentage` require `axis` parameter [source](./references/docs/start/upgrade-guide/upgrade-guide.md#qscrollarea)
+## Package map
 
-- BREAKING: `QTable` -> renamed `data` prop to `rows` to avoid TS naming conflicts [source](./references/docs/start/upgrade-guide/upgrade-guide.md#qtable)
+| Entry | Path | Notes |
+| --- | --- | --- |
+| browser ESM | `dist/quasar.client.js` | default `import` target |
+| node/server | `dist/quasar.server.prod.js` | what Node/Vitest resolve without the Vite plugin |
+| UMD | `dist/quasar.umd.prod.js` | CDN usage with Vue 3 global build |
+| types | `dist/types/index.d.ts` | |
+| wrappers | `wrappers/index.js` | no-op typings, deprecated; use `#q-app/wrappers` (`wrappers/index.js:9-16`) |
+| lang packs | `lang/*.js` (75) | `import langDe from 'quasar/lang/de'` |
+| icon sets | `icon-set/*.js` (44) | `import iconSet from 'quasar/icon-set/material-icons'` |
 
-- BREAKING: `Platform.is` -> all boolean properties now explicitly `false` instead of `undefined` since v2.17.0 [source](./references/repos/quasarframework/quasar/releases/vquasar-v2.17.0.md#potential-upgrade-issue)
+Full export surface (components, plugins, directives, composables, utils):
+[references/api-surface.md](./references/api-surface.md)
 
-- BREAKING: `colors` utils -> `getBrand` and `setBrand` replaced by `getCssVar` and `setCssVar` respectively [source](./references/docs/start/upgrade-guide/upgrade-guide.md#color-utils)
+## Common tasks
 
-- BREAKING: Scroll utils -> renamed `getScrollPosition` to `getVerticalScrollPosition`, `animScrollTo` to `animVerticalScrollTo`, and `setScrollPosition` to `setVerticalScrollPosition` [source](./references/docs/start/upgrade-guide/upgrade-guide.md#scroll-utils)
+Install with the Vite plugin (`@quasar/vite-plugin` v2 needs Vite 8+,
+`@vitejs/plugin-vue` 6+, quasar v2.24+, Node 20.19+; ESM-only;
+`dist/mcp/start/vite-plugin.md:10`):
 
-- BREAKING: `date` utils -> `addToDate` and `subtractFromDate` property names normalized (e.g., `year` -> `years`, `month` -> `months`) [source](./references/docs/start/upgrade-guide/upgrade-guide.md#date-utils)
+```js
+// main.js
+import { createApp } from 'vue'
+import { Quasar, Notify } from 'quasar'
+import '@quasar/extras/material-icons/material-icons.css'
+import 'quasar/src/css/index.sass'
+import App from './App.vue'
 
-- BREAKING: `QPopupEdit` -> must now use the default slot with `v-slot="scope"` for performance [source](./references/docs/start/upgrade-guide/upgrade-guide.md#qpopupedit)
+createApp(App).use(Quasar, { plugins: { Notify } }).mount('#app')
+```
 
-- BREAKING: `GoBack` directive -> removed; use router reference (`$router.back()` or `$router.go(-1)`) instead [source](./references/docs/start/upgrade-guide/upgrade-guide.md#quasar-directives)
+```js
+// vite.config.js
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
+import vue from '@vitejs/plugin-vue'
 
-- NEW: `useQuasar` composable -> primary method for accessing the `$q` object within Composition API components
+plugins: [vue({ template: { transformAssetUrls } }), quasar()]
+```
 
-- NEW: `useMeta` composable -> new way to define meta tags, replacing the now deprecated `meta` component property [source](./references/docs/start/upgrade-guide/upgrade-guide.md#meta-plugin)
+Access `$q` in Composition API:
 
-- NEW: `QTable` props -> added `table-row-style-fn`, `table-row-class-fn`, `grid-style-fn`, and `grid-class-fn` in v2.18.0 [source](./references/repos/quasarframework/quasar/releases/vquasar-v2.18.0.md#new)
+```js
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
+$q.notify('Saved') // $q.platform, $q.dark, $q.screen, $q.lang, ...
+```
 
-**Also changed:** `useFormChild()` new composable · `QOptionsGroup` props `option-value`, `option-label`, `option-disable` new v2.17.0 · `QUploader` prop `thumbnail-fit` new v2.17.0 · `QSelect` prop `disable-tab-select` new v2.17.0 · `QMenu`/`QBtnDropdown` `no-esc-dismiss` new v2.18.0 · `evt.qAvoidFocus` new flag v2.18.0 · `QDate` model-value no longer contains `changed` prop · `QPagination` prop `gutter` new · `QImg` props `loading`, `crossorigin`, `fit` new · `Dialog` plugin custom component props moved to `componentProps` · `Loading` plugin uses `html: true` for HTML content instead of `sanitize` · `App.vue` wrapper `<div id="q-app">` removed · `.sync` modifier replaced by `v-model:propName`
+Templates use kebab-case props exactly as the API JSON lists them
+(`hide-dropdown-icon`, `no-error-icon`); two-way props bind as
+`v-model:propName` (the v1 `.sync` modifier is gone).
 
-## Best Practices
+Sass variables: quasar >= 2.14 pairs with `sass-embedded@^1.93.2`; quasar <= 2.13
+needs `sass@1.32.12` pinned (`dist/mcp/start/vite-plugin.md:38-39`).
 
-- Use `#q-app/wrappers` instead of `quasar/wrappers` for defining configurations and boot files — provides superior type inference and alignment with modern Quasar CLI [source](./references/docs/quasar-cli-vite/upgrade-guide.md:L256:258)
+More on Vite, Vitest, Storybook, UMD and Quasar CLI:
+[references/installation.md](./references/installation.md)
 
-- Use **Regle** as the recommended validation library for `QInput` and `QField` — provides a robust, externalized validation logic compared to inline rules [source](./references/docs/vue-components/input.md:L319)
+## Best practices (verified against the 2.33.1 shipped docs)
 
-- Prefer **responsive CSS classes** (e.g., `gt-sm`, `lt-md`) over the `Screen` plugin in JavaScript — minimizes re-renders and layout shifts by leveraging CSS media queries directly [source](./references/docs/options/screen-plugin.md:L5)
+- Prefer responsive CSS classes (`gt-sm`, `lt-md`, window-width visibility
+  classes) over the Screen plugin in JS, for performance.
+- Large `QTree`: `no-transition` for big datasets; `virtual-scroll` (v2.25+) for
+  huge ones.
+- Custom Dialog plugin components: bootstrap with `useDialogPluginComponent`;
+  bind `@hide="onDialogHide"` directly (v2.28+ forwards the dismissal reason).
+- Prefer `useInterval`/`useTimeout`/`useAnimationFrame` over native timers;
+  they auto-cancel on unmount and are SSR-safe no-ops.
+- SSR/SSG: avoid `Dark` mode `'auto'` unless the server knows the preference
+  (cookie), else users see a light flash.
+- Use the LoadingBar plugin instead of a manual `QAjaxBar`.
+- Validation for `QInput`: Quasar recommends Regle (`dist/mcp/vue-components/input.md:2397`).
+- Quasar CLI projects: import wrappers from `#q-app/wrappers`, never
+  `quasar/wrappers`.
 
-- Bootstrap custom dialog components with the `useDialogPluginComponent` composable — handles the complex internal communication and lifecycle requirements of the Dialog plugin automatically [source](./references/docs/vue-composables/use-dialog-plugin-component.md:L13:30)
+Full list with citations: [references/best-practices.md](./references/best-practices.md)
 
-- Enable the `no-transition` prop on `QTree` when rendering large datasets — significantly improves runtime performance by skipping expensive expansion/collapse animations [source](./references/docs/vue-components/tree.md:L31)
+## Upgrading (2.20 -> 2.33.1 highlights)
 
-- Use Quasar's `useInterval` and `useTimeout` composables over native browser timers — ensures automatic cancellation and memory cleanup when the component is unmounted [source](./references/docs/vue-composables/use-interval.md:L8:11)
+- v2.33.0: docs + compact API now ship inside the package (offline, exact
+  version); pair with the `@quasar/mcp` server. Fixes: `extractDate()` matches
+  the longest locale name; QTable rows-per-page selector follows a controlled
+  `v-model:pagination`; virtual-scroll `scrollTo()` no longer dropped right
+  after a scroll event.
+- v2.33.1: QPagination `input` mode clears the typed page on submit
+  (`src/components/pagination/QPagination.js:290-292`); `textToRgb()` keeps the
+  alpha of `rgb(R, G, B, A)` (`src/utils/colors/colors.js:149-174`).
+- v2.28: `QMenu`/`QTooltip` lost the `scroll-target` prop; popups track every
+  scrolling container automatically. `Platform.is` dropped `ie`, `edgeChromium`,
+  `winphone`, `kindle`, `silk`.
+- v2.29: a `@click` listener on `QItem`/`QChip` now implies `clickable`.
+- v2.31: readonly fields (`QInput`/`QSelect`/`QFile`/`QField`) now reflect focus
+  and validate on blur.
+- v2.32: `QImg` renders its `<img>` into SSR HTML when the box shape is known
+  (`ratio`/`initial-ratio`/`height`); `ssr-prerender` opts in otherwise.
+  `QExpansionItem`/`QTree` no longer wrap content in `QSlideTransition`.
+- Deprecated: `QInput`/`QFile` `getNativeElement()` -> use the `nativeEl` property
+  (`dist/api/QInput.json`).
 
-- Place `QPullToRefresh` as a direct child of `QPage` when using `QLayout` — ensures correct scroll event interception and native-like pull behavior within the layout container [source](./references/docs/vue-components/pull-to-refresh.md:L42)
+No API was added in 2.33.x itself: no `addedIn: v2.33` marker exists in
+`dist/api/*.json`. All behavior changes and new APIs, with release URLs:
+[references/whats-new.md](./references/whats-new.md)
 
-- Avoid setting `Dark` mode to `auto` in SSR applications — prevents the "flicker" effect where the server renders light mode before the client synchronizes with system preferences [source](./references/docs/quasar-plugins/dark.md:L85:87)
+## Security
 
-- Do not use `v-model` with `QRouteTab` components — the active state is derived directly from the current route, and manual model updates will not trigger navigation [source](./references/docs/vue-components/tabs.md:L128:132)
+The `*-html` boolean props (`options-html`, `display-value-html`, `html` on
+Notify/Dialog/Loading) opt into rendering HTML and are an XSS surface: sanitize
+before enabling. `QEditor` has no sanitize option; strip `<script>`/`<iframe>`
+server-side. Quasar CLI only exposes env variables with the `QCLI_` prefix to
+client code.
 
-- Prefer the **Loading Bar Plugin** over manual `QAjaxBar` component instances — provides a simpler, globally managed progress indicator for all Ajax calls without per-page wiring [source](./references/docs/vue-components/ajax-bar.md:L18:19)
+Checklist: [references/security.md](./references/security.md)

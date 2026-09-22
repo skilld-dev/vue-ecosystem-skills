@@ -1,90 +1,103 @@
 ---
 name: vee-validate-skilld
-description: "Painless forms for Vue.js. ALWAYS use when writing code importing \"vee-validate\". Consult for debugging, best practices, or modifying vee-validate, vee validate."
-metadata:
-  version: 4.15.1
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: Use when writing, reviewing, or debugging Vue.js forms that import vee-validate (useForm, defineField, useField, useFieldArray, Form, Field, FieldArray, ErrorMessage). Provides correct v4.15.x Composition API and component usage, validation schema patterns, typed-schema integration, version-specific API changes since 4.9, deprecations, and known pitfalls.
 ---
 
-# logaretm/vee-validate `vee-validate@4.15.1`
-**Tags:** prev: 1.0.0-beta.10, next-edge: 4.5.0-alpha.2, edge: 4.5.0-alpha.6
+# vee-validate 4.15.1
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Form validation for Vue 3. Facts below come from the prepared source (`dist/vee-validate.d.ts`, `dist/vee-validate.mjs`, `package.json`) and official docs at https://vee-validate.logaretm.com/v4/.
 
-This section documents version-specific API changes for vee-validate v4.x — prioritize these over legacy patterns.
+## Environment
 
-- BREAKING: `v-model` support disabled by default in v4.10.0 for performance; enable via `configure({ validateOnModelUpdate: true })` or per-field `syncVModel` [source](./references/releases/CHANGELOG.md)
+- Package `vee-validate@4.15.1` (`package.json:3`). Requires `vue ^3.4.26` as peer (`package.json:42`).
+- ESM + CJS, `sideEffects: false`, single entry `vee-validate` (`package.json:11-26`).
+- v4 supports Vue 3 only. Vue 2 needs vee-validate 2.x/3.x (README:69-72).
+- Schema adapters live in separate packages: `@vee-validate/yup`, `@vee-validate/zod`, `@vee-validate/valibot`; global rules in `@vee-validate/rules`; messages in `@vee-validate/i18n`.
 
-- NEW: `defineField` introduced in v4.9.0 — replaces `defineComponentBinds` and `defineInputBinds` for cleaner Composition API integration [source](./references/releases/CHANGELOG.md)
+## Two API styles
 
-- DEPRECATED: Reactive initial values deprecated in v4.12.0; use non-reactive objects or getters to prevent unintended sync [source](./references/releases/CHANGELOG.md)
+**Composition API (preferred for new code).** `useForm` + `defineField` + `handleSubmit`:
 
-- NEW: `useFormContext` exposed in v4.14.0 for accessing form state in deeply nested components without manual injection [source](./references/releases/CHANGELOG.md)
+```vue
+<script setup>
+import { useForm } from 'vee-validate';
 
-- NEW: `setValue` exposed on `Field` instances and slot props in v4.13.0 for manual value updates [source](./references/releases/CHANGELOG.md)
+function required(value) {
+  return value ? true : 'This field is required';
+}
 
-- NEW: Composition setter hooks (`useSetFieldValue`, `useSetFormValues`, `useSetFormErrors`) added in v4.11.0 for external state management [source](./references/releases/CHANGELOG.md)
-
-- NEW: `handleBlur` accepts `shouldValidate` parameter since v4.10.0 to control validation triggers on blur events [source](./references/releases/CHANGELOG.md)
-
-- NEW: `syncVModel` accepts target model prop name as a string in v4.10.0 for custom model support [source](./references/releases/CHANGELOG.md)
-
-- NEW: `isValidating` state added to `useForm` and form slot props in v4.9.3 to track async validation status [source](./references/releases/CHANGELOG.md)
-
-- NEW: `move(oldIdx, newIdx)` added to `FieldArray` in v4.6.0 for reordering items within array fields [source](./references/releases/CHANGELOG.md)
-
-- NEW: Specialized state hooks (`useIsFieldDirty`, `useIsFormValid`, `useFieldValue`) added in v4.1.0 for granular state access [source](./references/releases/vee-validate@4.1.0.md)
-
-- DEPRECATED: `handleInput` deprecated in v4.4.0; use `handleChange` for both input and change events [source](./references/releases/CHANGELOG.md)
-
-- NEW: `label` support in `defineField` added in v4.12.0 for consistent error message generation [source](./references/releases/CHANGELOG.md)
-
-- NEW: `ResetFormOpts` with `force` flag added to `useResetForm` in v4.13.0 to clear values without merging [source](./references/releases/CHANGELOG.md)
-
-**Also changed:** `defineComponentBinds` deprecated · `defineInputBinds` deprecated · `useFieldModel` deprecated · `unsetValueOnUnmount` config added · `keepValuesOnUnmount` reactivity improved · `useForm` validate returns object · `useResetForm` hook added · `nested field meta querying` new v4.12.3
-
-## Best Practices
-
-- Prefer `defineField()` for binding components and inputs — returns a `v-model` ref and a props object for clean, non-deprecated binding [source](./references/docs/src/pages/api/use-form.mdx)
-
-```ts
-const [email, emailProps] = defineField('email', {
-  validateOnBlur: true,
-  props: state => ({ 'aria-invalid': !!state.errors.length })
+const { defineField, handleSubmit, errors } = useForm({
+  validationSchema: { field: required },
 });
+
+const [field, fieldProps] = defineField('field');
+
+const onSubmit = handleSubmit(values => {
+  console.log(values);
+});
+</script>
+
+<template>
+  <form @submit="onSubmit">
+    <input v-model="field" v-bind="fieldProps" />
+    <span>{{ errors.field }}</span>
+    <button>Submit</button>
+  </form>
+</template>
 ```
 
-- Display errors conditionally using `meta.touched` — prevents "aggressive" validation where error messages appear before the user interacts with the field [source](./references/docs/src/pages/guide/best-practices.mdx)
+Source: README:84-118, https://vee-validate.logaretm.com/v4/guide/composition-api/getting-started/
 
-- Use `toTypedSchema()` for comprehensive TypeScript safety — wraps Yup, Zod, or Valibot schemas to differentiate between input (UI) and output (submitted) types [source](./references/docs/src/pages/guide/composition-api/typed-schema.mdx)
+**Declarative components.** `Form` + `Field` with scoped slots:
 
-```ts
-import { toTypedSchema } from '@vee-validate/zod';
-import * as z from 'zod';
+```vue
+<script setup>
+import { Field, Form } from 'vee-validate';
 
-const { values } = useForm({
-  validationSchema: toTypedSchema(z.object({ email: z.string().email() }))
-});
+function required(value) {
+  return value ? true : 'This field is required';
+}
+
+function onSubmit(values) {
+  console.log(values);
+}
+</script>
+
+<template>
+  <Form v-slot="{ errors }" @submit="onSubmit">
+    <Field name="field" :rules="required" />
+    <span>{{ errors.field }}</span>
+    <button>Submit</button>
+  </Form>
+</template>
 ```
 
-- Mark validation schemas as non-reactive — wrap schemas in `markRaw` or declare them outside of `ref`/`reactive` to avoid unnecessary deep reactivity overhead [source](./references/docs/src/pages/guide/best-practices.mdx)
+Source: README:122-153, https://vee-validate.logaretm.com/v4/guide/components/handling-forms/
 
-- Tree-shake schema validator imports — only import the specific functions you need (e.g., `import { string } from 'yup'`) to keep bundle sizes to a minimum [source](./references/docs/src/pages/guide/best-practices.mdx)
+## Core rules
 
-- Pass reactive field names as getters in `useField` — use a function (e.g., `() => props.name`) to ensure vee-validate tracks name changes in dynamic forms [source](./references/docs/src/pages/guide/composition-api/caveats.mdx)
+- Bind fields with `defineField(path, config?)`. It returns `[model, props]`; spread the props with `v-bind` and the model with `v-model` (`dist/vee-validate.d.ts:443`, https://vee-validate.logaretm.com/v4/api/use-form/#definefield).
+- Never write directly to `values.field`; use the `defineField` model, `setFieldValue`, or `useSetFieldValue`.
+- `useFieldModel`, `defineComponentBinds`, and `defineInputBinds` are deprecated in favor of `defineField` (`dist/vee-validate.d.ts:444-459`).
+- Show errors only after interaction, e.g. `v-if="errorMessage && meta.touched"`, to avoid aggressive validation UX (https://vee-validate.logaretm.com/v4/guide/best-practices/#avoiding-aggressive-validation).
+- For TypeScript, wrap yup/zod/valibot schemas with `toTypedSchema` from the matching `@vee-validate/*` package. Passing a raw schema without it fails with "No such validator 'VVTypedSchema' exists" (https://vee-validate.logaretm.com/v4/guide/composition-api/typed-schema/, https://github.com/logaretm/vee-validate/discussions/4819).
+- `useField` inside a custom component must not sync its v-model by default (`syncVModel` defaults to `false`, breaking change in 4.10.0). Opt in per field with `syncVModel: true` or a model prop name string (`dist/vee-validate.mjs:1862`).
+- Field names are paths. Dots nest objects, `[0]` indexes arrays; wrap the name in brackets, e.g. `[user.name]`, to treat dots as literal (https://vee-validate.logaretm.com/v4/guide/composition-api/nested-objects-and-arrays/).
+- The `errors` object is always flat: reference the exact path string used as the field name, brackets included (https://vee-validate.logaretm.com/v4/guide/composition-api/nested-objects-and-arrays/).
+- Iterate array fields with `fields` from `useFieldArray` and key `v-for` by `entry.key` (a stable id, never the index) (https://vee-validate.logaretm.com/v4/guide/composition-api/nested-objects-and-arrays/).
+- Pass reactive field names as getters (`useField(() => props.name)`) so vee-validate tracks name changes (https://vee-validate.logaretm.com/v4/guide/composition-api/caveats/).
+- Keep schemas non-reactive: declare them outside `ref`/`reactive` or wrap with `markRaw` to avoid deep reactivity overhead (https://vee-validate.logaretm.com/v4/guide/best-practices/#reactive-schemas).
+- `handleSubmit.withControlled(cb)` submits only fields registered with `useField`/`defineField` (`dist/vee-validate.d.ts:430-432`); note typed schemas can still surface all initial values (open issue: https://github.com/logaretm/vee-validate/issues/4960).
 
-- Enable `keepValuesOnUnmount` for multi-step forms — preserves field state when components are hidden via `v-if` or tab switching [source](./references/docs/src/pages/guide/composition-api/nested-objects-and-arrays.mdx)
+## Validation modes
 
-```ts
-const { values } = useForm({
-  keepValuesOnUnmount: true
-});
-```
+Global defaults: `validateOnBlur: true`, `validateOnChange: true`, `validateOnInput: false`, `validateOnModelUpdate: true`, `bails: true`. Change globally with `configure()`; note these four trigger flags only apply to the `<Field>` component, not `useField` (https://vee-validate.logaretm.com/v4/api/configuration/). To validate only on submit, disable input/change/blur triggers per field in `defineField` config or globally (https://github.com/logaretm/vee-validate/discussions/4903).
 
-- Use `field.key` for stable iteration in `v-for` — `useFieldArray` provides unique identifiers that persist through array operations, unlike indices [source](./references/docs/src/pages/guide/composition-api/nested-objects-and-arrays.mdx)
+## References
 
-- Escape field names with `[]` to disable automatic nesting — wrap names (e.g., `[user.name]`) to treat dots as literal characters rather than object paths [source](./references/docs/src/pages/guide/composition-api/nested-objects-and-arrays.mdx)
-
-- Filter submission values with `handleSubmit.withControlled()` — ensures only fields explicitly registered via `useField` or `defineField` are included in the payload [source](./references/docs/src/pages/api/use-form.mdx)
+- [Composition API](./references/composition-api.md): `useForm`, `defineField`, `useField`, `useFieldArray`, state and setter composables, form context.
+- [Components](./references/components.md): `Form`, `Field`, `FieldArray`, `ErrorMessage` props, slots, rendering, v-model rules.
+- [Validation](./references/validation.md): validator functions, object schemas, typed schemas, global rules, i18n, standalone `validate` utils.
+- [API surface](./references/api-surface.md): every runtime export and notable type, cited to `dist/vee-validate.d.ts`.
+- [Version changes](./references/version-changes.md): API additions, breaking changes, and deprecations from 4.9.0 to 4.15.1.
+- [Pitfalls](./references/pitfalls.md): composition caveats, nested path rules, array fields, known open issues.

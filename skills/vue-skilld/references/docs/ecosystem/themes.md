@@ -1,7 +1,0 @@
----
-page: true
----
-
-
-
-<ThemePage />

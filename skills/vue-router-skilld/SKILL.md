@@ -1,58 +1,136 @@
 ---
 name: vue-router-skilld
-description: "ALWAYS use when writing code importing \"vue-router\". Consult for debugging, best practices, or modifying vue-router, vue router, router."
-metadata:
-  version: 5.0.6
-  generated_at: 2026-04-23
-  references_synced_at: 2026-04-23
+description: ALWAYS use when writing code that imports "vue-router", "vue-router/vite", "vue-router/auto-routes", or "vue-router/experimental". Consult for debugging, best practices, or modifying vue-router, vue router, router, file-based routing, typed routes, data loaders.
 ---
 
-# vuejs/router `vue-router@5.0.6`
-**Tags:** next: 4.0.13, legacy: 3.6.5, edge: 4.4.0-alpha.3
+# vuejs/router `vue-router@5.3.1`
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Prepared source: `vue-router@5.3.1`, ESM package (`"type": "module"`, package.json:2,20).
+Peers: `vue ^3.5.34 || ^4.0.0`; optional `vite ^7.3.0 || ^8.0.0`, `pinia ^3.0.4 || ^4.0.2`, `@pinia/colada >=0.21.2` (package.json:173-193).
+Docs: https://router.vuejs.org
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Import map
 
-- NEW: `vue-router/vite` — v5 ships the Vite plugin (formerly `unplugin-vue-router/vite`) directly in the core package; import from `vue-router/vite` instead [source](./references/docs/guide/migration/v4-to-v5.md#2-update-imports)
+| Import | Use for |
+|---|---|
+| `vue-router` | `createRouter`, `createWebHistory`, `createWebHashHistory`, `createMemoryHistory`, `RouterLink`, `RouterView`, `useRouter`, `useRoute`, `useLink`, `onBeforeRouteLeave`, `onBeforeRouteUpdate`, `isNavigationFailure`, `NavigationFailureType`, `START_LOCATION`, `parseQuery`, `stringifyQuery` (dist/vue-router.d.ts:6) |
+| `vue-router/vite` | Vite plugin, file-based routing (package.json:104) |
+| `vue-router/unplugin/{vite,webpack,rollup,esbuild,rolldown}` | same plugin for other bundlers (dist/unplugin/) |
+| `vue-router/unplugin` | `VueRouterAutoImports`, `createRoutesContext`, `EditableTreeNode`, plugin `Options` (dist/unplugin/index.d.mts:62) |
+| `vue-router/auto-routes` | generated `routes` array + `handleHotUpdate(router)` (vue-router-auto-routes.d.mts:6,28) |
+| `vue-router/auto-resolver` | generated `resolver` for `experimental_createRouter` + `handleHotUpdate` (vue-router-auto-resolver.d.mts:15,21) |
+| `vue-router/experimental` | data loaders, `reroute`, `miss`, `definePage`, `defineParamParser`, `PARAM_PARSER_INT`/`PARAM_PARSER_BOOL`, `experimental_createRouter`, `useIsDataLoading` (dist/experimental/index.d.ts:7) |
+| `vue-router/experimental/pinia-colada` | `defineColadaLoader` (package.json:77) |
+| `vue-router/volar/sfc-route-blocks`, `vue-router/volar/sfc-typed-router` | Volar plugins: `<route>` blocks, per-file typed `useRoute()` (package.json:115-121) |
 
-- NEW: `vue-router/auto-routes` — v5 export that provides the auto-generated file-based route list; previously required `unplugin-vue-router` as a separate package [source](./references/docs/guide/migration/v4-to-v5.md#new-exports-reference)
+Avoid:
+- `vue-router/auto` — deprecated, will be removed (vue-router-auto.d.ts:1).
+- `vue-router/experimental` in CJS builds — ESM-only since v5.1.0 (https://github.com/vuejs/router/releases/tag/v5.1.0).
 
-- NEW: `vue-router/unplugin` — v5 export for Webpack/Rollup/esbuild plugins and utilities (`VueRouterAutoImports`, `EditableTreeNode`, `createRoutesContext`, etc.); previously imported from `unplugin-vue-router` [source](./references/docs/guide/migration/v4-to-v5.md#2-update-imports)
+## Quick start (classic routes)
 
-- NEW: `DataLoaderPlugin` + `defineBasicLoader` (experimental) — v5 adds data loaders directly to `vue-router/experimental`; previously in `unplugin-vue-router/data-loaders`. Install `DataLoaderPlugin` **before** the router with `app.use(DataLoaderPlugin, { router })` [source](./references/releases/v5.0.0.md#features)
+```ts
+import { createRouter, createWebHistory } from 'vue-router'
 
-- NEW: `defineColadaLoader` (experimental) — Pinia Colada-backed loader available at `vue-router/experimental/pinia-colada`; previously `unplugin-vue-router/data-loaders/pinia-colada` [source](./references/docs/guide/migration/v4-to-v5.md#2-update-imports)
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: () => import('./pages/Home.vue') },
+    { path: '/users/:id', component: () => import('./pages/User.vue'), props: true },
+  ],
+})
+app.use(router)
+```
 
-- NEW: `NavigationResult` (experimental) — class from `vue-router/experimental` returned inside a loader to redirect during navigation (e.g. `return new NavigationResult('/login')`); previously did not exist in vue-router [source](./references/docs/data-loaders/defining-loaders.md#navigation-control)
+In components: `useRoute()` / `useRouter()` from `vue-router`; `<RouterLink to="...">` and `<RouterView>` are globally registered by `app.use(router)`.
 
-- NEW: Volar plugins moved to `vue-router/volar/sfc-typed-router` and `vue-router/volar/sfc-route-blocks` — previously `unplugin-vue-router/volar/sfc-typed-router` and `unplugin-vue-router/volar/sfc-route-blocks` [source](./references/docs/guide/migration/v4-to-v5.md#2-update-imports)
+## Quick start (file-based routing)
 
-- NEW: `TypesConfig` module augmentation — v4.4+ interface used to register `RouteNamedMap` for typed routes; augment with `declare module 'vue-router' { interface TypesConfig { RouteNamedMap: RouteNamedMap } }` [source](./references/docs/guide/advanced/typed-routes.md#manual-configuration)
+```ts
+// vite.config.ts
+import VueRouter from 'vue-router/vite'
+import Vue from '@vitejs/plugin-vue'
 
-- BREAKING: IIFE build no longer bundles `@vue/devtools-api` — v5 upgraded devtools-api to v8 which has no IIFE build; affects CDN/script-tag setups that relied on the bundled devtools [source](./references/releases/v5.0.0.md#v500)
+export default defineConfig({
+  plugins: [VueRouter(), Vue()], // Vue plugin MUST come after VueRouter
+})
+```
 
-- NEW: Query params optional by default (experimental) — v5 file-based routing makes query params optional in typed routes by default [source](./references/releases/v5.0.0.md#features)
+```ts
+import { createRouter, createWebHistory } from 'vue-router'
+import { routes, handleHotUpdate } from 'vue-router/auto-routes'
 
-**Also changed:** `unplugin-vue-router` types/utilities moved to `vue-router/unplugin` (renamed) · `route-map.d.ts` replaces `typed-router.d.ts` (renamed) · `meta.loaders` array on route records for manually connecting data loaders (NEW, experimental) · `router.currentRoute` is `Ref<RouteLocationNormalizedLoaded>` — access via `.value` (v4 BREAKING) · `router.onReady()` removed — use `router.isReady()` returning a Promise (v4 BREAKING) · `scrollBehavior` `x`/`y` renamed to `left`/`top` (v4 BREAKING)
+const router = createRouter({ history: createWebHistory(), routes })
+if (import.meta.hot) handleHotUpdate(router)
+```
 
-## Best Practices
+Pages live in `src/pages` by default. Start the dev server once to generate `typed-router.d.ts`, add it to `tsconfig.json` `include` with `"moduleResolution": "Bundler"`. Details, naming conventions, and plugin options: [references/file-based-routing.md](./references/file-based-routing.md).
 
-- Use `route.meta` directly in guards instead of iterating `to.matched` — Vue Router merges all ancestor `meta` fields non-recursively, so `to.meta.requiresAuth` already reflects inherited values from parent routes [source](./references/docs/guide/advanced/meta.md#typescript)
+## Core rules
 
-- Extend the `RouteMeta` interface via module augmentation to type all `meta` fields — this enforces that every route declares required fields at compile time rather than relying on runtime checks [source](./references/docs/guide/advanced/meta.md#typescript)
+- Return values from navigation guards, never call `next()`. `next` is deprecated (runtime warning since v5.0.3) and will be removed (dist/index-D7ja2BKs.d.ts:362-393, https://github.com/vuejs/router/releases/tag/v5.0.3).
+  ```ts
+  router.beforeEach(to => {
+    if (to.meta.requiresAuth && !isAuthenticated) return { name: 'login' }
+    // return nothing, true, false, or a route location
+  })
+  ```
+- In data loaders, redirect with `reroute(to)`; `new NavigationResult(to)` is deprecated and logs a warning (dist/experimental/index.js:1106-1111).
+- `router.currentRoute` is a `ShallowRef<RouteLocationNormalizedLoaded>` — read it as `router.currentRoute.value` (dist/index-D7ja2BKs.d.ts:1433).
+- `router.onReady()` does not exist (removed in v4); use `await router.isReady()`.
+- `scrollBehavior` returns `{ top, left }` (v4 renamed `x`/`y` to `left`/`top`).
+- Detect failed navigations: `const failure = await router.push(...)`; check with `isNavigationFailure(failure, NavigationFailureType.aborted)`.
+- `route.meta` merges non-recursively from all matched records; read `to.meta.requiresAuth` directly instead of scanning `to.matched`. Type `meta` via `RouteMeta` module augmentation.
+- Use `router.beforeResolve` (not `beforeEach`) for work that needs async components resolved.
+- Use `inject()` inside guards to reach Pinia stores (supported since Vue 3.3).
+- Decouple components from the router with route `props: true` or `props: route => ({ ... })`; pass query values this way to keep components testable.
+- Watch narrow sources (`() => route.params.id`), never the whole `route` object.
 
-- Use `router.beforeResolve` (not `beforeEach`) for operations that must run after async components are resolved — it fires after all in-component guards and async route components are ready, making it the correct place for camera permission checks or final data validation [source](./references/docs/guide/advanced/navigation-guards.md#global-resolve-guards)
+Full core API notes: [references/core-api.md](./references/core-api.md).
 
-- Use `inject()` inside navigation guards (global or per-route) to access Pinia stores and provided values — this is supported since Vue 3.3 and avoids importing stores outside of `setup` context [source](./references/docs/guide/advanced/navigation-guards.md#global-injections-within-guards)
+## Typed routes
 
-- Avoid the `next` callback in guards — return values (`false`, a route location, or nothing) instead; `next` is error-prone because it must be called exactly once per code path and is considered a legacy API [source](./references/docs/guide/advanced/navigation-guards.md#optional-third-argument-next)
+Enable by using the file-based routing plugin (types are generated automatically), or augment manually:
 
-- `await router.push()` and check the resolved value to detect navigation failures — the promise resolves to a `NavigationFailure` when blocked, or `undefined` on success; use `isNavigationFailure(result, NavigationFailureType.aborted)` to distinguish the specific failure type [source](./references/docs/guide/advanced/navigation-failures.md#detecting-navigation-failures)
+```ts
+declare module 'vue-router' {
+  interface TypesConfig {
+    RouteNamedMap: RouteNamedMap
+  }
+}
+```
 
-- Set `props: true` (or a function) on route records to decouple components from `useRoute()` — components receiving params as props are reusable and testable without a router instance; use the function form (`props: route => ({ query: route.query.q })`) to map query params or cast types [source](./references/docs/guide/essentials/passing-props.md#function-mode)
+Typed `push('/users/:id', { params: { id: 42 } })`, typed `useRoute()`, per-file typing via Volar plugin `vue-router/volar/sfc-typed-router`. Param parsers (`int`, `bool`, custom in `src/params/`) give typed, validated params; `definePage({ params: { query: { page: { parser: 'int', default: 1 } } } })` declares query params. Details: [references/typed-routes.md](./references/typed-routes.md).
 
-- Watch specific `route` properties rather than the whole `route` object — `useRoute()` returns a reactive object, but watching it entirely triggers on any change (hash, query, params); narrow the watcher to `() => route.params.id` to avoid unnecessary fetches [source](./references/docs/guide/advanced/composition-api.md#accessing-the-router-and-current-route-inside-setup)
+## Data loaders (experimental)
 
-- (experimental) Use `defineBasicLoader` / `defineColadaLoader` exported from page components for navigation-aware data fetching — loaders exported from lazy-loaded route components are automatically connected to the navigation lifecycle, block the transition until resolved, and expose `isLoading`/`error` reactively; set `lazy: true` for non-critical data that should not block navigation [source](./references/docs/data-loaders/defining-loaders.md#non-blocking-loaders-with-lazy)
+```ts
+// src/pages/users/[id].vue
+import { defineBasicLoader } from 'vue-router/experimental'
+import { reroute } from 'vue-router/experimental'
+
+export const useUserData = defineBasicLoader(async (to) => {
+  if (!to.params.id) reroute('/') // reroute throws: stops the loader immediately
+  return fetchUser(to.params.id)
+})
+```
+
+Install `DataLoaderPlugin` **before** the router: `app.use(DataLoaderPlugin, { router })`. Non-blocking loaders: `defineBasicLoader(loader, { lazy: true })`; errors then land in `error`, not in `router.onError`. Details: [references/data-loaders.md](./references/data-loaders.md).
+
+## Version notes (5.0.x → 5.3.1)
+
+- v5.0.7: `RouteNamedMap` is wired through the generated `typed-router.d.ts` (https://github.com/vuejs/router/releases/tag/v5.0.7); param parser folders gained `include`/`exclude`.
+- v5.1.0: typed `definePage` `params.path`, `defineParamParserRaw`, strict default typing, `TypesConfig` global `Router` override, experimental export is ESM-only (https://github.com/vuejs/router/releases/tag/v5.1.0).
+- v5.2.0: added diagnostics for common mistakes; allows pinia 4 (https://github.com/vuejs/router/releases/tag/v5.2.0).
+- v5.3.0: scroll skips when `history.scrollRestoration` says so; duplicate `definePage()` reported instead of crashing; `EditableTreeNode.name` accepts `false` to unset (https://github.com/vuejs/router/releases/tag/v5.3.0).
+- v5.3.1: fixes `isActive` with non-string params (https://github.com/vuejs/router/releases/tag/v5.3.1).
+
+Migration from v3/v4, or from `unplugin-vue-router`: [references/migration.md](./references/migration.md).
+
+## References
+
+- [core-api.md](./references/core-api.md) — router creation, histories, guards, failures, scroll, RouterLink/RouterView.
+- [file-based-routing.md](./references/file-based-routing.md) — plugin setup, file naming, `definePage`, `<route>` blocks, `extendRoute`, options.
+- [typed-routes.md](./references/typed-routes.md) — `TypesConfig`, generated types, param parsers, `experimental_createRouter`.
+- [data-loaders.md](./references/data-loaders.md) — `defineBasicLoader`, `defineColadaLoader`, `reroute`, lazy loaders, SSR notes.
+- [migration.md](./references/migration.md) — v3→v4 and v4→v5 changes, deprecations in the v5 line.

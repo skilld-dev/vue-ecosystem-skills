@@ -1,69 +1,55 @@
 ---
 name: vue-test-utils-skilld
-description: "ALWAYS use when writing code importing \"@vue/test-utils\". Consult for debugging, best practices, or modifying @vue/test-utils, vue/test-utils, vue test-utils, vue test utils, test-utils, test utils."
-metadata:
-  version: 2.4.10
-  generated_at: 2026-05-01
-  references_synced_at: 2026-05-01
+description: ALWAYS use when writing, debugging, or reviewing code that imports "@vue/test-utils" or mentions vue test-utils, VTU, mount, shallowMount, findComponent, wrapper queries, or migrating from Vue Test Utils v1. Provides the current API surface, mounting options, wrapper methods, and testing recipes for @vue/test-utils 2.5.1 on Vue 3.
 ---
 
-# vuejs/test-utils `@vue/test-utils@2.4.10`
-**Tags:** 2.0.0-alpha.0: 2.0.0-alpha.0, 2.0.0-alpha.1: 2.0.0-alpha.1, 2.0.0-alpha.2: 2.0.0-alpha.2
+# @vue/test-utils 2.5.1 (Vue 3)
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Prepared source: `input/source`, version 2.5.1 (`package.json:3`).
+Requires Vue 3.x and `@vue/compiler-dom` 3.x as peers; `@vue/server-renderer` 3.x is an optional peer needed only for `renderToString` (`package.json:73-81`).
+Test-runner agnostic (Vitest, Jest, others). Needs a browser-like DOM environment (jsdom or happy-dom).
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+Install: `npm install @vue/test-utils --save-dev`
 
-- BREAKING: `propsData` — v2 renamed to `props` for consistency with component definitions [source](./references/docs/migration/index.md)
-
-- BREAKING: `createLocalVue` — removed in v2, use the `global` mounting option to install plugins, mixins, or directives [source](./references/docs/migration/index.md)
-
-- BREAKING: `mocks` and `stubs` — moved into the `global` mounting option in v2 as they apply to all components [source](./references/docs/migration/index.md)
-
-- BREAKING: `destroy()` — renamed to `unmount()` in v2 to match Vue 3 lifecycle naming [source](./references/docs/migration/index.md)
-
-- BREAKING: `findAll().at()` — removed in v2; `findAll()` now returns a standard array of wrappers [source](./references/docs/migration/index.md)
-
-- BREAKING: `createWrapper()` — removed in v2, use the `new DOMWrapper()` constructor for non-component elements [source](./references/docs/migration/index.md)
-
-- BREAKING: `shallowMount` — v2 no longer renders default slot content for stubbed components by default [source](./references/docs/migration/index.md)
-
-- BREAKING: `find()` — now only supports `querySelector` syntax; use `findComponent()` to locate Vue components [source](./references/docs/migration/index.md)
-
-- BREAKING: `setSelected` and `setChecked` — removed in v2, functionality merged into `setValue()` [source](./references/docs/migration/index.md)
-
-- BREAKING: `attachToDocument` — renamed to `attachTo` in v2 [source](./references/docs/migration/index.md)
-
-- BREAKING: `emittedByOrder` — removed in v2, use `emitted()` instead [source](./references/docs/migration/index.md)
-
-- NEW: `renderToString()` — added in v2.3.0 to support SSR testing [source](./references/releases/v2.3.0.md)
-
-- NEW: `enableAutoUnmount()` / `disableAutoUnmount()` — replaces `enableAutoDestroy` in v2 [source](./references/docs/migration/index.md)
-
-- DEPRECATED: `scopedSlots` — removed in v2 and merged into the `slots` mounting option [source](./references/docs/migration/index.md)
-
-**Also changed:** `setValue()` and `trigger()` return `nextTick` · `slots` scope exposed as `params` in string templates · `is`, `isEmpty`, `isVueInstance`, `name`, `setMethods`, and `contains` removed
-
-## Best Practices
-
-- Always `await` methods that return `nextTick` (`trigger`, `setValue`, `setProps`, `setData`) to ensure DOM updates are processed before running assertions [source](./references/docs/guide/advanced/async-suspense.md)
+## Quick start
 
 ```ts
-// Preferred
-await wrapper.find('button').trigger('click')
-expect(wrapper.text()).toContain('Count: 1')
+import { mount } from '@vue/test-utils'
+import Counter from './Counter.vue'
 
-// Avoid — assertion runs before DOM update
-wrapper.find('button').trigger('click')
-expect(wrapper.text()).toContain('Count: 1')
+test('increments', async () => {
+  const wrapper = mount(Counter, { props: { start: 1 } })
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.text()).toContain('2')
+})
 ```
 
-- Prefer `get()` and `getComponent()` over `find()` and `findComponent()` when you expect the element to exist — they throw immediately if not found, providing clearer test failures [source](./references/docs/api/index.md)
+## Public API surface
 
-- Use `flushPromises()` to resolve non-Vue asynchronous operations such as mocked API calls (axios) or external promise-based logic that Vue doesn't track [source](./references/docs/guide/advanced/async-suspense.md)
+Exports from `dist/src/index.d.ts:13`:
 
-- Enable `enableAutoUnmount(afterEach)` in your test setup to automatically clean up wrappers after every test, preventing state pollution and memory leaks [source](./references/docs/api/index.md)
+| Export | Kind | Use |
+|---|---|---|
+| `mount` | function | Mount a component, returns `VueWrapper` (`dist/src/mount.d.ts:17`) |
+| `shallowMount` | function | Same as `mount` with all child components stubbed (`dist/src/mount.d.ts:22`) |
+| `renderToString` | function | SSR-render a component to a string, `Promise<string>` (`dist/src/renderToString.d.ts:4`) |
+| `flushPromises` | function | Await pending non-Vue promises (mocked API calls, timers) (`dist/src/utils/flushPromises.d.ts:1`) |
+| `enableAutoUnmount(hook)` | function | Unmount all wrappers via a test hook (`dist/src/utils/autoUnmount.d.ts:4`) |
+| `disableAutoUnmount` | function | Stop auto unmounting (`dist/src/utils/autoUnmount.d.ts:3`) |
+| `VueWrapper` | class | Wrapper around a mounted component instance (`dist/src/vueWrapper.d.ts:5`) |
+| `DOMWrapper` | class | Wrapper around a DOM element; `new DOMWrapper(document.body)` (`dist/src/domWrapper.d.ts:4`) |
+| `RouterLinkStub` | component | Stub for `<router-link>` (`dist/src/components/RouterLinkStub.d.ts:1`) |
+| `config` | object | Shared default mount options and wrapper plugins (`dist/src/config.d.ts:32`) |
+| `createWrapperError` | function | Internal; produces the error wrapper returned by `find` misses |
+
+## Core rules
+
+- `await` every method that returns a promise: `trigger`, `setValue`, `setProps`, `setData`, `renderToString`, `flushPromises`. Without `await`, assertions run before the DOM updates.
+- Use `get()` / `getComponent()` when the element must exist; they throw on miss. Use `find()` / `findComponent()` only when absence is a valid outcome; they return an error wrapper whose `exists()` is `false`.
+- `find()` accepts CSS selectors only. To locate a child component use `findComponent(Component)`, `findComponent({ name: 'Foo' })`, `findComponent({ ref: 'foo' })`, or a CSS selector.
+- Register `enableAutoUnmount(afterEach)` once in test setup to prevent state leaks between tests.
+- Use `flushPromises()` for promises Vue does not track (mocked HTTP clients, `setTimeout`).
+- `wrapper.vm` only reliably exposes what the component exposes: options-API state, `defineExpose()` bindings (since 2.5.0, PR #2927), or `setup()` return values.
 
 ```ts
 import { enableAutoUnmount } from '@vue/test-utils'
@@ -72,24 +58,51 @@ import { afterEach } from 'vitest'
 enableAutoUnmount(afterEach)
 ```
 
-- Wrap components with `async setup()` in a `<Suspense>` component within your test to correctly handle their asynchronous initialization [source](./references/docs/guide/advanced/async-suspense.md)
+## Version notes: 2.4.10 -> 2.5.1
 
-- Enable `config.global.renderStubDefaultSlot = true` when using `shallow` mounting to ensure content within default slots is rendered for verification [source](./references/docs/guide/advanced/stubs-shallow-mount.md)
+- BREAKING (2.5.0): class component support removed. Mount Vue components defined with `defineComponent`, options objects, or `<script setup>` SFCs. https://github.com/vuejs/test-utils/releases/tag/v2.5.0
+- Fix (2.5.0): `emitted()` history of child components is cleared when they unmount. Assert events before unmounting. https://github.com/vuejs/test-utils/pull/2898
+- Fix (2.5.0): `defineExpose` bindings are visible on `findComponent(...).vm`. https://github.com/vuejs/test-utils/pull/2927
+- Fix (2.4.11): `setData()` works correctly for components mixing `setup()` and `data()`. https://github.com/vuejs/test-utils/releases/tag/v2.4.11
+- Fix (2.4.11): `trigger('keydown')` sets a spec-compliant `event.code`. https://github.com/vuejs/test-utils/pull/2850
+- Type (2.4.11): `GlobalMountOptions` is exported. https://github.com/vuejs/test-utils/pull/2851
 
-- Prefer `mount()` with specific `global.stubs` over `shallow: true` to keep tests more production-like while still isolating specific complex child components [source](./references/docs/guide/advanced/stubs-shallow-mount.md)
+## Earlier v2 milestones still relevant
 
-- Use `global.provide` to pass data to components using `inject`, ensuring the component tree's dependency injection works as it does in production [source](./references/docs/guide/advanced/reusability-composition.md)
+- `renderToString` added in 2.3.0 for SSR testing. https://github.com/vuejs/test-utils/releases/tag/v2.3.0
+- `html({ raw: true })`, directive stubs (`vName: true`), and array `setValue` for multiselect added in 2.2.0. https://github.com/vuejs/test-utils/releases/tag/v2.2.0
+- `enableAutoUnmount` / `disableAutoUnmount` replaced v1 `enableAutoDestroy`. https://github.com/vuejs/test-utils/releases/tag/v2.0.0-rc.16
+- `propsData` still works but is deprecated; use `props` (`dist/src/types.d.ts:33-35`).
+- `stubs` accepts a record (`{ Foo: true }`) or an array of names (`['Foo']`) (`dist/src/types.d.ts:80`).
 
-- Test complex composables by mounting a minimal `TestComponent` that calls the composable, allowing you to verify internal state via `wrapper.vm` [source](./references/docs/guide/advanced/reusability-composition.md)
+## Migrating from v1 (Vue 2)
 
-```ts
-const TestComponent = defineComponent({
-  setup() {
-    return { ...useMyComposable() }
-  }
-})
-const wrapper = mount(TestComponent)
-expect(wrapper.vm.someValue).toBe(true)
-```
+Full table: [migration reference](./references/migration-v2.md), official guide https://test-utils.vuejs.org/migration/
 
-- Stub custom directives using the `vName` naming convention (e.g., `vTooltip: true`) in the `global.stubs` mounting option [source](./references/docs/guide/advanced/stubs-shallow-mount.md)
+- `propsData` -> `props`; `createLocalVue` removed -> `global.plugins` / `global.mixins`
+- `mocks`, `stubs`, `provide`, `directives` moved under `global`
+- `destroy()` -> `unmount()`; `findAll().at(i)` -> `findAll()[i]` (returns an array)
+- `createWrapper()` removed -> `new DOMWrapper(el)`
+- `setChecked` / `setSelected` removed -> merged into `setValue`
+- `find()` no longer finds components by name; use `findComponent`
+- `shallowMount` no longer renders default slot content of stubs; restore with `config.global.renderStubDefaultSlot = true`
+- Removed: `is`, `isEmpty`, `isVueInstance`, `name`, `setMethods`, `contains`, `scopedSlots` (merged into `slots`)
+
+## Best practices
+
+- Prefer `mount` with targeted `global.stubs` over `shallowMount`. Shallow tests assert structure, not behavior, and stubbed children hide real interactions. https://test-utils.vuejs.org/guide/advanced/stubs-shallow-mount
+- If you do stub broadly, set `config.global.renderStubDefaultSlot = true` so default slot content of stubs still renders (`dist/src/types.d.ts:125-131`).
+- Stub directives with the `vName` key: `global.stubs: { vTooltip: true }` or pass a replacement directive object.
+- `<transition>` and `<transition-group>` are stubbed by default (`dist/src/types.d.ts:120-124`); custom transition stubs are supported.
+- Pass inject values through `global.provide`, matching production injection. For typed injection keys, wrap the key: `provide: { [injectionKey as symbol]: value }`.
+- Test composables by mounting a minimal host component and reading state from `wrapper.vm`.
+- Wrap components with `async setup()` in a `<Suspense>` host before mounting.
+- For `<Teleport>`, either stub it (`global.stubs: { teleport: true }`) or create the target element in `beforeEach` and query it with `document.querySelector`. https://test-utils.vuejs.org/guide/advanced/teleport
+- Use `RouterLinkStub` when testing around `<router-link>` without installing a router: `global.stubs: { 'router-link': RouterLinkStub }`.
+
+## References
+
+- [Mounting options and config](./references/mounting-options.md): every `mount` / `shallowMount` / `renderToString` option, `global.*`, and the `config` object.
+- [Wrapper API](./references/wrapper-api.md): every `VueWrapper` / `DOMWrapper` method with signatures.
+- [Migration v1 -> v2](./references/migration-v2.md): full option and method mapping plus 2.5.x changes.
+- [Testing recipes](./references/recipes.md): forms, `v-model`, emitted events, router, Vuex/Pinia, Suspense, Teleport, SSR.

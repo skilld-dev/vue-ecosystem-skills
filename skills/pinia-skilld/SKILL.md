@@ -1,65 +1,122 @@
 ---
 name: pinia-skilld
-description: "Intuitive, type safe and flexible Store for Vue. ALWAYS use when writing code importing \"pinia\". Consult for debugging, best practices, or modifying pinia."
-metadata:
-  version: 3.0.4
-  generated_at: 2026-04-20
-  references_synced_at: 2026-04-20
+description: "Use when writing, debugging, or refactoring code that imports \"pinia\", the Vue 3 store library. Covers pinia 4.x: option and setup stores, state, getters, actions, subscriptions, plugins, SSR hydration, testing, Options API map helpers, and v4 nostics diagnostics. Provides version-correct API usage and migration notes from v2 and v3."
 ---
 
-# vuejs/pinia `pinia@3.0.4`
-**Tags:** next: 2.0.0-rc.10, beta: 2.1.8-beta.0, latest: 3.0.4
+# pinia@4.0.3
 
-**References:** [Docs](./references/docs/_INDEX.md)
-## API Changes
+Source citations use package-relative paths from the prepared pinia 4.0.3 source: `package.json`, `README.md`, `dist/pinia.js` (runtime), `dist/pinia.d.ts` (types). Other citations are official documentation URLs.
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Requirements
 
-- BREAKING: `defineStore({ id: 'storeName', ... })` — object signature with `id` property removed in v3.0.0; use `defineStore('storeName', { ... })` instead. Old object syntax silently compiled but is now a runtime error [source](./references/releases/CHANGELOG.md#300-2025-02-11)
+- Vue `^3.5.11` peer [package.json:62]. Vue 2 is unsupported since v3.
+- `@vue/devtools-api` `^8.1.5` is a required, non-optional peer [package.json:60-68]. Install it alongside pinia: `npm install pinia @vue/devtools-api` [README.md:108-111], v4.0.0 release notes.
+- TypeScript `>=5.6.0` optional peer [package.json:69-71].
+- ESM-only package: `"type": "module"`, single export `.` to `dist/pinia.js` [package.json:42,47-50]. v4 removed CJS resolution; a require() fallback breaks.
+- `@pinia/nuxt` 1.x and `@pinia/testing` 2.x are the companion versions for pinia 4 (https://github.com/vuejs/pinia/releases).
 
-- BREAKING: `PiniaStorePlugin` type — removed in v3.0.0; use `PiniaPlugin` instead. Code using `PiniaStorePlugin` will fail to compile [source](./references/releases/CHANGELOG.md#300-2025-02-11)
-
-- BREAKING: Vue 2 support dropped in v3.0.0 — Pinia v3 requires Vue 3 only. Users on Vue 2 must stay on Pinia v2 [source](./references/docs/cookbook/migration-v2-v3.md#new-versions)
-
-- BREAKING: TypeScript 5 or newer required in v3.0.0 — uses native `Awaited` type introduced in TS 4.5; TS 5+ recommended [source](./references/releases/CHANGELOG.md#300-2025-02-11)
-
-- BREAKING: IIFE bundle no longer bundles Vue Devtools in v3.0.0 — devtools API was too large; must be included manually depending on your workflow [source](./references/releases/CHANGELOG.md#300-2025-02-11)
-
-- BREAKING: Package is now published as `type: module` in v3.0.0 — CJS dist files still provided but the package root is ESM. May break setups relying on implicit CJS resolution [source](./references/releases/CHANGELOG.md#300-2025-02-11)
-
-- NEW: `action(fn, name?)` helper in setup stores — added in v2.2.0, available via `SetupStoreHelpers` parameter. Wraps a function so it is tracked by `$onAction` when called within the store; intended for advanced use cases like Pinia Colada [source](./references/releases/CHANGELOG.md#220-2024-07-26)
-
-- NEW: `disposePinia(pinia)` — added in v2.1.7, stops the pinia effect scope and removes state, plugins, and stores. Useful in tests or multi-pinia apps; disposed instance cannot be reused [source](./references/releases/CHANGELOG.md#218-beta0-2024-04-17)
-
-- NEW: `SetupStoreDefinition<Id, SS>` type — added in v2.1.7 for the return type of `defineStore()` when using a setup function. Extends `StoreDefinition` and enables better IDE support for setup stores [source](./references/releases/CHANGELOG.md#217-2023-10-13)
-
-- NEW: `mapWritableState` now picks up writable `computed`s in setup stores — added in v2.3.0. Previously only `ref` state was mapped; `WritableComputedRef` returns from setup stores are now included [source](./references/releases/CHANGELOG.md#230-2024-12-04)
-
-**Also changed:** `mapGetters` DEPRECATED (alias for `mapState`, still exported) · `getActivePinia()` returns `Pinia | undefined` (typed more strictly since v2.0.35) · `skipHydrate(obj)` stable — skips SSR hydration for non-state objects returned from setup stores · `shouldHydrate(obj)` exported utility for plugin authors
-
-## Best Practices
-
-- Use `$patch()` with a function callback rather than an object when mutating arrays or performing multiple related changes — the function form groups all mutations into a single devtools entry and avoids creating intermediate collections [source](./references/docs/core-concepts/state.md#mutating-the-state)
-
-- Use `$subscribe()` instead of `watch()` on store state — subscriptions fire only once per `$patch` call regardless of how many individual properties changed, avoiding redundant callbacks when using the function form of `$patch` [source](./references/docs/core-concepts/state.md#subscribing-to-the-state)
-
-- Pass `{ detached: true }` to `$subscribe()` and `true` as the second arg to `$onAction()` when you need listeners to outlive the component — by default both are automatically removed on component unmount [source](./references/docs/core-concepts/state.md#detaching-subscriptions)
-
-- In setup stores, use `skipHydrate()` to wrap state properties that must not be picked up from SSR initial state (e.g., composables backed by `localStorage`, client-only refs) — without it, the server's serialized value will override the intended client-side source [source](./references/docs/cookbook/composables.md#ssr)
+## Install and setup
 
 ```ts
-return {
-  lastColor: skipHydrate(lastColor), // won't be overwritten by SSR state
-  open,
-}
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+
+const pinia = createPinia()
+const app = createApp(App)
+app.use(pinia)
+app.mount('#app')
 ```
 
-- When a plugin adds new state properties, set the value on both `store.$state` (for SSR serialization and devtools) and `store` via `toRef(store.$state, 'key')` — setting only one breaks devtools display or reactivity sharing [source](./references/docs/core-concepts/plugins.md#adding-new-state)
+From [README.md:119-130]. In dev on the client, `createPinia()` registers the devtools plugin itself [dist/pinia.js:832,847].
 
-- Wrap non-reactive external objects (router, class instances, third-party lib instances) with `markRaw()` before assigning them in plugins — prevents Vue from trying to deeply observe objects that aren't meant to be reactive [source](./references/docs/core-concepts/plugins.md#adding-new-external-properties)
+## Define a store
 
-- When composing stores that reference each other, place `useOtherStore()` calls before any `await` in async actions — after an `await` the active pinia context may have changed, causing the wrong instance to be returned in SSR [source](./references/docs/cookbook/composing-stores.md#shared-actions)
+Two syntaxes. The id is a unique string, first argument in both [dist/pinia.d.ts:645,653].
 
-- Use `createTestingPinia()` from `@pinia/testing` for component tests rather than `createPinia()` — it stubs all actions by default and makes them inspectable as spies; pass plugins via the `plugins` option, not via `testingPinia.use()` [source](./references/docs/cookbook/testing.md#unit-testing-components)
+```ts
+import { defineStore } from 'pinia'
 
-- In options store getters, prefer arrow functions that receive `state` as the first parameter over regular functions using `this` — arrow function return types are inferred automatically, while `this`-based getters require an explicit return type annotation [source](./references/docs/core-concepts/getters.md#getters)
+// Option store: state/getters/actions
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ count: 0 }),
+  getters: {
+    doubleCount: (state) => state.count * 2,
+  },
+  actions: {
+    increment() {
+      this.count++
+    },
+  },
+})
+
+// Setup store: refs are state, computed are getters, functions are actions
+export const useTodos = defineStore('todos', () => {
+  const todos = ref<Todo[]>([])
+  const done = computed(() => todos.value.filter((t) => t.done))
+  function add(todo: Todo) {
+    todos.value.push(todo)
+  }
+  return { todos, done, add }
+})
+```
+
+Rules for setup stores [dist/pinia.js:1178-1202]:
+- `ref()` and `reactive()` become state.
+- `computed()` becomes a getter.
+- Functions become actions, wrapped automatically for `$onAction`.
+- Return every state property. Pinia only picks up returned state, so private state breaks SSR hydration and devtools.
+
+The setup function receives helpers: `defineStore('id', ({ action }) => { ... })` [dist/pinia.js:1177, dist/pinia.d.ts:628-638]. `action(fn, name?)` makes a helper function trackable by `$onAction` when called within the store. Rarely needed; intended for advanced cases like Pinia Colada.
+
+## Use a store
+
+Call `useStore()` inside `setup()` (or any composable). Every call returns the same store instance.
+
+```ts
+const counter = useCounterStore()
+
+counter.count++            // direct state mutation
+counter.doubleCount        // getter
+counter.increment()        // action
+
+const { count, doubleCount } = storeToRefs(counter) // refs for destructuring
+```
+
+`storeToRefs()` converts state and getters to refs. It ignores actions and non-reactive properties [dist/pinia.js:1475-1489]. Destructure with it, never plain `toRefs()` or `...store`, when you need reactivity.
+
+Common operations:
+- Group changes into one devtools entry with `store.$patch(obj)` or `$patch(fn)`. The function form must be synchronous [dist/pinia.d.ts:219-225] and suits array, Map, and Set edits [dist/pinia.js:964-975].
+- `$reset()` exists only on option stores. On a setup store it throws in dev [dist/pinia.js:1085-1087]; implement your own `$reset` in the returned object.
+- Assigning `store.$state = {...}` does not replace state; it calls `$patch` internally [dist/pinia.js:1207-1216].
+- Declare every state key in `state()` (or return it from setup), even when the initial value is `undefined`. New keys added later are not reactive.
+- Outside a component, pass the pinia instance: `useStore(pinia)`. On the server this is mandatory; skipping it risks cross-request state pollution [dist/pinia.js:37-39].
+
+Details: [stores](./references/stores.md), [subscriptions](./references/subscriptions.md).
+
+## Version notes and migration
+
+v4.0.0, technically breaking only (https://github.com/vuejs/pinia/releases/tag/v4.0.0):
+- ESM-only distribution.
+- `@vue/devtools-api` upgraded to v8 and now a required install.
+- Errors and dev warnings refactored onto Nostics diagnostics, codes `PINIA_R1001` to `PINIA_R1007` [dist/pinia.js:18-56]. See [diagnostics](./references/diagnostics.md).
+- `piniaSymbol` is now part of the public exports [dist/pinia.js:1491].
+- `storeToRefs()` skips nullish values gracefully; `$subscribe()` ignores a duplicate callback instead of stacking a second watcher.
+
+Still relevant from v3.0.0 (https://pinia.vuejs.org/cookbook/migration-v2-v3.html):
+- `defineStore({ id: 'x', ... })` object-only signature removed. Use `defineStore('x', { ... })`.
+- `PiniaStorePlugin` type removed. Use `PiniaPlugin`.
+- Vue 2 support dropped. Vue 2 users stay on pinia v2.
+
+## Reference files
+
+- [API surface](./references/api.md): every public export with signatures and type helpers.
+- [Stores](./references/stores.md): state, getters, actions, typing, composing stores, HMR.
+- [Subscriptions](./references/subscriptions.md): `$subscribe`, `$onAction`, `MutationType`, detached and flush options.
+- [Plugins](./references/plugins.md): `pinia.use()`, context, typing extensions, new state and options.
+- [SSR](./references/ssr.md): hydration, `skipHydrate`, per-request pinia, Nuxt.
+- [Testing](./references/testing.md): `setActivePinia`, `@pinia/testing` 2.x usage.
+- [Options API](./references/options-api.md): map helpers without `setup()`.
+- [Diagnostics](./references/diagnostics.md): dev-only `PINIA_R100x` catalog with fixes.
+
+Official docs: https://pinia.vuejs.org

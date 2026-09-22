@@ -1,73 +1,215 @@
 ---
 name: tanstack-vue-router-skilld
-description: "Modern and scalable routing for Vue applications. ALWAYS use when writing code importing \"@tanstack/vue-router\". Consult for debugging, best practices, or modifying @tanstack/vue-router, tanstack/vue-router, tanstack vue-router, tanstack vue router, router."
-metadata:
-  version: 1.166.7
-  generated_at: 2026-03-11
-  references_synced_at: 2026-05-05
+description: Use when writing, debugging, or refactoring code that imports @tanstack/vue-router (TanStack Router for Vue). Covers setup, file-based and code-based routes, composables returning Ref, Link, loaders, search params, SSR, and v1.170.x deprecations.
 ---
 
-# TanStack/router `@tanstack/vue-router`
+# @tanstack/vue-router
 
-> Modern and scalable routing for Vue applications
+Type-safe router for Vue. Prepared source: version **1.170.35** (`package.json:3`).
 
-**Version:** 1.166.7 (Mar 2026)
-**Deps:** @tanstack/vue-store@^0.9.1, @vue/runtime-dom@^3.5.25, isbot@^5.1.22, jsesc@^3.0.2, tiny-invariant@^1.3.3, tiny-warning@^1.0.3, @tanstack/history@1.161.4, @tanstack/router-core@1.166.7
-**Tags:** latest: 1.166.7 (Mar 2026)
+- Requires `vue >= 3.3.0` (peer), Node `>= 20.19` (`package.json:59-88`)
+- Runtime deps: `@tanstack/router-core@1.171.32`, `@tanstack/history@1.162.4`, `@tanstack/vue-store@^0.11.0`
+- ESM-only (`"type": "module"`), no `main`/CJS entry
+- Entry points: `@tanstack/vue-router`, `@tanstack/vue-router/ssr/server`, `@tanstack/vue-router/ssr/client` (`package.json:29-50`)
 
-**References:** [Docs](./references/docs/_INDEX.md) — API reference, guides
-## API Changes
+Docs: https://tanstack.com/router (framework pages verified at `/router/latest/docs/framework/vue/...`)
 
-This section documents version-specific API changes — prioritize recent major/minor releases.
+## Hard rules
 
-- BREAKING: `NotFoundRoute` & `routerOptions.notFoundRoute` — deprecated in v1.x; use `notFoundComponent` in route options or `defaultNotFoundComponent` in `createRouter` instead [source](./references/docs/router/guide/not-found-errors.md:L5)
+1. **Most composables return `Ref<T>`** — use `.value` in script; templates auto-unwrap. `useRouter()`, `useNavigate()`, `useLinkProps()`, `useAwaited()` do NOT return refs. Full table in [references/composables.md](./references/composables.md).
+2. **Never cast or annotate inferred route/router types.** Types come from the route tree and the `Register` declaration.
+3. **Register the router for type safety** — without this, `Link`/`useNavigate`/`useSearch` accept any string:
 
-- DEPRECATED: Router Classes (`Router`, `Route`, `RootRoute`, `FileRoute`) — all class-based APIs are deprecated; use factory functions `createRouter`, `createRoute`, `createRootRoute`, and `createFileRoute` instead [source](./references/docs/router/api/router/RouterClass.md:L7)
+```ts
+declare module '@tanstack/vue-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+```
 
-- DEPRECATED: `opts.navigate` — the `navigate` argument inside `beforeLoad` and `loader` is deprecated; use `throw redirect({ to: '...' })` for navigation-triggered redirects instead [source](./references/docs/router/api/router/RouteOptionsType.md:L118)
+4. **Not `vue-router`.** Never import `useRoute`/`useRouter` from `vue-router`, never use `<router-view>`/`<router-link>`.
+5. **`beforeLoad`/`loader` are plain async functions.** Vue composables (`ref`, `computed`, lifecycle hooks) cannot run inside them. Pass state through router `context`.
+6. Route options accept Vue SFCs: `component`, `errorComponent`, `notFoundComponent`, `pendingComponent` and the `default*Component` router options take `.vue` files or `h()`-style function components (`src/route.ts:54-58`, `src/router.ts:26-65`).
 
-- DEPRECATED: `parseParams` & `stringifyParams` — top-level route properties deprecated in favor of the nested `params.parse` and `params.stringify` objects [source](./references/docs/router/api/router/RouteOptionsType.md:L68)
+## Setup with Vite (file-based routing)
 
-- DEPRECATED: `preSearchFilters` & `postSearchFilters` — deprecated in favor of `search.middlewares` array which provides a composable middleware pipeline for transforming search params [source](./references/docs/router/api/router/RouteOptionsType.md:L225)
+```bash
+npm install @tanstack/vue-router
+npm install -D @tanstack/router-plugin @vitejs/plugin-vue @vitejs/plugin-vue-jsx
+```
 
-- DEPRECATED: `<ScrollRestoration />` component — deprecated; configure scroll restoration via `scrollRestoration: true` in `createRouter` options instead [source](./references/docs/router/guide/scroll-restoration.md:L64)
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { tanstackRouter } from '@tanstack/router-plugin/vite'
 
-- NEW: `protocolAllowlist` — `createRouter` option accepting `Array<string>` of allowed URL protocols (e.g. `'https:'`, `'mailto:'`); absolute URLs with unlisted protocols are blocked to prevent XSS; also exports `DEFAULT_PROTOCOL_ALLOWLIST` constant [source](./references/docs/router/api/router/RouterOptionsType.md:L147)
+export default defineConfig({
+  plugins: [
+    tanstackRouter({ target: 'vue', autoCodeSplitting: true }), // before vue()
+    vue(),
+    vueJsx(), // needed for .tsx route files
+  ],
+})
+```
 
-- NEW: `search.middlewares` — route option accepting an array of middleware functions `({search, next}) => search` for composable search param transformation when generating links; use with `retainSearchParams` and `stripSearchParams` helpers [source](./references/docs/router/api/router/RouteOptionsType.md:L61)
+Source: official Vue example, https://github.com/TanStack/router/blob/main/examples/vue/basic-file-based-sfc/vite.config.ts
 
-- NEW: `head`, `headers`, `scripts` — route option methods for server-side document management; `head()` injects `<meta>`, `<link>`, `<style>` into `<head>`; `headers()` sets HTTP response headers; `scripts()` injects `<script>` tags [source](./references/docs/router/api/router/RouteOptionsType.md:L304)
+```ts
+// src/main.ts
+import { createApp, h } from 'vue'
+import { RouterProvider, createRouter } from '@tanstack/vue-router'
+import { routeTree } from './routeTree.gen'
 
-- NEW: Validation Adapters — `@tanstack/zod-adapter`, `@tanstack/valibot-adapter`, and `@tanstack/arktype-adapter` provide schema-based validation for search params and route params with distinct input/output type inference [source](./references/docs/router/guide/search-params.md#zod)
+const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  scrollRestoration: true,
+})
 
-- NEW: `defaultViewTransition` — `createRouter` option accepting `boolean | ViewTransitionOptions` to enable native View Transitions API (`document.startViewTransition()`) during navigation; supports `types` array via `ViewTransitionOptions` [source](./references/docs/router/api/router/RouterOptionsType.md:L182)
+declare module '@tanstack/vue-router' {
+  interface Register {
+    router: typeof router
+  }
+}
 
-- NEW: `rewrite` — `createRouter` option accepting `{ input?, output? }` for bidirectional URL transformation between browser URL and router's internal URL; `input` transforms before matching, `output` transforms before writing to history [source](./references/docs/router/api/router/RouterOptionsType.md:L217)
+createApp({ setup: () => () => h(RouterProvider, { router }) }).mount('#app')
+```
 
-- NEW: `Wrap` & `InnerWrap` — `createRouter` options for injecting global providers; `Wrap` surrounds the entire router, `InnerWrap` wraps inner content and has access to router context and hooks [source](./references/docs/router/api/router/RouterOptionsType.md:L295)
+File naming, split-file conventions (`.route.ts`, `.component.vue`, `.lazy.ts`), and the generated `routeTree.gen.ts`: [references/file-based-routing.md](./references/file-based-routing.md).
 
-- NEW: `codeSplitGroupings` — route option `Array<Array<'loader' | 'component' | 'pendingComponent' | 'notFoundComponent' | 'errorComponent'>>` for fine-grained control over how lazy-loaded route assets are bundled into chunks [source](./references/docs/router/api/router/RouteOptionsType.md:L364)
+## Code-based routing
 
-**Also changed:** `rootRouteWithContext` deprecated → use `createRootRouteWithContext` · `useCanGoBack()` new experimental hook · `defaultRemountDeps` new router option · `defaultStructuralSharing` new router option · `search.strict` new router option · `disableGlobalCatchBoundary` new router option · `scrollToTopSelectors` new router option · `composeRewrites` new export · `ClientOnly` / `ScriptOnce` / `HeadContent` / `Asset` new components · `SearchSchemaInput` tag for optional search params · `state.__TSR_key` replaces deprecated `state.key`
+```ts
+import { h } from 'vue'
+import { createRootRouteWithContext, createRoute, createRouter, Outlet } from '@tanstack/vue-router'
 
-## Best Practices
+interface RouterContext { auth: { isAuthenticated: boolean } }
 
-- Use `zodValidator()` adapter with `fallback()` instead of Zod's `.catch()` for search param validation — `.catch()` widens types to `unknown`, losing type inference, while `fallback(z.number(), 1).default(1)` retains correct types and makes `search` optional in `<Link>` props [source](./references/docs/router/guide/search-params.md#zod)
+const rootRoute = createRootRouteWithContext<RouterContext>()({ component: () => h(Outlet) })
 
-- In `loaderDeps`, extract only the search params actually used in the loader — returning the entire `search` object causes the loader to re-run on any search param change, even unrelated ones like `viewMode` or `sortDirection` [source](./references/docs/router/guide/data-loading.md#using-loaderdeps-to-access-search-params)
+const postsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: 'posts',
+  loader: ({ context }) => fetchPosts(context.auth),
+})
 
-- Use `getRouteApi('/your/path')` to access route hooks (`useLoaderData`, `useSearch`, `useParams`) in deeply nested components instead of importing the `Route` object — direct `Route` imports from child components create circular dependencies [source](./references/docs/router/guide/data-loading.md#consuming-data-from-loaders)
+const routeTree = rootRoute.addChildren([postsRoute])
+const router = createRouter({
+  routeTree,
+  context: { auth: { isAuthenticated: false } },
+})
+```
 
-- Enable `defaultStructuralSharing: true` on the router when using `select` in hooks like `useSearch` — without it, `select` returning a new object on every call triggers unnecessary re-renders even when values are unchanged [source](./references/docs/router/guide/render-optimizations.md#structural-sharing-with-fine-grained-selectors)
+Route options, hooks on route objects, and property-order rules: [references/routes.md](./references/routes.md).
 
-- Use `createRootRouteWithContext<YourContextType>()` instead of `createRootRoute` when injecting shared dependencies (auth, query client, etc.) — this enforces the context type at router creation time and makes `context` available with full type inference in all descendant `beforeLoad` and `loader` functions [source](./references/docs/router/guide/router-context.md#typed-router-context)
+## Composables
 
-- Property order inside `createFileRoute`, `createRoute`, and `createRootRoute` objects is inference-sensitive: `params`/`validateSearch` must come before `loaderDeps`, `beforeLoad` before `loader`, etc. — wrong order causes type errors where `context` from `beforeLoad` isn't visible in `loader`. Install `@tanstack/eslint-plugin-router` and enable the `create-route-property-order` rule (it's fixable) [source](./references/docs/router/eslint/create-route-property-order.md#rule-details)
+| Composable | Returns | Notes |
+|---|---|---|
+| `useRouter()` | router instance | not a ref |
+| `useRouterState({ select })` | `Ref<T>` | pass `select` to avoid re-renders |
+| `useNavigate({ from? })` | function | not a ref |
+| `useSearch({ from })` | `Ref<T>` | throws unless `from` matches |
+| `useParams({ from })` | `Ref<T>` | |
+| `useMatch({ from })` | `Ref<T>` | |
+| `useLoaderData({ from })` | `Ref<T>` | |
+| `useLoaderDeps({ from })` | `Ref<T>` | |
+| `useRouteContext({ from })` | `Ref<T>` | |
+| `useLocation()` | `Ref<ParsedLocation>` | |
+| `useMatches()` / `useParentMatches()` / `useChildMatches()` | `Ref<Array<Match>>` | accepts `select` |
+| `useMatchRoute()` | function | calling it returns `Ref<false \| params>` (`src/Matches.tsx:148-172`) |
+| `useLinkProps(options)` | link props object | for custom anchors |
+| `useBlocker({ shouldBlockFn })` | `void` or `Ref<BlockerResolver>` | resolver only with `withResolver: true` |
+| `useCanGoBack()` | `Ref<boolean>` | `location.state.__TSR_index !== 0` (`src/useCanGoBack.ts:4-10`) |
+| `useAwaited({ promise })` | `[data, promise]` tuple | for deferred data |
 
-- Use `retainSearchParams(['key'])` and `stripSearchParams(defaultValues)` as `search.middlewares` on a route rather than manually forwarding params in every `<Link>` — middlewares run automatically on all descendant links and on navigation, keeping the URL clean without repetitive spread patterns [source](./references/docs/router/guide/search-params.md#transforming-search-with-search-middlewares)
+Route objects and `getRouteApi('/path')` expose the same hooks pre-scoped: `Route.useSearch()`, `Route.useLoaderData()`, `Route.useNavigate()`, `Route.Link` (`src/route.ts:72-80`).
 
-- When throwing `redirect()` inside `beforeLoad` error handlers, always re-throw errors identified by `isRedirect()` before converting other errors — otherwise intentional redirects are swallowed as route errors [source](./references/docs/router/guide/authenticated-routes.md#handling-auth-check-failures)
+Details and `select`/`strict` semantics: [references/composables.md](./references/composables.md).
 
-- Use `linkOptions({ to, search, ... })` to define reusable navigation targets instead of plain object literals — bare object literals infer `to` as `string` (matching every route) and defer type errors until the object is spread into `<Link>`. `linkOptions` validates the destination at definition time and the same value works in `<Link>`, `navigate()`, and `redirect()` [source](./references/docs/router/guide/link-options.md#using-linkoptions-function-to-create-re-usable-options)
+## Components
 
-- Set `defaultPreload: 'intent'` on the router to preload route data and code-split chunks on link hover — preloaded data is cached for 30 seconds (configurable via `defaultPreloadMaxAge`) and prevents loader waterfalls on navigation without any per-link configuration [source](./references/docs/router/guide/preloading.md#supported-preloading-strategies)
+| Component | Purpose |
+|---|---|
+| `<RouterProvider :router="router" />` | mounts the router; extra attrs update router options (`src/RouterProvider.tsx:60-95`) |
+| `<Link to="..." :params="..." :search="...">` | type-safe anchor; active state sets `data-status="active"` + `aria-current="page"` (`src/link.tsx:522-525`); default slot receives `{ isActive }` (`src/link.tsx:918`) |
+| `<Outlet />` | renders matched child route (`src/Match.tsx:275`) |
+| `<Navigate to="..." />` | declarative redirect, fires in `onMounted` (`src/useNavigate.tsx:24-40`) |
+| `<MatchRoute to="..." :fuzzy="true">` | renders slot when matched; scoped slot receives params |
+| `<Await :promise="p">` | deferred data with `<Suspense>` (`src/awaited.tsx:26-43`) |
+| `<Block :should-block-fn="fn">` | navigation blocking; scoped slot receives resolver (`src/useBlocker.tsx:470-491`) |
+| `<CatchBoundary>` / `<ErrorComponent>` | error boundary via `onErrorCaptured` |
+| `<ClientOnly>` | renders children only after mount |
+| `<HeadContent>`, `<Scripts>`, `<Html>`, `<Body>`, `<Asset>`, `<ScriptOnce>` | SSR document shell |
+
+Link options, `activeProps` (defaults to `{ class: 'active' }`, `src/link.tsx:477`), preloading (`intent`/`viewport`/`render`), `linkOptions()`, and `createLink()`: [references/navigation-links.md](./references/navigation-links.md).
+
+## Data loading and redirects
+
+```ts
+const route = createFileRoute('/posts/$postId')({
+  beforeLoad: async ({ context, params }) => {
+    if (!context.auth.isAuthenticated) {
+      throw redirect({ to: '/login', search: { from: params.postId } })
+    }
+  },
+  loaderDeps: ({ search: { page } }) => ({ page }),
+  loader: ({ deps, params }) => fetchPost(params.postId, deps.page),
+  pendingComponent: PendingSpinner, // .vue file works too
+})
+```
+
+`throw redirect()`, `isRedirect()`, deferred streaming with `defer()`, and context typing: [references/data-loading.md](./references/data-loading.md).
+
+## Search params
+
+```ts
+import { z } from 'zod' // or plain validators
+const route = createFileRoute('/posts')({
+  validateSearch: z.object({ page: z.number().default(1) }),
+  search: {
+    middlewares: [stripSearchParams({ page: 1 })],
+  },
+})
+```
+
+Validators, input/output schemas, `retainSearchParams`/`stripSearchParams`, and custom serialization: [references/search-params.md](./references/search-params.md).
+
+## Deprecations in 1.170.x (use instead)
+
+| Deprecated | Replacement | Proof |
+|---|---|---|
+| `Route`, `RootRoute`, `FileRoute`, `RouteApi` classes | `createRoute`, `createRootRoute`, `createFileRoute`, `getRouteApi` | `src/route.ts:95`, `src/route.ts:220`, `src/route.ts:460`, `src/fileRoute.ts:57` |
+| `rootRouteWithContext` | `createRootRouteWithContext` | `src/route.ts:414` |
+| `NotFoundRoute` / `routerOptions.notFoundRoute` | `notFoundComponent` route option / `defaultNotFoundComponent` router option | https://tanstack.com/router/latest/docs/framework/vue/guide/not-found-errors |
+| `<ScrollRestoration />` | `scrollRestoration: true` in `createRouter` | `src/ScrollRestoration.tsx:18` |
+| `opts.navigate` in `beforeLoad`/`loader` | `throw redirect({ to })` | https://tanstack.com/router/latest/docs/framework/vue/api/router/RouteOptionsType |
+| `parseParams`/`stringifyParams` | `params.parse`/`params.stringify` | same RouteOptionsType doc |
+| `preSearchFilters`/`postSearchFilters` | `search.middlewares` | same RouteOptionsType doc |
+| `FileRouteLoader` / separate `.lazy.ts` loader files | keep the loader in the route file | `src/fileRoute.ts:153` |
+| `useBlocker(fn, condition)` legacy signatures | `{ shouldBlockFn }` object | `src/useBlocker.tsx:139-151` |
+
+## Best practices
+
+- Set `defaultPreload: 'intent'` on the router; preloaded data is cached (default 30 s, `defaultPreloadMaxAge`) — https://tanstack.com/router/latest/docs/framework/vue/guide/preloading
+- In `loaderDeps`, select only the search params the loader uses; spreading all of `search` re-runs the loader on every unrelated param change — https://tanstack.com/router/latest/docs/framework/vue/guide/data-loading
+- Use `getRouteApi('/posts/$postId')` in deep components instead of importing the `Route` object (avoids circular imports) — https://tanstack.com/router/latest/docs/framework/vue/guide/data-loading
+- When re-throwing from `beforeLoad` error handlers, check `isRedirect(error)` first so redirects are not swallowed — https://tanstack.com/router/latest/docs/framework/vue/guide/authenticated-routes
+- Route option order is inference-sensitive (`validateSearch`/`params` before `loaderDeps`, `beforeLoad` before `loader`); the `create-route-property-order` ESLint rule is auto-fixable — https://tanstack.com/router/latest/docs/framework/vue/eslint/create-route-property-order
+- Prefer `linkOptions({ to, ... })` over bare object literals for reusable navigation targets; works in `<Link>`, `navigate()`, `redirect()` — https://tanstack.com/router/latest/docs/framework/vue/guide/link-options
+- With `select` returning new objects in hooks, enable `defaultStructuralSharing: true` on the router — https://tanstack.com/router/latest/docs/framework/vue/guide/render-optimizations
+- External links with protocols outside `protocolAllowlist` (default `DEFAULT_PROTOCOL_ALLOWLIST`) are blocked to prevent XSS (`src/link.tsx:543-550`)
+
+## References
+
+- [references/api-surface.md](./references/api-surface.md) — every public export, grouped
+- [references/composables.md](./references/composables.md) — hook signatures and `Ref` semantics
+- [references/routes.md](./references/routes.md) — route creation, options, route hooks
+- [references/navigation-links.md](./references/navigation-links.md) — `Link`, navigation, blocking, preloading
+- [references/data-loading.md](./references/data-loading.md) — loaders, context, redirects, deferred data
+- [references/search-params.md](./references/search-params.md) — validation and middlewares
+- [references/file-based-routing.md](./references/file-based-routing.md) — Vite plugin, naming, code splitting
+- [references/ssr.md](./references/ssr.md) — server entry points and document shell components
