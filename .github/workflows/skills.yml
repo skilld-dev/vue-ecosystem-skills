@@ -1,0 +1,34 @@
+name: Skills
+
+# This repository ships Markdown, so this workflow opts in to Markdown paths.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - packages.json
+      - skills-lock.json
+      - scripts/validate.mjs
+      - .github/workflows/skills.yml
+  pull_request:
+    paths:
+      - 'skills/**'
+      - packages.json
+      - skills-lock.json
+      - scripts/validate.mjs
+      - .github/workflows/skills.yml
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          # The validator has no dependencies, so this job never installs.
+          package-manager-cache: false
+
+      - name: Check every Skill
+        run: node scripts/validate.mjs

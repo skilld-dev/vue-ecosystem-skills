@@ -20,27 +20,40 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
 
+      - name: Require the OpenCode credential
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: |
+          test -n "$OPENCODE_API_KEY" || {
+            echo "Set the OPENCODE_API_KEY repository secret before this workflow can rebuild a Skill."
+            exit 1
+          }
+
       - name: Rebuild stale Skills
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
         run: pnpm sync ${{ inputs.packages }}
 
+      - name: Check every Skill
+        run: node scripts/validate.mjs
+
       - name: Open a pull request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet; then
+          # A new Skill is an untracked directory, which `git diff` never shows.
+          if [ -z "$(git status --porcelain)" ]; then
             echo "Every Skill matches its package."
             exit 0
           fi

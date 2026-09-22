@@ -10,6 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createOpenCode } from '@ai-sdk/harness-opencode'
 import { createSkillHarness } from 'skilld-harness'
 import { createLocalSandbox } from 'skilld-harness/sandbox-local'
+import { parseSpec, skillName } from './naming.mjs'
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const packagesFile = join(repoRoot, 'packages.json')
@@ -34,30 +35,6 @@ function ok(value) {
 
 function err(error) {
   return { _tag: 'Err', error }
-}
-
-/**
- * Split a package specifier into its name and its npm dist-tag.
- * `vue@beta` names the `beta` tag. `@vueuse/core` names the `latest` tag.
- */
-export function parseSpec(spec) {
-  const match = /^(@[^/]+\/[^@]+|[^@]+)(?:@(.+))?$/.exec(spec)
-  if (match === null)
-    return err({ _tag: 'InvalidSpec', spec })
-  return ok({ name: match[1], tag: match[2] ?? 'latest' })
-}
-
-/**
- * Derive the Skill directory name for a package.
- * It matches the names the Repository already uses.
- */
-export function skillName(packageName) {
-  const slug = packageName
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '')
-  return `${slug}-skilld`
 }
 
 async function readJson(path, fallback) {

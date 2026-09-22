@@ -12,6 +12,7 @@
   "scripts": {
     "sync": "node scripts/sync.mjs",
     "sync:check": "node scripts/sync.mjs --check",
+    "validate": "node scripts/validate.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
