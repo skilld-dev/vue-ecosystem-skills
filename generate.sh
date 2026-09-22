@@ -3,7 +3,7 @@ set -euo pipefail
 
 MODEL="${SKILLD_MODEL:-haiku}"
 EJECT_DIR="${SKILLD_OUT:-./skills}"
-SKILLD="${SKILLD_BIN:-npx -y skilld@latest}"
+SKILLD="${SKILLD_BIN:-pnpm dlx --allow-build=@google/genai --allow-build=onnxruntime-node --allow-build=protobufjs skilld@2}"
 BATCH_SIZE="${SKILLD_BATCH:-6}"
 STALE_DAYS="${SKILLD_STALE_DAYS:-30}"
 REFS_ONLY=false
