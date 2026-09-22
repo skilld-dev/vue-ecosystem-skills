@@ -31,6 +31,7 @@ skills/<name>/
 `skills-lock.json` records the version each Skill was built from.
 
 ```sh
+pnpm validate                   # check every Skill against the rules below
 pnpm sync:check                 # report which packages moved ahead of the lockfile
 pnpm sync                       # rebuild every Skill whose package moved
 pnpm sync @vueuse/core pinia    # rebuild named packages, whatever the lockfile says
