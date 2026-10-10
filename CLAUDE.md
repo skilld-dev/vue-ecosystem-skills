@@ -24,6 +24,7 @@ skills/<name>/
 - API Changes section: only version-specific additions and breaking changes with `[source]` links
 - Best Practices section: patterns derived from official docs, not general JS knowledge
 - All code examples must be TypeScript + Composition API unless the skill specifically targets Options API
+- Skill licenses use this collection's `package.json` license, rather than the described package's license. Sync applies it after generation.
 
 ## Keeping Skills current
 

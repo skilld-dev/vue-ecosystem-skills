@@ -11,6 +11,9 @@ on:
       - scripts/validate.mjs
       - scripts/validate.test.ts
       - scripts/naming.mjs
+      - scripts/sync.mjs
+      - scripts/collection-metadata.ts
+      - scripts/collection-metadata.test.ts
       - package.json
       - pnpm-lock.yaml
       - pnpm-workspace.yaml
@@ -23,6 +26,9 @@ on:
       - scripts/validate.mjs
       - scripts/validate.test.ts
       - scripts/naming.mjs
+      - scripts/sync.mjs
+      - scripts/collection-metadata.ts
+      - scripts/collection-metadata.test.ts
       - package.json
       - pnpm-lock.yaml
       - pnpm-workspace.yaml
@@ -47,4 +53,4 @@ jobs:
         run: node scripts/validate.mjs
 
       - name: Test Skill validation
-        run: node --test scripts/validate.test.ts
+        run: node --test scripts/*.test.ts

@@ -10,6 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createOpenCode } from '@ai-sdk/harness-opencode'
 import { createSkillHarness } from 'skilld-harness'
 import { createLocalSandbox } from 'skilld-harness/sandbox-local'
+import { applyCollectionLicense } from './collection-metadata.ts'
 import { parseSpec, skillName } from './naming.mjs'
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -91,16 +92,22 @@ async function resolveApiKey() {
   return ok(key)
 }
 
-async function runOne(skillHarness, entry) {
+export async function runOne(skillHarness, entry, collection) {
   const started = Date.now()
   const result = await skillHarness.run({
     _tag: 'PackageSkill',
     source: { _tag: 'NpmPackage', spec: `${entry.name}@${entry.published}` },
-    destination: { rootDir: skillsDir, name: skillName(entry.name) },
+    destination: { rootDir: collection.rootDir, name: skillName(entry.name) },
   })
   const seconds = Math.round((Date.now() - started) / 1000)
   if (result._tag === 'Err')
     return err({ _tag: 'RunFailed', entry, seconds, cause: result.error })
+  const skillPath = join(collection.rootDir, skillName(entry.name), 'SKILL.md')
+  const source = await readFile(skillPath, 'utf8')
+  const metadata = applyCollectionLicense(source, collection.license)
+  if (metadata._tag === 'Err')
+    return err({ _tag: 'RunFailed', entry, seconds, cause: { message: metadata.message } })
+  await writeFile(skillPath, metadata.content)
   return ok({ entry, seconds, files: result.value.files.length })
 }
 
@@ -180,6 +187,12 @@ async function main() {
   if (stale.length === 0)
     return failures.length > 0 ? 1 : 0
 
+  const manifest = await readJson(join(repoRoot, 'package.json'), null)
+  if (typeof manifest?.license !== 'string' || manifest.license.trim().length === 0) {
+    stdout.write('The collection package.json must declare a license.\n')
+    return 1
+  }
+
   const apiKey = await resolveApiKey()
   if (apiKey._tag === 'Err') {
     stdout.write('Set OPENCODE_API_KEY, or sign in with `opencode auth login`.\n')
@@ -196,7 +209,7 @@ async function main() {
   })
 
   const results = await pool(stale, options.concurrency, async (entry) => {
-    const result = await runOne(skillHarness, entry)
+    const result = await runOne(skillHarness, entry, { rootDir: skillsDir, license: manifest.license })
     if (result._tag === 'Err')
       stdout.write(`  failed ${entry.spec} after ${result.error.seconds}s: ${result.error.cause.message}\n`)
     else
