@@ -2,7 +2,6 @@
 name: motion-v-skilld
 description: ALWAYS load when writing or debugging code that imports "motion-v" (Motion for Vue, motion-vue). Covers the motion component, AnimatePresence, variants, gestures, layout, scroll, motion values, the v-motion directive, and the Nuxt module for version 2.4.4. Provides API facts, recipes, best practices, and migration notes.
 license: MIT
-compatibility: "Requires a project using motion-v (Motion for Vue). See the Skill body for supported versions and integrations."
 ---
 
 # motion-v (Motion for Vue) 2.4.4

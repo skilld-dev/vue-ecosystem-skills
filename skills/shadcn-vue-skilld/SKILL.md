@@ -2,7 +2,6 @@
 name: shadcn-vue-skilld
 description: Use when adding, configuring, or debugging shadcn-vue in a Vue or Nuxt project. Covers shadcn-vue CLI commands (init, add, apply, view, search, docs, info, diff, migrate, build, mcp), components.json, styles, presets, fonts, icon libraries, registries, the MCP server, and the programmatic API. Gives exact flags and config keys for shadcn-vue 2.8.2.
 license: MIT
-compatibility: "Requires a project using shadcn-vue. See the Skill body for supported versions and integrations."
 ---
 
 # shadcn-vue

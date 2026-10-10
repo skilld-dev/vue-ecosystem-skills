@@ -2,7 +2,6 @@
 name: vue-router-skilld
 description: ALWAYS use when writing code that imports "vue-router", "vue-router/vite", "vue-router/auto-routes", or "vue-router/experimental". Consult for debugging, best practices, or modifying vue-router, vue router, router, file-based routing, typed routes, data loaders.
 license: MIT
-compatibility: "Requires a project using vuejs/router `vue-router@5.3.1`. See the Skill body for supported versions and integrations."
 ---
 
 # vuejs/router `vue-router@5.3.1`

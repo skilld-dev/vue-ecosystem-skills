@@ -2,7 +2,6 @@
 name: slidev-cli-skilld
 description: Build, present, and ship Slidev decks with @slidev/cli. Use when scaffolding a Slidev project, writing or editing slides.md Markdown decks, running the dev server, adding code highlighting, animations, layouts, or Vue components, exporting to PDF/PPTX/PNG/Markdown, building a hostable SPA, or driving slides through the built-in MCP server.
 license: MIT
-compatibility: "Requires a project using Slidev CLI (`@slidev/cli`. See the Skill body for supported versions and integrations."
 ---
 
 # Slidev CLI (`@slidev/cli` v53.0.0)

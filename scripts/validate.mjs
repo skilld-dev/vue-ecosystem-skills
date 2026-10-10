@@ -5,6 +5,7 @@ import { readdir, readFile, stat } from 'node:fs/promises'
 import { dirname, join, relative, resolve } from 'node:path'
 import { argv, exit, stdout } from 'node:process'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { parseDocument } from 'yaml'
 import { parseSpec, skillName } from './naming.mjs'
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -19,12 +20,10 @@ function parseFrontmatter(source) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/.exec(source)
   if (match === null)
     return null
-  const keys = [...match[1].matchAll(/^([A-Z_][\w-]*):/gim)].map(entry => entry[1])
-  const name = /^name:[^\S\n]*(\S.*)$/m.exec(match[1])?.[1].trim()
-  const description = /^description:[^\S\n]*(\S.*)$/m.exec(match[1])?.[1].trim()
-  const license = /^license:(.*)$/m.exec(match[1])?.[1].trim().replace(/^(['"])(.*)\1$/, '$2').trim()
-  const compatibility = /^compatibility:(.*)$/m.exec(match[1])?.[1].trim().replace(/^(['"])(.*)\1$/, '$2').trim()
-  return { keys, name, description, license, compatibility, body: match[2] }
+  const document = parseDocument(match[1], { uniqueKeys: true })
+  const errors = [...document.errors, ...document.warnings].map(error => error.message)
+  const value = errors.length === 0 ? document.toJS({ mapAsMap: true }) : null
+  return { value, errors, body: match[2] }
 }
 
 async function listFiles(dir) {
@@ -45,23 +44,42 @@ export async function checkSkill(dir, name) {
   const frontmatter = parseFrontmatter(source)
   if (frontmatter === null)
     return [`${name}: SKILL.md has no frontmatter.`]
+  if (frontmatter.errors.length > 0)
+    return frontmatter.errors.map(error => `${name}: invalid YAML: ${error}`)
+  if (!(frontmatter.value instanceof Map))
+    return [`${name}: frontmatter must be a mapping.`]
 
-  if (frontmatter.name !== name)
-    problems.push(`${name}: frontmatter name is "${frontmatter.name}".`)
+  const fields = frontmatter.value
+  const skillName = fields.get('name')
+  const description = fields.get('description')
+  const license = fields.get('license')
+  const compatibility = fields.get('compatibility')
+
+  if (skillName !== name)
+    problems.push(`${name}: frontmatter name is "${skillName}".`)
   if (!SKILL_NAME.test(name))
     problems.push(`${name}: directory name is not lowercase words joined by single hyphens.`)
-  if (frontmatter.description === undefined || frontmatter.description.length === 0)
+  if (name.length > 64)
+    problems.push(`${name}: name is longer than 64 characters.`)
+  if (typeof description !== 'string' || description.trim().length === 0)
     problems.push(`${name}: frontmatter has no description.`)
-  if (frontmatter.description !== undefined && frontmatter.description.length > 1024)
+  if (typeof description === 'string' && [...description].length > 1024)
     problems.push(`${name}: description is longer than 1024 characters.`)
 
-  const extraKeys = frontmatter.keys.filter(key => !['name', 'description', 'license', 'compatibility'].includes(key))
+  const extraKeys = [...fields.keys()].filter(key => !['name', 'description', 'license', 'compatibility', 'metadata', 'allowed-tools'].includes(key))
   if (extraKeys.length > 0)
-    problems.push(`${name}: frontmatter carries ${extraKeys.join(', ')}. Only name, description, license, and compatibility are allowed.`)
-  if (frontmatter.keys.includes('license') && !frontmatter.license)
+    problems.push(`${name}: frontmatter carries ${extraKeys.join(', ')}. Only Agent Skills specification fields are allowed.`)
+  if (fields.has('license') && (typeof license !== 'string' || license.trim().length === 0))
     problems.push(`${name}: license must not be empty.`)
-  if (frontmatter.keys.includes('compatibility') && (!frontmatter.compatibility || frontmatter.compatibility.length > 500))
+  if (fields.has('compatibility') && (typeof compatibility !== 'string' || compatibility.trim().length === 0 || [...compatibility].length > 500))
     problems.push(`${name}: compatibility must contain 1 to 500 characters.`)
+  if (fields.has('allowed-tools') && typeof fields.get('allowed-tools') !== 'string')
+    problems.push(`${name}: allowed-tools must be a string.`)
+  if (fields.has('metadata')) {
+    const metadata = fields.get('metadata')
+    if (!(metadata instanceof Map) || [...metadata].some(([key, value]) => typeof key !== 'string' || typeof value !== 'string'))
+      problems.push(`${name}: metadata must map string keys to string values.`)
+  }
 
   const lines = source.split('\n').length
   if (lines > MAX_SKILL_LINES)

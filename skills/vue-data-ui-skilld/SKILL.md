@@ -2,7 +2,6 @@
 name: vue-data-ui-skilld
 description: "A user-empowering data visualization Vue 3 components library (69 components) for eloquent data storytelling. ALWAYS use when writing code importing \"vue-data-ui\". Consult for component choice, config, theming, slots, tooltips, exports, SSR, debugging, or modifying vue-data-ui, vue data ui."
 license: MIT
-compatibility: "Requires a project using graphieros/vue-data-ui `vue-data-ui@3.25.9`. See the Skill body for supported versions and integrations."
 ---
 
 # graphieros/vue-data-ui `vue-data-ui@3.25.9`

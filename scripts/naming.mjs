@@ -1,5 +1,4 @@
-// Names shared by the sync and the validator. No dependencies, so the
-// validator runs without an install.
+// Names shared by the sync and the validator.
 
 /**
  * Split a package specifier into its name and its npm dist-tag.

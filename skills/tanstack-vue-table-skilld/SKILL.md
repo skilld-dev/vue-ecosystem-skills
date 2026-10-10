@@ -2,7 +2,6 @@
 name: tanstack-vue-table-skilld
 description: Use when writing, migrating, or debugging code that imports @tanstack/vue-table (TanStack Table v9 for Vue). Covers useTable with explicit tableFeatures, reactive ref/computed data, FlexRender rendering, atoms-based state, createTableHook conventions, and the v8-to-v9 breaking changes.
 license: MIT
-compatibility: "Requires a project using @tanstack/vue-table. See the Skill body for supported versions and integrations."
 ---
 
 # @tanstack/vue-table 9.2.4

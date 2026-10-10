@@ -2,7 +2,6 @@
 name: reka-ui-skilld
 description: Vue port of Radix UI Primitives (headless, accessible, unstyled). ALWAYS use when writing code that imports "reka-ui" or "reka-ui/namespaced", building components with Reka UI primitives, or debugging and reviewing Reka UI usage. Provides version-specific API rules, composition patterns, and styling guidance.
 license: MIT
-compatibility: "Requires a project using Reka UI `reka-ui@2.10.5`. See the Skill body for supported versions and integrations."
 ---
 
 # Reka UI `reka-ui@2.10.5`

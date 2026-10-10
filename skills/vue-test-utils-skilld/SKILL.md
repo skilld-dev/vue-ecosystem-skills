@@ -2,7 +2,6 @@
 name: vue-test-utils-skilld
 description: ALWAYS use when writing, debugging, or reviewing code that imports "@vue/test-utils" or mentions vue test-utils, VTU, mount, shallowMount, findComponent, wrapper queries, or migrating from Vue Test Utils v1. Provides the current API surface, mounting options, wrapper methods, and testing recipes for @vue/test-utils 2.5.1 on Vue 3.
 license: MIT
-compatibility: "Requires a project using @vue/test-utils. See the Skill body for supported versions and integrations."
 ---
 
 # @vue/test-utils 2.5.1 (Vue 3)
