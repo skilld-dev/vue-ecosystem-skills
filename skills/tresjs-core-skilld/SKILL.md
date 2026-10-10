@@ -1,6 +1,7 @@
 ---
 name: tresjs-core-skilld
 description: Declarative Three.js using Vue components. ALWAYS use when writing code that imports "@tresjs/core" or touches TresCanvas, Tres components, useLoop, useLoader, useTres, useTresContext, TresPortal, pointer events, render modes, or TresJS debugging, upgrades, and performance work.
+license: MIT
 ---
 
 # @tresjs/core 5.9.0

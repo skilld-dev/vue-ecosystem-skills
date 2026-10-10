@@ -1,6 +1,7 @@
 ---
 name: vueuse-shared-skilld
 description: Use when writing, reviewing, or debugging code that imports from "@vueuse/shared" (or its utilities re-exported by "@vueuse/core"). Provides the v15.0.0 API surface, debounce and throttle defaults, watch variants, state-sharing patterns, and v14 to v15 migration rules.
+license: MIT
 ---
 
 # @vueuse/shared 15.0.0

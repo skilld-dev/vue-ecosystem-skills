@@ -1,6 +1,7 @@
 ---
 name: vue-skilld
 description: Build, debug, and modernize UI with Vue 3.6. Use when editing *.vue files, writing components or composables, or working with code that imports "vue". Covers script setup, reactivity, Vapor Mode, SSR, and version-specific API changes from 3.4 through 3.6.0-beta.17.
+license: MIT
 ---
 
 # vue 3.6.0-beta.17 (vuejs/core)

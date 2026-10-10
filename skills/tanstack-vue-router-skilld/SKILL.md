@@ -1,6 +1,7 @@
 ---
 name: tanstack-vue-router-skilld
 description: Use when writing, debugging, or refactoring code that imports @tanstack/vue-router (TanStack Router for Vue). Covers setup, file-based and code-based routes, composables returning Ref, Link, loaders, search params, SSR, and v1.170.x deprecations.
+license: MIT
 ---
 
 # @tanstack/vue-router

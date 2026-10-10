@@ -6,6 +6,7 @@ catalog:
   '@ai-sdk/harness-opencode': ^1.0.119
   skilld-harness: ^3.2.0
   ws: ^8.21.0
+  yaml: ^2.9.0
   zod: ^4.5.4
 catalogs:
   dev-lint:

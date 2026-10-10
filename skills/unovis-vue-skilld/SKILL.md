@@ -1,6 +1,7 @@
 ---
 name: unovis-vue-skilld
 description: Vue 3 components for the Unovis data visualization framework, @unovis/vue 1.7.0. Use when writing, debugging, or updating code that imports @unovis/vue or renders Vis* components such as VisXYContainer, VisSingleContainer, VisArea, VisLine, VisStackedBar, VisCrosshair, or VisTooltip. Covers the component catalog, props, events, tooltips, colors, patterns, SSR, and the 1.7.0 API changes.
+license: MIT
 ---
 
 # @unovis/vue 1.7.0

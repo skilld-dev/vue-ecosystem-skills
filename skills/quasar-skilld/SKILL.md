@@ -1,6 +1,7 @@
 ---
 name: quasar-skilld
 description: Build, configure, and debug apps with the Quasar framework (`quasar` npm package, v2.33.1). Use when writing, reviewing, or debugging code that imports "quasar" or "quasar/wrappers", configuring Quasar with Vite, Vitest, Storybook, UMD, or Quasar CLI, styling with Quasar Sass variables, or upgrading between Quasar v2 releases.
+license: MIT
 ---
 
 # Quasar `quasar@2.33.1`

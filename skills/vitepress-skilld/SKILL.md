@@ -1,6 +1,7 @@
 ---
 name: vitepress-skilld
 description: Use when writing, configuring, or debugging code that imports "vitepress", when running vitepress CLI commands, editing .vitepress/config or theme files, tuning markdown or default theme options, or migrating a VitePress site. Provides the vitepress@1.6.4 API surface, config reference, theme reference, CLI usage, and v1 migration notes.
+license: MIT
 ---
 
 # vitepress@1.6.4

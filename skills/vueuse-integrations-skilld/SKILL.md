@@ -1,6 +1,7 @@
 ---
 name: vueuse-integrations-skilld
 description: Integration wrappers for utility libraries in @vueuse/integrations v15. ALWAYS use when writing code importing "@vueuse/integrations" or any of its composables (useAxios, useSortable, useFocusTrap, useCookies, useIDBKeyval, useFuse, useChangeCase, useDrauu, useJwt, useNProgress, useQRCode, useAsyncValidator). Consult for debugging, best practices, or modifying @vueuse/integrations, vueuse integrations, vueuse.
+license: MIT
 ---
 
 # @vueuse/integrations 15.0.0

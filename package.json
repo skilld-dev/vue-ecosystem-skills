@@ -20,6 +20,7 @@
     "@ai-sdk/harness-opencode": "catalog:",
     "skilld-harness": "catalog:",
     "ws": "catalog:",
+    "yaml": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

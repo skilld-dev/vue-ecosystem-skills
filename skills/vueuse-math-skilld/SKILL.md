@@ -1,6 +1,7 @@
 ---
 name: vueuse-math-skilld
 description: Math composables for Vue 3 from @vueuse/math. Use when writing or debugging code that imports "@vueuse/math", or when clamping, projecting, rounding, averaging, summing, or combining reactive numbers in Vue.
+license: MIT
 ---
 
 # @vueuse/math 15.0.0

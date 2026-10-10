@@ -1,6 +1,7 @@
 ---
 name: formkit-core-skilld
 description: Use whenever writing, debugging, or reviewing code that imports @formkit/core — FormKit's framework-agnostic core (node trees, values, events, hooks, message stores, ledgers, config, schema types, expression compiler). Provides correct 2.1.x API signatures, common-task examples, behavioral rules, and version limits.
+license: MIT
 ---
 
 # @formkit/core 2.1.2

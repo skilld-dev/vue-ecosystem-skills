@@ -1,6 +1,7 @@
 ---
 name: unhead-vue-skilld
 description: Full-stack <head> manager for Vue (@unhead/vue 3.x). Use when writing, reviewing, or debugging code that imports @unhead/vue, calls useHead, useSeoMeta, useHeadSafe, useScript, injectHead, createHead, or sets up Unhead SSR / streaming SSR / build plugins in a Vue app.
+license: MIT
 ---
 
 # @unhead/vue 3.4.1

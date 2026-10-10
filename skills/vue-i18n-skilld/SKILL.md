@@ -1,6 +1,7 @@
 ---
 name: vue-i18n-skilld
 description: Use when writing or debugging code that imports vue-i18n (Vue 3 internationalization). Covers createI18n, useI18n, message syntax, i18n-t/i18n-n/i18n-d components, pluralization, datetime and number formatting, TypeScript schemas, lazy loading, bundle optimization, and v10/v11/v12 migration.
+license: MIT
 ---
 
 # vue-i18n 11.4.12 (Vue 3)

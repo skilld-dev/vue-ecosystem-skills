@@ -1,6 +1,7 @@
 ---
 name: tanstack-vue-form-skilld
 description: Use when writing, reviewing, or debugging code that imports @tanstack/vue-form (TanStack Form for Vue). Covers the 1.33.x API, including useForm, form.Field, form.FormGroup, form.Subscribe, form.useSelector, validators with Standard Schema, onDynamic with revalidateLogic, and array fields with mode="array". Result, forms built on current, non-deprecated Vue APIs with correct reactivity.
+license: MIT
 ---
 
 # @tanstack/vue-form 1.33.5

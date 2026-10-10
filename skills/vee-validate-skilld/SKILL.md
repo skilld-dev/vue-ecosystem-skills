@@ -1,6 +1,7 @@
 ---
 name: vee-validate-skilld
 description: Use when writing, reviewing, or debugging Vue.js forms that import vee-validate (useForm, defineField, useField, useFieldArray, Form, Field, FieldArray, ErrorMessage). Provides correct v4.15.x Composition API and component usage, validation schema patterns, typed-schema integration, version-specific API changes since 4.9, deprecations, and known pitfalls.
+license: MIT
 ---
 
 # vee-validate 4.15.1

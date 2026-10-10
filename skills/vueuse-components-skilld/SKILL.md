@@ -1,6 +1,7 @@
 ---
 name: vueuse-components-skilld
 description: Renderless components and directives from @vueuse/components 15.x (VueUse). Use when writing, converting, or debugging code that imports @vueuse/components, using Use*/On* components or v* directives in Vue 3 templates, or mapping VueUse composables to component or directive usage. Provides props, slot data shapes, emits, directive binding syntax, and version limits.
+license: MIT
 ---
 
 # @vueuse/components 15.0.0

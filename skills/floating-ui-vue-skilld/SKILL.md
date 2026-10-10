@@ -1,6 +1,7 @@
 ---
 name: floating-ui-vue-skilld
 description: "Floating UI for Vue (@floating-ui/vue@2.0.1). ALWAYS use when writing code importing \"@floating-ui/vue\" or using useFloating, arrow, floatingStyles, or autoUpdate. Consult for middleware setup, anchoring, virtual elements, and v1 to v2 migration. Vue 3.3+ only."
+license: MIT
 ---
 
 # @floating-ui/vue 2.0.1

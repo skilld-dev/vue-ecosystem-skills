@@ -1,6 +1,7 @@
 ---
 name: tanstack-vue-store-skilld
 description: "Vue adapter for TanStack Store, a framework agnostic type-safe store. ALWAYS use when writing code importing \"@tanstack/vue-store\" in a Vue app. Covers the useSelector, useAtom, useStore (deprecated), and _useStore hooks, the re-exported @tanstack/store core API (createStore, createAtom, createAsyncAtom, batch, flush, shallow), debugging, best practices, and migration between @tanstack/vue-store versions."
+license: MIT
 ---
 
 # @tanstack/vue-store@0.11.1

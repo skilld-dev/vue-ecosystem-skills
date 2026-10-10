@@ -1,6 +1,7 @@
 ---
 name: tanstack-vue-virtual-skilld
 description: Headless UI for virtualizing scrollable elements in Vue. Use when writing, reviewing, or debugging code that imports @tanstack/vue-virtual, calls useVirtualizer or useWindowVirtualizer, or virtualizes lists, grids, masonry, window-scrolled content, or chat feeds in Vue. Provides version-accurate adapter rules, Virtualizer options and methods, and rendering recipes for @tanstack/vue-virtual 3.13.x on @tanstack/virtual-core 3.17.x.
+license: MIT
 ---
 
 # @tanstack/vue-virtual

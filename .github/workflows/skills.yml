@@ -9,6 +9,14 @@ on:
       - packages.json
       - skills-lock.json
       - scripts/validate.mjs
+      - scripts/validate.test.ts
+      - scripts/naming.mjs
+      - scripts/sync.mjs
+      - scripts/collection-metadata.ts
+      - scripts/collection-metadata.test.ts
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
       - .github/workflows/skills.yml
   pull_request:
     paths:
@@ -16,6 +24,14 @@ on:
       - packages.json
       - skills-lock.json
       - scripts/validate.mjs
+      - scripts/validate.test.ts
+      - scripts/naming.mjs
+      - scripts/sync.mjs
+      - scripts/collection-metadata.ts
+      - scripts/collection-metadata.test.ts
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
       - .github/workflows/skills.yml
 
 jobs:
@@ -24,11 +40,17 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-          # The validator has no dependencies, so this job never installs.
-          package-manager-cache: false
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
 
       - name: Check every Skill
         run: node scripts/validate.mjs
+
+      - name: Test Skill validation
+        run: node --test scripts/*.test.ts
