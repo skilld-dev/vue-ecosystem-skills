@@ -1,6 +1,8 @@
 ---
 name: tanstack-ai-vue-skilld
 description: Use when writing or debugging Vue code that imports @tanstack/ai-vue. Covers useChat, createChatHook, the generation composables (image, audio, speech, video, transcription, summarize), useAudioRecorder, useByok, useWebMCPTools, and the @tanstack/ai-vue/ui and /byok subpaths. Provides current API shapes, reactive-state rules, and version limits for @tanstack/ai-vue 0.24.x.
+license: MIT
+compatibility: "Requires a project using @tanstack/ai-vue. See the Skill body for supported versions and integrations."
 ---
 
 # @tanstack/ai-vue

@@ -1,6 +1,8 @@
 ---
 name: vueuse-motion-skilld
 description: Use when writing, reviewing, or debugging code that imports @vueuse/motion (v-motion directive, Motion/MotionGroup components, useMotion, useSpring, presets, Nuxt module). Gives correct v3.x API usage, variants and transition syntax, SSR behavior, and setup for Vue 3 and Nuxt 3.
+license: MIT
+compatibility: "Requires a project using @vueuse/motion. See the Skill body for supported versions and integrations."
 ---
 
 # @vueuse/motion 3.0.3

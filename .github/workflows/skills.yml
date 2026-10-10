@@ -9,6 +9,7 @@ on:
       - packages.json
       - skills-lock.json
       - scripts/validate.mjs
+      - scripts/validate.test.ts
       - .github/workflows/skills.yml
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - packages.json
       - skills-lock.json
       - scripts/validate.mjs
+      - scripts/validate.test.ts
       - .github/workflows/skills.yml
 
 jobs:
@@ -32,3 +34,6 @@ jobs:
 
       - name: Check every Skill
         run: node scripts/validate.mjs
+
+      - name: Test Skill validation
+        run: node --test scripts/validate.test.ts

@@ -1,6 +1,8 @@
 ---
 name: pinia-skilld
 description: "Use when writing, debugging, or refactoring code that imports \"pinia\", the Vue 3 store library. Covers pinia 4.x: option and setup stores, state, getters, actions, subscriptions, plugins, SSR hydration, testing, Options API map helpers, and v4 nostics diagnostics. Provides version-correct API usage and migration notes from v2 and v3."
+license: MIT
+compatibility: "Requires a project using pinia@4.0.3. See the Skill body for supported versions and integrations."
 ---
 
 # pinia@4.0.3

@@ -1,6 +1,8 @@
 ---
 name: primevue-skilld
 description: Use when writing, debugging, or updating code that imports primevue (PrimeVue v5, UI component library for Vue 3). Provides setup with the required PrimeUI license key, deprecated API replacements, compound component usage, and design token theming.
+license: MIT
+compatibility: "Requires a project using PrimeVue (`primevue@5.0.1`). See the Skill body for supported versions and integrations."
 ---
 
 # PrimeVue (`primevue@5.0.1`)

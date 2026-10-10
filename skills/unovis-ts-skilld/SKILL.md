@@ -1,6 +1,8 @@
 ---
 name: unovis-ts-skilld
 description: Use when building charts, network graphs, timelines, or maps with @unovis/ts in vanilla TypeScript or JavaScript. Provides correct container and component setup, accessor and config patterns, update and destroy lifecycle, tooltip, crosshair, and styling rules for Unovis 1.7.x.
+license: MIT
+compatibility: "Requires a project using @unovis/ts. See the Skill body for supported versions and integrations."
 ---
 
 # @unovis/ts

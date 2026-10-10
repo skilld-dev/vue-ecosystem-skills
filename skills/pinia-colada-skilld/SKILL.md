@@ -1,6 +1,8 @@
 ---
 name: pinia-colada-skilld
 description: Data fetching layer for Vue built on Pinia. Use when writing, debugging, or reviewing code that imports @pinia/colada (pinia colada), including useQuery, useMutation, useInfiniteQuery, defineQuery, query cache invalidation, optimistic updates, plugins, SSR, or migrating from older versions. Provides current 1.4.x APIs, patterns, and migration rules.
+license: MIT
+compatibility: "Requires a project using @pinia/colada. See the Skill body for supported versions and integrations."
 ---
 
 # @pinia/colada 1.4.5

@@ -22,7 +22,9 @@ function parseFrontmatter(source) {
   const keys = [...match[1].matchAll(/^([A-Z_][\w-]*):/gim)].map(entry => entry[1])
   const name = /^name:[^\S\n]*(\S.*)$/m.exec(match[1])?.[1].trim()
   const description = /^description:[^\S\n]*(\S.*)$/m.exec(match[1])?.[1].trim()
-  return { keys, name, description, body: match[2] }
+  const license = /^license:(.*)$/m.exec(match[1])?.[1].trim().replace(/^(['"])(.*)\1$/, '$2').trim()
+  const compatibility = /^compatibility:(.*)$/m.exec(match[1])?.[1].trim().replace(/^(['"])(.*)\1$/, '$2').trim()
+  return { keys, name, description, license, compatibility, body: match[2] }
 }
 
 async function listFiles(dir) {
@@ -53,9 +55,13 @@ export async function checkSkill(dir, name) {
   if (frontmatter.description !== undefined && frontmatter.description.length > 1024)
     problems.push(`${name}: description is longer than 1024 characters.`)
 
-  const extraKeys = frontmatter.keys.filter(key => key !== 'name' && key !== 'description')
+  const extraKeys = frontmatter.keys.filter(key => !['name', 'description', 'license', 'compatibility'].includes(key))
   if (extraKeys.length > 0)
-    problems.push(`${name}: frontmatter carries ${extraKeys.join(', ')}. Only name and description are allowed.`)
+    problems.push(`${name}: frontmatter carries ${extraKeys.join(', ')}. Only name, description, license, and compatibility are allowed.`)
+  if (frontmatter.keys.includes('license') && !frontmatter.license)
+    problems.push(`${name}: license must not be empty.`)
+  if (frontmatter.keys.includes('compatibility') && (!frontmatter.compatibility || frontmatter.compatibility.length > 500))
+    problems.push(`${name}: compatibility must contain 1 to 500 characters.`)
 
   const lines = source.split('\n').length
   if (lines > MAX_SKILL_LINES)

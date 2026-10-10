@@ -1,6 +1,8 @@
 ---
 name: vuetify-skilld
 description: Vue Material Component Framework. Use when writing, debugging, or configuring code that imports vuetify v4.x. Covers createVuetify setup, components and labs, composables, theming, icons, dates and locale, styles and SASS variables, treeshaking, and v3 to v4 migration.
+license: MIT
+compatibility: "Requires a project using vuetify@4.0.1. See the Skill body for supported versions and integrations."
 ---
 
 # vuetify@4.0.1

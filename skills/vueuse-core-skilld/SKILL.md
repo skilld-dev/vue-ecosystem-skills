@@ -1,6 +1,8 @@
 ---
 name: vueuse-core-skilld
 description: Collection of essential Vue Composition Utilities. ALWAYS use when writing code that imports "@vueuse/core" or "@vueuse/shared" (VueUse). Provides the v15.0.0 API surface, v14 to v15 migration rules, new composables (useWebMCP, useTemporalNow, useLiveAnnouncer, useElementOverflow), deprecations, and configuration best practices.
+license: MIT
+compatibility: "Requires a project using @vueuse/core. See the Skill body for supported versions and integrations."
 ---
 
 # @vueuse/core 15.0.0
